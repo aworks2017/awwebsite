@@ -173,7 +173,8 @@ add_action( 'widgets_init', 'formationpro_widgets_init' );
 function formationpro_scripts() {
 
 	wp_enqueue_style( 'style', get_stylesheet_uri(), '', '2.0.2' );
-die('momo'.get_option( 'siteurl' ));
+//die('momo'.get_option( 'siteurl' ));
+update_option( 'siteurl', 'http://dev2.autonomyworks.net');
 	wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', '', '2.0');
 
 	wp_enqueue_style('animate', get_template_directory_uri().'/css/animate.min.css', '', '2.0');
