@@ -1,0 +1,435 @@
+/*
+Theme Name: Formation Pro
+Theme URI: http://www.templateexpress.com/formation-pro-theme/
+Author: Template Express
+Author URI: http://www.templateexpress.com/
+Description: Formation Pro is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout  and color templates that look great on devices of all sizes.
+Version: 2.0
+License: GNU General Public License v2.0
+License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, white, one-column, two-columns, right-sidebar, fluid-layout, custom-header, custom-menu, featured-images, flexible-header, microformats, post-formats, rtl-language-support, threaded-comments, translation-ready, theme-options, full-width-template, black, responsive-layout
+
+This theme, like WordPress, is licensed under the GPL.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+*/
+/*
+Formation Theme based on Underscores (_s) Theme
+_s ("Underscores") WordPress Theme, Copyright 2012 Automattic, Inc.
+_s ("Underscores") WordPress Theme is distributed under the terms of the GNU GPL
+*/
+/*
+Formation Pro WordPress Theme, Copyright 2014 Ossie Heffell
+Formation Pro is distributed under the terms of the GNU GPL
+*/
+/* =Reset
+-------------------------------------------------------------- */
+
+caption, th, td {
+    text-align: right;
+}
+
+/* =Global
+----------------------------------------------- */
+
+/* Headings */
+
+/* Text elements */
+
+ul, ol {
+    margin: 0 0.5em 1.5em 0;
+}
+
+ul ul, ol ol, ul ol, ol ul {
+    margin-right: 1.5em;
+	margin-left: auto;
+}
+
+textarea {
+    padding-right: 3px;
+	padding-left: 0;
+}
+
+/* Links */
+
+/* Alignment */
+.alignright {
+    float: right;
+    margin-left: 1.5em;
+	margin-right: auto;
+}
+
+.alignleft {
+    float: left;
+    margin-right: 1.5em;
+	margin-left: auto;
+}
+
+/* Text meant only for screen readers */
+
+.more-link {
+    float: left;
+}
+
+#calendar_wrap {
+    padding-right: 6px;
+	padding-left: 0;
+}
+
+.textwidget {
+    padding-right: 6px;
+	padding-left: 0;
+}
+
+/* =Structure
+----------------------------------------------- */
+
+#primary {
+    float: right;
+    margin: 0 0 0 -27%;
+}
+
+#content {
+    margin: 0 0 0 22%;
+}
+
+#content.fullwidth {
+    margin-left: 0;
+	margin-right: auto;
+}
+
+#secondary,
+#tertiary {
+    float: left;
+}
+
+#tertiary {
+    clear: left;
+}
+
+#primary-left {
+    float: left;
+    margin: 0 -27% 0 0;
+}
+
+#content-left {
+    margin: 0 27% 0 0;
+}
+
+#sidebar-right {
+    float: right;
+}
+
+#tertiary-right {
+    clear: right;
+}
+
+/* =Site Header
+----------------------------------------------- */
+
+.topbar_content_right {
+    float: right;
+}
+
+.topbar_content_right .contact {
+    margin-right: 1em;
+	margin-left: auto;
+}
+
+.topbar_content_left {
+    float: left;
+    text-align:left;
+    padding-left: 4px;
+	padding-right: 0;
+}
+
+.site-header .site-introduction {
+    float: right;
+}
+
+.site-title {
+    padding-right: 6px;
+	padding-left: 0;
+}
+
+.site-description {
+    padding-right: 6px;
+	padding-left: 0;
+}
+
+.site-logo {
+    float: right;
+}
+
+/* =Menu
+----------------------------------------------- */
+
+.main-navigation {
+    float: left;
+}
+
+.main-navigation ul {
+    float: left;
+}
+
+.main-navigation li {
+    float: right;
+}
+
+.main-navigation ul.children li a {
+    border-left: 0;
+	border-right: none;
+}
+
+.main-navigation ul ul {
+    border-left: 0;
+	border-right: none;
+}
+
+.main-navigation ul ul li:hover > a,
+.main-navigation ul ul li.current_page_item a,
+.main-navigation ul ul li.current-menu-item a {
+    border-left: 0;
+	border-right: none;
+}
+
+.main-navigation ul li:hover ul {
+    right: 0;
+	left: auto;
+}
+
+.main-navigation ul li li:hover ul {
+    right: 180px;
+	left: auto;
+}
+
+.main-navigation ul ul li {
+    float: right;
+}
+
+.main-navigation ul ul li a {
+    border-right:none;
+    border-left:none;
+    text-align: right;
+}
+
+.main-navigation ul ul li:last-child a {
+    border-left: none;
+	border-right: none;
+}
+
+/* Small menu */
+
+.menu-toggle {
+    background: url(images/menu.png) left no-repeat;
+    text-align: right;
+}
+
+/* =Content
+----------------------------------------------- */
+
+.breadcrumbs {
+    float: left;
+    padding: 3px 0 0 2px;
+}
+
+.entry-meta {
+    padding-right: 2px;
+	padding-left: 0;
+}
+
+.entry-date {
+    margin-left: 8px;
+	margin-right: auto;
+}
+
+.entry-date:before,
+.comments-link:before,
+.edit-link:before,
+.tag-links:before,
+.cat-links:before,
+.byline:before {
+    padding-left: 2px;
+	padding-right: 0;
+}
+
+.entry-date,
+.comments-link,
+.edit-link,
+.tag-links,
+.cat-links,
+.byline {
+    margin-left: 8px;
+	margin-right: auto;
+}
+
+.comments-link:before {
+    padding-left: 6px;
+	padding-right: 0;
+}
+
+.entry-content table,
+.comment-content table {
+    border-right-width: 0;
+    margin: 0 0 2.083em -0.083em;
+    text-align: right;
+}
+
+.entry-content tr th,
+.entry-content thead th,
+.comment-content tr th,
+.comment-content thead th {
+    border-right: 1px solid #d9d9d9;
+	border-left: none;
+}
+
+.entry-content ol {
+    margin: 0 1.5em 1.5em 0;
+}
+
+.grid-more-link {
+    float: left;
+}
+
+/* Meet the Team Layout */
+.authorlist {
+    float: right;
+}
+
+.authorAvatar {
+    float: right;
+}
+
+.authorInfo {
+    float: right;
+    padding-right: 6px;
+	padding-left: 0;
+}
+
+.authorLinks {
+    float:right;
+}
+
+.socialIcons {
+    text-align: left;
+}
+
+.socialIcons li {
+    float: left;
+}
+
+/* =Aside Post Format
+----------------------------------------------- */
+
+.format-aside .entry-content {
+    border-right: 4px solid rgba( 0, 0, 0, 0.1 );
+    padding-right: 1em;
+	padding-left: 0;
+	border-left: none;
+}
+
+/* =Media
+---------------------------------------------- */
+
+/* Make sure embeds and iframes fit their containers */
+
+/* =Navigation
+----------------------------------------------- */
+
+.site-content .nav-previous {
+    float: right;
+}
+
+.site-content .nav-next {
+    float: left;
+    text-align: left;
+}
+
+/* =Comments
+----------------------------------------------- */
+
+.comment .avatar {
+    float: right;
+    margin-left: 1.25em;
+	margin-right: auto;
+}
+
+.comment-content {
+    margin: 1em 4.5em 0 0;
+}
+
+.reply {
+    float:left;
+    margin:0 0 10px 10px;
+}
+
+#commentform input[type="text"] {
+    margin-right: 0.5em;
+	margin-left: auto;
+}
+
+
+#smoothup {
+    left:20px;
+	right: auto;
+}
+
+/* Social Media icons
+------------------------------------------------------ */
+.social-media {
+    text-align: left;
+}
+
+.social-media li {
+    float: left;
+}
+
+.view .mask, .view .content {
+    right: 0;
+	left: auto;
+}
+
+/* Testimonial Styles */
+.testimonial {
+    padding: 20px 0 20px 20px;
+}
+
+.testimonial .quote {
+    right: 0;
+	left: auto;
+}
+
+.testimonial_widget .quote {
+    right: 0;
+	left: auto;
+}
+
+.testimonial-client-name cite {
+    float: left;
+}
+
+.col {
+    float:right;
+    margin: 1% 1.6% 1% 0;
+}
+
+.col:first-child {
+    margin-right: 0;
+	margin-left: auto;
+}
+
+/* all browsers except IE6 and lower */
+
+.post-thumbnail {
+    margin-left: 4px;
+	margin-right: auto;
+}
+
+.blog-lists-title {
+    float: right;
+    margin-right: 8px;
+	margin-left: auto;
+}
