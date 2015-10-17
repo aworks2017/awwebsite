@@ -2760,7 +2760,7 @@ function get_home_url( $blog_id = null, $path = '', $scheme = null ) {
 	 * @param string|null $orig_scheme Scheme to give the home URL context. Accepts 'http', 'https', 'relative' or null.
 	 * @param int|null    $blog_id     Blog ID, or null for the current blog.
 	 */
-	 die($url);
+
 	return apply_filters( 'home_url', $url, $path, $orig_scheme, $blog_id );
 }
 
