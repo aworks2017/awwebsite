@@ -7,7 +7,7 @@
 .main-navigation li:hover > a,
 .main-navigation li.current_page_item a,
 .main-navigation li.current-menu-item a {
-	border-top: 4px solid #222;
+	border-top: 4px solid #99cccc;
 	background-color: #FFF;
 	color: #222;
 }
