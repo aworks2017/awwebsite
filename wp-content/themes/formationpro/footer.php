@@ -66,7 +66,7 @@
 
 					<a href="<?php $my_theme = wp_get_theme(); echo $my_theme->get( 'ThemeURI' ); ?>">
 		            <?php _e('Formation Pro WordPress Theme','Formation'); ?></a>
-		            <?php echo __( 'Powered By WordPress ', 'Formation' ); ?>
+		            <?php echo __( 'Powered By WordPress !*!', 'Formation' ); ?>
 
 		        <?php endif; ?>
 			</div><!-- .site-info -->
