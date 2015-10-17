@@ -74,7 +74,7 @@
 				<header id="masthead" class="site-header header_container" role="banner">
 
 					<?php if ( get_theme_mod( 'formationpro_logo' ) ) : ?>
-<!--<?php echo update_option('home','http://dev2.autonomyworks.net');?>-->
+<!--<?php echo update_option('home','http://dev2.autonomyworks.net');?>momodone-->
 						<div class="site-logo">
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_theme_mod( 'formationpro_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"></a>
 						</div>
