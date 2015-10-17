@@ -88,7 +88,7 @@
 
 					<?php endif; ?>
 
-					<nav role="navigation" class="site-navigation main-navigation">
+					<nav role="navigation" class="site-navigation main-navigation momo">
 
 						<h1 class="assistive-text"><a href="#" title="<?php _e('Navigation Toggle', 'formationpro'); ?>"><?php _e( 'Menu', 'formationpro' ); ?></a></h1>
 
