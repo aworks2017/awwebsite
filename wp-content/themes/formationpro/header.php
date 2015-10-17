@@ -75,7 +75,7 @@
 
 					<?php if ( get_theme_mod( 'formationpro_logo' ) ) : ?>
 
-						<div class="site-logo momo">
+						<div class="site-logo momo2">
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_theme_mod( 'formationpro_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"></a>
 						</div>
 
