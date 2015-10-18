@@ -9,7 +9,7 @@
 .main-navigation li.current-menu-item a {
 	border-top: 4px solid #99cccc;
 	background-color: #FFF;
-	color: #222;
+	color: #99cccc;
 }
 .main-navigation > li > a, .main-navigation li.current_page_ancestor a {
 	border-top: 4px solid #222;
@@ -21,7 +21,7 @@
 	border-top: 0;
 }
 .main-navigation ul ul {
-	border-top: 4px solid #222;
+	border-top: 4px solid #99cccc;
 }
 .main-small-navigation li:hover > a,
 .main-small-navigation li.current_page_item a,
