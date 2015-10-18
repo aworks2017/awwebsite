@@ -12,8 +12,8 @@
 	color: #99cccc;
 }
 .main-navigation > li > a, .main-navigation li.current_page_ancestor a {
-	border-top: 4px solid #222;
-	color: #222;
+	border-top: 4px solid #99cccc;
+	color: #99cccc;
 }
 .main-navigation ul ul li:hover > a,
 .main-navigation ul ul li.current_page_item a,
@@ -30,51 +30,51 @@
 	color: #666;
 }
 .widget-title {
-	border-bottom: 4px solid #CCC;
+	border-bottom: 4px solid #99cccc;
 }
 .genericon:hover {
-	color: #FFF;
+	color: #99cccc;
 }
 .flex-caption-title { 
-	background-color: #222;
+	background-color: #99cccc;
 }
 .entry-meta a {
-	color: #222;
+	color: #99cccc;
 }
 .featuretext_middle {
-	border-top: 1px solid #222;
+	border-top: 1px solid #99cccc;
 }
 .socialIcons a, .socialIcons a:visited {
-	color: #222;
+	color: #99cccc;
 }
 .authorLinks a{
-	color: #222; 
+	color: #99cccc; 
 }
 .thumbs-more-link a{
 	background-color: #99cccc;
 }
 .more-link {
-	background-color: #222;
+	background-color: #99cccc;
 }
 .grid-more-link {
-	background-color: #222;
+	background-color: #99cccc;
 }
 #smoothup:hover { 
-	background-color: #222; 
+	background-color: #99cccc; 
 }
 .reply { 
-	background-color:  #333;
+	background-color:  #99cccc;
 }
 .featuretext_button a {
-	background-color: #333;
+	background-color: #99cccc;
 }
 .tagcloud a {
-	border: 1px solid #333;
+	border: 1px solid #99cccc;
 }
 .tagcloud a:hover {
-	background: #333;
+	background: #99cccc;
 }.entry-content a, .entry-content a:visited, .entry-summary a, .entry-summary a:visited{
-    color: #333;
+    color: #99cccc;
 }
 .entry-content a:hover, .entry-summary a:hover{
     color: #666;
@@ -83,5 +83,5 @@
 	color: #FFF;
 }
 .social-media a:hover {
-	color: #fff;
+	color: #99cccc;
 }
