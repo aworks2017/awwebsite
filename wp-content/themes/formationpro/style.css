@@ -1672,7 +1672,7 @@ p.nocomments {
 
 
 .featuretext_middle {
-	padding: 20px;
+	padding: 0px;
 	margin: 0;
 	background: #222 url(images/triangles.png);
 	border-top: 1px solid #10b9b9;
