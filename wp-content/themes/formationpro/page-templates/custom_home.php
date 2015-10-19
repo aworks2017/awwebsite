@@ -6,7 +6,7 @@
  * @package formationpro
  * @since formationpro 1.0
  */
-die(get_theme_mod( 'homepage_slider_cat' ));
+print_r(get_theme_mod( 'homepage_slider_cat' ));die();
 get_header(); ?>
 
       <?php if(! get_theme_mod('homepage_slider_hide')): ?>
