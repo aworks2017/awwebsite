@@ -329,8 +329,7 @@ public function widget( $args, $instance ) {
 	
 
 $post_obj = $wp_query->get_queried_object();
-$Page_ID = $post_obj->ID;
-echo 'ddd :'.$Page_ID;
+var_dump($post_obj);
 	
 	echo $args['after_widget'];
 }
