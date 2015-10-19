@@ -30,7 +30,7 @@ get_header(); ?>
           
         ?>
             
-        <div class="flex-container">
+        <div class="flex-container momo">
           <div class="flexslider">
             <ul class="slides">
               <?php  while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
@@ -75,7 +75,7 @@ get_header(); ?>
                 </div>
               </div>
 
-              <div class="service-box momo">         
+              <div class="service-box">         
                 <div class="featuretext">
                 <?php if ( get_theme_mod( 'header-two-file-upload' ) ) : ?>
                   <a href="<?php echo esc_url( get_theme_mod( 'header_two_url' ) ); ?>"><img src="<?php echo esc_url( get_theme_mod( 'header-two-file-upload' ) ); ?>"  alt="feature two"></a>
