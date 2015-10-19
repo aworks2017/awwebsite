@@ -327,7 +327,7 @@ public function widget( $args, $instance ) {
 	// before and after widget arguments are defined by themes
 	echo $args['before_widget'];
 	
-	print_r($args);
+	print_r($instance);
 	
 	echo $args['after_widget'];
 }
