@@ -45,12 +45,10 @@
         <?php if(! get_theme_mod('hide_copyright')): ?>
 
 	        <div class="site-info">
-	        	<div class="col span_1_of_3">
 					<?php if ( is_active_sidebar( 'bottom_footer' ) && dynamic_sidebar('bottom_footer') ) : else : ?>
 						<div class="widget">
 						</div>
 					<?php endif; ?>
-				</div>
 			</div><!-- .site-info -->
 
 		<?php endif; ?>
