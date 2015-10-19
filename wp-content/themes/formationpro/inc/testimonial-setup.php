@@ -326,7 +326,13 @@ public function widget( $args, $instance ) {
 	$title = apply_filters( 'widget_title', $instance['title'] );
 	// before and after widget arguments are defined by themes
 	echo $args['before_widget'];
-	echo 'momo : '.$post->ID;
+	$queried_object = get_queried_object();
+
+	if ( $queried_object ) {
+		$post_id = $queried_object->ID;
+		echo 'oo :'.$post_id;
+	}
+	
 	echo $args['after_widget'];
 }
 		
