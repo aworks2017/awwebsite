@@ -163,6 +163,15 @@ function formationpro_widgets_init() {
 			'before_title'  => '<h4>',
 			'after_title'   => '</h4>'
 		));
+		register_sidebar(array(
+			'name' => 'bottom Footer',
+			'id'   => 'bottom_footer',
+			'description'   => 'Widget area for Bottom footer',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h4>',
+			'after_title'   => '</h4>'
+		));
 
 }
 add_action( 'widgets_init', 'formationpro_widgets_init' );
