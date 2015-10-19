@@ -87,6 +87,8 @@
 }
 
 /*custom style */
+
+/*footer*/
 .textwidget a  {
 	display: inline-block;
     width: 25%;
@@ -96,4 +98,9 @@
 .textwidget a .fa {
 	font-size:40px;
 }
-	
+/*footer bottom menu */
+#menu-bottom-menu li {
+	display:inline-block;
+	margin:10px;
+}
+		
