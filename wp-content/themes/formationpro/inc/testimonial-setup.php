@@ -329,8 +329,16 @@ public function widget( $args, $instance ) {
 	// before and after widget arguments are defined by themes
 	echo $args['before_widget'];
 
-	
-	$result = get_pages('child_of='.$page_id.'&hierarchical=0&parent='.$page_id);
+	$args = array(
+		'sort_order' => 'asc',
+		'sort_column' => 'post_title',
+		'hierarchical' => 0,
+		'child_of' => $page_id,
+		'parent' => 0,
+		'post_type' => 'page',
+		'post_status' => 'publish'
+	);
+	$result = get_pages($args);
 	foreach ( $result as $page ) {
   	$option = '<option value="' . get_page_link( $page->ID ) . '">';
 	$option .= $page->post_title;
