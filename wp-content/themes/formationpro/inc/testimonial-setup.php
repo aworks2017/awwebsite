@@ -323,12 +323,14 @@ array( 'description' => 'Display Section secondary navigation', )
 
 public function widget( $args, $instance ) {
 	global $wp_query;
+	$page_id = $wp_query->post->ID;
+	
 	$title = apply_filters( 'widget_title', $instance['title'] );
 	// before and after widget arguments are defined by themes
 	echo $args['before_widget'];
 
-	echo 'momo : '.$wp_query->post->ID;
-	$result = get_pages('child_of='.$wp_query->ID.'&hierarchical=0&parent='.$wp_query->ID);
+	
+	$result = get_pages('child_of='.$page_id.'&hierarchical=0&parent='.$page_id);
 	foreach ( $result as $page ) {
   	$option = '<option value="' . get_page_link( $page->ID ) . '">';
 	$option .= $page->post_title;
