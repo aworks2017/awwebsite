@@ -1636,10 +1636,11 @@ p.nocomments {
  */
 
 .featuretext_top {
-	padding: 80px 0;
-	margin: 0 0 20px 0;
-	background-color: #E7E7E7;
-	text-align: center;
+	padding: 20px 0;
+    margin: 0 0 20px 0;
+    background-color: #E7E7E7;
+    text-align: center;
+	display: inline;
 }
 
 .featuretext_top h3{
@@ -1648,9 +1649,10 @@ p.nocomments {
 	margin: 0;
 	text-align:center;
 	font-size:2.4rem;
-	font-size:24px;
+	font-size:20px;
 	text-shadow: 0px 3px 0 #CCC;
 	font-weight: 700;
+	display: inline;
 }
 
 .featuretext_top p{
