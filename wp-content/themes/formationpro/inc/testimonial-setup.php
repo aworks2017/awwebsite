@@ -334,7 +334,7 @@ public function widget( $args, $instance ) {
 		'sort_column' => 'post_title',
 		'hierarchical' => 0,
 		'child_of' => $page_id,
-		'parent' => 0,
+		'parent' => $page_id,
 		'post_type' => 'page',
 		'post_status' => 'publish'
 	);
