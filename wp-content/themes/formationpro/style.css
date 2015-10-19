@@ -1640,6 +1640,9 @@ p.nocomments {
     margin: 0 0 20px 0;
     background-color: #E7E7E7;
     text-align: center;
+}
+
+.featuretext_top  .featuretext_button{
 	display: inline;
 }
 
