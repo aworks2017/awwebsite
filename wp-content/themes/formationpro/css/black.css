@@ -89,13 +89,13 @@
 /*custom style */
 
 /*footer*/
-.textwidget a  {
+.footer_container .textwidget a  {
 	display: inline-block;
     width: 25%;
     text-align: center;
     margin: 14px auto;
 }
-.textwidget a .fa {
+.footer_container .textwidget a .fa {
 	font-size:40px;
 }
 /*footer bottom menu */
@@ -107,5 +107,8 @@
     max-width: 200px;
     text-align: center;
 	min-width: 130px;
+}
+#menu-bottom-menu li {
+	border:none;
 }
 		
