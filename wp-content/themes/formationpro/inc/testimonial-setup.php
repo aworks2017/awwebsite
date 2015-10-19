@@ -330,7 +330,7 @@ public function widget( $args, $instance ) {
 	echo $wp_query->ID;
 	$args = array(
 	'child_of'     => $wp_query->ID,
-	'depth'        => 0,
+	'depth'        => 1,
 	'post_type'    => 'page',
 	'post_status'  => 'publish',
 	'sort_column'  => 'menu_order'
