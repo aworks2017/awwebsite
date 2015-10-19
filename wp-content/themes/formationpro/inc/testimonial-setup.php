@@ -329,7 +329,12 @@ public function widget( $args, $instance ) {
 	
 	echo $wp_query->ID;
 	$result = get_pages('child_of='.$wp_query->ID.'&hierarchical=0&parent='.$wp_query->ID);
-	var_dump($result);
+	foreach ( $result as $page ) {
+  	$option = '<option value="' . get_page_link( $page->ID ) . '">';
+	$option .= $page->post_title;
+	$option .= '</option>';
+	echo $option;
+  }
 	
 	echo $args['after_widget'];
 }
