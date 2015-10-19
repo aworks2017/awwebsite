@@ -328,15 +328,8 @@ public function widget( $args, $instance ) {
 	echo $args['before_widget'];
 	
 	echo $wp_query->ID;
-	$args = array(
-	'parent'     => $wp_query->ID,
-	'depth'        => 1,
-	'post_type'    => 'page',
-	'post_status'  => 'publish',
-	'sort_column'  => 'menu_order'
-	);
-
-	 wp_list_pages($args); 
+	$result = get_pages('child_of='.$wp_query->ID.'&hierarchical=0&parent='.$wp_query->ID);
+	var_dump($result);
 	
 	echo $args['after_widget'];
 }
