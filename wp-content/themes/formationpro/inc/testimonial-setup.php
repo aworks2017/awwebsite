@@ -327,9 +327,7 @@ public function widget( $args, $instance ) {
 	// before and after widget arguments are defined by themes
 	echo $args['before_widget'];
 	
-
-$post_obj = $wp_query->get_queried_object();
-var_dump($post_obj);
+	echo get_the_title();
 	
 	echo $args['after_widget'];
 }
