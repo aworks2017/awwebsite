@@ -45,30 +45,12 @@
         <?php if(! get_theme_mod('hide_copyright')): ?>
 
 	        <div class="site-info">
-	        	<?php if(get_theme_mod('copyright_text')):
-
-	        		$allowedTags = array(
-	                    'a' => array(
-	                        'href' => array(),
-	                        'title' => array()
-	                    ),
-	                    'em' => array(),
-	                    'strong' => array(),
-	                );
-
-	                $copyright = wp_kses(get_theme_mod('copyright_text'), $allowedTags);
-
-	        		?>
-
-		           <?php echo $copyright; ?>
-
-		        <?php else: ?>
-
-					<a href="<?php $my_theme = wp_get_theme(); echo $my_theme->get( 'ThemeURI' ); ?>">
-		            <?php _e('Formation Pro WordPress Theme','Formation'); ?></a>
-		            <?php echo __( 'Powered By WordPress', 'Formation' ); ?>
-
-		        <?php endif; ?>
+	        	<div class="col span_1_of_3">
+					<?php if ( is_active_sidebar( 'bottom_footer' ) && dynamic_sidebar('bottom_footer') ) : else : ?>
+						<div class="widget">
+						</div>
+					<?php endif; ?>
+				</div>
 			</div><!-- .site-info -->
 
 		<?php endif; ?>
