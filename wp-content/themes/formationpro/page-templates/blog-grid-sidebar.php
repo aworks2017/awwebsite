@@ -11,7 +11,7 @@ get_header(); ?>
 	</header><!-- .entry-header -->
   	<div id="primary_wrap">
 		<div id="primary-left" class="content-area">
-			<div id="content-left" class="site-content" role="main">
+			<div id="content-right" class="site-content" role="main">
 
 	 <?php 
 		$temp = $wp_query; $wp_query= null;
