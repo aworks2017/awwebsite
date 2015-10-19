@@ -327,12 +327,7 @@ public function widget( $args, $instance ) {
 	// before and after widget arguments are defined by themes
 	echo $args['before_widget'];
 	
-	if (is_page()){
-		$current_page_id = $wp_query->get_queried_object_id();
-		$children = wp_list_pages('title_li=&child_of='.$current_page_id.'&echo=0');
-		//echo 'rr : '.$children;
-	}
-	echo 'rr : '.$children;
+	print_r($args);
 	
 	echo $args['after_widget'];
 }
