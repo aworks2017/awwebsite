@@ -253,10 +253,6 @@ get_header(); ?>
 
           <div class="section_thumbnails group animated" data-fx="fadeInUp">
 
-            <h3><?php if(get_theme_mod('homepage_recent_title')){ echo esc_html(get_theme_mod('homepage_recent_title')); } else { _e('Recent Posts', 'formationpro'); }?></h3>
-
-            <div class="unity-separator"></div>
-
             <?php $the_query = new WP_Query(
               array(
                 'showposts' => 4,
