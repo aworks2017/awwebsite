@@ -328,7 +328,7 @@ echo $args['before_widget'];
 if ( ! empty( $title ) )
 echo $args['before_title'] . $title . $args['after_title'];
 
-echo 'hi';
+get_the_ID();
 echo $args['after_widget'];
 }
 		
