@@ -480,13 +480,13 @@ a.more-link:hover {
 #tertiary li a:hover{
 	color: #000;
 }
-#sidebar-left li a{
+#sidebar-left li a , #sidebar-right li a{
 	color: #666;
 }
-#sidebar-left li a:hover{
+#sidebar-left li a:hover , #sidebar-right li a:hover {
 	color: #000;
 }
-#sidebar-left li{
+#sidebar-left li, #sidebar-right li {
 	border-bottom: 1px solid #EFEFEF;
 }
 
@@ -556,11 +556,17 @@ a.more-link:hover {
 	padding: 0.7em;
 	width: 98.2%;
 }
+#primary-left {
+	float: left;
+	margin: 0 0 0 -27%;
+	padding: 0.7em;
+	width: 98.2%;
+}
 
 #content-right {
 	margin: 0 0 0 27%;
 }
-#sidebar-left {
+#sidebar-left, #sidebar-right {
 	background: #FFF;
    	float: left;
    	margin: 0.4em 0.2em 0.4em;
@@ -1862,10 +1868,10 @@ aside.testimonial {
     font-style: italic;
 	color: #CCC;
 }
-#sidebar-left .testimonial_widget .quote {
+#sidebar-left .testimonial_widget .quote, #sidebar-right .testimonial_widget .quote {
     color: #CCC;
 }
-#sidebar-left .testimonial_widget-text {
+#sidebar-left .testimonial_widget-text, #sidebar-right .testimonial_widget-text {
 	color: #333;
 }
 #secondary .testimonial_widget .quote,
@@ -2153,7 +2159,7 @@ MEDIA QUERIES
 	#primary,
 	#secondary,
 	#tertiary,
-	#sidebar-left {
+	#sidebar-left,#sidebar-right {
 		background: none;
 		float: none;
 		margin: 0;
@@ -2162,20 +2168,16 @@ MEDIA QUERIES
 	#primary,
 	#secondary,
 	#tertiary,
-	#sidebar-left {
+	#sidebar-left,#sidebar-right {
 		width: 100%;
 	}
 	#content-right,
-	#primary-right {
+	#primary-right,#primary-left {
 		background: none;
 		float: none;
 		margin: 0;
 		padding: 0;
-	}
-	#primary-right{
 		width: 100%;
-	}
-	#primary-right {
 		border-top: 0;
 	}
 	.site-logo {
