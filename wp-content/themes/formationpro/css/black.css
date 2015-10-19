@@ -85,3 +85,9 @@
 .social-media a:hover {
 	color: #99cccc;
 }
+
+/*custom style */
+.textwidget .fa {
+	font-size:40px;
+}
+	
