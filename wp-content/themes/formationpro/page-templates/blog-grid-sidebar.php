@@ -72,7 +72,12 @@ $more = 0;
  
 	</div><!-- #content .site-content -->
 		</div><!-- #primary .content-area -->
-
+	<aside id="sidebar-right">
+	 <?php if ( is_active_sidebar( 'sidebar-right' ) && dynamic_sidebar('sidebar-right') ) : else : ?>
+			<?php echo '<h4>' . __('Widget Ready', 'formationpro') . '</h4>'; ?>
+            <?php echo '<p>' . __('This right column is widget ready! Add one in the admin panel.', 'formationpro') . '</p>'; ?>     
+	<?php endif; ?>  
+	</aside>
 
 	</div><!-- #primary wrap -->
 <?php //get_footer(); ?>
