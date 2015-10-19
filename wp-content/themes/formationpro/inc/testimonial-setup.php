@@ -327,7 +327,7 @@ public function widget( $args, $instance ) {
 	// before and after widget arguments are defined by themes
 	echo $args['before_widget'];
 	
-	echo $wp_query->ID;
+	echo 'momo : '.$wp_query->ID;
 	$result = get_pages('child_of='.$wp_query->ID.'&hierarchical=0&parent='.$wp_query->ID);
 	foreach ( $result as $page ) {
   	$option = '<option value="' . get_page_link( $page->ID ) . '">';
