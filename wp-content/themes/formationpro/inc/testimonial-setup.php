@@ -329,19 +329,7 @@ public function widget( $args, $instance ) {
 	
 	echo $wp_query->ID;
 	
-	$args = array( 
-        'child_of' => $wp_query->ID, 
-        'hierarchical' => 0,
-        'sort_column' => 'menu_order', 
-        'sort_order' => 'asc'
-	);
-	$mypages = get_pages( $args );
-	
-	foreach( $mypages as $page )
-	{
-	
-	echo $page->post_name.'<br>';
-	}
+	 wp_list_pages( array('title_li'=>'','depth'=>1,'child_of'=>get_post_top_ancestor_id()) ); 
 	
 	echo $args['after_widget'];
 }
