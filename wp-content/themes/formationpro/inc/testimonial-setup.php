@@ -322,14 +322,12 @@ array( 'description' => 'Display Section secondary navigation', )
 }
 
 public function widget( $args, $instance ) {
-$title = apply_filters( 'widget_title', $instance['title'] );
-// before and after widget arguments are defined by themes
-echo $args['before_widget'];
-if ( ! empty( $title ) )
-echo $args['before_title'] . $title . $args['after_title'];
-
-get_the_ID();
-echo $args['after_widget'];
+	global $post;
+	$title = apply_filters( 'widget_title', $instance['title'] );
+	// before and after widget arguments are defined by themes
+	echo $args['before_widget'];
+	echo 'momo : '.$post->ID;
+	echo $args['after_widget'];
 }
 		
 // Widget Backend 
