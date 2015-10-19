@@ -69,7 +69,7 @@ $more = 0;
 		
 	<?php endwhile; ?>
     <?php formationpro_content_nav( 'nav-below' ); ?>
- 
+ <?php $wp_query = $temp;?>
 	</div><!-- #content .site-content -->
 		</div><!-- #primary .content-area -->
 	<aside id="sidebar-right">
