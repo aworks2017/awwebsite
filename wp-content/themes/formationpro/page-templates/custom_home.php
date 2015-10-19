@@ -30,7 +30,7 @@ get_header(); ?>
           
         ?>
             
-        <div class="flex-container momo">
+        <div class="flex-container">
           <div class="flexslider">
             <ul class="slides">
               <?php  while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
