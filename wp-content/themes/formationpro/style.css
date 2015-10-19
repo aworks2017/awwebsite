@@ -576,10 +576,10 @@ a.more-link:hover {
 .site-footer {
 	clear: both;
 	margin: 0 auto;
-	background-color: #222;
+	background-color: #333;
 }
 .footer_container {
-	background: #222;
+	background: #333;
 	margin: 0 auto;
 	max-width: 1160px;
 }
@@ -1550,7 +1550,7 @@ p.nocomments {
 	padding: 2.2em 0;
 	text-align: center;
 	color: #808080;
-	background-color: #333;
+	background-color: #222;
 	border-top: 1px solid  #444;
 }
 .site-info a{
