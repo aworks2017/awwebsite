@@ -328,8 +328,15 @@ public function widget( $args, $instance ) {
 	echo $args['before_widget'];
 	
 	echo $wp_query->ID;
-	
-	 wp_list_pages( array('title_li'=>'','depth'=>1,'child_of'=>get_post_top_ancestor_id()) ); 
+	$args = array(
+	'child_of'     => $wp_query->ID,
+	'depth'        => 0,
+	'post_type'    => 'page',
+	'post_status'  => 'publish',
+	'sort_column'  => 'menu_order'
+	);
+
+	 wp_list_pages($args); 
 	
 	echo $args['after_widget'];
 }
