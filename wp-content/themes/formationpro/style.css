@@ -1547,7 +1547,7 @@ p.nocomments {
 .site-info {
 	font-size: 13px;
 	font-size: 1.3rem;
-	/*padding: 2.2em 0;*/
+	padding: 0 0 1px 0;
 	text-align: center;
 	color: #808080;
 	background-color: #222;
@@ -2429,5 +2429,3 @@ MEDIA QUERIES
 	padding: 6px;
 	}
 }
-/*custom 4 momo*/
-
