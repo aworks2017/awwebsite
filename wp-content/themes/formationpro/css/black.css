@@ -89,8 +89,9 @@
 /*custom style */
 .textwidget a  {
 	display: inline-block;
-    width: 30%;
+    width: 25%;
     text-align: center;
+    margin: 14px auto;
 }
 .textwidget a .fa {
 	font-size:40px;
