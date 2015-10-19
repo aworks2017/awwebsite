@@ -341,7 +341,7 @@ public function widget( $args, $instance ) {
 	foreach( $mypages as $page )
 	{
 	
-	echo $page->ID.'<br>';
+	echo $page->post_name.'<br>';
 	}
 	
 	echo $args['after_widget'];
