@@ -331,7 +331,7 @@ public function widget( $args, $instance ) {
 	
 	$args = array( 
         'child_of' => $wp_query->ID, 
-        'parent ' => $wp_query->ID,
+        'parent' => $wp_query->ID,
         'hierarchical' => 0,
         'sort_column' => 'menu_order', 
         'sort_order' => 'asc'
