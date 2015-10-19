@@ -322,15 +322,15 @@ array( 'description' => 'Display Section secondary navigation', )
 }
 
 public function widget( $args, $instance ) {
-	global $post;
+	global $wp_query;
 	$title = apply_filters( 'widget_title', $instance['title'] );
 	// before and after widget arguments are defined by themes
 	echo $args['before_widget'];
-	$queried_object = get_queried_object();
-
-	if ( $queried_object ) {
-		$post_id = $queried_object->ID;
-		echo 'oo :'.$post_id;
+	
+	if (is_page()){
+		$current_page_id = $wp_query->get_queried_object_id();
+		$children = wp_list_pages('title_li=&child_of='.$current_page_id.'&echo=0');
+		echo 'rr : '.$children;
 	}
 	
 	echo $args['after_widget'];
