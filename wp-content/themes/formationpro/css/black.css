@@ -87,7 +87,12 @@
 }
 
 /*custom style */
-.textwidget .fa {
+.textwidget a  {
+	display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+.textwidget a .fa {
 	font-size:40px;
 }
 	
