@@ -327,7 +327,8 @@ public function widget( $args, $instance ) {
 	// before and after widget arguments are defined by themes
 	echo $args['before_widget'];
 	
-	print_r($instance);
+	$post_id = $GLOBALS['post']->ID;
+	echo 'momo :'.$post_id;
 	
 	echo $args['after_widget'];
 }
