@@ -18,7 +18,7 @@ get_header(); ?>
           $number         =   get_theme_mod( 'homepage_slider_slide_no' );
 
           $the_query     =   new WP_Query( array( 
-            'cat'             => 'slider', 
+            'cat'             => $featured_cat, 
             'posts_per_page'  => $number,
             'meta_query'      => array(
                 array(
@@ -71,7 +71,7 @@ get_header(); ?>
                     <?php echo '<h4>' . __('Insert Image', 'formationpro') . '</h4>'; ?>
                   <?php endif; ?>
                   <h3><a href="<?php echo esc_url( get_theme_mod( 'header_one_url' ) ); ?>"><?php echo esc_html(get_theme_mod( 'featured_textbox_header_one' ) ); ?></a></h3>
-                  <p><?php echo esc_html(get_theme_mod( 'featured_textbox_text_one' ) ); ?></p>
+                  <p><?php echo esc_html(get_theme_mod( 'featured_textbox_text_one' ) ); ?><br><a href="<?php echo esc_url( get_theme_mod( 'header_one_url' ) ); ?>">Learn More</a></p>
                 </div>
               </div>
 
@@ -83,7 +83,7 @@ get_header(); ?>
                   <?php echo '<h4>' . __('Insert Image', 'formationpro') . '</h4>'; ?>
                 <?php endif; ?>
                 <h3><a href="<?php echo esc_url( get_theme_mod( 'header_two_url' ) ); ?>"><?php echo esc_html(get_theme_mod( 'featured_textbox_header_two' ) ); ?></a></h3>
-                <p><?php echo esc_html(get_theme_mod( 'featured_textbox_text_two' ) ); ?></p>
+                <p><?php echo esc_html(get_theme_mod( 'featured_textbox_text_two' ) ); ?><br><a href="<?php echo esc_url( get_theme_mod( 'header_two_url' ) ); ?>">Learn More</a></p>
                 </div>
               </div>
 
@@ -95,7 +95,7 @@ get_header(); ?>
                   <?php echo '<h4>' . __('Insert Image', 'formationpro') . '</h4>'; ?>
                 <?php endif; ?>
                 <h3><a href="<?php echo esc_url( get_theme_mod( 'header_three_url' ) ); ?>"><?php echo esc_html(get_theme_mod( 'featured_textbox_header_three' ) ); ?></a></h3>
-                <p><?php echo esc_html(get_theme_mod( 'featured_textbox_text_three' ) ); ?></p>
+                <p><?php echo esc_html(get_theme_mod( 'featured_textbox_text_three' ) ); ?><br><a href="<?php echo esc_url( get_theme_mod( 'header_three_url' ) ); ?>">Learn More</a></p>
                 </div>
               </div>
               
