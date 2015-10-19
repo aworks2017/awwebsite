@@ -6,7 +6,7 @@
  * @package formationpro
  * @since formationpro 1.0
  */
-print_r(get_theme_mod( 'homepage_slider_cat' ));die();
+
 get_header(); ?>
 
       <?php if(! get_theme_mod('homepage_slider_hide')): ?>
@@ -18,7 +18,7 @@ get_header(); ?>
           $number         =   get_theme_mod( 'homepage_slider_slide_no' );
 
           $the_query     =   new WP_Query( array( 
-            'cat'             => $featured_cat, 
+            'cat'             => 'slider', 
             'posts_per_page'  => $number,
             'meta_query'      => array(
                 array(
