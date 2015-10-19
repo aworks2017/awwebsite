@@ -100,7 +100,11 @@
 }
 /*footer bottom menu */
 #menu-bottom-menu li {
-	display:inline-block;
-	margin:10px;
+	display: inline-block;
+    width: 24%;
+    font-weight: bold;
+    font-size: 1.5em;
+    max-width: 200px;
+    text-align: center;
 }
 		
