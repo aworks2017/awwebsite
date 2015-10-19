@@ -9,9 +9,9 @@ get_header(); ?>
 	<header class="entry-header">
 		<h1 class="page-title"><?php the_title(); ?><span class="breadcrumbs"><?php if (function_exists('formationpro_breadcrumbs')) formationpro_breadcrumbs(); ?></span></h1>
 	</header><!-- .entry-header -->
-  <div id="primary_wrap">
-		<div id="primary_home" class="content-area">
-			<div id="content" class="fullwidth" role="main">
+  	<div id="primary_wrap">
+		<div id="primary-right" class="content-area">
+			<div id="content-right" class="site-content" role="main">
 
 	 <?php 
 		$temp = $wp_query; $wp_query= null;
