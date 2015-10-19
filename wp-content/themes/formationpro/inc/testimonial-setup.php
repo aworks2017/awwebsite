@@ -277,3 +277,73 @@ add_action( 'widgets_init', 'register_testimonials_widget' );
 function register_testimonials_widget() {
 	register_widget( 'Testimonial_Widget' );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Section secondary navigation Widget
+ */
+// Creating the widget 
+class section_secondary_navigation_widget extends WP_Widget {
+
+function __construct() {
+parent::__construct(
+// Base ID of your widget
+'section_secondary_navigation_widget','Section secondary navigation', 
+
+// Widget description
+array( 'description' => 'Display Section secondary navigation', ) 
+);
+}
+
+public function widget( $args, $instance ) {
+$title = apply_filters( 'widget_title', $instance['title'] );
+// before and after widget arguments are defined by themes
+echo $args['before_widget'];
+if ( ! empty( $title ) )
+echo $args['before_title'] . $title . $args['after_title'];
+
+echo 'hi';
+echo $args['after_widget'];
+}
+		
+// Widget Backend 
+public function form( $instance ) {
+}
+	
+// Updating widget replacing old instances with new
+public function update( $new_instance, $old_instance ) {
+return $new_instance;
+}
+} //end section_secondary_navigation_widget
+
+// Register and load the widget
+function section_secondary_navigation_load_widget() {
+	register_widget( 'section_secondary_navigation_widget' );
+}
+add_action( 'widgets_init', 'section_secondary_navigation_load_widget' );
