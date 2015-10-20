@@ -2004,10 +2004,11 @@ color: #CCC;
      width:28%;
      padding:1%;
      margin:1.25%;
-     min-height:250px;
+     min-height:190px;
 	 border: 2px solid #EFEFEF;
 	 border-radius: 0.4em;
 	 position: relative;
+	 padding-bottom: 39px;
 }
 .gridblock .hentry {
 	border-bottom: 0;
