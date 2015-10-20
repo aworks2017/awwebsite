@@ -1674,6 +1674,18 @@ p.nocomments {
     text-align: center;
 }
 
+.home_read_more {
+	color: #888888;
+	font-size: 15px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #888888;
+	cursor:pointer;
+}
+.home_read_more:hover {
+	color: #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+}
+
 .featuretext_top  .featuretext_button{
 	display: inline;
 }
