@@ -280,7 +280,7 @@ get_header(); ?>
                   <!-- <div class="recent_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div> -->
                   <p><?php echo formationpro_get_recentposts_excerpt(); ?></p>
                   <div class="thumbs-more-link">
-                    <a href="<?php the_permalink() ?>"> <?php echo __('More', 'formationpro'); ?></a>
+                    <a href="<?php the_permalink() ?>"> <?php echo __(get_post_meta($post->ID,'call2action',true), 'formationpro'); ?></a>
                   </div>
                 </article>
               </div>	
