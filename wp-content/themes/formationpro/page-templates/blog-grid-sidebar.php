@@ -45,7 +45,7 @@ get_header(); ?>
 						global $more;
 						$more = 0;
 					?>
-					<?php echo $page->post_excerpt; ?><div class="grid-more-link"><a href="<?php echo get_permalink($page->ID) ?>"> <?php echo __('Read More', 'formationpro'); ?></a></div>
+					<?php echo $page->post_title; ?><div class="grid-more-link"><a href="<?php echo get_permalink($page->ID) ?>"> <?php echo __('Read More', 'formationpro'); ?></a></div>
         
 				</div><!-- .entry-content -->
    			</div><!-- .hentry -->
