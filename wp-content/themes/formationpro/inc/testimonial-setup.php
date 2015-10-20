@@ -349,7 +349,7 @@ public function widget( $args, $instance ) {
 		'post_status' => 'publish',
 		'exclude' => $top_level
 	);
-	print_r($top_level);
+	print_r($args);
 	$related_pages = get_pages($args);
 	echo $args['before_widget'];
 	echo $before_title.'RELATED CONTENT'.$after_title;
