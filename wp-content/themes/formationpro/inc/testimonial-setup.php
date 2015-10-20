@@ -325,13 +325,13 @@ public function widget( $args, $instance ) {
 	global $section_page, $section_pages ;
 	if(!$section_pages) return;
 	extract( $args );
-	$top_level = array();
+	$top_level = '';
 	
 	echo $args['before_widget'];
 	echo $before_title.strtoupper($section_page->post_title).$after_title;
 	echo '<ul>';
 	foreach ( $section_pages as $page ) {
-		array_push($top_level,$page->ID);
+		$top_level.=','.$page->ID;
   		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
 		$echo .= $page->post_title;
 		$echo .= '</a></li>';
