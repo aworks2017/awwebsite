@@ -20,7 +20,7 @@ get_header(); ?>
 			'sort_column' => 'menu_order',
 			'hierarchical' => 0,
 			'child_of' => $wp_query->post->ID,
-			'parent' => $page_id,
+			'parent' => $wp_query->post->ID,
 			'post_type' => 'page',
 			'post_status' => 'publish'
 		);
