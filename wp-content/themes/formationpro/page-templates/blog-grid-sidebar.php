@@ -7,7 +7,7 @@
 get_header(); ?>
 <?php 
 global $section_title,$section_pages; 
-$section_title =  get_the_title()
+$section_title =  get_the_title();
 ?>
 <header class="entry-header">
 	<h1 class="page-title"><?php echo $section_title ?><span class="breadcrumbs"><?php if (function_exists('formationpro_breadcrumbs')) formationpro_breadcrumbs(); ?></span>
@@ -18,7 +18,7 @@ $section_title =  get_the_title()
 	<div id="primary-left" class="content-area">
 		<div id="content-right" class="site-content" role="main">
         <div class="entry-content">
-        	<?php the_content();?>
+        	<?php echo $wp_query->post->post_content?>
         </div>
 		<?php 
 	 	$args = array(
