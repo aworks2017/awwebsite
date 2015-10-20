@@ -347,6 +347,7 @@ public function widget( $args, $instance ) {
 		'child_of' => $section_page->ID,
 		'post_type' => 'page',
 		'post_status' => 'publish',
+		'number' => 11
 	);
 
 	$related_pages = get_pages($args);
