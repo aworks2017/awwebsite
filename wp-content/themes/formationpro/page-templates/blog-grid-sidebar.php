@@ -17,9 +17,9 @@ $section_page = $wp_query->post ;
 <div id="primary_wrap">
 	<div id="primary-left" class="content-area">
 		<div id="content-right" class="site-content" role="main">
-        <div class="entry-content">
+        <article class="page type-page hentry">
         	<?php echo $wp_query->post->post_content?>
-        </div>
+        </article>
 		<?php 
 	 	$args = array(
 			'sort_order' => 'asc',
