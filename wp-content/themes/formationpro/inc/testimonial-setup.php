@@ -331,7 +331,7 @@ public function widget( $args, $instance ) {
 
 	$args = array(
 		'sort_order' => 'asc',
-		'sort_column' => 'post_title',
+		'sort_column' => 'menu_order',
 		'hierarchical' => 0,
 		'child_of' => $page_id,
 		'parent' => $page_id,
