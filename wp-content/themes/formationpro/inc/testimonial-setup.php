@@ -337,9 +337,26 @@ public function widget( $args, $instance ) {
   	}
 	echo '</ul>';
 	
+	// related content
+	$args = array(
+		'sort_order' => 'asc',
+		'sort_column' => 'menu_order',
+		'hierarchical' => 0,
+		'child_of' => $wp_query->post->ID,
+		'post_type' => 'page',
+		'post_status' => 'publish'
+	);
+	$related_pages = get_pages($args);
 	echo $args['before_widget'];
 	echo $before_title.'RELATED CONTENT'.$after_title;
-	echo'momo';
+	echo '<ul>';
+	foreach ( $related_pages as $page ) {
+  		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
+		$echo .= $page->post_title;
+		$echo .= '</a></li>';
+		echo $echo;
+  	}
+	echo '</ul>';
 	echo $args['after_widget'];
 }
 		
