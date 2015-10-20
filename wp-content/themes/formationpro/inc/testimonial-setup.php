@@ -348,13 +348,13 @@ public function widget( $args, $instance ) {
 		'post_type' => 'page',
 		'post_status' => 'publish',
 	);
-	print_r($args);
+
 	$related_pages = get_pages($args);
 	echo $args['before_widget'];
 	echo $before_title.'RELATED CONTENT'.$after_title;
 	echo '<ul>';
 	foreach ( $related_pages as $page ) {
-		if(in_array($page->ID,$top_level)) continue;
+		if(in_array($top_level,$page->ID)) continue;
   		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
 		$echo .= $page->post_title;
 		$echo .= '</a></li>';
