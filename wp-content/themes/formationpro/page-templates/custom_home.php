@@ -255,8 +255,9 @@ get_header(); ?>
 
             <?php $the_query = new WP_Query(
               array(
+			  	'post_type'=>array('post','page'),
                 'showposts' => 4,
-                'post__not_in' => get_option("sticky_posts"),
+				'meta_value'=>'homepost',
               ));
             ?>
 
