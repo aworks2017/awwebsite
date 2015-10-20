@@ -345,15 +345,13 @@ public function widget( $args, $instance ) {
 		//'sort_column' => 'menu_order',
 		'hierarchical' => 0,
 		'child_of' => $section_page->ID,
-		'parent' => $section_page->ID,
 		'post_type' => 'page',
 		'post_status' => 'publish',
-		'number' => 11
 	);
 
 	$related_pages = get_pages($args);
 	echo $args['before_widget'];
-	echo $before_title.'RELATED CONTENT 4'.$after_title;
+	echo $before_title.'RELATED CONTENT 5'.$after_title;
 	echo '<ul>';
 	foreach ( $related_pages as $page ) {
 		if(in_array($page->ID,$top_level)) continue;
