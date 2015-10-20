@@ -351,10 +351,10 @@ public function widget( $args, $instance ) {
 
 	$related_pages = get_pages($args);
 	echo $args['before_widget'];
-	echo $before_title.'RELATED CONTENT 6'.$after_title;
+	echo $before_title.'RELATED CONTENT 7'.$after_title;
 	echo '<ul>';
 	foreach ( $related_pages as $i=>$page ) {
-		if($i>11) break;
+		if($i>13) break;
 		if(in_array($page->ID,$top_level)) continue;
   		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
 		$echo .= $page->post_title;
