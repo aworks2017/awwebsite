@@ -713,6 +713,16 @@ a.more-link:hover {
 	border-top: 4px solid #FFF;
 	font-weight: 700;
 }
+#submit_header_search {
+	color: #666;
+    display: block;
+	font-size: 13px;
+	height: 90px;
+	line-height: 94px;
+	text-transform: uppercase;
+	border-top: 4px solid #FFF;
+	font-weight: 700;
+}
 
 .main-navigation li:hover > a,
 .main-navigation li.current_page_item a,
