@@ -343,11 +343,11 @@ public function widget( $args, $instance ) {
 	$args = array(
 		//'sort_order' => 'asc',
 		//'sort_column' => 'menu_order',
-		'hierarchical' => 0,
-		'child_of' => $section_page->ID,
+		'hierarchical' => '0',
+		'parent' => $section_page->ID,
 		'post_type' => 'page',
 		'post_status' => 'publish',
-		'number' => 11
+		'number' => '11'
 	);
 
 	$related_pages = get_pages($args);
