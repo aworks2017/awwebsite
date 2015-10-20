@@ -348,12 +348,12 @@ public function widget( $args, $instance ) {
 		'child_of' => $section_page->ID,
 		'post_type' => 'page',
 		'post_status' => 'publish',
-		'number' => '11'
+		//'number' => '11'
 	);
 
 	$related_pages = get_pages($args);
 	echo $args['before_widget'];
-	echo $before_title.'RELATED CONTENT 2'.$after_title;
+	echo $before_title.'RELATED CONTENT 3'.$after_title;
 	echo '<ul>';
 	foreach ( $related_pages as $page ) {
 		if(in_array($page->ID,$top_level)) continue;
