@@ -46,7 +46,7 @@ $section_page = $wp_query->post ;
             	<h1 class="entry-title"><a href="<?php echo get_permalink($page->ID); ?>"><?php echo $page->post_title; ?></a>
                 </h1>
 				<div class="entry-content">
-					<?php echo substr($page->post_content, 0, 250) ?>...<div class="grid-more-link"><a href="<?php echo get_permalink($page->ID) ?>"> <?php echo __('Read More', 'formationpro'); ?></a></div>
+					<?php echo substr($page->post_content, 0, 187) ?>...<div class="grid-more-link"><a href="<?php echo get_permalink($page->ID) ?>"> <?php echo __('Read More', 'formationpro'); ?></a></div>
         
 				</div><!-- .entry-content -->
    			</div><!-- .hentry -->
