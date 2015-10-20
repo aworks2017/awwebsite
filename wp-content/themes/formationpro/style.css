@@ -1167,6 +1167,9 @@ footer.entry-meta {
 	border-radius: 0.2em;
 	padding: 4px 8px;
 	clear: both;
+	position: absolute;
+    right: 8px;
+    bottom: 8px;
 }
 .grid-more-link:hover{
 	background-color: #222;
@@ -2004,6 +2007,7 @@ color: #CCC;
      min-height:190px;
 	 border: 2px solid #EFEFEF;
 	 border-radius: 0.4em;
+	 position: relative;
 }
 .gridblock .hentry {
 	border-bottom: 0;
