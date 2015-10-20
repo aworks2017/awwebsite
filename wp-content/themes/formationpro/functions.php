@@ -892,3 +892,13 @@ function formationpro_admin_header_image() { ?>
 	</div>
 <?php }
 endif; // formationpro_admin_header_image
+
+
+/* momo custom code start */
+//adding header search form
+add_filter( 'wp_nav_menu', function($nav_menu){
+	var_dump($nav_menu);
+	die();
+	
+	
+}, 1, 1 );
