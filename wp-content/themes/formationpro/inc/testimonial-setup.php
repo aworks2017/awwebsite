@@ -328,14 +328,14 @@ public function widget( $args, $instance ) {
 	
 	echo $args['before_widget'];
 	echo $before_title.$section_title.$after_title;
-
+	echo '<ul>';
 	foreach ( $section_pages as $page ) {
-  		$echo = '<a href="' . get_permalink($page->ID) . '">';
+  		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
 		$echo .= $page->post_title;
-		$echo .= '</a>';
+		$echo .= '</a></li>';
 		echo $echo;
   	}
-	
+	echo '</ul>';
 	echo $args['after_widget'];
 }
 		
