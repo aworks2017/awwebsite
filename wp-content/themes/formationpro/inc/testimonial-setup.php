@@ -324,16 +324,17 @@ array( 'description' => 'Display Section secondary navigation', )
 public function widget( $args, $instance ) {
 	global $section_title, $section_pages ;
 	if(!$section_pages) return;
+	extract( $args );
 	
-	echo $section_title;
 	echo $args['before_widget'];
+	echo $before_title.$section_title.$after_title;
 
 	foreach ( $section_pages as $page ) {
-  	$option = '<option value="' . get_page_link( $page->ID ) . '">';
-	$option .= $page->post_title;
-	$option .= '</option>';
-	echo $option;
-  }
+  		$echo = '<a href="' . get_permalink($page->ID) . '">';
+		$echo .= $page->post_title;
+		$echo .= '</a>';
+		echo $echo;
+  	}
 	
 	echo $args['after_widget'];
 }
