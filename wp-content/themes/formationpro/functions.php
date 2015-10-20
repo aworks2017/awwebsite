@@ -898,9 +898,9 @@ endif; // formationpro_admin_header_image
 //adding header search form
 add_filter( 'wp_nav_menu_items', function($items){
 	$search_form_content = '<!-- search form -->
-                        <form method="get" id="header_searchform" action="/" role="search">
+                        <li><form method="get" id="header_searchform" action="/" role="search">
                             <input type="text" class="field" name="s" value="" class="s" placeholder="Search …">
-                        </form>
+                        </form></li><i class="fa fa-search"></i>
                         <!-- end search form -->';
 	return $items.$search_form_content;
 	
