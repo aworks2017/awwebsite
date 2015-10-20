@@ -489,6 +489,9 @@ a.more-link:hover {
 #sidebar-left li, #sidebar-right li {
 	border-bottom: 1px solid #EFEFEF;
 }
+#sidebar-left li:hover, #sidebar-right li:hover {
+	border-bottom-color: #99cccc ;
+}
 
 /* =Structure
 ----------------------------------------------- */
