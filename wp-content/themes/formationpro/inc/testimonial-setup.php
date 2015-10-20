@@ -333,7 +333,7 @@ public function widget( $args, $instance ) {
 	foreach ( $section_pages as $page ) {
 		array_push($top_level,$page->ID);
   		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
-		$echo .= $page->post_title;
+		$echo .= '<strong>'.$page->post_title.'</strong>';
 		$echo .= '</a></li>';
 		echo $echo;
   	}
@@ -351,7 +351,7 @@ public function widget( $args, $instance ) {
 
 	$related_pages = get_pages($args);
 	echo $args['before_widget'];
-	echo $before_title.'RELATED CONTENT 7'.$after_title;
+	echo $before_title.'RELATED CONTENT'.$after_title;
 	echo '<ul>';
 	foreach ( $related_pages as $i=>$page ) {
 		if($i>13) break;
