@@ -99,14 +99,6 @@
 
 						<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
                         
-                        <!-- search form -->
-                        <form method="get" id="header_searchform" action="http://dev2.autonomyworks.net/" role="search">
-                            <label for="s" class="assistive-text">Search</label>
-                            <input type="text" class="field" name="s" value="" id="s" placeholder="Search …">
-                            <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
-                        </form>
-                        <!-- end search form -->
-						
 					</nav><!-- .site-navigation .main-navigation -->
 
 				</header><!-- #masthead .site-header -->
