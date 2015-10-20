@@ -341,8 +341,8 @@ public function widget( $args, $instance ) {
 	
 	// related content
 	$args = array(
-		'sort_order' => 'asc',
-		'sort_column' => 'menu_order',
+		//'sort_order' => 'asc',
+		//'sort_column' => 'menu_order',
 		'hierarchical' => 0,
 		'child_of' => $section_page->ID,
 		'post_type' => 'page',
