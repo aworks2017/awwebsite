@@ -330,7 +330,7 @@ public function widget( $args, $instance ) {
 	echo $args['before_widget'];
 
 	$args = array(
-		'sort_order' => 'desc',
+		'sort_order' => 'asc',
 		'sort_column' => 'menu_order',
 		'hierarchical' => 0,
 		'child_of' => $page_id,
