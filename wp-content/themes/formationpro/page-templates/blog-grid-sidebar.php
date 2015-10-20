@@ -5,8 +5,9 @@
 */
 
 get_header(); ?>
+<?php global $section_title; $section_title =  get_the_title()?>
 <header class="entry-header">
-	<h1 class="page-title"><?php the_title(); ?><span class="breadcrumbs"><?php if (function_exists('formationpro_breadcrumbs')) formationpro_breadcrumbs(); ?></span>
+	<h1 class="page-title"><?php echo $section_title ?><span class="breadcrumbs"><?php if (function_exists('formationpro_breadcrumbs')) formationpro_breadcrumbs(); ?></span>
     </h1>
 </header><!-- .entry-header -->
 

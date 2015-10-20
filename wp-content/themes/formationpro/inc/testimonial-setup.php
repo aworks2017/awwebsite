@@ -322,11 +322,10 @@ array( 'description' => 'Display Section secondary navigation', )
 }
 
 public function widget( $args, $instance ) {
-	global $section_pages;
+	global $section_title, $section_pages ;
 	if(!$section_pages) return;
 	
-	$title = apply_filters( 'widget_title', $instance['title'] );
-	// before and after widget arguments are defined by themes
+	echo $section_title;
 	echo $args['before_widget'];
 
 	foreach ( $section_pages as $page ) {
