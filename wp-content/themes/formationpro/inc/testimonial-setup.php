@@ -322,12 +322,12 @@ array( 'description' => 'Display Section secondary navigation', )
 }
 
 public function widget( $args, $instance ) {
-	global $section_title, $section_pages ;
+	global $section_page, $section_pages ;
 	if(!$section_pages) return;
 	extract( $args );
 	
 	echo $args['before_widget'];
-	echo $before_title.strtoupper($section_title).$after_title;
+	echo $before_title.strtoupper($section_page->post_title).$after_title;
 	echo '<ul>';
 	foreach ( $section_pages as $page ) {
   		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
@@ -342,7 +342,7 @@ public function widget( $args, $instance ) {
 		'sort_order' => 'asc',
 		'sort_column' => 'menu_order',
 		'hierarchical' => 0,
-		'child_of' => $wp_query->post->ID,
+		'child_of' => $section_page->ID,
 		'post_type' => 'page',
 		'post_status' => 'publish'
 	);

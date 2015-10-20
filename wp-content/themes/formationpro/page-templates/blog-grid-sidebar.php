@@ -6,11 +6,11 @@
 
 get_header(); ?>
 <?php 
-global $section_title,$section_pages; 
-$section_title =  get_the_title();
+global $section_page,$section_pages; 
+$section_page = $wp_query->post ;
 ?>
 <header class="entry-header">
-	<h1 class="page-title"><?php echo $section_title ?><span class="breadcrumbs"><?php if (function_exists('formationpro_breadcrumbs')) formationpro_breadcrumbs(); ?></span>
+	<h1 class="page-title"><?php echo $section_page->post_title ?><span class="breadcrumbs"><?php if (function_exists('formationpro_breadcrumbs')) formationpro_breadcrumbs(); ?></span>
     </h1>
 </header><!-- .entry-header -->
 
