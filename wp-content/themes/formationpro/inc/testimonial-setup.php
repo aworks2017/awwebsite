@@ -347,7 +347,7 @@ public function widget( $args, $instance ) {
 		'child_of' => $section_page->ID,
 		'post_type' => 'page',
 		'post_status' => 'publish',
-		'exclude' => $top_level
+		//'exclude' => $top_level
 	);
 	print_r($args);
 	$related_pages = get_pages($args);
