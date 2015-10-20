@@ -898,7 +898,7 @@ endif; // formationpro_admin_header_image
 
 /* momo custom code start */
 //adding header search form
-add_filter( 'wp_nav_menu_items', function($items,$arg){	print_r($arg);
+add_filter( 'wp_nav_menu_items', function($items,$arg){	print_r($arg->theme_location);
 	$search_form_content = '<!-- search form -->
                         <li><form method="get" id="header_searchform" action="/" role="search">
                             <input type="text" class="field" name="s" value="" class="s" placeholder="Search …">
