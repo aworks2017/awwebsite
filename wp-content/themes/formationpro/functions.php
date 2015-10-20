@@ -212,6 +212,8 @@ function formationpro_scripts() {
     
     wp_enqueue_script('flexslider-init', get_template_directory_uri().'/js/flexslider-init.js', array('jquery', 'flexslider'));
 	
+	wp_enqueue_script( 'customjs', get_template_directory_uri() . '/js/custom.js', array( 'jquery' ), '',  true );
+	
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 
@@ -900,8 +902,7 @@ add_filter( 'wp_nav_menu_items', function($items){
 	$search_form_content = '<!-- search form -->
                         <li><form method="get" id="header_searchform" action="/" role="search">
                             <input type="text" class="field" name="s" value="" class="s" placeholder="Search …">
-							<input class="fa fa-search" type="submit"/>
-                        </form></li>
+                        </form></li><i id="submit_header_search" class="fa fa-search"></i>
                         <!-- end search form -->';
 	return $items.$search_form_content;
 	
