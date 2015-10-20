@@ -257,7 +257,7 @@ get_header(); ?>
               array(
 			  	'post_type'=>array('post','page'),
                 'showposts' => 4,
-				'meta_value'=>'homepost',
+				'meta_key'=>'homepost',
               ));
             ?>
 
