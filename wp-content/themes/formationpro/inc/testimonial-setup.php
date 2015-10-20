@@ -353,7 +353,7 @@ public function widget( $args, $instance ) {
 
 	$related_pages = get_pages($args);
 	echo $args['before_widget'];
-	echo $before_title.'RELATED CONTENT'.$after_title;
+	echo $before_title.'RELATED CONTENT 2'.$after_title;
 	echo '<ul>';
 	foreach ( $related_pages as $page ) {
 		if(in_array($page->ID,$top_level)) continue;
