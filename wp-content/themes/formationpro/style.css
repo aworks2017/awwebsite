@@ -717,6 +717,9 @@ a.more-link:hover {
 	border-radius: 10px;
     border: 1px solid #666;
 }
+#header_searchform input:focus {
+    border: 1px solid red;
+}
 #submit_header_search {
 	color: #666;
     display: block;
