@@ -902,7 +902,7 @@ add_filter( 'wp_nav_menu_items', function($items){
 	$search_form_content = '<!-- search form -->
                         <li><form method="get" id="header_searchform" action="/" role="search">
                             <input type="text" class="field" name="s" value="" class="s" placeholder="Search …">
-                        </form></li><i id="submit_header_search" class="fa fa-search"></i>
+                        </form></li><li id="submit_header_search" class="fa fa-search"></li>
                         <!-- end search form -->';
 	return $items.$search_form_content;
 	

@@ -700,7 +700,7 @@ a.more-link:hover {
 	position: relative;
 	background-color: #FFF;
 }
-.main-navigation a {
+.main-navigation a,.main-navigation form {
 	color: #666;
     display: block;
     font-size: 1.3rem;
