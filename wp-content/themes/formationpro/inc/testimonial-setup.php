@@ -347,7 +347,6 @@ public function widget( $args, $instance ) {
 		'child_of' => $section_page->ID,
 		'post_type' => 'page',
 		'post_status' => 'publish',
-		//'exclude' => $top_level
 	);
 	print_r($args);
 	$related_pages = get_pages($args);
@@ -355,6 +354,7 @@ public function widget( $args, $instance ) {
 	echo $before_title.'RELATED CONTENT'.$after_title;
 	echo '<ul>';
 	foreach ( $related_pages as $page ) {
+		if(in_array($page->ID,$top_level)) continue;
   		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
 		$echo .= $page->post_title;
 		$echo .= '</a></li>';
