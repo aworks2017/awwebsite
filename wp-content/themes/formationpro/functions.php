@@ -896,8 +896,8 @@ endif; // formationpro_admin_header_image
 
 /* momo custom code start */
 //adding header search form
-add_filter( 'wp_nav_menu', function($nav_menu){
-	var_dump($nav_menu);
+add_filter( 'wp_nav_menu_items', function($items){
+	var_dump($items);
 	die();
 	
 	
