@@ -325,11 +325,13 @@ public function widget( $args, $instance ) {
 	global $section_page, $section_pages ;
 	if(!$section_pages) return;
 	extract( $args );
+	$top_level = array();
 	
 	echo $args['before_widget'];
 	echo $before_title.strtoupper($section_page->post_title).$after_title;
 	echo '<ul>';
 	foreach ( $section_pages as $page ) {
+		$top_level[]= $page->ID;
   		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
 		$echo .= $page->post_title;
 		$echo .= '</a></li>';
@@ -344,7 +346,8 @@ public function widget( $args, $instance ) {
 		'hierarchical' => 0,
 		'child_of' => $section_page->ID,
 		'post_type' => 'page',
-		'post_status' => 'publish'
+		'post_status' => 'publish',
+		'exclude' => $top_level
 	);
 	$related_pages = get_pages($args);
 	echo $args['before_widget'];
