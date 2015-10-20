@@ -16,17 +16,14 @@ get_header(); ?>
           $featured_cat   =   get_theme_mod( 'homepage_slider_cat' );
 		  
           $number         =   get_theme_mod( 'homepage_slider_slide_no' );
+		  
+		  $slider_arg = array(
+			  	'post_type'=>array('post','page'),
+                'showposts' => $number,
+				'meta_key'=>'slider',
+              );
 
-          $the_query     =   new WP_Query( array( 
-            'cat'             => $featured_cat, 
-            'posts_per_page'  => $number,
-            'meta_query'      => array(
-                array(
-                  'key'           => '_thumbnail_id',
-                  'compare'       => 'EXISTS',
-                ),
-            ), 
-          ));
+          $the_query     =   new WP_Query($slider_arg);
           
         ?>
             
