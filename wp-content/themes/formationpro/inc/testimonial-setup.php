@@ -345,6 +345,7 @@ public function widget( $args, $instance ) {
 		//'sort_column' => 'menu_order',
 		'hierarchical' => '0',
 		'parent' => $section_page->ID,
+		'child_of' => $section_page->ID,
 		'post_type' => 'page',
 		'post_status' => 'publish',
 		'number' => '11'
