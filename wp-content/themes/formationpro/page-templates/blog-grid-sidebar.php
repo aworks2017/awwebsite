@@ -14,7 +14,18 @@ get_header(); ?>
 			<div id="content-right" class="site-content" role="main">
 
 	 <?php 
-	 	die(get_the_ID());
+	 	global $section_pages;
+	 	$args = array(
+			'sort_order' => 'asc',
+			'sort_column' => 'menu_order',
+			'hierarchical' => 0,
+			'child_of' => $wp_query->post->ID,
+			'parent' => $page_id,
+			'post_type' => 'page',
+			'post_status' => 'publish'
+		);
+		$section_pages = get_pages($args);
+		
 		$temp = $wp_query; $wp_query= null;
 		$wp_query = new WP_Query(); $wp_query->query('showposts=6' . '&paged='.$paged);
 		while ($wp_query->have_posts()) : $wp_query->the_post(); ?>

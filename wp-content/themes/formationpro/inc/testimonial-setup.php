@@ -322,24 +322,14 @@ array( 'description' => 'Display Section secondary navigation', )
 }
 
 public function widget( $args, $instance ) {
-	global $wp_query;
-	$page_id = $wp_query->post->ID;
+	global $section_pages;
+	if(!$section_pages) return;
 	
 	$title = apply_filters( 'widget_title', $instance['title'] );
 	// before and after widget arguments are defined by themes
 	echo $args['before_widget'];
 
-	$args = array(
-		'sort_order' => 'asc',
-		'sort_column' => 'menu_order',
-		'hierarchical' => 0,
-		'child_of' => $page_id,
-		'parent' => $page_id,
-		'post_type' => 'page',
-		'post_status' => 'publish'
-	);
-	$result = get_pages($args);
-	foreach ( $result as $page ) {
+	foreach ( $section_pages as $page ) {
   	$option = '<option value="' . get_page_link( $page->ID ) . '">';
 	$option .= $page->post_title;
 	$option .= '</option>';
