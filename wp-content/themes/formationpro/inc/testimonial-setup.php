@@ -327,7 +327,7 @@ public function widget( $args, $instance ) {
 	extract( $args );
 	
 	echo $args['before_widget'];
-	echo $before_title.$section_title.$after_title;
+	echo $before_title.strtoupper($section_title).$after_title;
 	echo '<ul>';
 	foreach ( $section_pages as $page ) {
   		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
@@ -336,6 +336,10 @@ public function widget( $args, $instance ) {
 		echo $echo;
   	}
 	echo '</ul>';
+	
+	echo $args['before_widget'];
+	echo $before_title.'RELATED CONTENT'.$after_title;
+	echo'momo';
 	echo $args['after_widget'];
 }
 		
