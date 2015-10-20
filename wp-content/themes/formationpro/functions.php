@@ -906,4 +906,4 @@ add_filter( 'wp_nav_menu_items', function($items,$arg){	print_r($arg);
                         <!-- end search form -->';
 	return $items.$search_form_content;
 	
-}, 1, 1 );
+}, 1, 2 );
