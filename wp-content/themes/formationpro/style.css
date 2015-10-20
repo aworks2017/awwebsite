@@ -700,7 +700,7 @@ a.more-link:hover {
 	position: relative;
 	background-color: #FFF;
 }
-.main-navigation a,.main-navigation form {
+.main-navigation a, #header_searchform {
 	color: #666;
     display: block;
     font-size: 1.3rem;
@@ -712,6 +712,10 @@ a.more-link:hover {
 	padding: 0 18px;
 	border-top: 4px solid #FFF;
 	font-weight: 700;
+}
+#header_searchform input {
+	border-radius: 10px;
+    border: 1px solid #666;
 }
 #submit_header_search {
 	color: #666;
