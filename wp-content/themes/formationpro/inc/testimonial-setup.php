@@ -331,7 +331,7 @@ public function widget( $args, $instance ) {
 	echo $before_title.strtoupper($section_page->post_title).$after_title;
 	echo '<ul>';
 	foreach ( $section_pages as $page ) {
-		$top_level.=$page->ID.',';
+		$top_level.=($top_level)?','.$page->ID:$page->ID;
   		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
 		$echo .= $page->post_title;
 		$echo .= '</a></li>';
