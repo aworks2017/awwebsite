@@ -1,0 +1,102 @@
+input[type="button"].wpc_button {
+    background: #0092d5;
+    border: 2px solid;
+    border-left-color: #0092d5;
+    border-top-color: #0092d5;
+    border-right-color: #0071a5;
+    border-bottom-color: #0071a5;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 1;
+    box-shadow: none;
+    text-shadow: none;
+    border-radius:0px;
+    outline: none !important;
+    cursor: pointer !important;
+}
+
+input[type="button"].wpc_button:hover {
+    background: #0092d5;
+    border: 2px solid;
+    border-left-color: #0092d5;
+    border-top-color: #0092d5;
+    border-right-color: #0071a5;
+    border-bottom-color: #0071a5;
+    color: #fff;
+    box-shadow: none;
+    outline: none !important;
+}
+
+input[type="button"].wpc_button:focus,
+input[type="button"].wpc_button:active {
+    background: #0092d5;
+    border: 2px solid;
+    border-left-color: #0071a5;
+    border-top-color: #0071a5;
+    border-right-color: #0092d5;
+    border-bottom-color: #0092d5;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 0;
+    box-shadow: none;
+    outline: none !important;
+}
+
+input[type="button"].wpc_button:disabled {
+    cursor:default;
+    opacity:0.6;
+}
+
+input[type="text"].wpc_text {
+    color: #000;
+    padding: 4px 0px 4px 5px;
+    margin: 0;
+    font-size: 12px;
+    border: 1px solid #000;
+    background: #fff;
+    outline: none !important;
+    line-height: 1;
+    transition: all 0.3s;
+    box-shadow: none;
+    border-radius:0px;
+}
+
+input[type="text"].wpc_text:focus {
+    color: #000;
+    padding: 4px 0px 4px 5px;
+    margin: 0;
+    font-size: 12px;
+    border: 1px solid #0092d5;
+    background: #fff;
+    outline: none !important;
+    line-height: 1;
+}
+
+select.wpc_selectbox {
+    color: #000;
+    margin: 0;
+    font-size: 12px;
+    width: auto;
+    outline: none !important;
+    line-height: 1;
+    box-shadow: none;
+    border-radius:0px;
+    border: 1px solid #000;
+    transition: all 0.3s;
+    padding: 3px 0px 3px 2px;
+}
+
+select.wpc_selectbox:active,
+select.wpc_selectbox:focus {
+    color: #000;
+    margin: 0;
+    font-size: 12px;
+    outline: none !important;
+    line-height: 1;
+    box-shadow: none;
+    border-radius:0px;
+    border: 1px solid #0092d5;
+}

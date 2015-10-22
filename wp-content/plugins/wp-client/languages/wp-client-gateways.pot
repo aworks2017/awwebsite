@@ -1,0 +1,517 @@
+# LANGUAGE (LOCALE) translation for WordPress.
+# Copyright (C) YEAR WordPress contributors.
+# This file is distributed under the same license as the WordPress package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Client\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-22 18:03+0200\n"
+"PO-Revision-Date: 2015-06-22 18:05+0200\n"
+"Last-Translator: egrtg <ghjfhkg@hngjhk.jg>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: c:\\WP-Client\n"
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:61
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:62
+msgid "Authorize.net Checkout"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:123
+msgid "Seems IPN settings is not confirmed. Please edit payment gateway settings."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:124
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:213
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:584
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:96
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:130
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:122
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:119
+msgid "Return"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:199
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:570
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:116
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:104
+msgid "You need to finish your payment process"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:212
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:583
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:129
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:121
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:118
+msgid "API are empty."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:225
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:606
+msgid "Credit Card Number:"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:235
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:616
+msgid "Expiration Date:"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:238
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:619
+msgid "Month"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:242
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:623
+msgid "Year"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:250
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:631
+msgid "Security Code:"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:256
+msgid "First Name:"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:265
+msgid "Last Name:"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:276
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:650
+msgid "Confirm Payment"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:481
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:835
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:171
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:174
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:237
+msgid "Thank you for the payment."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:598
+msgid "Payment Profile:"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:599
+msgid "Use new card"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:642
+msgid "Save card information to Authorize.Net server for future use"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:723
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:732
+msgid "Client does not exists"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:782
+msgid "Wrong client profile."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:785
+msgid "Client profile does not exists."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:958
+msgid "Authorize.net AIM Settings"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:960
+msgid "Authorize.net AIM is a customizable payment processing solution that gives the merchant control over all the steps in processing a transaction. An SSL certificate is required to use this gateway. USD is the only currency supported by this gateway."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:961
+msgid "Interval Length for recurring billing must be a value from 7 through 365 for day based subscriptions."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:964
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:300
+msgid "Mode"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:968
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:304
+msgid "Sandbox"
+msgstr "3Sandbox"
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:969
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:305
+msgid "Live"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:975
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:755
+msgid "Allow Recurring"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:980
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:760
+msgid "Allow to use this gateway for recurring payments"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:986
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:311
+msgid "Gateway Credentials"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:988
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:313
+#, php-format
+msgid "You must login to Authorize.net merchant dashboard to obtain the API login ID and API transaction key. <a target=\"_blank\" href=\"%s\">Instructions &raquo;</a>"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:990
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:315
+msgid "Login ID"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:995
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:320
+msgid "Transaction Key"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1000
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:325
+msgid "The payment gateway generated MD5 hash value that can be used to authenticate the transaction response. You should set the same value like in your Authorize.net Settings"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1000
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:325
+msgid "Security: MD5 Hash"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1009
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:334
+msgid "IPN URL (Silent Post)"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1014
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:339
+msgid "I certify that I have properly set my IPN alert URL"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1019
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:344
+msgid "Use this URL in your Authorize.net \"Silent Post URL\" Settings."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1024
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:349
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:809
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:329
+msgid "Public Name"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1028
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1037
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:353
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:362
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:813
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:822
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:333
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:342
+#, php-format
+msgid "%s will see this during \"Choose Gateway\" checkout step"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1033
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:358
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:818
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:338
+msgid "Icon URL"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1041
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:366
+msgid "Advanced Settings"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1043
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:368
+msgid "Optional settings to control advanced options"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1045
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:370
+msgid "Authorize.net default is ','. Otherwise, get this from your credit card processor. If the transactions are not going through, this character is most likely wrong."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1045
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:370
+msgid "Delimiter Character"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1051
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:376
+msgid "Authorize.net default is blank. Otherwise, get this from your credit card processor. If the transactions are going through, but getting strange responses, this character is most likely wrong."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1051
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:376
+msgid "Encapsulation Character"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1057
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:382
+msgid "Email Customer (on success):"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1059
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1079
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:384
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:404
+msgid "Yes"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1060
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1080
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:385
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:405
+msgid "No"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1066
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:391
+msgid "This text will appear as the header of the email receipt sent to the customer."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1066
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:391
+msgid "Customer Receipt Email Header"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1067
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:392
+msgid "Thanks for your payment!"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1072
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:397
+msgid "This text will appear as the footer on the email receipt sent to the customer."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1072
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:397
+msgid "Customer Receipt Email Footer"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1077
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:402
+msgid "Request a delimited response from the payment gateway."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1077
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:402
+msgid "Delim Data:"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1085
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:410
+msgid "Many other gateways have Authorize.net API emulators. To use one of these gateways input their API post url here."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1085
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:410
+msgid "Custom API URL"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1099
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:424
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:830
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:350
+msgid "Update Settings"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-aim.php:1304
+msgid "Authorize.net AIM Checkout"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:48
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:49
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:629
+msgid "Authorize.net SIM Checkout"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:95
+msgid "You can not use this gateway for reccuring payments."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:295
+msgid "Authorize.net SIM Settings"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.authorizenet-sim.php:297
+msgid "Authorize.net SIM is a customizable payment processing solution that gives the merchant control over all the steps in processing a transaction. An SSL certificate is required to use this gateway. USD is the only currency supported by this gateway."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:78
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:845
+msgid "PayPal Express Checkout"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:79
+msgid "PayPal"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:739
+msgid "PayPal Express Checkout Settings"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:739
+msgid "makes it easy to start accepting credit cards directly on your site with full PCI compliance"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:741
+msgid "Express Checkout is PayPal's premier checkout solution, which streamlines the checkout process for buyers and keeps them on your site after making a purchase. Unlike PayPal Pro, there are no additional fees to use Express Checkout, though you may need to do a free upgrade to a business account. <a target=\"_blank\" href=\"https://cms.paypal.com/us/cgi-bin/?&cmd=_render-content&content_ID=developer/e_howto_api_ECGettingStarted\">More Info &raquo;</a>"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:745
+msgid "Developer/Sandbox Mode"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:750
+msgid "Only checked this if you've provided Sandbox credentials above."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:766
+msgid "PayPal Merchant E-mail"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:771
+msgid "Enter the email address you've associated with your PayPal Business account."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:776
+msgid "PayPal API Credentials"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:779
+msgid "You must login to PayPal and create an API signature to get your credentials."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:779
+msgid "Instructions"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:781
+msgid "API Username"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:786
+msgid "API Password"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:791
+msgid "Signature"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:799
+msgid "Currency"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.paypal-express.php:804
+msgid "This currency will used for your transactions."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:42
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:43
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:300
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:364
+msgid "Stripe"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:77
+msgid "Please enter the full Cardholder Name."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:78
+msgid "Please enter a valid Credit Card Number."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:79
+msgid "Please choose a valid expiration date."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:80
+msgid "Please enter a valid card security code. This is the 3 digits on the signature panel, or 4 digits on the front of Amex cards."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:153
+msgid "Pay now"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:170
+msgid "The Stripe Token was not generated correctly. Please go back and try again."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:179
+#, php-format
+msgid "%s. Please go back and try again."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:227
+#, php-format
+msgid "There was an error processing your card: \"%s\" "
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:229
+#, php-format
+msgid "<a href=\"%s\">Please try again</a>"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:300
+msgid "Stripe makes it easy to start accepting credit cards directly on your site with full PCI compliance"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:302
+msgid "Accept Visa, MasterCard, American Express, Discover, JCB, and Diners Club cards directly on your site. You don't need a merchant account or gateway. Stripe handles everything, including storing cards, subscriptions, and direct payouts to your bank account. Credit cards go directly to Stripe's secure environment, and never hit your servers so you can avoid most PCI requirements."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:302
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:307
+msgid "More Info &raquo;"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:305
+msgid "Stripe Mode"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:307
+msgid "When in live mode Stripe recommends you have an SSL certificate setup for the site where the checkout form will be displayed."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:309
+msgid "No SSL (Testing)"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:310
+msgid "Force SSL (Live Site)"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:316
+msgid "Stripe API Credentials"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:318
+msgid "You must login to Stripe to <a target=\"_blank\" href=\"https://manage.stripe.com/#account/apikeys\">get your API credentials</a>. You can enter your test credentials, then live ones when ready."
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:319
+msgid "Secret key"
+msgstr ""
+
+#: c:\WP-Client/includes/payment_gateways/class.stripe.php:322
+msgid "Publishable key"
+msgstr ""
+

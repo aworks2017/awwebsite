@@ -1,0 +1,23 @@
+.wp-list-table.file_downloads {
+    font-size: 12px !important;
+}
+
+.wp-list-table.file_downloads.widefat th {
+    font-size: 12px !important;
+}
+
+.wp-list-table.file_downloads.widefat td,
+.wp-list-table.file_downloads.widefat td ol,
+.wp-list-table.file_downloads.widefat td p,
+.wp-list-table.file_downloads.widefat td ul {
+    font-size: 12px !important;
+}
+
+.wp-list-table.file_downloads .row-actions {
+    font-size: 11px !important;
+}
+
+.wp-list-table.file_downloads .column-file_icon {
+    width: 40px;
+    text-align: center !important;
+}
