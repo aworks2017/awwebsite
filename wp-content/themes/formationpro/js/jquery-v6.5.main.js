@@ -339,7 +339,7 @@ function initEditTable() {
 								else if (currentElement.is(':text') && currentElement.attr('data-rel')!="edit-field6" && currentElement.hasClass('required-email')) {  //highlight the textbox
 
 									var currentTextParent = currentElement.closest('td');
-									var regEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+jQuery/;
+									var regEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 									if(!regEmail.test(currentElement.val()) || jQuery.trim(currentElement.val())=="")
 									{
 
@@ -445,7 +445,7 @@ function initEditTable() {
 function initValidation() {
 	var errorClass = 'error';
 	var successClass = 'success';
-	var regEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+jQuery/;
+	var regEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	var regPhone = /^[0-9]+jQuery/;
 
 	jQuery('form.validate-form').each(function() {
