@@ -1001,9 +1001,7 @@ function centro_form_submit() {
 
 		if (!empty($campaign)) {
 
-    			//$sql = "INSERT INTO aw_dev2_centro (campaign_id, report_type, requestor, notes) VALUES ('".$campaign."', '".$report."', '".$requestor."', '".$note."')";
-    			//$results = $wpdb->get_results($sql); //or die(mysql_error());
-
+echo ' '.$i.' ';
 $wpdb->insert(
 	'aw_dev2_centro',
 	array(
