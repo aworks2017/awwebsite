@@ -404,7 +404,7 @@ function initEditTable() {
 
 
 								setTimeout(function() {
-									      window.location.assign("/menu");
+									      window.location.assign("/clients/portal/centro");
 									    }, 1000);
 
 						} else {
@@ -429,7 +429,7 @@ function initEditTable() {
 		//	options.form.removeClass(errorClass).addClass(successClass);
        // });
 		jQuery.ajax({
-			url: /*options.url*/"momo",
+			url: /*options.url*/"",
 			data: 'ajax=1' + options.data ? '&' + options.data : '',
 			type: options.method || 'POST',
 			success: function() {
