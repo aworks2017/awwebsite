@@ -89,7 +89,6 @@ function initCampaignFields(){
 // initialize custom form elements
 function initCustomForms() {
 	/* global jcf */
-	console.log(jcf);
 	jcf.replaceAll();
 }
 
@@ -99,7 +98,7 @@ function initFormValidate() {
 	jQuery('.request-from-area').each(function() {
 		var form = jQuery(this);
 		var emailField = form.find('.email');
-		var regEmail = /^([a-zA-Z0-9_\.\-])+\@centro.netjQuery/;
+		var regEmail = /^([a-zA-Z0-9_\.\-])+\@centro.net$/;
 
 		function onSubmit() {
 			if (regEmail.test(emailField.val())) {
