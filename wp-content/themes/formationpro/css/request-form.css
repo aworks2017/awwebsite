@@ -212,7 +212,11 @@
 	text-align: left;
 	position: relative;
 }
-
+.user-info-area input, .user-info-area textarea, .user-info-area {
+	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+}
 .user-info-area .success-message,
 .user-info-area .error-message {
 	/*position: absolute;
