@@ -273,6 +273,10 @@
 	border: 2px solid #a6a6a6;
 }
 
+.user-info-holder ul {
+	margin:0 auto;
+}
+
 .user-info-holder .checkbox-list {
 	overflow: hidden;
 	text-align: center;
@@ -281,7 +285,7 @@
 
 .user-info-holder .checkbox-list li {
 	float: left;
-	width: 30px;
+	width: 50px;
 	text-align: center;
 	margin: 0 0 0 30px;
 }
