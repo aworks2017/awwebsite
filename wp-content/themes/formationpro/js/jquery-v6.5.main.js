@@ -430,7 +430,7 @@ function initEditTable() {
        // });
 		jQuery.ajax({
 			url: /*options.url*/centro_form.ajaxurl,
-			data: 'ajax=1' + options.data ? '&' + options.data : '',
+			data: 'ajax=1' + options.data ? '&' + options.data : '&action=momo',
 			type: options.method || 'POST',
 			success: function() {
 				options.message.show();
