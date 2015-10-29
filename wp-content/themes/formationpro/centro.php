@@ -7,6 +7,15 @@ Template Name: Centro
 */
 
 $current_user = wp_get_current_user();
+
+
+function request_form_css() {
+	wp_enqueue_style( 'style-name', get_template_directory_uri() . '/css/request-form.css' );
+}
+
+add_action( 'wp_enqueue_scripts', 'request_form_css' );
+
+
 get_header(); ?>
 
 <div id="primary_home" class="content-area">

@@ -1,0 +1,379 @@
+.request-from-area {
+	overflow: hidden;
+	max-width: 100%;
+	padding: 0 10px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.request-from-area a {
+	color: #000;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+.request-from-area a:hover {
+	opacity: .8;
+}
+
+.request-from-area .field-area {
+	overflow: hidden;
+	margin: 0 0 3px;
+}
+
+.request-from-area .field-area label {
+	float: left;
+	width: 100px;
+	margin: 2px 0 0;
+	color: #000;
+	font-size: 12px;
+	line-height: 13px;
+}
+
+.request-from-area .field-holder {
+	overflow: hidden;
+}
+
+.request-from-area input[type="text"],
+.request-from-area .email,
+.request-from-area textarea {
+	border: 2px solid #a6a6a6;
+	margin: 0;
+	float: left;
+	width: 100%;
+	height: 25px;
+	outline: none;
+	box-shadow: none;
+	background: #fff;
+	font-size: 12px;
+	line-height: 16px;
+	padding: 0 6px;
+}
+
+.request-from-area textarea {
+	resize: none;
+	height: 32px;
+	line-height: 12px;
+}
+
+.request-from-area input[type="submit"] {
+	background: #4f81bd;
+	width: 80px;
+	height: 25px;
+	border: none;
+	cursor: pointer;
+	color: #000;
+	padding: 0;
+	display: block;
+	margin: 0 auto 11px;
+	font-size: 12px;
+	line-height: 26px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.request-from-area input[type="submit"]:hover {
+	opacity: .8;
+}
+
+.request-from-area .holder {
+	overflow: hidden;
+	width: 350px;
+	margin: 0 auto;
+}
+
+.request-from-area .holder label {
+	width: 89px;
+	line-height:22px; /*02/may/2015*/
+}
+
+.request-from-area .holder .field-area {
+	margin: 0 0 12px;
+}
+
+.request-from-area .button {
+  display: block;
+  width: 175px;
+  height: 40px;
+  background: #33CC33;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.request-from-area .button-red {
+  display: block;
+  width: 175px;
+  height: 40px;
+  background: #cc0000;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.request-from-area .button-blue {
+  display: block;
+  width: 175px;
+  height: 40px;
+  background: #0000b2;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.request-sheet {
+	text-align: left;
+	overflow: hidden;
+	margin: 0 0 12px;
+	width: 100%;
+}
+
+.request-sheet .row1 {
+	width: 165px;
+	border-right: 1px solid #fff;
+	border-top: 1px solid #fff;
+	vertical-align: top;
+	font-size: 9px;
+	line-height: 12px;
+	background: #cbcbcb;
+	padding: 0;
+}
+
+.request-sheet .row1.add {
+	width: 150px;
+}
+
+.request-sheet .row2 {
+	width: 50px;
+	border-right: 1px solid #fff;
+	border-top: 1px solid #fff;
+	vertical-align: middle;
+	font-size: 9px;
+	line-height: 12px;
+	background: #cbcbcb;
+}
+
+.request-sheet .row3 {
+	width: 300px;
+	vertical-align: top;
+	font-size: 9px;
+	line-height: 12px;
+	background: #cbcbcb;
+	border-top: 1px solid #fff;
+}
+
+.request-sheet tr:nth-child(even) .row1,
+.request-sheet tr:nth-child(even) .row2,
+.request-sheet tr:nth-child(even) .row3 {
+	background: #e7e7e7;
+}
+
+.request-sheet thead .row1,
+.request-sheet thead .row2,
+.request-sheet thead .row3 {
+	text-align: center;
+	border-top: none;
+	border-bottom: 1px solid #fff;
+	color: #fff;
+	font-size: 13px;
+	line-height: 16px;
+	background: #000;
+	font-weight: 400;
+	padding: 3px 3px 3px 5px;
+}
+
+.request-sheet input[type="text"],
+.request-sheet input[type="email"] {
+	background: none;
+	border: none;
+	-webkit-appearance: none;
+	height: auto !important;
+	padding: 3px 3px 3px 5px !important;
+	font-size: 12px !important;
+	line-height: 13px !important;
+	width: 100%;
+	outline: none;
+	box-shadow: none;
+}
+
+.user-info-area {
+	overflow: hidden;
+	width: 350px;
+	margin: 0 auto;
+	padding: 0 0 26px;
+	text-align: left;
+	position: relative;
+}
+
+.user-info-area .success-message,
+.user-info-area .error-message {
+	/*position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;*/
+	text-align: center;
+	font-size: 18px;
+	line-height: 24px;
+	color: red;
+}
+
+.user-info-area .support-message {
+	/*position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;*/
+	text-align: center;
+	font-size: 12px;
+	line-height: 15px;
+}
+
+.user-info-area .error-message {
+	display: none;
+}
+
+.validate-form.error-validate .error-message {
+	display: block !important;
+}
+
+.validate-form.error-validate .success-message {
+	display: none !important;
+}
+
+.validate-form.success-validate .success-message {
+	display: block !important;
+}
+
+.validate-form.success-validate .error-message {
+	display: none !important;
+}
+
+.validate-form.success-validate .user-info-area input[type="submit"] {
+	display: none;
+}
+
+.user-info-holder {
+	overflow: hidden;
+	margin: 0 0 9px;
+	background: #fff;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	padding: 10px 15px 3px 11px;
+	border: 2px solid #a6a6a6;
+}
+
+.user-info-holder .checkbox-list {
+	overflow: hidden;
+	text-align: center;
+	padding: 0 0 6px 70px;
+}
+
+.user-info-holder .checkbox-list li {
+	float: left;
+	width: 30px;
+	text-align: center;
+	margin: 0 0 0 30px;
+}
+
+.user-info-holder .checkbox-list label {
+	width: inherit;
+	display: block;
+	margin: 0 0 4px;
+}
+
+.user-info-holder .checkbox-list.error .jcf-radio {
+	background: url(http://localhost/wp/centro/wp-content/themes/twentyfifteen/images/bg-checkbox-error.png) no-repeat;
+}
+
+.radio-error {
+	background: url(http://localhost/wp/centro/wp-content/themes/twentyfifteen/images/bg-checkbox-error.png) no-repeat !important;
+}
+
+.textbox-error {
+	border:2px solid red !important;
+}
+
+.form-area {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.form-holder {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.error input[type="text"],
+.error .email,
+.error textarea {
+	border: 2px solid #f00;
+}
+
+.jcf-radio {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	cursor: default;
+	background: url(http://localhost/wp/centro/wp-content/themes/twentyfifteen/images/bg-checkbox.png) no-repeat -14px -1px;
+	margin: 0 auto;
+	width: 12px;
+	height: 11px;
+}
+
+.jcf-radio span {
+	display: none;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	right: 3px;
+	bottom: 3px;
+	background: #777;
+	border-radius: 100%;
+}
+
+.jcf-radio input[type="radio"] {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	border: 0;
+	margin: 0;
+	left: 0;
+	top: 0;
+}
+
+.jcf-radio.jcf-checked {
+	background: url(http://localhost/wp/centro/wp-content/themes/twentyfifteen/images/bg-checkbox.png) no-repeat -1px -1px;
+}
+
+.inactive .user-info-holder *,
+.inactive .user-info-area input[type="submit"] {
+	opacity: 0;
+}
+
+.success-message {
+	display: none;
+}
+
+.login .request-from-area input[type="submit"] {
+	display: none;
+}
+
+.login .request-from-area.active-form input[type="submit"] {
+	display: block;
+}
+
+input[type=text]::-ms-clear {  display: none; width : 0px; height: 0px; }
+input[type=text]::-ms-reveal {  display: none; width : 0px; height: 0px; }
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; width : 0px; height: 0px;}
