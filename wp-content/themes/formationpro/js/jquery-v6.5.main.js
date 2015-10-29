@@ -403,9 +403,9 @@ function initEditTable() {
 								});
 
 
-								setTimeout(function() {
+								/*setTimeout(function() {
 									      window.location.assign("/clients/portal/centro");
-									    }, 1000);
+									    }, 1000);*/
 
 						} else {
 
