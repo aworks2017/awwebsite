@@ -9,6 +9,9 @@ Template Name: Centro
 $current_user = wp_get_current_user();
 get_header(); ?>
 
+<div id="primary_home" class="content-area">
+	<div id="content" class="fullwidth" role="main">
+            
 			<div class="request-from-area">
 						<form class="validate-form ajax-form" action="#" method="post">
 							<table class="request-sheet">
@@ -239,5 +242,7 @@ get_header(); ?>
 					</div>
 				</div>
 
+	</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
 
 <?php get_footer(); ?>
