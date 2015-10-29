@@ -908,3 +908,196 @@ add_filter( 'wp_nav_menu_items', function($items,$arg){
 	return $items.$search_form_content;
 	
 }, 1, 2 );
+
+
+/************************
+							Centro functions
+											*********************/
+											
+function aw_centro_status() {
+
+    global $wpdb;
+
+    $sql = "SELECT requestor, week(curdate( )) as this_week, count(*) as total
+		FROM wp_pk5q6m_centro
+		WHERE date_entered >= DATE_SUB( CURDATE( ) , INTERVAL 6 WEEK )
+		group BY requestor, week(CURDATE( ))";
+    $results = $wpdb->get_results($sql) or die(mysql_error());
+
+    $status = "";
+    $i=0;
+
+    foreach( $results as $result ) {
+
+	$wk1 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM wp_pk5q6m_centro WHERE week(date_entered) = %d and requestor = %s", $result->this_week, $result->requestor));
+
+	$wk2 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM wp_pk5q6m_centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 1), $result->requestor));
+
+	$wk3 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM wp_pk5q6m_centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 2), $result->requestor));
+
+	$wk4 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM wp_pk5q6m_centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 3), $result->requestor));
+
+	$wk5 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM wp_pk5q6m_centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 4), $result->requestor));
+
+	$wk6 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM wp_pk5q6m_centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 5), $result->requestor));
+    	
+		$status .= '<tr class="d'.($i%2).'"><td>' .$result->requestor. '</td><td><center>' .$result->total. '</center></td><td><center>' .$wk1->total. '</center></td><td><center>' .$wk2->total . '</center></td><td><center>' .$wk3->total . '</center></td><td><center>' .$wk4->total . '</center></td><td><center>' .$wk5->total . '</center></td><td><center>' .$wk6->total . '</center></td></tr>';
+
+		$i += 1;
+	
+
+    }
+
+    return $status;
+}
+
+add_shortcode('aw_centro_status_sc', 'aw_centro_status');
+
+
+function aw_centro_history() {
+
+    global $wpdb;
+
+    $sql = "SELECT DATE_ADD(date_entered, INTERVAL 2 HOUR) as date_entered, campaign_id, report_type, notes, requestor
+		FROM wp_pk5q6m_centro
+		WHERE date_entered >= DATE_SUB( CURDATE( ) , INTERVAL 8 DAY )
+		ORDER BY requestor, campaign_id, date_entered";
+    $results = $wpdb->get_results($sql) or die(mysql_error());
+
+    $history = "";
+    $i=0;
+
+    foreach( $results as $result ) {
+
+	$history .= '<tr class="d'.($i%2).'"><td>' .$result->requestor. '</td><td>' .$result->campaign_id. '</td><td>' .$result->report_type . '</td><td>' .$result->notes . '</td><td><center>' .$result->date_entered . '</center></td></tr>';
+
+	$i += 1;
+    }
+
+    return $history;
+}
+
+add_shortcode('aw_centro_history_sc', 'aw_centro_history');
+
+
+function submit_new_data() {
+
+    global $wpdb;
+
+    $i = 1;
+	do {
+
+		//need to limit strings here based on database field lengths
+		$campaign = sanitize_text_field($_POST["campaign$i"]);
+		$requestor = sanitize_email($_POST["requestor$i"]);
+		$note = sanitize_text_field($_POST["note$i"]);
+
+		$reports = array('launch', 'pacing', 'final');
+		$report = $reports[$_POST["report$i"]];
+
+		if (!empty($campaign)) {
+
+    			//$sql = "INSERT INTO wp_pk5q6m_centro (campaign_id, report_type, requestor, notes) VALUES ('".$campaign."', '".$report."', '".$requestor."', '".$note."')";
+    			//$results = $wpdb->get_results($sql); //or die(mysql_error());
+
+$wpdb->insert(
+	'wp_pk5q6m_centro',
+	array(
+		'campaign_id' => $campaign,
+		'report_type' => $report,
+		'requestor' => $requestor,
+		'notes' => $note
+	),
+	array(
+		'%s',
+		'%s',
+		'%s',
+		'%s'
+	)
+);
+
+
+
+		}
+
+		$i += 1;
+
+	} while ($i <= 20);
+
+	return;
+}
+
+
+
+function login_form_submit() {
+
+        global $email;
+        $email      =   strtolower(sanitize_email( $_POST['login_email'] ));
+        $exists = email_exists($email);
+
+	if ( !$exists ) {
+
+	   if (substr($email, -11) !== "@centro.net") {
+	      wp_redirect( get_site_url() . '/invalid-login');
+	      exit;
+	   }
+
+	   $user_id = wp_create_user($email, 'aw2015', $email);
+	   
+	   //do not show Wordpress toolbar to logged in users
+	   update_user_meta($user_id, 'show_admin_bar_front', false);    
+
+   	} else {
+	   $user_id = $exists;
+	}
+
+   
+	//log user in
+	$user = get_user_by( 'id', $user_id );
+	if( $user ) {
+    	    wp_set_current_user( $user_id, $user->user_login );
+	    wp_set_auth_cookie( $user_id );
+	    do_action( 'wp_login', $user->user_login );
+	}
+	
+
+
+	wp_safe_redirect( get_site_url() . '/menu');
+	exit;
+
+}
+
+
+
+add_action('wp_logout','go_home');
+function go_home(){
+  wp_redirect( home_url() );
+  exit();
+}
+
+
+function login_redirect( $redirect_to, $request, $user ){
+    return home_url('menu');
+}
+add_filter( 'login_redirect', 'login_redirect', 10, 3 );
+
+
+function my_login_logo() { ?>
+    <style type="text/css">
+        .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png);
+            padding-bottom: 30px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+function my_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return 'Centro Client Portal';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
