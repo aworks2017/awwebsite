@@ -1068,6 +1068,15 @@ function login_form_submit() {
 }
 
 
+//centro form submit
+add_action( 'wp_ajax_centro_form_submit', 'centro_form_submit' );
+
+function centro_form_submit() {
+    print_r($_POST);
+	die();
+}
+
+
 
 add_action('wp_logout','go_home');
 function go_home(){
