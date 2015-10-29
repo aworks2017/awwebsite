@@ -89,6 +89,7 @@ function initCampaignFields(){
 // initialize custom form elements
 function initCustomForms() {
 	/* global jcf */
+	console.log(jcf);
 	jcf.replaceAll();
 }
 
