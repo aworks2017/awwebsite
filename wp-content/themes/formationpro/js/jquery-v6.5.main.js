@@ -428,9 +428,10 @@ function initEditTable() {
        //     options.message.show();
 		//	options.form.removeClass(errorClass).addClass(successClass);
        // });
+	   console.log('ajax=1' + options.data ? '&' + options.data : '');
 		jQuery.ajax({
 			url: /*options.url*/centro_form.ajaxurl,
-			data: 'ajax=1' + options.data ? '&' + options.data : '&action=momo',
+			data: 'ajax=1' + options.data ? '&' + options.data : '',
 			type: options.method || 'POST',
 			success: function() {
 				options.message.show();
