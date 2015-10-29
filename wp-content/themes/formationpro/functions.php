@@ -980,7 +980,11 @@ function aw_centro_history() {
 add_shortcode('aw_centro_history_sc', 'aw_centro_history');
 
 
-function submit_new_data() {
+
+//centro form submit
+add_action( 'wp_ajax_centro_form_submit', 'centro_form_submit' );
+
+function centro_form_submit() {
 
     global $wpdb;
 
@@ -1024,7 +1028,7 @@ $wpdb->insert(
 
 	} while ($i <= 20);
 
-	return;
+	die(1);
 }
 
 
@@ -1066,16 +1070,6 @@ function login_form_submit() {
 	exit;
 
 }
-
-
-//centro form submit
-add_action( 'wp_ajax_centro_form_submit', 'centro_form_submit' );
-
-function centro_form_submit() {
-    print_r($_POST);
-	die();
-}
-
 
 
 add_action('wp_logout','go_home');
