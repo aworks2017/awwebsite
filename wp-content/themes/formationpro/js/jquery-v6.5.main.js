@@ -1,5 +1,5 @@
 // page init
-jQuery(function($) {
+jQuery(function() {
 	initCustomForms();
 	initFormValidate();
 	initValidation();
