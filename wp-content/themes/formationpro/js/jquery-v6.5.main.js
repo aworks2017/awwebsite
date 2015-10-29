@@ -423,15 +423,13 @@ function initEditTable() {
 	});
 
 	function sendData(options) {
-		console.log(options);
 		//jQuery.post("centro.php", {data: options.data}, function(result){
        //     options.message.show();
 		//	options.form.removeClass(errorClass).addClass(successClass);
        // });
-	   console.log('ajax=1' + options.data ? '&' + options.data : '');
 		jQuery.ajax({
 			url: /*options.url*/centro_form.ajaxurl,
-			data: 'ajax=1' + options.data ? '&' + options.data : '',
+			data: 'action=centro_form_submit&' + options.data ,
 			type: options.method || 'POST',
 			success: function() {
 				options.message.show();
