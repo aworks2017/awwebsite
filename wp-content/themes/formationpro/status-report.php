@@ -9,6 +9,9 @@ $centro_status = aw_centro_status();
 
 get_header(); ?>
 
+<div id="primary_home" class="content-area">
+	<div id="content" class="fullwidth" role="main">
+    
 	<div class="request-from-area" style="max-height: 500px; overflow-y: scroll;">
 		<table class="request-sheet" cellpadding="10">
 			<thead>
@@ -51,5 +54,7 @@ get_header(); ?>
 					</div>
 			</div>
 
+	</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
 
 <?php get_footer(); ?>
