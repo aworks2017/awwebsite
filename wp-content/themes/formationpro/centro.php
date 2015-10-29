@@ -14,6 +14,11 @@ add_action( 'wp_enqueue_scripts', function(){
 	
 });
 
+// Localize the script with new data
+$centro_form = array(
+	'ajaxurl' => admin_url( 'admin-ajax.php' )
+);
+wp_localize_script( 'jquery-v65main', 'centro_form', $centro_form );
 
 
 get_header(); ?>

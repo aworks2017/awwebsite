@@ -429,7 +429,7 @@ function initEditTable() {
 		//	options.form.removeClass(errorClass).addClass(successClass);
        // });
 		jQuery.ajax({
-			url: /*options.url*/ajaxurl,
+			url: /*options.url*/centro_form.ajaxurl,
 			data: 'ajax=1' + options.data ? '&' + options.data : '',
 			type: options.method || 'POST',
 			success: function() {
