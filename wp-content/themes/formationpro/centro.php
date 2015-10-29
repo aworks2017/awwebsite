@@ -14,7 +14,7 @@ add_action( 'wp_enqueue_scripts', function(){
 	
 });
 
-if(isset($_POST['mm']))die('momo');
+
 
 get_header(); ?>
 
