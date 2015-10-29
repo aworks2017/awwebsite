@@ -8,12 +8,11 @@ Template Name: Centro
 
 $current_user = wp_get_current_user();
 
-
-function request_form_css() {
+add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_style( 'style-name', get_template_directory_uri() . '/css/request-form.css' );
-}
-
-add_action( 'wp_enqueue_scripts', 'request_form_css' );
+	wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/jquery-v6.5.main.js', array(), '1.0.0', true );
+	
+});
 
 
 get_header(); ?>
