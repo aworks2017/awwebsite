@@ -19,7 +19,7 @@ get_header(); ?>
 
 <div id="primary_home" class="content-area">
 	<div id="content" class="fullwidth" role="main">
-            
+		<div class="table-section">             
 			<div class="request-from-area">
 						<form class="validate-form ajax-form" action="#" method="post">
 							<table class="request-sheet">
@@ -249,7 +249,7 @@ get_header(); ?>
 						</form>
 					</div>
 				</div>
-
+		</div><!-- .table-section -->
 	</div><!-- #content .site-content -->
 </div><!-- #primary .content-area -->
 

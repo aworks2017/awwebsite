@@ -116,7 +116,6 @@ function initFormValidate() {
 
 // edit table init
 function initEditTable() {
-	console.log('ok');
 	var inactiveClass = 'inactive';
 	var errorClass = 'error-validate';
 	var successClass = 'success-validate';
