@@ -43,8 +43,8 @@ get_header(); ?>
 					</div>
 					<div class="request-from-area">
 							<div class="user-info-area">
-								<div class="support-message"><br /><br /><br /><br />
-									<center><a class="button-red" href="/menu">MAIN MENU</a></center>
+								<div class="support-message"><br />
+									<center><a class="button-red" href="../">MAIN MENU</a></center>
 								</div>
 								<div class="support-message"><br /><br />
 									<p>&nbsp;<br/>For support contact <a href="mailto:centro@emailautonomy.com">centro@emailautonomy.com</a></p><br /><br />
