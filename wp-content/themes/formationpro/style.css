@@ -2490,4 +2490,9 @@ MEDIA QUERIES
     display: inline-block;
     text-align: center;
     line-height: 60px;
+	color: #666666;
+}
+#centro_menu a:hover{
+	    box-shadow: 1px 3px 3px #D8D8D8;
+		font-weight:bold;
 }
