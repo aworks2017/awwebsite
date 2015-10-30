@@ -2479,9 +2479,15 @@ MEDIA QUERIES
 
 #centro_menu {
     height: 60px;
-    background: #EFEFEF;
+    background: #EFEFEF url(images/diagonal-noise.png);
+    margin-bottom: 10px;
+    border-bottom: 1px solid #E1E1E1;
+    border-top: 1px solid #E1E1E1;
 }
 
-#centro_menu a{
-    width:30%;
+#centro_menu a {
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+    line-height: 60px;
 }
