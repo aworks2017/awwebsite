@@ -2476,3 +2476,12 @@ MEDIA QUERIES
 	padding: 6px;
 	}
 }
+
+#centro_menu {
+    height: 60px;
+    background: #EFEFEF;
+}
+
+#centro_menu a{
+    width:30%;
+}
