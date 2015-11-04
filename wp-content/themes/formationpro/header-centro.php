@@ -44,51 +44,14 @@
 
 		    <div id="masthead-wrap">
 
-			    <div id="topbar_container">
-				    <div class="topbar">
-					    <?php
-
-							$list_contact_options = array(
-								array('telnumber', __( 'Telephone Number', 'formationpro'), 'phone'),
-								array('mobile', __( 'Mobile Number', 'formationpro'), 'mobile'),
-								array('email', __( 'Email Address', 'formationpro'), 'envelope'),
-								array('address', __( 'Address', 'formationpro'), 'map-marker'),
-							);
-
-							echo "<div class='topbar_content_left'>";
-
-							$arraycount = count($list_contact_options);
-							for ($row = 0; $row <  $arraycount; $row++) {
-								if( get_theme_mod( $list_contact_options[$row][0] . '_textbox_header_one' ) ){
-									echo '<div class="contact ' . $list_contact_options[$row][0] . '"><i class="fa fa-' . $list_contact_options[$row][2] . '"></i> ' . get_theme_mod( $list_contact_options[$row][0] . '_textbox_header_one' ) . '</div>';
-								}
-							}
-
-							echo "</div>";
-
-					    ?>
-				    	<div class="topbar_content_right"><?php get_template_part( 'inc/socmed' ); ?></div>
-				    </div>
-			    </div>
+			    <div id="topbar_container" style="min-height: 5px"></div>
 
 				<header id="masthead" class="site-header header_container" role="banner">
 
-					<?php if ( get_theme_mod( 'formationpro_logo' ) ) : ?>
-
-
 						<div class="site-logo">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_theme_mod( 'formationpro_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"></a>
+							<a href="/clients/portal/centro" title="Centro" rel="home"><img src="http://dev2.autonomyworks.net/wp-content/uploads/2015/11/centro-logo.png" alt="Centro"></a>
 						</div>
-
-					<?php else : ?>
-
-						<div class="site-introduction">
-							<h1 class="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-							<p class="site-description"><?php bloginfo( 'description' ); ?></p> 
-						</div>
-
-					<?php endif; ?>
-
+                        
 					<nav role="navigation" class="site-navigation main-navigation">
 
 						<h1 class="assistive-text"><a href="#" title="<?php _e('Navigation Toggle', 'formationpro'); ?>"><?php _e( 'Menu', 'formationpro' ); ?></a></h1>
@@ -104,14 +67,5 @@
 				</header><!-- #masthead .site-header -->
 
 			</div><!-- #masthead-wrap -->
-
-		    <div class="header-image">
-				<?php $header_image = get_header_image();
-					if ( ! empty( $header_image ) ): ?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<img src="<?php header_image(); ?>"/>
-						</a>
-				<?php endif; ?>
-			</div>
 			
 			<div id="main" class="site-main">
