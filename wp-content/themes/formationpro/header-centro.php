@@ -44,7 +44,9 @@
 
 		    <div id="masthead-wrap">
 
-			    <div id="topbar_container" style="min-height: 5px"></div>
+			    <div id="topbar_container" style="min-height: 5px">
+                	<a href="#" style="float:right;color:white">LOGOUT</a>
+                </div>
 
 				<header id="masthead" class="site-header header_container" role="banner">
 
