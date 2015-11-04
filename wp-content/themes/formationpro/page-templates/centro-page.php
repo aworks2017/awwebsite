@@ -6,20 +6,24 @@ Template Name: Centro Page
 <form class="validate-form ajax-form" method="post">
 */
 
+
+
 get_header('centro'); ?>
-		<div id="primary_wrap">
-		<div id="primary" class="content-area">
-			<div id="content" class="site-content" role="main">
 
+		<header class="entry-header">
+		<h1 class="page-title"><?php the_title(); ?><span class="breadcrumbs"><?php if (function_exists('formationpro_breadcrumbs')) formationpro_breadcrumbs(); ?></span></h1>
+		</header><!-- .entry-header -->
+
+		<div id="primary_home" class="content-area">
+
+			<div id="content" class="fullwidth" role="main">
 				<?php while ( have_posts() ) : the_post(); ?>
-
 					<?php get_template_part( 'content', 'page' ); ?>
-
-					<?php comments_template( '', true ); ?>
-
 				<?php endwhile; // end of the loop. ?>
-
 			</div><!-- #content .site-content -->
+
 		</div><!-- #primary .content-area -->
-	</div>
+
+
+
 <?php get_footer('centro'); ?>
