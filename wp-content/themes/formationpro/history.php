@@ -7,7 +7,7 @@ Template Name: History
 
 $centro_history = aw_centro_history();
 
-get_header(); ?>
+get_header('centro'); ?>
 
 <div id="primary_home" class="content-area">
 	<div id="content" class="fullwidth" role="main">
@@ -53,4 +53,4 @@ get_header(); ?>
 	</div><!-- #content .site-content -->
 </div><!-- #primary .content-area -->
 
-<?php get_footer(); ?>
+<?php get_footer('centro'); ?>
