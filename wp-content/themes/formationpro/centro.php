@@ -258,4 +258,4 @@ get_header('centro'); ?>
 	</div><!-- #content .site-content -->
 </div><!-- #primary .content-area -->
 
-<?php get_footer(); ?>
+<?php get_footer('centro'); ?>
