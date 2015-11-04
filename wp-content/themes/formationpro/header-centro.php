@@ -44,8 +44,8 @@
 
 		    <div id="masthead-wrap">
 
-			    <div id="topbar_container" style="min-height: 5px">
-                	<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="float:right;color:white">LOGOUT</a>
+			    <div id="topbar_container" style="min-height: 30px">
+                	<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="float: right;color: white;margin-right: 20px;font-weight: bold;">LOGOUT</a>
                 </div>
 
 				<header id="masthead" class="site-header header_container" role="banner">
