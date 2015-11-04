@@ -41,7 +41,9 @@ get_header(); ?>
 				$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 				if($feat_image) :
 			?>
-            <img src="<?php echo $feat_image?>" width="100%"/>
+            <div style="width:100%; text-align:center">
+            	<img src="<?php echo $feat_image?>" width="85%"/>
+            </div>
             <?php endif;?>
             
 			<div style="width: 100%;text-align: center;margin: 10px auto;"><a href="portal" style="background-color: #343234;color: white;padding: 14px 30px;border-radius: 10px;cursor: pointer;">Client Login</a></div>
