@@ -67,5 +67,5 @@
 				</header><!-- #masthead .site-header -->
 
 			</div><!-- #masthead-wrap -->
-			
+			<hr/>
 			<div id="main" class="site-main">
