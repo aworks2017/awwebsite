@@ -36,17 +36,6 @@ get_header(); ?>
 
 				<?php endwhile; // end of the loop. ?>
 
-
-			<?php
-				$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-				if($feat_image) :
-			?>
-            <div style="width:100%; text-align:center">
-            	<img src="<?php echo $feat_image?>" width="85%"/>
-            </div>
-            <?php endif;?>
-            
-			<div style="width: 100%;text-align: center;margin: 50px auto;"><a href="portal" style="background-color: #343234;color: white;padding: 14px 30px;border-radius: 10px;cursor: pointer;">Client Login</a></div>
 			</div><!-- #content .site-content -->
 
 		</div><!-- #primary .content-area -->
