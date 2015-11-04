@@ -20,7 +20,7 @@ wp_localize_script( 'jquery-v65main', 'centro_form', $centro_form );
 
 
 
-//get_header(); ?>
+get_header('centro'); ?>
 
 <div id="primary_home" class="content-area">
 	<div id="content" class="fullwidth" role="main">
@@ -258,4 +258,4 @@ wp_localize_script( 'jquery-v65main', 'centro_form', $centro_form );
 	</div><!-- #content .site-content -->
 </div><!-- #primary .content-area -->
 
-<?php //get_footer(); ?>
+<?php get_footer(); ?>
