@@ -48,7 +48,7 @@
 
 				<header id="masthead" class="site-header header_container" role="banner">
 
-						<div class="site-logo">
+						<div class="centro-site-logo" style="float: left;display: block;margin: 30px 0 0 30px;">
 							<a href="/clients/portal/centro" title="Centro" rel="home"><img src="http://dev2.autonomyworks.net/wp-content/uploads/2015/11/centro-logo.png" alt="Centro"></a>
 						</div>
                         
