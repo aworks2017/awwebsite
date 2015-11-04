@@ -38,14 +38,16 @@
 
 <body <?php body_class(); ?>>
 	<div id="wrap">
-		<div id="page" class="hfeed site custom_momo_header">
+		<div id="page" class="hfeed site">
 
 			<?php do_action( 'before' ); ?>
 
 		    <div id="masthead-wrap">
 
 			    <div id="topbar_container" style="min-height: 30px">
-                	<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="float: right;color: white;margin-right: 20px;font-weight: bold;">LOGOUT</a>
+                	<div style="max-width:1160px;margin:0 auto;">
+                		<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="float: right;color: white;margin-right: 20px;font-weight: bold;">LOGOUT</a>
+                    </div>
                 </div>
 
 				<header id="masthead" class="site-header header_container" role="banner">
