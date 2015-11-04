@@ -7,5 +7,7 @@
 
 </div><!-- #page .hfeed .site -->
 </div><!-- end of wrapper -->
+<?php wp_footer(); ?>
+
 </body>
 </html>
