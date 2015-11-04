@@ -46,7 +46,7 @@ get_header(); ?>
             </div>
             <?php endif;?>
             
-			<div style="width: 100%;text-align: center;margin: 10px auto;"><a href="portal" style="background-color: #343234;color: white;padding: 14px 30px;border-radius: 10px;cursor: pointer;">Client Login</a></div>
+			<div style="width: 100%;text-align: center;margin: 50px auto;"><a href="portal" style="background-color: #343234;color: white;padding: 14px 30px;border-radius: 10px;cursor: pointer;">Client Login</a></div>
 			</div><!-- #content .site-content -->
 
 		</div><!-- #primary .content-area -->
