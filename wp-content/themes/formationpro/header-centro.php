@@ -52,6 +52,7 @@
 
                         <div style="max-width:1160px;float: right;line-height: 100px;">
                 			<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="margin-right: 15px;font-weight: bold;">LOGOUT</a>
+                            <a href="/clients/portal/centro/" style="margin-right: 15px;font-weight: bold;">Centro Home</a>
                     	</div>
                         
 					</nav><!-- .site-navigation .main-navigation -->
