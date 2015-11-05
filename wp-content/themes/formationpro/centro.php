@@ -24,7 +24,7 @@ get_header('centro'); ?>
 
 <div id="primary_home" class="content-area">
 	<div id="content" class="fullwidth" role="main">
-		<div class="table-section">             
+		<div class="table-section inactive">             
 			<div class="request-from-area">
 						<form class="validate-form ajax-form" action="#" method="post">
 							<table class="request-sheet">

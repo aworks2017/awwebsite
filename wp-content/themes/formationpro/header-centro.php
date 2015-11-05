@@ -46,7 +46,7 @@
 
 			    <div id="topbar_container" style="min-height: 30px">
                 	<div style="max-width:1160px;margin:0 auto;">
-                		<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="float: right;color: white;margin-right: 20px;font-weight: bold;">LOGOUT</a>
+                		<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="float: right;color: white;margin-right: 15px;font-weight: bold;">LOGOUT</a>
                     </div>
                 </div>
 
