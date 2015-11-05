@@ -7,8 +7,7 @@ Template Name: Centro
 */
 
 $current_user = wp_get_current_user();
-var_dump($current_user);
-var_dump(cc_get_client_groups_id()) ;
+
 add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_style( 'style-name', get_template_directory_uri() . '/css/request-form.css' );
 	wp_enqueue_script( 'jquery-v65main', get_template_directory_uri() . '/js/jquery-v6.5.main.js', array('jquery'), '1.0.0', true );
@@ -24,6 +23,10 @@ wp_localize_script( 'jquery-v65main', 'centro_form', $centro_form );
 get_header('centro'); ?>
 
 <div id="primary_home" class="content-area">
+<?php
+var_dump($current_user);
+var_dump(cc_get_client_groups_id()) ;
+?>
 	<div id="content" class="fullwidth" role="main">
 		<div class="table-section inactive">             
 			<div class="request-from-area">
