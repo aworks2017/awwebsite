@@ -25,7 +25,7 @@ get_header('centro'); ?>
 <div id="primary_home" class="content-area">
 <?php
 var_dump($current_user);
-var_dump(cc_get_client_groups_id()) ;
+var_dump(WPC_Client_Common::cc_get_client_groups_id($current_user->data->ID)) ;
 ?>
 	<div id="content" class="fullwidth" role="main">
 		<div class="table-section inactive">             
