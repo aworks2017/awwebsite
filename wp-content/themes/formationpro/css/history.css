@@ -206,5 +206,5 @@ tr{
     line-height: 35px;
 }
 th{
-	line-height: 25px;
+	line-height: 25px !important;
 }
