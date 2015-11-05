@@ -8,15 +8,14 @@
  * @since formationpro 1.0
  */
 ?><!DOCTYPE html>
-<!--[if IE 8]>
-<html id="ie8" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if !(IE 8) ]><!-->
-<html <?php language_attributes(); ?>>
-<!--<![endif]-->
+<html>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=1000">
+<meta name="MobileOptimized" content="1000">
+<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+
 
 <?php if(get_theme_mod('formationpro_global_favicon')) : ?>
 	<link rel="shortcut icon" href="<?php echo esc_url(get_theme_mod('formationpro_global_favicon')); ?>" />
@@ -29,12 +28,8 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-<!--[if lt IE 9]>
-<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
-<![endif]-->
-<script>
-(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
-</script>
+
+
 <?php wp_head(); ?>
 </head>
 
