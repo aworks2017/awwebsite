@@ -6,7 +6,7 @@
 </div>
 <!-- #main .site-main -->
 
-<footer id="colophon" class="site-footer" role="contentinfo" style="height: 25px;"> </footer>
+
 <!-- #colophon .site-footer --> 
 
 <a href="#top" id="smoothup"></a>
