@@ -90,6 +90,7 @@ function initCampaignFields(){
 function initCustomForms() {
 	/* global jcf */
 	jcf.replaceAll();
+	console.log('jcf.replaceAll');
 }
 
 function initFormValidate() {

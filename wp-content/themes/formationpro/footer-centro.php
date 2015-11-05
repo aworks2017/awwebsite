@@ -8,10 +8,5 @@
 </div><!-- #page .hfeed .site -->
 </div><!-- end of wrapper -->
 <?php wp_footer(); ?>
-<script>
-$(function() {
-    jcf.replaceAll();
-});
-</script>
 </body>
 </html>
