@@ -981,7 +981,7 @@ add_shortcode('aw_centro_history_sc', 'aw_centro_history');
 
 
 
-//centro form submit
+//centro form submit by momo
 add_action( 'wp_ajax_centro_form_submit', 'centro_form_submit' );
 
 function centro_form_submit() {
@@ -1001,8 +1001,8 @@ function centro_form_submit() {
 
 		if (!empty($campaign)) {
 
-echo ' '.$i.' ';
-$wpdb->insert(
+
+$success = $wpdb->insert(
 	'aw_dev2_centro',
 	array(
 		'campaign_id' => $campaign,
@@ -1017,7 +1017,7 @@ $wpdb->insert(
 		'%s'
 	)
 );
-
+if($success) echo '$success';
 
 
 		}
