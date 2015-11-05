@@ -56,7 +56,7 @@
                             </span>
                             <?php if($post->post_name!='centro'):?>
                             <span style="float:right;margin-right: 15px;">
-                            <a href="/clients/portal/centro/" style="font-weight: bold;">Centro Home</a>
+                            <a href="/clients/portal/centro/" style="font-weight: bold;">Main Menu</a>
                             </span>
                             <?php endif;?>
                     	</div>
