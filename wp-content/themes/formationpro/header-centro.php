@@ -51,8 +51,12 @@
 					<nav role="navigation" class="site-navigation main-navigation">
 
                         <div style="max-width:1160px;float: right;line-height: 100px;">
-                			<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="margin-right: 15px;font-weight: bold;">LOGOUT</a>
-                            <a href="/clients/portal/centro/" style="margin-right: 15px;font-weight: bold;">Centro Home</a>
+                			<span style="float:right;margin-right: 15px;">
+                            <a href="<?php echo wp_logout_url( '/clients' ) ?>" style="font-weight: bold;">LOGOUT</a>
+                            </span>
+                            <span style="float:right;margin-right: 15px;">
+                            <a href="/clients/portal/centro/" style="font-weight: bold;">Centro Home</a>
+                            </span>
                     	</div>
                         
 					</nav><!-- .site-navigation .main-navigation -->
