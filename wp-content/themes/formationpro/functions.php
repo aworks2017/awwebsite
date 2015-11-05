@@ -1002,7 +1002,7 @@ function centro_form_submit() {
 		if (!empty($campaign)) {
 
 
-$success = $wpdb->insert(
+$wpdb->insert(
 	'aw_dev2_centro',
 	array(
 		'campaign_id' => $campaign,
@@ -1017,7 +1017,7 @@ $success = $wpdb->insert(
 		'%s'
 	)
 );
-if($success) echo '$success';
+
 
 
 		}
