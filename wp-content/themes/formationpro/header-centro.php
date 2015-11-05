@@ -14,7 +14,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="viewport" content="width=1000">
 <meta name="MobileOptimized" content="1000">
-<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
 
 
 <?php if(get_theme_mod('formationpro_global_favicon')) : ?>
