@@ -18,6 +18,12 @@ get_header('centro'); ?>
             
 	<div class="request-from-area" style="max-height: 500px; overflow-y: scroll;">
 		<table class="request-sheet" cellpadding="10">
+        	<colgroup">
+        		<col style="width: 15%;">
+        		<col style="width: 10%;">
+  				<col style="width: 30%;">
+  				<col style="width: 15%;">
+			</colgroup>
 			<thead>
 									<tr>
 										<th class="row1">Requestor</th>
@@ -44,9 +50,6 @@ get_header('centro'); ?>
 					</div>
 					<div class="request-from-area">
 							<div class="user-info-area">
-								<div class="support-message"><br/>
-									<center><a class="button-red" href="../">MAIN MENU</a></center>
-								</div>
 								<div class="support-message"><br /><br />
 									<p>&nbsp;<br/>For support contact <a href="mailto:centro@emailautonomy.com">centro@emailautonomy.com</a></p><br /><br />
 
