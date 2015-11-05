@@ -969,7 +969,7 @@ function aw_centro_history() {
 
     foreach( $results as $result ) {
 
-	$history .= '<tr class="d'.($i%2).'"><td class="td0">' .$result->requestor. '</td><td>' .$result->campaign_id. '</td><td><center>' .$result->report_type . '</center></td><td><center>' .$result->notes . '</center></td><td><center>' .$result->date_entered . '</center></td></tr>';
+	$history .= '<tr class="d'.($i%2).'"><td class="td0">' .$result->requestor. '</td><td class="td0">' .$result->campaign_id. '</td><td><center>' .$result->report_type . '</center></td><td><center>' .$result->notes . '</center></td><td><center>' .$result->date_entered . '</center></td></tr>';
 
 	$i += 1;
     }
