@@ -50,7 +50,7 @@
                         
 					<nav role="navigation" class="site-navigation main-navigation">
 
-                        <div style="max-width:1160px;float: right;">
+                        <div style="max-width:1160px;float: right;line-height: 100px;">
                 			<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="margin-right: 15px;font-weight: bold;">LOGOUT</a>
                     	</div>
                         
