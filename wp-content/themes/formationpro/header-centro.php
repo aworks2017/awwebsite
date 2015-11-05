@@ -40,11 +40,7 @@
 
 		    <div id="masthead-wrap">
 
-			    <div id="topbar_container" style="min-height: 30px">
-                	<div style="max-width:1160px;margin:0 auto;">
-                		<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="float: right;color: white;margin-right: 15px;font-weight: bold;">LOGOUT</a>
-                    </div>
-                </div>
+			    <div id="topbar_container" style="min-height: 30px"></div>
 
 				<header id="masthead" class="site-header header_container" role="banner">
 
@@ -59,8 +55,10 @@
 						<div class="assistive-text skip-link">
 							<a href="#content" title="<?php esc_attr_e( 'Skip to content', 'formationpro' ); ?>"><?php _e( 'Skip to content', 'formationpro' ); ?></a>
 						</div>
-
-						<?php wp_nav_menu( array( 'menu'=>'centro' ) ); ?>
+						
+                        <div style="max-width:1160px;margin:0 auto;">
+                			<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="float: right;color: white;margin-right: 15px;font-weight: bold;">LOGOUT</a>
+                    	</div>
                         
 					</nav><!-- .site-navigation .main-navigation -->
 
