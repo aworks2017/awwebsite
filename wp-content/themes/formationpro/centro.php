@@ -8,17 +8,22 @@ Template Name: Centro
 
 $current_user = wp_get_current_user();
 
-global $wp_scripts;
-$wp_scripts->queue = array();
-
-
-add_action( 'wp_enqueue_scripts', function(){
+function pm_remove_all_scripts() {
+    global $wp_scripts;
+    $wp_scripts->queue = array();
 	wp_enqueue_style( 'style-name', get_template_directory_uri() . '/css/request-form.css' );
 	wp_enqueue_script( 'jquery-v65main', get_template_directory_uri() . '/js/jquery-v6.5.main.js', array(), '1.0.0', true );
 	$centro_form = array(
 	'ajaxurl' => admin_url( 'admin-ajax.php' )
 );
 wp_localize_script( 'jquery-v65main', 'centro_form', $centro_form );
+
+}
+add_action('wp_print_scripts', 'pm_remove_all_scripts', 100);
+
+
+add_action( 'wp_enqueue_scripts', function(){
+	
 	
 });
 
