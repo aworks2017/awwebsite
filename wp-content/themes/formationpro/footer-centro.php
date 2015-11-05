@@ -7,7 +7,7 @@
 
 </div><!-- #page .hfeed .site -->
 </div><!-- end of wrapper -->
-<?php wp_footer(); ?>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost/wp/centro/wp-content/themes/twentyfifteen/js/jquery-v6.5.main.js"></script>
 </body>
 </html>
