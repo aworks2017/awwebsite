@@ -40,9 +40,9 @@ get_header('centro'); ?>
 									<tr>
 										<th class="row1">Campaign ID</th>
 										<th class="row1">Requestor</th>
-										<th class="row2">Launch <br> Report</th>
-										<th class="row2">Pacing <br> Report</th>
-										<th class="row2">Final <br> Report</th>
+										<th class="row2">Launch Report</th>
+										<th class="row2">Pacing Report</th>
+										<th class="row2">Final Report</th>
 										<th class="row3">Notes</th>
 									</tr>
 								</thead>
