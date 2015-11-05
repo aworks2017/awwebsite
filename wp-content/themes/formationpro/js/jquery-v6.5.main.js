@@ -1,20 +1,20 @@
 // page init
-$(function() {
+jQuery(function() {
 	initCustomForms();
 	initFormValidate();
 	initValidation();
 	initEditTable();
-	$('input, textarea').placeholder();
+	jQuery('input, textarea').placeholder();
 
 	initCampaignFields();
 
 	// allow unckech radios in a row
-	$("input[type='radio']").click(function(){
-		var radio = $(this);
+	jQuery("input[type='radio']").click(function(){
+		var radio = jQuery(this);
 		var radio_name = radio.attr('name');
 		var radio_stat = radio.attr('radio_stat');
-		$( "input[name='"+radio_name+"']" ).each(function( index ) {
-			if($(this)!=radio) $(this).removeAttr('radio_stat');
+		jQuery( "input[name='"+radio_name+"']" ).each(function( index ) {
+			if(jQuery(this)!=radio) jQuery(this).removeAttr('radio_stat');
 		});
 
 		if(radio_stat=='on'){
@@ -29,11 +29,11 @@ $(function() {
 });
 
 function initCampaignFields(){
-	var default_email = $('[name="default_email"]');
-	var emails = $('input[data-rel="edit-field2"]');
-	var emails_final = $('input[data-rel="edit-field2-final"]');
+	var default_email = jQuery('[name="default_email"]');
+	var emails = jQuery('input[data-rel="edit-field2"]');
+	var emails_final = jQuery('input[data-rel="edit-field2-final"]');
 
-	var inputs = $('input[data-rel="edit-field1"]');
+	var inputs = jQuery('input[data-rel="edit-field1"]');
 
 	inputs.on('keyup', setDefaultEmail);
 
@@ -75,7 +75,7 @@ function initCampaignFields(){
 
 	function setDefaultEmail(){
 
-		if ( $.trim($(this).val())!='')		//assign default value only if campaign id is given
+		if ( jQuery.trim(jQuery(this).val())!='')		//assign default value only if campaign id is given
 		{
 			var i = inputs.indexOf(this);
 			var email = emails[i];
@@ -95,8 +95,8 @@ function initCustomForms() {
 function initFormValidate() {
 	var activeClass = 'active-form';
 
-	$('.request-from-area').each(function() {
-		var form = $(this);
+	jQuery('.request-from-area').each(function() {
+		var form = jQuery(this);
 		var emailField = form.find('.email');
 		var regEmail = /^([a-zA-Z0-9_\.\-])+\@centro.net$/;
 
@@ -109,7 +109,7 @@ function initFormValidate() {
 		}
 
 		emailField.on('keyup', onSubmit);
-		$(window).on('keyupTrigger', onSubmit);
+		jQuery(window).on('keyupTrigger', onSubmit);
 	});
 }
 
@@ -119,8 +119,8 @@ function initEditTable() {
 	var errorClass = 'error-validate';
 	var successClass = 'success-validate';
 
-	$('.table-section').each(function() {
-		var holder = $(this);
+	jQuery('.table-section').each(function() {
+		var holder = jQuery(this);
 		var editBlock = holder.find('.user-info-area');		//data-entry-form
 		var allFields = editBlock.find(':input');
 		var form = holder.find('.ajax-form');
@@ -130,7 +130,7 @@ function initEditTable() {
 
 	//Data-entry-form Modification area
 		holder.on('keyup click keydown', '.request-sheet tbody tr', function(e) {
-			var currRow = $(this);
+			var currRow = jQuery(this);
 			var fields = currRow.find(':input');
 
 			if(e.which != 13)	//pressing enter in the datasheet was clearing the success message..
@@ -174,25 +174,25 @@ function initEditTable() {
 
 					var allRadios = editField.closest('.checkbox-list').find(':radio');
 					allRadios.each(function() {
-						jcf.refresh($(this));
+						jcf.refresh(jQuery(this));
 					});
 
 				} else {
 						editField.val(field.val());
-						//$(window).trigger('keydownTrigger');
-						$(window).trigger('keyupTrigger');
+						//jQuery(window).trigger('keydownTrigger');
+						jQuery(window).trigger('keyupTrigger');
 				}
 			} //end of setstate
 
 			fields.each(function() {
-				setState($(this));
+				setState(jQuery(this));
 			});
 
 	//DataSheet Modification area
 			fields.on('click keyup', function(event) {
 					if(event.type=='click')	//enable the radio button of current row
 					{
-						var tempField=$(this);
+						var tempField=jQuery(this);
 						if (tempField.is(':radio')) {
 							var currFieldTemp=tempField;
 
@@ -201,23 +201,23 @@ function initEditTable() {
 							var rowFieldTemp=holder.data('currRow').find('[name=' + currFieldTemp.attr('name') + ' ]');
 
 							allRadiosTemp2.each(function() {
-								if(currFieldTemp.attr('name')==$(this).attr('name'))
+								if(currFieldTemp.attr('name')==jQuery(this).attr('name'))
 								{
-									$(this).parent().addClass('jcf-checked');
-									$(this).parent().removeClass('radio-error');
+									jQuery(this).parent().addClass('jcf-checked');
+									jQuery(this).parent().removeClass('radio-error');
 								}
-								jcf.refresh($(this));
+								jcf.refresh(jQuery(this));
 							});
 						}
 					}
-				setState($(this));
+				setState(jQuery(this));
 			});
 
 		});
 
 	//Data-entry-form Modification area
 		allFields.on('click keyup', function() {
-			var currField = $(this);
+			var currField = jQuery(this);
 			var rowField = holder.data('currRow').find('[data-rel=' + currField.data('rel') + ' ]');
 
 			if (currField.is(':radio')) {
@@ -232,32 +232,32 @@ function initEditTable() {
 				allRadios.each(function() {
 
 					/*sad remove errors from datasheet's radios and enable them */
-						 var currFieldTemp = $(this);
+						 var currFieldTemp = jQuery(this);
 						 var rowFieldTemp=holder.data('currRow').find('[data-rel=' + currFieldTemp.data('rel') + ' ]');
 						 var currentRadioParentTemp = rowFieldTemp.closest('.jcf-radio');
 						 currentRadioParentTemp.removeClass('radio-error');
 
-					jcf.refresh($(this));
+					jcf.refresh(jQuery(this));
 				});
 			} else {
 
 				rowField.val(currField.val());		//assign Inputted data-entry form's CampaignId to Row's campaignID
 
 				//sad assign default email value to corresponding row only if campaign id is inputted for data-entry-form
-					if ( $.trim(currField.val())!='')
+					if ( jQuery.trim(currField.val())!='')
 					{
 						var emailField=rowField.closest('td').next('td').find(':text'); // current row
 						if(emailField.attr('data-param')=='email')
 						{
-							if($.trim(emailField.val())=='')
+							if(jQuery.trim(emailField.val())=='')
 							{
-								var default_email_temp = $('[name="default_email"]');
+								var default_email_temp = jQuery('[name="default_email"]');
 								emailField.val(default_email_temp.val());
 							}
 						}
 					}
 
-				$(window).trigger('keyupTrigger');
+				jQuery(window).trigger('keyupTrigger');
 			}
 		});
 
@@ -283,20 +283,20 @@ function initEditTable() {
 						e.preventDefault();
 					}
 
-			   $('.request-sheet tbody tr').each(function(){
+			   jQuery('.request-sheet tbody tr').each(function(){
 
-						var currRowAgain = $(this);
+						var currRowAgain = jQuery(this);
 						var fieldsAgain = currRowAgain.find(':input');
 
 						// logic to check if any of the element is inputted	So in the next step , we will check only inputted row one by one
 								var fieldsAgainTemp = currRowAgain.find(':input');
 								var fieldsEmpty=true;
 
-								$.each( fieldsAgainTemp, function( index, value ){
-									var currentElementTemp=$(this);
+								jQuery.each( fieldsAgainTemp, function( index, value ){
+									var currentElementTemp=jQuery(this);
 									if (currentElementTemp.is(':text') && currentElementTemp.val()!='') {
 										fieldsEmpty=false;fieldsAllEmpty=false;
-									}else if (currentElementTemp.is(':radio') && $('[name='+currentElementTemp.attr('name')+']').is(":checked")) {
+									}else if (currentElementTemp.is(':radio') && jQuery('[name='+currentElementTemp.attr('name')+']').is(":checked")) {
 										fieldsEmpty=false;fieldsAllEmpty=false;
 									}
 								});
@@ -306,15 +306,15 @@ function initEditTable() {
 						if(!fieldsEmpty)	// proceed only for the row if user has Inputted any of the element ie. campaignID, Requestor or any radio button of that row
 						{
 							fieldsAgain.each(function() {		/**sad1 check all fields of current row **/
-								var currentElement=$(this);
+								var currentElement=jQuery(this);
 
 								//To-Do: Enable again the radio button
 
 								if (currentElement.is(':radio')) {
 
 									var radioName=currentElement.attr('name');
-									var checkedVal=$('[name='+radioName+']:checked');
-									var currentRadio=$('[name='+radioName+']');
+									var checkedVal=jQuery('[name='+radioName+']:checked');
+									var currentRadio=jQuery('[name='+radioName+']');
 									var currentRadioParent = currentRadio.closest('.jcf-radio');
 
 									if(currentRadioParent.find(':radio:checked').length==0)
@@ -340,7 +340,7 @@ function initEditTable() {
 
 									var currentTextParent = currentElement.closest('td');
 									var regEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-									if(!regEmail.test(currentElement.val()) || $.trim(currentElement.val())=="")
+									if(!regEmail.test(currentElement.val()) || jQuery.trim(currentElement.val())=="")
 									{
 
 										currentTextParent.addClass('textbox-error');			//highlight the text column
@@ -354,7 +354,7 @@ function initEditTable() {
 
 									var currentTextParent = currentElement.closest('td');
 
-									if($.trim(currentElement.val())=="")
+									if(jQuery.trim(currentElement.val())=="")
 									{
 										currentTextParent.addClass('textbox-error');			//highlight the text column
 										submitSuccessTextTemp=false;
@@ -382,14 +382,14 @@ function initEditTable() {
 						if (form.data('successFlag')) {
 
 								//reset or empty the required controls
-									/*$(':input','.ajax-form')
+									/*jQuery(':input','.ajax-form')
 									  .removeClass('jcf-checked')
 									  .removeAttr('checked')
 									  .removeAttr('selected')
 									  .not(':button, :submit, :reset, :hidden, .success-message')
 									  .val('');
 
-									$('span').removeClass('jcf-checked');
+									jQuery('span').removeClass('jcf-checked');
 								  */
 								form.removeClass(errorClass).addClass(successClass);	//sad Fix: 3rd issue
 								e.preventDefault();
@@ -423,7 +423,7 @@ function initEditTable() {
 	});
 
 	function sendData(options) {
-		$.ajax({
+		jQuery.ajax({
 			url: centro_form.ajaxurl,
 			data: 'action=centro_form_submit&' + options.data ,
 			type: options.method || 'POST',
@@ -442,10 +442,10 @@ function initValidation() {
 	var errorClass = 'error';
 	var successClass = 'success';
 	var regEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-	var regPhone = /^[0-9]+$/;
+	var regPhone = /^[0-9]+jQuery/;
 
-	$('form.validate-form').each(function() {
-		var form = $(this).attr('novalidate', 'novalidate');
+	jQuery('form.validate-form').each(function() {
+		var form = jQuery(this).attr('novalidate', 'novalidate');
 		var successFlag = true;
 		var inputs = form.find('input, textarea, select');
 
@@ -465,7 +465,7 @@ function initValidation() {
 		// check field
 		function checkField(i, obj) {
 
-			var currentObject = $(obj);
+			var currentObject = jQuery(obj);
 			var currentParent = currentObject.closest('.validate-row');
 
 			// not empty fields
@@ -474,7 +474,7 @@ function initValidation() {
 			}
 			// correct email fields
 
-			if($.trim(currentObject.val())!="")
+			if(jQuery.trim(currentObject.val())!="")
 			{
 				if(currentObject.hasClass('required-email')) {
 					setState(currentParent, currentObject, !regEmail.test(currentObject.val()));
@@ -520,15 +520,15 @@ function initValidation() {
 }
 
 /*! http://mths.be/placeholder v2.0.7 by @mathias */
-;(function(window, document, $) {
+;(function(window, document, jQuery) {
 
 	// Opera Mini v7 doesn’t support placeholder although its DOM seems to indicate so
 	var isOperaMini = Object.prototype.toString.call(window.operamini) == '[object OperaMini]';
 	var isInputSupported = 'placeholder' in document.createElement('input') && !isOperaMini;
 	var isTextareaSupported = 'placeholder' in document.createElement('textarea') && !isOperaMini;
-	var prototype = $.fn;
-	var valHooks = $.valHooks;
-	var propHooks = $.propHooks;
+	var prototype = jQuery.fn;
+	var valHooks = jQuery.valHooks;
+	var propHooks = jQuery.propHooks;
 	var hooks;
 	var placeholder;
 
@@ -543,8 +543,8 @@ function initValidation() {
 	} else {
 
 		placeholder = prototype.placeholder = function() {
-			var $this = this;
-			$this
+			var jQuerythis = this;
+			jQuerythis
 				.filter((isInputSupported ? 'textarea' : ':input') + '[placeholder]')
 				.not('.placeholder')
 				.bind({
@@ -553,7 +553,7 @@ function initValidation() {
 				})
 				.data('placeholder-enabled', true)
 				.trigger('blur.placeholder');
-			return $this;
+			return jQuerythis;
 		};
 
 		placeholder.input = isInputSupported;
@@ -561,24 +561,24 @@ function initValidation() {
 
 		hooks = {
 			'get': function(element) {
-				var $element = $(element);
+				var jQueryelement = jQuery(element);
 
-				var $passwordInput = $element.data('placeholder-password');
-				if ($passwordInput) {
-					return $passwordInput[0].value;
+				var jQuerypasswordInput = jQueryelement.data('placeholder-password');
+				if (jQuerypasswordInput) {
+					return jQuerypasswordInput[0].value;
 				}
 
-				return $element.data('placeholder-enabled') && $element.hasClass('placeholder') ? '' : element.value;
+				return jQueryelement.data('placeholder-enabled') && jQueryelement.hasClass('placeholder') ? '' : element.value;
 			},
 			'set': function(element, value) {
-				var $element = $(element);
+				var jQueryelement = jQuery(element);
 
-				var $passwordInput = $element.data('placeholder-password');
-				if ($passwordInput) {
-					return $passwordInput[0].value = value;
+				var jQuerypasswordInput = jQueryelement.data('placeholder-password');
+				if (jQuerypasswordInput) {
+					return jQuerypasswordInput[0].value = value;
 				}
 
-				if (!$element.data('placeholder-enabled')) {
+				if (!jQueryelement.data('placeholder-enabled')) {
 					return element.value = value;
 				}
 				if (value == '') {
@@ -588,13 +588,13 @@ function initValidation() {
 						// We can't use `triggerHandler` here because of dummy text/password inputs :(
 						setPlaceholder.call(element);
 					}
-				} else if ($element.hasClass('placeholder')) {
+				} else if (jQueryelement.hasClass('placeholder')) {
 					clearPlaceholder.call(element, true, value) || (element.value = value);
 				} else {
 					element.value = value;
 				}
-				// `set` can not return `undefined`; see http://jsapi.info/$/1.7.1/val#L2363
-				return $element;
+				// `set` can not return `undefined`; see http://jsapi.info/jquery/1.7.1/val#L2363
+				return jQueryelement;
 			}
 		};
 
@@ -607,20 +607,20 @@ function initValidation() {
 			propHooks.value = hooks;
 		}
 
-		$(function() {
+		jQuery(function() {
 			// Look for forms
-			$(document).delegate('form', 'submit.placeholder', function() {
+			jQuery(document).delegate('form', 'submit.placeholder', function() {
 				// Clear the placeholder values so they don't get submitted
-				var $inputs = $('.placeholder', this).each(clearPlaceholder);
+				var jQueryinputs = jQuery('.placeholder', this).each(clearPlaceholder);
 				setTimeout(function() {
-					$inputs.each(setPlaceholder);
+					jQueryinputs.each(setPlaceholder);
 				}, 10);
 			});
 		});
 
 		// Clear placeholder values upon page reload
-		$(window).bind('beforeunload.placeholder', function() {
-			$('.placeholder').each(function() {
+		jQuery(window).bind('beforeunload.placeholder', function() {
+			jQuery('.placeholder').each(function() {
 				this.value = '';
 			});
 		});
@@ -630,9 +630,9 @@ function initValidation() {
 	function args(elem) {
 		// Return an object of element attributes
 		var newAttrs = {};
-		var rinline$ = /^$\d+$/;
-		$.each(elem.attributes, function(i, attr) {
-			if (attr.specified && !rinline$.test(attr.name)) {
+		var rinlinejQuery = /^jQuery\d+jQuery/;
+		jQuery.each(elem.attributes, function(i, attr) {
+			if (attr.specified && !rinlinejQuery.test(attr.name)) {
 				newAttrs[attr.name] = attr.value;
 			}
 		});
@@ -641,69 +641,69 @@ function initValidation() {
 
 	function clearPlaceholder(event, value) {
 		var input = this;
-		var $input = $(input);
-		if (input.value == $input.attr('placeholder') && $input.hasClass('placeholder')) {
-			if ($input.data('placeholder-password')) {
-				$input = $input.hide().next().show().attr('id', $input.removeAttr('id').data('placeholder-id'));
-				// If `clearPlaceholder` was called from `$.valHooks.input.set`
+		var jQueryinput = jQuery(input);
+		if (input.value == jQueryinput.attr('placeholder') && jQueryinput.hasClass('placeholder')) {
+			if (jQueryinput.data('placeholder-password')) {
+				jQueryinput = jQueryinput.hide().next().show().attr('id', jQueryinput.removeAttr('id').data('placeholder-id'));
+				// If `clearPlaceholder` was called from `jQuery.valHooks.input.set`
 				if (event === true) {
-					return $input[0].value = value;
+					return jQueryinput[0].value = value;
 				}
-				$input.focus();
+				jQueryinput.focus();
 			} else {
 				input.value = '';
-				$input.removeClass('placeholder');
+				jQueryinput.removeClass('placeholder');
 				input == safeActiveElement() && input.select();
 			}
 		}
 	}
 
 	function setPlaceholder() {
-		var $replacement;
+		var jQueryreplacement;
 		var input = this;
-		var $input = $(input);
+		var jQueryinput = jQuery(input);
 		var id = this.id;
 		if (input.value == '') {
 			if (input.type == 'password') {
-				if (!$input.data('placeholder-textinput')) {
+				if (!jQueryinput.data('placeholder-textinput')) {
 					try {
-						$replacement = $input.clone().attr({ 'type': 'text' });
+						jQueryreplacement = jQueryinput.clone().attr({ 'type': 'text' });
 					} catch(e) {
-						$replacement = $('<input>').attr($.extend(args(this), { 'type': 'text' }));
+						jQueryreplacement = jQuery('<input>').attr(jQuery.extend(args(this), { 'type': 'text' }));
 					}
-					$replacement
+					jQueryreplacement
 						.removeAttr('name')
 						.data({
-							'placeholder-password': $input,
+							'placeholder-password': jQueryinput,
 							'placeholder-id': id
 						})
 						.bind('focus.placeholder', clearPlaceholder);
-					$input
+					jQueryinput
 						.data({
-							'placeholder-textinput': $replacement,
+							'placeholder-textinput': jQueryreplacement,
 							'placeholder-id': id
 						})
-						.before($replacement);
+						.before(jQueryreplacement);
 				}
-				$input = $input.removeAttr('id').hide().prev().attr('id', id).show();
-				// Note: `$input[0] != input` now!
+				jQueryinput = jQueryinput.removeAttr('id').hide().prev().attr('id', id).show();
+				// Note: `jQueryinput[0] != input` now!
 			}
-			$input.addClass('placeholder');
-			$input[0].value = $input.attr('placeholder');
+			jQueryinput.addClass('placeholder');
+			jQueryinput[0].value = jQueryinput.attr('placeholder');
 		} else {
-			$input.removeClass('placeholder');
+			jQueryinput.removeClass('placeholder');
 		}
 	}
 
 	function safeActiveElement() {
 		// Avoid IE9 `document.activeElement` of death
-		// https://github.com/mathiasbynens/$-placeholder/pull/99
+		// https://github.com/mathiasbynens/jquery-placeholder/pull/99
 		try {
 			return document.activeElement;
 		} catch (err) {}
 	}
 
-}(this, document, $));
+}(this, document, jQuery));
 
 /*!
  * JavaScript Custom Forms
@@ -716,13 +716,13 @@ function initValidation() {
 ;(function(root, factory) {
 	'use strict';
 	if (typeof define === 'function' && define.amd) {
-		define(['$'], factory);
+		define(['jquery'], factory);
 	} else if (typeof exports === 'object') {
-		module.exports = factory(require('$'));
+		module.exports = factory(require('jquery'));
 	} else {
-		root.jcf = factory($);
+		root.jcf = factory(jQuery);
 	}
-}(this, function($) {
+}(this, function(jQuery) {
 	'use strict';
 
 	// private variables
@@ -748,7 +748,7 @@ function initValidation() {
 
 	// create global stylesheet if custom forms are used
 	var createStyleSheet = function() {
-		var styleTag = $('<style>').appendTo('head'),
+		var styleTag = jQuery('<style>').appendTo('head'),
 			styleSheet = styleTag.prop('sheet') || styleTag.prop('styleSheet');
 
 		// crossbrowser style handling
@@ -767,7 +767,7 @@ function initValidation() {
 		addCSSRule('.' + commonOptions.resetAppearanceClass, 'background: none; border: none; -webkit-appearance: none; appearance: none; opacity: 0; filter: alpha(opacity=0);');
 
 		// detect rtl pages
-		var html = $('html'), body = $('body');
+		var html = jQuery('html'), body = jQuery('body');
 		if (html.css('direction') === 'rtl' || body.css('direction') === 'rtl') {
 			html.addClass(commonOptions.rtlClass);
 		}
@@ -807,26 +807,26 @@ function initValidation() {
 		}
 
 		// create event map
-		$.each(eventList, function(targetEventName, fakeEventList) {
-			$.each(fakeEventList.split(' '), function(index, fakeEventName) {
+		jQuery.each(eventList, function(targetEventName, fakeEventList) {
+			jQuery.each(fakeEventList.split(' '), function(index, fakeEventName) {
 				eventMap[fakeEventName] = targetEventName;
 			});
 		});
 
-		// $ event hooks
-		$.each(eventList, function(eventName, eventHandlers) {
+		// jQuery event hooks
+		jQuery.each(eventList, function(eventName, eventHandlers) {
 			eventHandlers = eventHandlers.split(' ');
-			$.event.special[eventPrefix + eventName] = {
+			jQuery.event.special[eventPrefix + eventName] = {
 				setup: function() {
 					var self = this;
-					$.each(eventHandlers, function(index, fallbackEvent) {
+					jQuery.each(eventHandlers, function(index, fallbackEvent) {
 						if (self.addEventListener) self.addEventListener(fallbackEvent, fixEvent, false);
 						else self['on' + fallbackEvent] = fixEvent;
 					});
 				},
 				teardown: function() {
 					var self = this;
-					$.each(eventHandlers, function(index, fallbackEvent) {
+					jQuery.each(eventHandlers, function(index, fallbackEvent) {
 						if (self.addEventListener) self.removeEventListener(fallbackEvent, fixEvent, false);
 						else self['on' + fallbackEvent] = null;
 					});
@@ -852,7 +852,7 @@ function initValidation() {
 				touchEventData = null,
 				targetEventName = eventMap[origEvent.type];
 
-			e = $.event.fix(origEvent);
+			e = jQuery.event.fix(origEvent);
 			e.type = eventPrefix + targetEventName;
 
 			if (origEvent.pointerType) {
@@ -878,7 +878,7 @@ function initValidation() {
 			if (e.pointerType === 'mouse' && lastTouch && mouseEventSimulated(e)) {
 				return;
 			} else {
-				return ($.event.dispatch || $.event.handle).call(this, e);
+				return (jQuery.event.dispatch || jQuery.event.handle).call(this, e);
 			}
 		};
 	}());
@@ -888,17 +888,17 @@ function initValidation() {
 		var wheelEvents = ('onwheel' in document || document.documentMode >= 9 ? 'wheel' : 'mousewheel DOMMouseScroll').split(' '),
 			shimEventName = 'jcf-mousewheel';
 
-		$.event.special[shimEventName] = {
+		jQuery.event.special[shimEventName] = {
 			setup: function() {
 				var self = this;
-				$.each(wheelEvents, function(index, fallbackEvent) {
+				jQuery.each(wheelEvents, function(index, fallbackEvent) {
 					if (self.addEventListener) self.addEventListener(fallbackEvent, fixEvent, false);
 					else self['on' + fallbackEvent] = fixEvent;
 				});
 			},
 			teardown: function() {
 				var self = this;
-				$.each(wheelEvents, function(index, fallbackEvent) {
+				jQuery.each(wheelEvents, function(index, fallbackEvent) {
 					if (self.addEventListener) self.removeEventListener(fallbackEvent, fixEvent, false);
 					else self['on' + fallbackEvent] = null;
 				});
@@ -907,7 +907,7 @@ function initValidation() {
 
 		var fixEvent = function(e) {
 			var origEvent = e || window.event;
-			e = $.event.fix(origEvent);
+			e = jQuery.event.fix(origEvent);
 			e.type = shimEventName;
 
 			// old wheel events handler
@@ -933,7 +933,7 @@ function initValidation() {
 				e.deltaX *= lineHeight;
 			}
 
-			return ($.event.dispatch || $.event.handle).call(this, e);
+			return (jQuery.event.dispatch || jQuery.event.handle).call(this, e);
 		};
 	}());
 
@@ -941,7 +941,7 @@ function initValidation() {
 	var moduleMixin = {
 		// provide function for firing native events
 		fireNativeEvent: function(elements, eventName) {
-			$(elements).each(function() {
+			jQuery(elements).each(function() {
 				var element = this, eventObject;
 				if (element.dispatchEvent) {
 					eventObject = document.createEvent('HTMLEvents');
@@ -957,9 +957,9 @@ function initValidation() {
 		// bind event handlers for module instance (functions beggining with "on")
 		bindHandlers: function() {
 			var self = this;
-			$.each(self, function(propName, propValue) {
-				if (propName.indexOf('on') === 0 && $.isFunction(propValue)) {
-					// dont use $.proxy here because it doesn't create unique handler
+			jQuery.each(self, function(propName, propValue) {
+				if (propName.indexOf('on') === 0 && jQuery.isFunction(propValue)) {
+					// dont use jQuery.proxy here because it doesn't create unique handler
 					self[propName] = function() {
 						return propValue.apply(self, arguments);
 					};
@@ -972,17 +972,17 @@ function initValidation() {
 	var api = {
 		modules: {},
 		getOptions: function() {
-			return $.extend({}, commonOptions);
+			return jQuery.extend({}, commonOptions);
 		},
 		setOptions: function(moduleName, moduleOptions) {
 			if (arguments.length > 1) {
 				// set module options
 				if (this.modules[moduleName]) {
-					$.extend(this.modules[moduleName].prototype.options, moduleOptions);
+					jQuery.extend(this.modules[moduleName].prototype.options, moduleOptions);
 				}
 			} else {
 				// set common options
-				$.extend(commonOptions, moduleName);
+				jQuery.extend(commonOptions, moduleName);
 			}
 		},
 		addModule: function(proto) {
@@ -993,7 +993,7 @@ function initValidation() {
 				customInstances.push(this);
 
 				// save options
-				this.options = $.extend({}, commonOptions, this.options, options.element.data(commonOptions.optionsKey), options);
+				this.options = jQuery.extend({}, commonOptions, this.options, options.element.data(commonOptions.optionsKey), options);
 
 				// bind event handlers to instance
 				this.bindHandlers();
@@ -1006,10 +1006,10 @@ function initValidation() {
 			Module.prototype = proto;
 
 			// add mixin methods to module proto
-			$.extend(proto, moduleMixin);
+			jQuery.extend(proto, moduleMixin);
 			if (proto.plugins) {
-				$.each(proto.plugins, function(pluginName, plugin) {
-					$.extend(plugin.prototype, moduleMixin);
+				jQuery.each(proto.plugins, function(pluginName, plugin) {
+					jQuery.extend(plugin.prototype, moduleMixin);
 				});
 			}
 
@@ -1034,7 +1034,7 @@ function initValidation() {
 			this.modules[proto.name] = Module;
 		},
 		getInstance: function(element) {
-			return $(element).data(commonOptions.dataKey);
+			return jQuery(element).data(commonOptions.dataKey);
 		},
 		replace: function(elements, moduleName, customOptions) {
 			var self = this,
@@ -1044,16 +1044,16 @@ function initValidation() {
 				createStyleSheet();
 			}
 
-			$(elements).each(function() {
+			jQuery(elements).each(function() {
 				var moduleOptions,
-					element = $(this);
+					element = jQuery(this);
 
 				instance = element.data(commonOptions.dataKey);
 				if (instance) {
 					instance.refresh();
 				} else {
 					if (!moduleName) {
-						$.each(self.modules, function(currentModuleName, module) {
+						jQuery.each(self.modules, function(currentModuleName, module) {
 							if (module.prototype.matchElement.call(module.prototype, element)) {
 								moduleName = currentModuleName;
 								return false;
@@ -1061,7 +1061,7 @@ function initValidation() {
 						});
 					}
 					if (moduleName) {
-						moduleOptions = $.extend({ element: element }, customOptions);
+						moduleOptions = jQuery.extend({ element: element }, customOptions);
 						instance = new self.modules[moduleName](moduleOptions);
 					}
 				}
@@ -1069,16 +1069,16 @@ function initValidation() {
 			return instance;
 		},
 		refresh: function(elements) {
-			$(elements).each(function() {
-				var instance = $(this).data(commonOptions.dataKey);
+			jQuery(elements).each(function() {
+				var instance = jQuery(this).data(commonOptions.dataKey);
 				if (instance) {
 					instance.refresh();
 				}
 			});
 		},
 		destroy: function(elements) {
-			$(elements).each(function() {
-				var instance = $(this).data(commonOptions.dataKey);
+			jQuery(elements).each(function() {
+				var instance = jQuery(this).data(commonOptions.dataKey);
 				if (instance) {
 					instance.destroy();
 				}
@@ -1086,8 +1086,8 @@ function initValidation() {
 		},
 		replaceAll: function(context) {
 			var self = this;
-			$.each(this.modules, function(moduleName, module) {
-				$(module.prototype.selector, context).each(function() {
+			jQuery.each(this.modules, function(moduleName, module) {
+				jQuery(module.prototype.selector, context).each(function() {
 					if (this.className.indexOf('jcf-ignore') < 0) {
 						self.replace(this, moduleName);
 					}
@@ -1096,9 +1096,9 @@ function initValidation() {
 		},
 		refreshAll: function(context) {
 			if (context) {
-				$.each(this.modules, function(moduleName, module) {
-					$(module.prototype.selector, context).each(function() {
-						var instance = $(this).data(commonOptions.dataKey);
+				jQuery.each(this.modules, function(moduleName, module) {
+					jQuery(module.prototype.selector, context).each(function() {
+						var instance = jQuery(this).data(commonOptions.dataKey);
 						if (instance) {
 							instance.refresh();
 						}
@@ -1112,9 +1112,9 @@ function initValidation() {
 		},
 		destroyAll: function(context) {
 			if (context) {
-				$.each(this.modules, function(moduleName, module) {
-					$(module.prototype.selector, context).each(function(index, element) {
-						var instance = $(element).data(commonOptions.dataKey);
+				jQuery.each(this.modules, function(moduleName, module) {
+					jQuery(module.prototype.selector, context).each(function(index, element) {
+						var instance = jQuery(element).data(commonOptions.dataKey);
 						if (instance) {
 							instance.destroy();
 						}
@@ -1139,7 +1139,7 @@ function initValidation() {
  *
  * Version: 1.1.0
  */
-;(function($) {
+;(function(jQuery) {
 	'use strict';
 
 	jcf.addModule({
@@ -1162,9 +1162,9 @@ function initValidation() {
 		},
 		initStructure: function() {
 			// prepare structure
-			this.doc = $(document);
-			this.realElement = $(this.options.element);
-			this.fakeElement = $(this.options.fakeStructure).insertAfter(this.realElement);
+			this.doc = jQuery(document);
+			this.realElement = jQuery(this.options.element);
+			this.fakeElement = jQuery(this.options.fakeStructure).insertAfter(this.realElement);
 			this.labelElement = this.getLabelFor();
 
 			if (this.options.wrapNative) {
@@ -1259,7 +1259,7 @@ function initValidation() {
 				if (parentForm.length) {
 					return parentForm.find('input[name="' + name + '"]');
 				} else {
-					return $('input[name="' + name + '"]:not(form input)');
+					return jQuery('input[name="' + name + '"]:not(form input)');
 				}
 			} else {
 				return radio;
@@ -1270,7 +1270,7 @@ function initValidation() {
 				elementId = this.realElement.prop('id');
 
 			if (!parentLabel.length && elementId) {
-				parentLabel = $('label[for="' + elementId + '"]');
+				parentLabel = jQuery('label[for="' + elementId + '"]');
 			}
 			return parentLabel.length ? parentLabel : null;
 		},
@@ -1321,4 +1321,4 @@ function initValidation() {
 		}
 	});
 
-}($));
+}(jQuery));
