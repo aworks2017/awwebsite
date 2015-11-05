@@ -39,7 +39,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<div id="wrap">
+	<div id="wrapper">
 		<div id="page" class="hfeed site">
 
 			<?php do_action( 'before' ); ?>
