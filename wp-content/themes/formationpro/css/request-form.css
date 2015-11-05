@@ -297,11 +297,11 @@
 }
 
 .user-info-holder .checkbox-list.error .jcf-radio {
-	background: url(http://localhost/wp/centro/wp-content/themes/twentyfifteen/images/bg-checkbox-error.png) no-repeat;
+	background: url(/wp-content/themes/formationpro/images/bg-checkbox-error.png) no-repeat;
 }
 
 .radio-error {
-	background: url(http://localhost/wp/centro/wp-content/themes/twentyfifteen/images/bg-checkbox-error.png) no-repeat !important;
+	background: url(/wp-content/themes/formationpro/images/bg-checkbox-error.png) no-repeat !important;
 }
 
 .textbox-error {
@@ -330,7 +330,7 @@
 	position: relative;
 	overflow: hidden;
 	cursor: default;
-	background: url(http://localhost/wp/centro/wp-content/themes/twentyfifteen/images/bg-checkbox.png) no-repeat -14px -1px;
+	background: url(/wp-content/themes/formationpro/images/bg-checkbox.png) no-repeat -14px -1px;
 	margin: 0 auto;
 	width: 12px;
 	height: 11px;
@@ -358,7 +358,7 @@
 }
 
 .jcf-radio.jcf-checked {
-	background: url(http://localhost/wp/centro/wp-content/themes/twentyfifteen/images/bg-checkbox.png) no-repeat -1px -1px;
+	background: url(/wp-content/themes/formationpro/images/bg-checkbox.png) no-repeat -1px -1px;
 }
 
 .inactive .user-info-holder *,
