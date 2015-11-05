@@ -34,7 +34,7 @@ add_action( 'wp_enqueue_scripts', function(){
 
 
 get_header('centro'); ?>
-
+<script>jQuery = $;</script>
 <div id="primary_home" class="content-area">
 	<div id="content" class="fullwidth" role="main">
 		<div class="table-section inactive">             
