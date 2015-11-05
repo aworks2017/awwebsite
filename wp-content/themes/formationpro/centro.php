@@ -28,6 +28,14 @@ get_header('centro'); ?>
 			<div class="request-from-area">
 						<form class="validate-form ajax-form" action="#" method="post">
 							<table class="request-sheet">
+                            	<colgroup>
+                            		<col style="width:10%;"/>
+                                    <col style="width:10%;"/>
+                                    <col style="width:10%;"/>
+                                    <col style="width:10%;"/>
+                                    <col style="width:10%;"/>
+                                    <col style="width:10%;"/>
+                            	</colgroup>
 								<thead>
 									<tr>
 										<th class="row1">Campaign ID</th>
