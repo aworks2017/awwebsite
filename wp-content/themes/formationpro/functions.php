@@ -941,7 +941,7 @@ function aw_centro_status() {
 
 	$wk6 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM aw_dev2_centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 5), $result->requestor));
     	
-		$status .= '<tr class="d'.($i%2).'"><td>' .$result->requestor. '</td><td><center>' .$result->total. '</center></td><td><center>' .$wk1->total. '</center></td><td><center>' .$wk2->total . '</center></td><td><center>' .$wk3->total . '</center></td><td><center>' .$wk4->total . '</center></td><td><center>' .$wk5->total . '</center></td><td><center>' .$wk6->total . '</center></td></tr>';
+		$status .= '<tr class="d'.($i%2).'"><td class="td0">' .$result->requestor. '</td><td><center>' .$result->total. '</center></td><td><center>' .$wk1->total. '</center></td><td><center>' .$wk2->total . '</center></td><td><center>' .$wk3->total . '</center></td><td><center>' .$wk4->total . '</center></td><td><center>' .$wk5->total . '</center></td><td><center>' .$wk6->total . '</center></td></tr>';
 
 		$i += 1;
 	
@@ -969,7 +969,7 @@ function aw_centro_history() {
 
     foreach( $results as $result ) {
 
-	$history .= '<tr class="d'.($i%2).'"><td>' .$result->requestor. '</td><td>' .$result->campaign_id. '</td><td><center>' .$result->report_type . '</center></td><td><center>' .$result->notes . '</center></td><td><center>' .$result->date_entered . '</center></td></tr>';
+	$history .= '<tr class="d'.($i%2).'"><td class="td0">' .$result->requestor. '</td><td>' .$result->campaign_id. '</td><td><center>' .$result->report_type . '</center></td><td><center>' .$result->notes . '</center></td><td><center>' .$result->date_entered . '</center></td></tr>';
 
 	$i += 1;
     }
