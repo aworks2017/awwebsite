@@ -4,6 +4,9 @@
 Template Name: Status
 
 */
+add_action( 'wp_enqueue_scripts', function(){
+	wp_enqueue_style( 'style-name', get_template_directory_uri() . '/css/history.css' );
+});
 
 $centro_status = aw_centro_status();
 
