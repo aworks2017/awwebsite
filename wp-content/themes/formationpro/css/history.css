@@ -197,3 +197,7 @@
 .user-info-area .error-message {
 	display: none;
 }
+
+td{
+	padding-left: 7px;
+}

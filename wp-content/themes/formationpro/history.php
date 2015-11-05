@@ -16,11 +16,12 @@ get_header('centro'); ?>
             
 	<div class="request-from-area" style="max-height: 500px; overflow-y: scroll;">
 		<table class="request-sheet" cellpadding="10">
-        	<colgroup">
-        		<col style="width: 15%;">
-        		<col style="width: 10%;">
-  				<col style="width: 30%;">
-  				<col style="width: 15%;">
+        	<colgroup>
+            	<col style="width: 23%;">
+        		<col style="width: 20%;">
+  				<col style="width: 10%;">
+                <col style="width: 27%;">
+                <col style="width: 20%;">
 			</colgroup>
 			<thead>
 									<tr>
