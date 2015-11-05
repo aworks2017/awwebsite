@@ -1107,5 +1107,6 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 // Custom shortcode by momo
 add_shortcode('portal_login_button', 'portal_login_button');
 function portal_login_button($atts, $content = "Client Login" ){
-	return '<div style="width: 100%;text-align: center;margin: 50px auto;"><a href="/clients/portal" style="background-color: #343234;color: white;padding: 14px 30px;border-radius: 10px;cursor: pointer;">'.$content.'</a></div>';
+	if(isset($atts['link'])) $link = $atts['link']; else $link = '/clients/portal';
+	return '<div style="width: 100%;text-align: center;margin: 50px auto;"><a href="'.$link.'" style="background-color: #343234;color: white;padding: 14px 30px;border-radius: 10px;cursor: pointer;">'.$content.'</a></div>';
 }
