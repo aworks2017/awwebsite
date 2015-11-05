@@ -50,14 +50,8 @@
                         
 					<nav role="navigation" class="site-navigation main-navigation">
 
-						<h1 class="assistive-text"><a href="#" title="<?php _e('Navigation Toggle', 'formationpro'); ?>"><?php _e( 'Menu', 'formationpro' ); ?></a></h1>
-
-						<div class="assistive-text skip-link">
-							<a href="#content" title="<?php esc_attr_e( 'Skip to content', 'formationpro' ); ?>"><?php _e( 'Skip to content', 'formationpro' ); ?></a>
-						</div>
-						
-                        <div style="max-width:1160px;margin:0 auto;">
-                			<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="float: right;color: white;margin-right: 15px;font-weight: bold;">LOGOUT</a>
+                        <div style="max-width:1160px;float: right;">
+                			<a href="<?php echo wp_logout_url( '/clients' ) ?>" style="margin-right: 15px;font-weight: bold;">LOGOUT</a>
                     	</div>
                         
 					</nav><!-- .site-navigation .main-navigation -->
