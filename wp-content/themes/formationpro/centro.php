@@ -12,6 +12,9 @@ function pm_remove_all_scripts() {
     global $wp_scripts;
     $wp_scripts->queue = array();
 	wp_enqueue_style( 'style-name', get_template_directory_uri() . '/css/request-form.css' );
+	
+	wp_enqueue_script( 'fddsds',  'http://localhost/wp/centro/wp-includes/js/jquery/jquery.js', array(), '1.11.3' );
+	wp_enqueue_script( 'ljhh',  'http://localhost/wp/centro/wp-includes/js/jquery/jquery-migrate.min.js', array(), '1.2.1' );
 	wp_enqueue_script( 'jquery1113',  'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '1.0.0', true );
 	wp_enqueue_script( 'jquery-v65main', get_template_directory_uri() . '/js/jquery-v6.5.main.js', array(), '1.0.0', true );
 	$centro_form = array(
