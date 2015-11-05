@@ -5,6 +5,10 @@ Template Name: History
 
 */
 
+add_action( 'wp_enqueue_scripts', function(){
+	wp_enqueue_style( 'style-name', get_template_directory_uri() . '/css/history.css' );
+});
+
 $centro_history = aw_centro_history();
 
 get_header('centro'); ?>
