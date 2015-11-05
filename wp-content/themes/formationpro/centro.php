@@ -29,12 +29,12 @@ get_header('centro'); ?>
 						<form class="validate-form ajax-form" action="#" method="post">
 							<table class="request-sheet">
                             	<colgroup>
-                            		<col style="width:10%;"/>
-                                    <col style="width:10%;"/>
-                                    <col style="width:10%;"/>
-                                    <col style="width:10%;"/>
-                                    <col style="width:10%;"/>
-                                    <col style="width:10%;"/>
+                            		<col style="width:25%;"/>
+                                    <col style="width:25%;"/>
+                                    <col style="width:5%;"/>
+                                    <col style="width:5%;"/>
+                                    <col style="width:5%;"/>
+                                    <col style="width:35%;"/>
                             	</colgroup>
 								<thead>
 									<tr>
