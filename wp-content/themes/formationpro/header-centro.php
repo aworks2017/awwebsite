@@ -54,9 +54,9 @@
                 			<span style="float:right;margin-right: 15px;">
                             <a href="<?php echo wp_logout_url( '/clients' ) ?>" style="font-weight: bold;">LOGOUT</a>
                             </span>
-                            <?php if($post->post_name=='centro'):?>
+                            <?php if($post->post_name!='centro'):?>
                             <span style="float:right;margin-right: 15px;">
-                            <a href="/clients/portal/centro/" style="font-weight: bold;">Centro Home <?php echo $post->post_name;?></a>
+                            <a href="/clients/portal/centro/" style="font-weight: bold;">Centro Home</a>
                             </span>
                             <?php endif;?>
                     	</div>
