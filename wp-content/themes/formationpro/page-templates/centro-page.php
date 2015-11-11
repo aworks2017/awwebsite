@@ -15,7 +15,7 @@ get_header('centro'); ?>
 			<div id="content" class="fullwidth" role="main">
             	<?php
 				if ( !is_user_logged_in() ) {
-					do_shortcode('[wpc_client_loginf no_redirect="true" no_redirect_text="" /]');
+					echo do_shortcode('[wpc_client_loginf no_redirect="true" no_redirect_text="" /]');
 				}
 				else{
 					while ( have_posts() ) {
