@@ -14,14 +14,14 @@ get_header('centro'); ?>
 
 			<div id="content" class="fullwidth" role="main">
             	<?php
-				if ( !is_user_logged_in() ) {
-					echo do_shortcode('[wpc_client_loginf no_redirect="true" no_redirect_text="" /]');
-				}
-				else{
+				if ( is_user_logged_in() ) {
 					while ( have_posts() ) {
 						the_post(); 		 		       							
 						get_template_part( 'content', 'page' ); 
 					}
+					
+				}else{
+					echo do_shortcode('[wpc_client_loginf no_redirect="true" no_redirect_text="" /]');
 				}
 				?>
 			</div><!-- #content .site-content -->
