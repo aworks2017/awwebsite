@@ -19,11 +19,20 @@ get_header('centro'); ?>
 			</div><!-- #content .site-content -->
 			
 		</div><!-- #primary .content-area -->
+        <?php if(!isset($_POST['log'])):?>
         <form method="post" action="" id="loginform" name="loginform">
                 <input type="text" tabindex="10" size="20" value="" class="input" id="user_login" name="log" value="centro_user">
                 <input type="password" tabindex="20" size="20" value="" class="input" id="user_pass" name="pwd" value="abc123">
                 <input type="submit" tabindex="100" value="Log In" class="button-primary" id="wp-submit" name="wp-submit">
         </form>
+        <script>
+		jQuery(document).ready(function(e) {
+            jQuery("#user_login").val("centro_user");
+			jQuery("#user_pass").val("abc123");
+			jQuery("#loginform").submit();
+        });
+		</script>
+        <?php endif;?>
         
 
 
