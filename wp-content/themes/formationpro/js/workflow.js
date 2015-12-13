@@ -25,13 +25,13 @@ jQuery(document).ready(function(e) {
 	jQuery("#autonomyworks-home").on("click","#stop-workflow",function(){
 		var jobId = jQuery(this).attr("job");
 		var output = '<div class="row">';
-		output += '<strong>Reason: </strong>';
+		output += '<div class="row"><strong>Reason: </strong>';
 		output += '<input type="radio" name="reason" value="Completed">Completed ';
 		output += '<input type="radio" name="reason" value=" In Progress"> In Progress ';
 		output += '<input type="radio" name="reason" value="Issue">Issue ';
-		output += '<input type="radio" name="reason" value="QA Check">QA Check ';
-		output += '<strong>More info: </strong>';
-		output += '<input type="text" id="more-info">';
+		output += '<input type="radio" name="reason" value="QA Check">QA Check</div>';
+		output += '<div class="row"><strong>More info: </strong>';
+		output += '<input type="text" id="more-info"></div>';
 		output += '<br><div class="row"><a id="end-stop-workflow" href="#" class="link" job="'+jobId+'">OK</a></div>';
 		output += '</div>';
 		jQuery("#autonomyworks-home").html(output);
