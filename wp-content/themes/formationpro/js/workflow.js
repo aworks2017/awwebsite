@@ -28,19 +28,19 @@ jQuery(document).ready(function(e) {
 	jQuery("#autonomyworks-home").on("click","#stop-workflow",function(){
 		jQuery(this).attr("disabled","disabled");
 		var jobId = jQuery(this).attr("job");
-		var output = '<div class="row" style="display: block;margin: 0 auto;width: 530px;">';
-		output += '<div class="col-md-12">';
+		var output = '<div class="row" style="display: block;margin: 0 auto;width: 760px;">';
+		output += '<div class="row">';
 		output += '<div class="col-md-3"><strong>Reason: </strong></div>';
 		output += '<div class="col-md-9"><div class="col-md-3"><input type="radio" name="reason" value="Completed">Completed</div>';
 		output += '<div class="col-md-3"><input type="radio" name="reason" value=" In Progress"> In Progress</div>';
 		output += '<div class="col-md-3"><input type="radio" name="reason" value="Issue">Issue</div>';
 		output += '<div class="col-md-3"><input type="radio" name="reason" value="QA Check">QA Check</div></div>';
 		output += '</div>';
-		output += '<div class="col-md-12">';
+		output += '<div class="row">';
 		output += '<div class="col-md-3"><strong>More info: </strong></div>';
 		output += '<div class="col-md-9"><input type="text" id="more-info" style="width:100%"></div>';
 		output += '</div>';
-		output += '<div class="col-md-12"><a id="end-stop-workflow" href="#" class="link grey" job="'+jobId+'">OK</a></div>';
+		output += '<div class="row"><a id="end-stop-workflow" href="#" class="link grey" job="'+jobId+'">OK</a></div>';
 		output += '</div>';
 		jQuery("#autonomyworks-home").html(output);
 	});
