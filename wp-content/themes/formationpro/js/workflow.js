@@ -5,9 +5,9 @@ jQuery(document).ready(function(e) {
 					{action:'get_workflow'},
 					function(data){
 						if(data==='0' || data==="null" || data===null) {
-							jQuery("#autonomyworks-home").html('<a id="no-tasks" href="#" class="link yellow">NO TASKS ASSIGNED</a>');
+							jQuery("#autonomyworks-home").html('<a id="no-tasks"  class="link yellow">NO TASKS ASSIGNED</a>');
 						}else{
-							jQuery("#autonomyworks-home").html('<a id="start-workflow" href="#" class="link green" job='+data+'>START</a>');
+							jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
 						}
 					}
 					);
@@ -39,7 +39,7 @@ jQuery(document).ready(function(e) {
 		output += '<div class="col-md-3"><strong>More info : </strong></div>';
 		output += '<div class="col-md-9"><input type="text" id="more-info" style="width:100%"></div>';
 		output += '</div>';
-		output += '<div class="row"><a id="end-stop-workflow" href="#" class="link grey" job="'+jobId+'">OK</a></div>';
+		output += '<div class="row"><a id="end-stop-workflow"  class="link grey" job="'+jobId+'">OK</a></div>';
 		output += '</div>';
 		jQuery("#autonomyworks-home").html(output);
 	});
@@ -55,9 +55,9 @@ jQuery(document).ready(function(e) {
 					function(data){
 						console.log(data);
 						if(data==='0' || data==="null"  || data===null) {
-							jQuery("#autonomyworks-home").html('<a id="no-tasks" href="#" class="link yellow">NO TASKS ASSIGNED</a>');
+							jQuery("#autonomyworks-home").html('<a id="no-tasks"  class="link yellow">NO TASKS ASSIGNED</a>');
 						}else{
-							jQuery("#autonomyworks-home").html('<a id="start-workflow" href="#" class="link green" job='+data+'>START</a>');
+							jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
 						}
 					});
 		
@@ -69,7 +69,7 @@ function show_job(data){
 	var output = '<div>';
 	output += '<div class="left col2" style="text-align:left"><strong>Current Job : </strong>'+data.name+'<br><strong>Parameter 1 : </strong>'+data.parameter_1+'<br><strong>Parameter 2 : </strong>'+data.parameter_2+'</div>';
 	output += '<div class="right col2" style="text-align:left"><strong>Started : </strong>'+data.estimated_start+'<br><strong>Estimated Finish : </strong>'+data.estimated_finish+'<br><strong>Activity Driver : </strong>'+data.activity_driver+' - '+data.activity_count+'</div>';
-	output += '<br><div class="row"><a id="stop-workflow" href="#" class="link red" job="'+data.job_id+'">STOP</a></div>';
+	output += '<br><div class="row"><a id="stop-workflow"  class="link red" job="'+data.job_id+'">STOP</a></div>';
 	output += '</div>';
 	jQuery("#autonomyworks-home").html(output);
 
