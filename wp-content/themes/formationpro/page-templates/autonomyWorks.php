@@ -10,20 +10,13 @@ Template Name: AutonomyWorks Hub
 //load scripts
 add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_script( 'workflow', get_template_directory_uri() . '/js/workflow.js', array('jquery'), '1.0.0' );
+	wp_localize_script( 'workflow', 'workflow', array('ajax_url' => admin_url( 'admin-ajax.php' )) );
 } );
 
 
 get_header('autonomyworks'); ?>
 
 		<div id="primary_home" class="content-area">
-			<?php echo 'momo : '.get_option('api_server');?><br>
-            <?php echo 'momo : '.get_option('api_key');?>
-            <?php
-			global $current_user;
-      get_currentuserinfo();
-
-      echo 'Username: ' . $current_user->user_login . "\n";
-	  ?>
 			<div id="content" class="fullwidth" role="main">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content', 'page' ); ?>

@@ -1110,3 +1110,18 @@ function portal_login_button($atts, $content = "Client Login" ){
 	if(isset($atts['link'])) $link = $atts['link']; else $link = '/clients/portal';
 	return '<div style="width: 100%;text-align: center;margin: 50px auto;"><a href="'.$link.'" style="background-color: #343234;color: white;padding: 14px 30px;border-radius: 10px;cursor: pointer;">'.$content.'</a></div>';
 }
+
+
+
+//workflow functions by momo
+add_action( 'wp_ajax_get_workflow', 'get_workflow' );
+
+function get_workflow() {
+	get_currentuserinfo();
+	$user = $current_user->user_login ;
+	$api_server = get_option('api_server');
+	$api_key = get_option('api_key');
+	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=login&key=".$api_key."&user=aw_employee";
+	echo  wp_remote_get( $url );
+	wp_die();
+}
