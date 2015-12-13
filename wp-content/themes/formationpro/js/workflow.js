@@ -34,6 +34,7 @@ jQuery(document).ready(function(e) {
 		output += '<input type="text" id="more-info">';
 		output += '<br><div class="row"><a id="end-stop-workflow" href="#" class="link" job="'+jobId+'">OK</a></div>';
 		output += '</div>';
+		jQuery("#autonomyworks-home").html(output);
 	});
 	
 });
