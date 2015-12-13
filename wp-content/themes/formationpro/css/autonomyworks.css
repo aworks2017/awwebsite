@@ -42,10 +42,14 @@
 }
 
 .green{
-	background-color:#92d050;
-	border: 1px solid #5f8e96;
+	background-color:#92d050 !important;
+	border: 1px solid #5f8e96 !important;
 }
 .yellow{
-	background-color:#ffd966;
-	border: 1px solid #7291a6;
+	background-color:#ffd966 !important;
+	border: 1px solid #7291a6 !important;
+}
+.red {
+	background-color:#c00000 !important;
+	border: 1px solid #833549 !important;
 }

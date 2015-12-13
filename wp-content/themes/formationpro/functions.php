@@ -1115,13 +1115,23 @@ function portal_login_button($atts, $content = "Client Login" ){
 
 //workflow functions by momo
 add_action( 'wp_ajax_get_workflow', 'get_workflow' );
+add_action( 'wp_ajax_get_job', 'get_job' );
 
 function get_workflow() {
 	get_currentuserinfo();
 	$user = $current_user->user_login ;
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
-	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=login&key=".$api_key."&user=aw_employee";
+	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=login&key=".$api_key."&user=".$user;
+	$response =   wp_remote_get( $url );
+	echo $response['body'];
+	wp_die();
+}
+function get_job() {
+	$jobid = htmlspecialchars($_POST['jobId']);
+	$api_server = get_option('api_server');
+	$api_key = get_option('api_key');
+	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=start&key=".$api_key."&job=".$jobid;
 	$response =   wp_remote_get( $url );
 	echo $response['body'];
 	wp_die();
