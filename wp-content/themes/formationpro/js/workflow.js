@@ -26,8 +26,8 @@ jQuery(document).ready(function(e) {
 
 function show_job(data){
 	var output = '<div>';
-	output += '<div class="left col2"><strong>Current Job : </strong>'+data.name+'<strong>Parameter 1 : </strong>'+data.parameter_1+'<strong>Parameter 2 : </strong>'+data.parameter_2+'</div>';
-	output += '<div class="right col2"><strong>Started :</strong>'+data.estimated_star+'<strong>Estimated Finish : </strong>'+data.estimated_finish+'<strong>Activity Driver : </strong>'+data.activity_driver+' - '+data.activity_count+'</div>';
+	output += '<div class="left col2"><strong>Current Job : </strong>'+data.name+'<br><strong>Parameter 1 : </strong>'+data.parameter_1+'<br><strong>Parameter 2 : </strong>'+data.parameter_2+'</div>';
+	output += '<div class="right col2"><strong>Started :</strong>'+data.estimated_star+'<br><strong>Estimated Finish : </strong>'+data.estimated_finish+'<br><strong>Activity Driver : </strong>'+data.activity_driver+' - '+data.activity_count+'</div>';
 	output += '<div class="row"><a id="stop-workflow" href="#" class="link red">STOP</a></div>';
 	jQuery("#autonomyworks-home").html(output);
 
