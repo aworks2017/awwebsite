@@ -19,8 +19,7 @@ jQuery(document).ready(function(e) {
 					function(data){
 						console.log(data);
 						show_job(data);
-					}
-					),"json";
+					},"json");
 	});
 	
 });
