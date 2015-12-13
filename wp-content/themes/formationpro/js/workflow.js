@@ -36,7 +36,7 @@ jQuery(document).ready(function(e) {
 		output += '<input type="radio" name="reason" value="QA Check">QA Check</div>';
 		output += '<div class="row"><strong>More info: </strong>';
 		output += '<input type="text" id="more-info"></div>';
-		output += '<br><div class="row"><a id="end-stop-workflow" href="#" class="link" job="'+jobId+'">OK</a></div>';
+		output += '<br><div class="row"><a id="end-stop-workflow" href="#" class="link grey" job="'+jobId+'">OK</a></div>';
 		output += '</div>';
 		jQuery("#autonomyworks-home").html(output);
 	});
