@@ -46,7 +46,7 @@ jQuery(document).ready(function(e) {
 					{action:'end_job', jobId:jobId,reason:reason,more_info:more_info},
 					function(data){
 						console.log(data);
-						if(data==='0') {
+						if(data==='0' || data==="null") {
 							jQuery("#autonomyworks-home").html('<a id="no-tasks" href="#" class="link yellow">NO TASKS ASSIGNED</a>');
 						}else{
 							jQuery("#autonomyworks-home").html('<a id="start-workflow" href="#" class="link green" job='+data+'>START</a>');
