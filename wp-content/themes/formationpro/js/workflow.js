@@ -1,5 +1,5 @@
 jQuery(document).ready(function(e) {
-	show_job(null);
+	show_job({name:'momo'});
 	jQuery("#autonomyworks-home").on("click","#get-workflow,#no-tasks",function(){
 		jQuery(this).attr("disabled","disabled");
 		jQuery.post(workflow.ajax_url,
@@ -65,7 +65,7 @@ jQuery(document).ready(function(e) {
 function show_job(data){
 	var output = '<div>';
 	output += '<div class="left col2" style="text-align:left"><strong>Current Job : </strong>'+data.name+'<br><strong>Parameter 1 : </strong>'+data.parameter_1+'<br><strong>Parameter 2 : </strong>'+data.parameter_2+'</div>';
-	output += '<div class="right col2" style="text-align:left"><strong>Started :</strong>'+data.estimated_start+'<br><strong>Estimated Finish : </strong>'+data.estimated_finish+'<br><strong>Activity Driver : </strong>'+data.activity_driver+' - '+data.activity_count+'</div>';
+	output += '<div class="right col2" style="text-align:left"><strong>Started : </strong>'+data.estimated_start+'<br><strong>Estimated Finish : </strong>'+data.estimated_finish+'<br><strong>Activity Driver : </strong>'+data.activity_driver+' - '+data.activity_count+'</div>';
 	output += '<br><div class="row"><a id="stop-workflow" href="#" class="link red" job="'+data.job_id+'">STOP</a></div>';
 	output += '</div>';
 	jQuery("#autonomyworks-home").html(output);
