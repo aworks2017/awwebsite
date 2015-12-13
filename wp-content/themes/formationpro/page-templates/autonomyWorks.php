@@ -13,6 +13,12 @@ get_header('autonomyworks'); ?>
 		<div id="primary_home" class="content-area">
 			<?php echo 'momo : '.get_option('api_server');?><br>
             <?php echo 'momo : '.get_option('api_key');?>
+            <?php
+			global $current_user;
+      get_currentuserinfo();
+
+      echo 'Username: ' . $current_user->user_login . "\n";
+	  ?>
 			<div id="content" class="fullwidth" role="main">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content', 'page' ); ?>
