@@ -20,7 +20,7 @@ jQuery(document).ready(function(e) {
 						console.log(data);
 						show_job(data);
 					}
-					);
+					),"json";
 	});
 	
 });
