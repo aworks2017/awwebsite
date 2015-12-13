@@ -6,7 +6,7 @@ jQuery(document).ready(function(e) {
 						if(data==='0') {
 							jQuery("#autonomyworks-home").html('<a id="no-tasks" href="#" class="link yellow">NO TASKS ASSIGNED</a>');
 						}else{
-							jQuery("#autonomyworks-home").html('<a id="start-workflow" href="#" class="link green" job="'+data+'">START</a>');
+							jQuery("#autonomyworks-home").html('<a id="start-workflow" href="#" class="link green" job='+data+'>START</a>');
 						}
 					}
 					);
