@@ -1140,14 +1140,12 @@ function get_job() {
 }
 
 function end_job() {
-	$jobid = $_POST['jobId'];
-	$reason = $_POST['reason'];
-	$more_info = $_POST['more_info'];
+	$jobid = htmlspecialchars($_POST['jobId']);
+	$reason = urlencode($_POST['reason']);
+	$more_info = urlencode($_POST['more_info']);
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
 	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=stop&key=".$api_key."&job=".$jobid."&action_stop=".$reason."&action_info=".$more_info ;
-	$url = urlencode($url);
-	die($url);
 	$response =   wp_remote_get( $url );
 	echo $response['body'];
 	wp_die();
