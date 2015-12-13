@@ -39,7 +39,7 @@ jQuery(document).ready(function(e) {
 	
 	jQuery("#autonomyworks-home").on("click","#end-stop-workflow",function(){
 		var jobId = jQuery(this).attr("job");
-		var  reason = jQuery('input[name="reason"]:ckecked').val();
+		var  reason = jQuery('input[name="reason"]:checked').val();
 		var  more_info = jQuery('#more-info').val();
 		console.log(jobId);
 		console.log(reason);
