@@ -30,13 +30,13 @@ jQuery(document).ready(function(e) {
 		var jobId = jQuery(this).attr("job");
 		var output = '<div class="row" style="display: block;margin: 0 auto;width: 530px;">';
 		output += '<div class="row">'
-		output += '<div class="col-2"><strong>Reason: </strong></div>';
-		output += '<div class="col-10"><input type="radio" name="reason" value="Completed">Completed ';
+		output += '<div class="col-md-2"><strong>Reason: </strong></div>';
+		output += '<div class="col-md-10"><input type="radio" name="reason" value="Completed">Completed ';
 		output += '<input type="radio" name="reason" value=" In Progress"> In Progress ';
 		output += '<input type="radio" name="reason" value="Issue">Issue ';
 		output += '<input type="radio" name="reason" value="QA Check">QA Check</div></div>';
-		output += '<div class="col-10"><div class="row"><strong>More info: </strong></div>';
-		output += '<div class="col-10"><input type="text" id="more-info" style="width:100%"></div></div>';
+		output += '<div class="col-md-2"><div class="row"><strong>More info: </strong></div>';
+		output += '<div class="col-md-10"><input type="text" id="more-info" style="width:100%"></div></div>';
 		output += '<br><div class="row"><a id="end-stop-workflow" href="#" class="link grey" job="'+jobId+'">OK</a></div>';
 		output += '</div>';
 		jQuery("#autonomyworks-home").html(output);
