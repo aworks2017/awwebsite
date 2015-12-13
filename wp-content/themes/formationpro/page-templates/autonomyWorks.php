@@ -11,7 +11,8 @@ Template Name: AutonomyWorks Hub
 get_header('autonomyworks'); ?>
 
 		<div id="primary_home" class="content-area">
-
+			<?php echo 'momo : '.get_option('api_server');?><br>
+            <?php echo 'momo : '.get_option('api_key');?>
 			<div id="content" class="fullwidth" role="main">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content', 'page' ); ?>
