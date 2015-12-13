@@ -1114,7 +1114,7 @@ function portal_login_button($atts, $content = "Client Login" ){
 
 //boostrap css load
 add_action( 'wp_enqueue_scripts', function(){
-	//wp_enqueue_style( 'bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' );
+	wp_enqueue_style( 'bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' );
 } );
 //workflow functions by momo
 add_action( 'wp_ajax_get_workflow', 'get_workflow' );
