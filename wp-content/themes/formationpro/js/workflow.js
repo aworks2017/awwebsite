@@ -40,10 +40,18 @@ jQuery(document).ready(function(e) {
 	jQuery("#autonomyworks-home").on("click","#end-stop-workflow",function(){
 		var jobId = jQuery(this).attr("job");
 		var  reason = jQuery('input[name="reason"]:checked').val();
+		if(reason==="undefined") return false;
 		var  more_info = jQuery('#more-info').val();
-		console.log(jobId);
-		console.log(reason);
-		console.log(more_info);
+		jQuery.post(workflow.ajax_url,
+					{action:'end_job', jobId:jobId,reason:reason,more_info:more_info},
+					function(data){
+						console.log(data);
+						if(data==='0') {
+							jQuery("#autonomyworks-home").html('<a id="no-tasks" href="#" class="link yellow">NO TASKS ASSIGNED</a>');
+						}else{
+							jQuery("#autonomyworks-home").html('<a id="start-workflow" href="#" class="link green" job='+data+'>START</a>');
+						}
+					});
 		
 	});
 	
