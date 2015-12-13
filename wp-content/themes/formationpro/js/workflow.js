@@ -1,9 +1,10 @@
 jQuery(document).ready(function(e) {
 	jQuery("#autonomyworks-home").on("click","#get-workflow,#no-tasks",function(){
+		jQuery(this).attr("disabled","disabled");
 		jQuery.post(workflow.ajax_url,
 					{action:'get_workflow'},
 					function(data){
-						if(data==='0' || data==="null") {
+						if(data==='0' || data==="null" || data===null) {
 							jQuery("#autonomyworks-home").html('<a id="no-tasks" href="#" class="link yellow">NO TASKS ASSIGNED</a>');
 						}else{
 							jQuery("#autonomyworks-home").html('<a id="start-workflow" href="#" class="link green" job='+data+'>START</a>');
@@ -13,6 +14,7 @@ jQuery(document).ready(function(e) {
 	});
 	
 	jQuery("#autonomyworks-home").on("click","#start-workflow",function(){
+		jQuery(this).attr("disabled","disabled");
 		var jobId = jQuery(this).attr("job");
 		jQuery.post(workflow.ajax_url,
 					{action:'get_job', jobId:jobId},
@@ -23,6 +25,7 @@ jQuery(document).ready(function(e) {
 	});
 	
 	jQuery("#autonomyworks-home").on("click","#stop-workflow",function(){
+		jQuery(this).attr("disabled","disabled");
 		var jobId = jQuery(this).attr("job");
 		var output = '<div class="row">';
 		output += '<div class="row"><strong>Reason: </strong>';
@@ -38,6 +41,7 @@ jQuery(document).ready(function(e) {
 	});
 	
 	jQuery("#autonomyworks-home").on("click","#end-stop-workflow",function(){
+		jQuery(this).attr("disabled","disabled");
 		var jobId = jQuery(this).attr("job");
 		var  reason = jQuery('input[name="reason"]:checked').val();
 		if(reason==="undefined") return false;
@@ -46,7 +50,7 @@ jQuery(document).ready(function(e) {
 					{action:'end_job', jobId:jobId,reason:reason,more_info:more_info},
 					function(data){
 						console.log(data);
-						if(data==='0' || data==="null") {
+						if(data==='0' || data==="null"  || data===null) {
 							jQuery("#autonomyworks-home").html('<a id="no-tasks" href="#" class="link yellow">NO TASKS ASSIGNED</a>');
 						}else{
 							jQuery("#autonomyworks-home").html('<a id="start-workflow" href="#" class="link green" job='+data+'>START</a>');
