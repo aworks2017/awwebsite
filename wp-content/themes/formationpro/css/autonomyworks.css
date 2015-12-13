@@ -1,0 +1,39 @@
+#centro-home {
+	width: 100%;
+	margin: 0 auto;
+	max-width: 800px;
+}
+.col2 {
+	width: 49%;
+	text-align: center;
+	display: inline-block;
+	max-width: 260px;
+}
+#centro-home .left {
+	float: left;
+}
+#centro-home .right {
+	float: right;
+}
+#centro-home a.link {
+	background-color: #343234;
+	color: white;
+	padding: 14px 0px;
+	border-radius: 10px;
+	cursor: pointer;
+	display: inline-block;
+	width: 100%;
+}
+#centro-home a.link:hover {
+	font-weight: bold;
+	box-shadow: 2px 2px 6px 0px #747474;
+}
+#centro-home .centr-btn {
+	display: inline-block;
+	width: 100%;
+	margin: 20px auto;
+}
+.row {
+	display: inline-block;
+	width: 100%;
+}
