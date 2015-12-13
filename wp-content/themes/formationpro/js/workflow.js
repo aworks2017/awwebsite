@@ -60,17 +60,21 @@ jQuery(document).ready(function(e) {
 							jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
 						}
 					});
-		
 	});
 	
 });
 
 function show_job(data){
 	var output = '<div>';
-	output += '<div class="left col2" style="text-align:left"><strong>Current Job : </strong>'+data.name+'<br><strong>Parameter 1 : </strong>'+data.parameter_1+'<br><strong>Parameter 2 : </strong>'+data.parameter_2+'</div>';
-	output += '<div class="right col2" style="text-align:left"><strong>Started : </strong>'+data.estimated_start+'<br><strong>Estimated Finish : </strong>'+data.estimated_finish+'<br><strong>Activity Driver : </strong>'+data.activity_driver+' - '+data.activity_count+'</div>';
-	output += '<br><div class="row"><a id="stop-workflow"  class="link red" job="'+data.job_id+'">STOP</a></div>';
+	output += '<div class="row"><div class="col-md-6" style="text-align:left">';
+	output += '<div class="col-md-6"><strong>Current Job : </strong></div><div class="col-md-6">'+data.name+'</div>';
+	output += '<div class="col-md-6"><strong>Parameter 1 : </strong></div><div class="col-md-6">'+data.parameter_1+'</div>'
+	output += '<div class="col-md-6"><strong>Parameter 2 : </strong></div><div class="col-md-6">'+data.parameter_2+'</div>';
+	output += '</div>';
+	output += '<div class="col-md-6" style="text-align:left">';
+	output += '<div class="col-md-6"><strong>Started : </strong></div><div class="col-md-6">'+data.estimated_start+'</div><div class="col-md-6"><strong>Estimated Finish : </strong></div><div class="col-md-6">'+data.estimated_finish+'</div><div class="col-md-6"><strong>Activity Driver : </strong></div><div class="col-md-6">'+data.activity_driver+' - '+data.activity_count+'</div>';
+	output += '</div></div>';
+	output += '<div class="row"><a id="stop-workflow"  class="link red" job="'+data.job_id+'">STOP</a></div>';
 	output += '</div>';
 	jQuery("#autonomyworks-home").html(output);
-
 }
