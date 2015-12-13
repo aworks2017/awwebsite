@@ -1146,7 +1146,6 @@ function end_job() {
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
 	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=stop&key=".$api_key."&job=".$jobid."&action_stop=".$reason."&action_info=".$more_info ;
-	die($url);
 	$response =   wp_remote_get( $url );
 	echo $response['body'];
 	wp_die();
