@@ -1,9 +1,9 @@
 jQuery(document).ready(function(e) {
-    jQuery("#get-workflow").click(function(){
+	jQuery("#autonomyworks-home").on("click","#get-workflow,#no-tasks",function(){
 		jQuery.post(workflow.ajax_url,
 					{action:'get_workflow'},
 					function(data){
-						if(data==='0') {
+						if(data==='0' || data==="null") {
 							jQuery("#autonomyworks-home").html('<a id="no-tasks" href="#" class="link yellow">NO TASKS ASSIGNED</a>');
 						}else{
 							jQuery("#autonomyworks-home").html('<a id="start-workflow" href="#" class="link green" job='+data+'>START</a>');
