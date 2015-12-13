@@ -1129,6 +1129,7 @@ function get_workflow() {
 	echo $response['body'];
 	wp_die();
 }
+
 function get_job() {
 	$jobid = htmlspecialchars($_POST['jobId']);
 	$api_server = get_option('api_server');
