@@ -34,7 +34,7 @@ jQuery(document).ready(function(e) {
 		output += '<input type="radio" name="reason" value=" In Progress"> In Progress ';
 		output += '<input type="radio" name="reason" value="Issue">Issue ';
 		output += '<input type="radio" name="reason" value="QA Check">QA Check</div>';
-		output += '<div class="col-md-3"><div class="row"><strong>More info: </strong></div>';
+		output += '<div class="col-md-3"><strong>More info: </strong></div>';
 		output += '<div class="col-md-9"><input type="text" id="more-info" style="width:100%"></div>';
 		output += '<div class="col-md-12"><a id="end-stop-workflow" href="#" class="link grey" job="'+jobId+'">OK</a></div>';
 		output += '</div>';
