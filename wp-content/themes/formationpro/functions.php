@@ -1123,6 +1123,7 @@ function get_workflow() {
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
 	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=login&key=".$api_key."&user=".$user;
+	die($url);
 	$response =   wp_remote_get( $url );
 	echo $response['body'];
 	wp_die();
