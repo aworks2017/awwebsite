@@ -1,5 +1,4 @@
 jQuery(document).ready(function(e) {
-	show_job({name:'momo'});
 	jQuery("#autonomyworks-home").on("click","#get-workflow,#no-tasks",function(){
 		jQuery(this).attr("disabled","disabled");
 		jQuery.post(workflow.ajax_url,
