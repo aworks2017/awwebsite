@@ -31,10 +31,10 @@ jQuery(document).ready(function(e) {
 		var output = '<div class="row" style="display: block;margin: 0 auto;width: 760px;">';
 		output += '<div class="row">';
 		output += '<div class="col-md-3"><strong>Reason : </strong></div>';
-		output += '<div class="col-md-9"><div class="col-md-3"><input type="radio" name="reason" value="Completed"> Completed</div>';
-		output += '<div class="col-md-3"><input type="radio" name="reason" value=" In Progress"> In Progress</div>';
-		output += '<div class="col-md-3"><input type="radio" name="reason" value="Issue"> Issue</div>';
-		output += '<div class="col-md-3"><input type="radio" name="reason" value="QA Check"> QA Check</div></div>';
+		output += '<div class="col-md-9"><label class="radio-inline col-md-3"><input type="radio" name="reason" value="Completed"> Completed</label>';
+		output += '<label class="radio-inline col-md-3"><input type="radio" name="reason" value=" In Progress"> In Progress</label>';
+		output += '<label class="radio-inline col-md-3"><input type="radio" name="reason" value="Issue"> Issue</label>';
+		output += '<label class="radio-inline col-md-3"><input type="radio" name="reason" value="QA Check"> QA Check</label></div>';
 		output += '</div>';
 		output += '<div class="row">';
 		output += '<div class="col-md-3"><strong>More info : </strong></div>';
