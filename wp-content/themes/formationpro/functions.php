@@ -1137,7 +1137,7 @@ function get_job() {
 	$response =   wp_remote_get( $url );
 	$data = json_decode($response['body'],true);
 	if(isset($data['estimated_start'])) $data['estimated_start'] = date("Y-m-d H:i A", strtotime($data['estimated_start']));
-	if(isset($data['estimated_finish'])) $data['estimated_finish'] = date("d-m-Y", strtotime($data['estimated_finish']));
+	if(isset($data['estimated_finish'])) $data['estimated_finish'] = date("Y-m-d H:i A", strtotime($data['estimated_finish']));
 	echo json_encode($data);
 	wp_die();
 }
