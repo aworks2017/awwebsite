@@ -55,6 +55,22 @@ jQuery(document).ready(function(e) {
 					});
 	});
 	
+	jQuery("#autonomyworks-home").on("click","#update_act",function(){
+		var act_count = jQuery("#act_count").val();
+		var jobId = jQuery(this).attr("job");
+		if(jQuery.isNumeric(act_count) && act_count>=0  && act_count<=9999) {
+			jQuery.post(workflow.ajax_url,
+					{action:'update_count', jobId:jobId, new_count :act_count },
+					function(data){
+						console.log(data);
+						if(jQuery.isNumeric(data))
+						jQuery("#act_driver").html(data);
+					});
+		}else{
+			jQuery("#act_count").val('0');
+		}
+	});
+	
 });
 
 function show_job(data){
@@ -68,7 +84,7 @@ function show_job(data){
 	output += '<div class="col-md-7" style="text-align:left">';
 	output += '<div class="row"><div class="col-md-4"><strong>Parameter 1 : </strong></div><div id="copy1_text" class="col-md-4">'+data.parameter_1+'</div><div class="col-md-4"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>';
 	output += '<div class="row"><div class="col-md-4"><strong>Parameter 2 : </strong></div><div id="copy2_text" class="col-md-4">'+data.parameter_2+'</div><div class="col-md-4"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>';
-	output += '<div class="row"><div class="col-md-4"><strong>Activity Driver : </strong></div><div class="col-md-4">'+data.activity_driver+' - <input type="number" min="0" max="9999" style="width:50px" value="'+data.activity_count+'"/></div><div class="col-md-4"><input type="button" id="update_act" value="Update"/></div></div>';
+	output += '<div class="row"><div class="col-md-4"><strong>Activity Driver : </strong></div><div id="act_driver" class="col-md-4">'+data.activity_driver+' - <input  id="act_count"  type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="'+data.activity_count+'"/></div><div class="col-md-4"><input type="button" id="update_act" value="Update" job="'+data.job_id+'"/></div></div>';
 	output += '</div></div>';
 	output += '<div class="row"><a id="stop-workflow"  class="link red" job="'+data.job_id+'">STOP</a></div>';
 	output += '</div>';
