@@ -1136,7 +1136,7 @@ function get_job() {
 	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=start&key=".$api_key."&job=".$jobid;
 	$response =   wp_remote_get( $url );
 	$data = json_decode($response['body'],true);
-	if(isset($data['estimated_start'])) $data['estimated_start'] = date("d-m-Y", strtotime($data['estimated_start']));
+	if(isset($data['estimated_start'])) $data['estimated_start'] = date("Y-m-d H:i A", strtotime($data['estimated_start']));
 	if(isset($data['estimated_finish'])) $data['estimated_finish'] = date("d-m-Y", strtotime($data['estimated_finish']));
 	echo json_encode($data);
 	wp_die();
