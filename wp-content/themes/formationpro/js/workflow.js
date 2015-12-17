@@ -63,7 +63,7 @@ jQuery(document).ready(function(e) {
 					{action:'update_count', jobId:jobId, new_count :act_count },
 					function(data){
 						console.log(data);
-						if(jQuery.isNumeric(data))
+						//if(jQuery.isNumeric(data))
 						jQuery("#act_driver").html(data);
 					});
 		}else{
