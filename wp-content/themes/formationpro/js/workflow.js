@@ -62,7 +62,7 @@ jQuery(document).ready(function(e) {
 			jQuery.post(workflow.ajax_url,
 					{action:'update_count', jobId:jobId, new_count :act_count },
 					function(data){
-						var new_val = Number(data.replace('"', '')) ;
+						var new_val = Number(data.replace(/\"/g, '')) ;
 						if(new_val!='NaN')
 						jQuery("#act_driver").html(new_val);
 					});
