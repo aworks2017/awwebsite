@@ -1,14 +1,11 @@
 jQuery(document).ready(function(e) {
+	var get_workflow_interval ;
 	jQuery("#autonomyworks-home").on("click","#get-workflow,#no-tasks",function(){
 		jQuery(this).attr("disabled","disabled");
 		jQuery.post(workflow.ajax_url,
 					{action:'get_workflow'},
 					function(data){
-						if(data==='0' || data==="null" || data===null) {
-							jQuery("#autonomyworks-home").html('<a id="no-tasks"  class="link yellow">NO TASKS ASSIGNED</a>');
-						}else{
-							jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
-						}
+						tasks_button(data);
 					}
 					);
 	});
@@ -53,12 +50,7 @@ jQuery(document).ready(function(e) {
 		jQuery.post(workflow.ajax_url,
 					{action:'end_job', jobId:jobId,reason:reason,more_info:more_info},
 					function(data){
-						console.log(data);
-						if(data==='0' || data==="null"  || data===null) {
-							jQuery("#autonomyworks-home").html('<a id="no-tasks"  class="link yellow">NO TASKS ASSIGNED</a>');
-						}else{
-							jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
-						}
+						tasks_button(data);
 					});
 	});
 	
@@ -77,4 +69,15 @@ function show_job(data){
 	output += '<div class="row"><a id="stop-workflow"  class="link red" job="'+data.job_id+'">STOP</a></div>';
 	output += '</div>';
 	jQuery("#autonomyworks-home").html(output);
+}
+
+function tasks_button(data){
+	console.log(data);
+	clearInterval(get_workflow_interval);
+	if(data==='0' || data==="null" || data===null) {
+		jQuery("#autonomyworks-home").html('<a id="no-tasks"  class="link yellow">NO TASKS ASSIGNED</a>');
+		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},5000);
+	}else{
+		jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
+	}
 }
