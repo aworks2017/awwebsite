@@ -65,9 +65,9 @@ function show_job(data){
 	
 	output += '</div>';
 	output += '<div class="col-md-7" style="text-align:left">';
-	output += '<div class="row"><div class="col-md-4"><strong>Parameter 1 : </strong></div><div class="col-md-4">'+data.parameter_1+'</div><div class="col-md-4"><button id="copy1">Copy 1</button></div></div>';
-	output += '<div class="row"><div class="col-md-4"><strong>Parameter 2 : </strong></div><div class="col-md-4">'+data.parameter_2+'</div><div class="col-md-4"><button id="copy2">Copy 2</button></div></div>';
-	output += '<div class="row"><div class="col-md-4"><strong>Activity Driver : </strong></div><div class="col-md-4">'+data.activity_driver+' - '+data.activity_count+'</div><div class="col-md-4"><button id="update_act">Update</button></div></div>';
+	output += '<div class="row"><div class="col-md-4"><strong>Parameter 1 : </strong></div><div class="col-md-4">'+data.parameter_1+'</div><div class="col-md-4"><input type="button" id="copy1" value="Copy 1"/></div></div>';
+	output += '<div class="row"><div class="col-md-4"><strong>Parameter 2 : </strong></div><div class="col-md-4">'+data.parameter_2+'</div><div class="col-md-4"><input type="button" id="copy2" value="Copy 2"/></div></div>';
+	output += '<div class="row"><div class="col-md-4"><strong>Activity Driver : </strong></div><div class="col-md-4">'+data.activity_driver+' - '+data.activity_count+'</div><div class="col-md-4"><input type="button" id="update_act" value="Update"/></div></div>';
 	output += '</div></div>';
 	output += '<div class="row"><a id="stop-workflow"  class="link red" job="'+data.job_id+'">STOP</a></div>';
 	output += '</div>';
