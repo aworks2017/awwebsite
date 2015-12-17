@@ -1,5 +1,6 @@
+var get_workflow_interval ;
+
 jQuery(document).ready(function(e) {
-	var get_workflow_interval ;
 	jQuery("#autonomyworks-home").on("click","#get-workflow,#no-tasks",function(){
 		jQuery(this).attr("disabled","disabled");
 		jQuery.post(workflow.ajax_url,
