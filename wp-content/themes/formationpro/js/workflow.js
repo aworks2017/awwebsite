@@ -58,6 +58,7 @@ jQuery(document).ready(function(e) {
 });
 
 function show_job(data){
+	if(data.activity_driver===null) data.activity_driver = 'N/A';
 	var output = '<div>';
 	output += '<div class="row"><div class="col-md-5" style="text-align:left">';
 	output += '<div class="row"><div class="col-md-6"><strong>Current Job : </strong></div><div class="col-md-6">'+data.name+'</div></div>';
