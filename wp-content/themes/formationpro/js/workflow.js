@@ -97,7 +97,7 @@ function tasks_button(data){
 	clearInterval(get_workflow_interval);
 	if(data==='0' || data==="null" || data===null) {
 		jQuery("#autonomyworks-home").html('<a id="no-tasks"  class="link yellow">ON CALL</a>');
-		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},5000);
+		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
 	}else{
 		jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
 	}

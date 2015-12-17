@@ -1126,7 +1126,8 @@ function get_workflow() {
 	$api_key = get_option('api_key');
 	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=login&key=".$api_key."&user=".$user;
 	$response =   wp_remote_get( $url );
-	echo $response['body'];
+	if(is_wp_error($response)) echo '0';
+	else echo $response['body'];
 	wp_die();
 }
 
@@ -1139,7 +1140,8 @@ function get_job() {
 	$data = json_decode($response['body'],true);
 	if(isset($data['estimated_start'])) $data['estimated_start'] = date("Y-m-d H:i A", strtotime($data['estimated_start']));
 	if(isset($data['estimated_finish'])) $data['estimated_finish'] = date("Y-m-d H:i A", strtotime($data['estimated_finish']));
-	echo json_encode($data);
+	if(is_wp_error($response)) echo '0';
+	else echo json_encode($data);
 	wp_die();
 }
 
@@ -1151,7 +1153,8 @@ function end_job() {
 	$api_key = get_option('api_key');
 	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=stop&key=".$api_key."&job=".$jobid."&action_stop=".$reason."&action_info=".$more_info ;
 	$response =   wp_remote_get( $url );
-	echo $response['body'];
+	if(is_wp_error($response)) echo '0';
+	else echo $response['body'];
 	wp_die();
 }
 
@@ -1162,6 +1165,7 @@ function update_count() {
 	$api_key = get_option('api_key');
 	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=update&key=".$api_key."&job=".$jobid."&new_count=".$new_count ;
 	$response =   wp_remote_get( $url );
-	echo $response['body'];
+	if(is_wp_error($response)) echo '0';
+	else echo $response['body'];
 	wp_die();
 }
