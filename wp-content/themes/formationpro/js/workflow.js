@@ -60,14 +60,14 @@ jQuery(document).ready(function(e) {
 function show_job(data){
 	var output = '<div>';
 	output += '<div class="row"><div class="col-md-5" style="text-align:left">';
-	output += '<div class="col-md-6"><strong>Current Job : </strong></div><div class="col-md-6">'+data.name+'</div>';
-	output += '<div class="col-md-6"><strong>Started : </strong></div><div class="col-md-6">'+data.estimated_start+'</div><div class="col-md-6"><strong>Estimated Finish : </strong></div><div class="col-md-6">'+data.estimated_finish+'</div>';
+	output += '<div class="row"><div class="col-md-6"><strong>Current Job : </strong></div><div class="col-md-6">'+data.name+'</div></div>';
+	output += '<div class="row"><div class="col-md-6"><strong>Started : </strong></div><div class="col-md-6">'+data.estimated_start+'</div></div><div class="row"><div class="col-md-6"><strong>Estimated Finish : </strong></div><div class="col-md-6">'+data.estimated_finish+'</div></div>';
 	
 	output += '</div>';
 	output += '<div class="col-md-7" style="text-align:left">';
-	output += '<div class="col-md-3"><strong>Parameter 1 : </strong></div><div class="col-md-5">'+data.parameter_1+'</div><div class="col-md-4"><button id="copy1">Copy 1</button></div>';
-	output += '<div class="col-md-3"><strong>Parameter 2 : </strong></div><div class="col-md-5">'+data.parameter_2+'</div><div class="col-md-4"><button id="copy2">Copy 2</button></div>';
-	output += '<div class="col-md-3"><strong>Activity Driver : </strong></div><div class="col-md-5">'+data.activity_driver+' - '+data.activity_count+'</div><div class="col-md-4"><button id="update_act">Update</button></div>';
+	output += '<div class="row"><div class="col-md-4"><strong>Parameter 1 : </strong></div><div class="col-md-4">'+data.parameter_1+'</div><div class="col-md-4"><button id="copy1">Copy 1</button></div></div>';
+	output += '<div class="row"><div class="col-md-4"><strong>Parameter 2 : </strong></div><div class="col-md-4">'+data.parameter_2+'</div><div class="col-md-4"><button id="copy2">Copy 2</button></div></div>';
+	output += '<div class="row"><div class="col-md-4"><strong>Activity Driver : </strong></div><div class="col-md-4">'+data.activity_driver+' - '+data.activity_count+'</div><div class="col-md-4"><button id="update_act">Update</button></div></div>';
 	output += '</div></div>';
 	output += '<div class="row"><a id="stop-workflow"  class="link red" job="'+data.job_id+'">STOP</a></div>';
 	output += '</div>';
