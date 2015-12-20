@@ -1140,11 +1140,13 @@ function get_job() {
 	$data = json_decode($response['body'],true);
 	if(isset($data['estimated_start'])) {
 		$estimated_start =  strtotime($data['estimated_start']) ;
+		$data['estimated_start_original'] = $data['estimated_start'];
 		$data['estimated_start'] = date("Y-m-d H:i A", $estimated_start);
 	}
 	if(isset($data['estimated_finish'])) {
 		$estimated_finish = strtotime($data['estimated_finish']);
-		$data['estimated_finish'] = $data['estimated_start'];
+		$data['estimated_finish_original'] = $data['estimated_finish'];
+		$data['estimated_finish'] = date("Y-m-d H:i A", $estimated_finish);
 	}
 	if(is_wp_error($response)) echo '0';
 	else echo json_encode($data);
