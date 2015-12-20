@@ -56,15 +56,21 @@ jQuery(document).ready(function(e) {
 	});
 	
 	jQuery("#autonomyworks-home").on("click","#update_act",function(){
+		var button = jQuery(this) ;
 		var act_count = jQuery("#act_count").val();
-		var jobId = jQuery(this).attr("job");
+		var jobId = button.attr("job");
+		button.attr("disabled","disabled");
 		if(jQuery.isNumeric(act_count) && act_count>=0  && act_count<=9999) {
 			jQuery.post(workflow.ajax_url,
 					{action:'update_count', jobId:jobId, new_count :act_count },
 					function(data){
 						var new_val = Number(data.replace(/\"/g, '')) ;
-						if(new_val!='NaN')
-						jQuery("#act_driver").html(new_val);
+						if(new_val!='NaN') {
+							jQuery("#act_count").html(new_val);
+							button.remove();
+						}else{
+							button.removeAttr("disabled");
+						}
 					});
 		}else{
 			jQuery("#act_count").val('0');
