@@ -1147,9 +1147,11 @@ function get_job() {
 		$data['estimated_start'] = $datetime->format('Y-m-d h:i A');
 	}
 	if(isset($data['estimated_finish'])) {
-		$estimated_finish = strtotime($data['estimated_finish']);
+		$datetime = new DateTime($data['estimated_finish']);
+		$la_time = new DateTimeZone('America/Chicago');
+		$datetime->setTimezone($la_time);
 		$data['estimated_finish_original'] = $data['estimated_finish'];
-		$data['estimated_finish'] = date("Y-m-d h:i A", $estimated_finish);
+		$data['estimated_finish'] = $datetime->format('Y-m-d h:i A');
 	}
 	if(is_wp_error($response)) echo '0';
 	else echo json_encode($data);
