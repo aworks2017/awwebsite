@@ -61,6 +61,7 @@ jQuery(document).ready(function(e) {
 		var jobId = button.attr("job");
 		button.attr("disabled","disabled");
 		button.css("opacity","0.5");
+		button.val("Updating...");
 		if(jQuery.isNumeric(act_count) && act_count>=0  && act_count<=9999) {
 			jQuery.post(workflow.ajax_url,
 					{action:'update_count', jobId:jobId, new_count :act_count },
