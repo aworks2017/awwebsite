@@ -60,6 +60,7 @@ jQuery(document).ready(function(e) {
 		var act_count = jQuery("#act_count").val();
 		var jobId = button.attr("job");
 		button.attr("disabled","disabled");
+		button.css("opacity","0.5");
 		if(jQuery.isNumeric(act_count) && act_count>=0  && act_count<=9999) {
 			jQuery.post(workflow.ajax_url,
 					{action:'update_count', jobId:jobId, new_count :act_count },
@@ -70,6 +71,7 @@ jQuery(document).ready(function(e) {
 							button.remove();
 						}else{
 							button.removeAttr("disabled");
+							button.css("opacity","1");
 						}
 					});
 		}else{
