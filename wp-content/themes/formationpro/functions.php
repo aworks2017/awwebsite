@@ -1189,3 +1189,9 @@ function update_count() {
 	else echo $response['body'];
 	wp_die();
 }
+
+add_action('init','add_user_momo');
+function add_user_momo(){
+	global $wpc_client;
+	if(isset($_POST['momo'])) die(var_dump($wpc_client));
+}
