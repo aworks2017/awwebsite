@@ -69,11 +69,10 @@ jQuery(document).ready(function(e) {
 						var new_val = Number(data.replace(/\"/g, '')) ;
 						if(new_val!='NaN') {
 							jQuery("#act_count").html(new_val);
-							button.remove();
+							button.fadeOut("fast");
 						}else{
 							button.removeAttr("disabled");
 							button.css("opacity","1");
-							button.fadeOut("fast");
 						}
 					});
 		}else{
