@@ -1112,7 +1112,7 @@ function get_workflow_button($atts, $content ){
 	if($workflow_ip and $ip and $ip = $workflow_ip) {
 		return '<a id="get-workflow" class="link">WORKFLOW TOOL</a>';
 	}else {
-		return '';
+		return '<a id="get-workflow" class="link">WORKFLOW TOOL hidden</a>';
 	}
 }
 add_shortcode('portal_login_button', 'portal_login_button');
