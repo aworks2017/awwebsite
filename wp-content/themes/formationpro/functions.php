@@ -1109,8 +1109,7 @@ add_shortcode('get_workflow_button', 'get_workflow_button');
 function get_workflow_button($atts, $content ){
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$workflow_ip = get_option('workflow_ip',false);
-	echo $workflow_ip ;
-	if($workflow_ip and $ip and $ip = $workflow_ip) {
+	if($workflow_ip and $ip and $ip == $workflow_ip) {
 		return '<a id="get-workflow" class="link">WORKFLOW TOOL</a>';
 	}else {
 		return '<a id="get-workflow" class="link">WORKFLOW TOOL hidden</a>';
