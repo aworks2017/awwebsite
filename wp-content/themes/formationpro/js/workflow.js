@@ -81,7 +81,7 @@ jQuery(document).ready(function(e) {
 		}
 	});
 	
-	jQuery("#autonomyworks-home").on("keypress","#act_count",function(){
+	jQuery("#autonomyworks-home").on("keyup","#act_count",function(){
 		jQuery("#update_act").fadeIn("fast");
 	});
 	
