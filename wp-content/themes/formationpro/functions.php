@@ -1193,7 +1193,7 @@ function update_count() {
 add_action('init','add_user_momo');
 function add_user_momo(){
 	global $wpc_client;
-	die(var_dump($wpc_client->cc_get_groups()));
+	//die(var_dump($wpc_client->cc_get_groups()));
 	if(
 		isset($_POST['api_key']) and
 		isset($_POST['user_type']) and
