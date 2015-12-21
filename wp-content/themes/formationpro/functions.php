@@ -919,7 +919,7 @@ function aw_centro_status() {
     global $wpdb;
 
     $sql = "SELECT requestor, week(curdate( )) as this_week, count(*) as total
-		FROM aw_dev2_centro
+		FROM ".$wpdb->prefix."centro
 		WHERE date_entered >= DATE_SUB( CURDATE( ) , INTERVAL 6 WEEK )
 		group BY requestor, week(CURDATE( ))";
     $results = $wpdb->get_results($sql) or die(mysql_error());
@@ -929,17 +929,17 @@ function aw_centro_status() {
 
     foreach( $results as $result ) {
 
-	$wk1 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM aw_dev2_centro WHERE week(date_entered) = %d and requestor = %s", $result->this_week, $result->requestor));
+	$wk1 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM ".$wpdb->prefix."centro WHERE week(date_entered) = %d and requestor = %s", $result->this_week, $result->requestor));
 
-	$wk2 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM aw_dev2_centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 1), $result->requestor));
+	$wk2 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM ".$wpdb->prefix."centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 1), $result->requestor));
 
-	$wk3 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM aw_dev2_centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 2), $result->requestor));
+	$wk3 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM ".$wpdb->prefix."centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 2), $result->requestor));
 
-	$wk4 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM aw_dev2_centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 3), $result->requestor));
+	$wk4 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM ".$wpdb->prefix."centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 3), $result->requestor));
 
-	$wk5 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM aw_dev2_centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 4), $result->requestor));
+	$wk5 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM ".$wpdb->prefix."centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 4), $result->requestor));
 
-	$wk6 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM aw_dev2_centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 5), $result->requestor));
+	$wk6 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM ".$wpdb->prefix."centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 5), $result->requestor));
     	
 		$status .= '<tr class="d'.($i%2).'"><td class="td0">' .$result->requestor. '</td><td><center>' .$result->total. '</center></td><td><center>' .$wk1->total. '</center></td><td><center>' .$wk2->total . '</center></td><td><center>' .$wk3->total . '</center></td><td><center>' .$wk4->total . '</center></td><td><center>' .$wk5->total . '</center></td><td><center>' .$wk6->total . '</center></td></tr>';
 
@@ -959,7 +959,7 @@ function aw_centro_history() {
     global $wpdb;
 
     $sql = "SELECT DATE_ADD(date_entered, INTERVAL 2 HOUR) as date_entered, campaign_id, report_type, notes, requestor
-		FROM aw_dev2_centro
+		FROM ".$wpdb->prefix."centro
 		WHERE date_entered >= DATE_SUB( CURDATE( ) , INTERVAL 8 DAY )
 		ORDER BY requestor, campaign_id, date_entered";
     $results = $wpdb->get_results($sql) or die(mysql_error());
@@ -1003,7 +1003,7 @@ function centro_form_submit() {
 
 
 $wpdb->insert(
-	'aw_dev2_centro',
+	$wpdb->prefix.'centro',
 	array(
 		'campaign_id' => $campaign,
 		'report_type' => $report,
