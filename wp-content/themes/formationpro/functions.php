@@ -1108,7 +1108,8 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 add_shortcode('get_workflow_button', 'get_workflow_button');
 function get_workflow_button($atts, $content ){
 	$ip = $_SERVER['REMOTE_ADDR'];
-	return $ip.'<a id="get-workflow" class="link">WORKFLOW TOOL</a>';
+	$workflow_ip = get_option('workflow_ip',false);
+	return $ip.'/'.$workflow_ip.'<a id="get-workflow" class="link">WORKFLOW TOOL</a>';
 }
 add_shortcode('portal_login_button', 'portal_login_button');
 function portal_login_button($atts, $content = "Client Login" ){
