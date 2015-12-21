@@ -45,9 +45,9 @@
 				<header id="masthead" class="site-header header_container" role="banner">
 
 						<div class="centro-site-logo" style="float: left;display: block;margin: 30px 0 0 30px;">
-							<a href="/clients/portal/centro" title="Centro" rel="home"><img src="http://dev2.autonomyworks.net/wp-content/uploads/2015/11/centro-logo.png" alt="Centro" style="height:30px"></a>
+							<a href="/clients/portal/centro" title="Centro" rel="home"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2015/11/centro-logo.png" alt="Centro" style="height:30px"></a>
 						</div>
-                        
+
 					<nav role="navigation" class="site-navigation main-navigation">
 
                         <div style="max-width:1160px;float: right;line-height: 100px;">
@@ -60,7 +60,7 @@
                             </span>
                             <?php endif;?>
                     	</div>
-                        
+
 					</nav><!-- .site-navigation .main-navigation -->
 
 				</header><!-- #masthead .site-header -->
