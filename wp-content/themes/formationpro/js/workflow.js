@@ -73,7 +73,7 @@ jQuery(document).ready(function(e) {
 						}else{
 							button.removeAttr("disabled");
 							button.css("opacity","1");
-							button.fadeIn("fast");
+							button.fadeOut("fast");
 						}
 					});
 		}else{
@@ -82,7 +82,7 @@ jQuery(document).ready(function(e) {
 	});
 	
 	jQuery("#autonomyworks-home").on("keypress","#act_count",function(){
-		jQuery("#update_act").fadeOut("fast");
+		jQuery("#update_act").fadeIn("fast");
 	});
 	
 });
