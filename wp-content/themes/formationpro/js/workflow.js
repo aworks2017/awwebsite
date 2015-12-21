@@ -73,11 +73,16 @@ jQuery(document).ready(function(e) {
 						}else{
 							button.removeAttr("disabled");
 							button.css("opacity","1");
+							button.hide();
 						}
 					});
 		}else{
 			jQuery("#act_count").val('0');
 		}
+	});
+	
+	jQuery("#autonomyworks-home").on("keypress","#act_count",function(){
+		jQuery("#update_act").show();
 	});
 	
 });
@@ -93,7 +98,7 @@ function show_job(data){
 	output += '<div class="col-md-7" style="text-align:left">';
 	output += '<div class="row"><div class="col-md-4"><strong>Parameter 1 : </strong></div><div id="copy1_text" class="col-md-4">'+data.parameter_1+'</div><div class="col-md-4"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>';
 	output += '<div class="row"><div class="col-md-4"><strong>Parameter 2 : </strong></div><div id="copy2_text" class="col-md-4">'+data.parameter_2+'</div><div class="col-md-4"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>';
-	output += '<div class="row"><div class="col-md-4"><strong>Activity Driver : </strong></div><div class="col-md-4"><span id="act_driver">'+data.activity_driver+'</span> - <input  id="act_count"  type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="'+data.activity_count+'"/></div><div class="col-md-4"><input type="button" id="update_act" value="Update" job="'+data.job_id+'"/></div></div>';
+	output += '<div class="row"><div class="col-md-4"><strong>Activity Driver : </strong></div><div class="col-md-4"><span id="act_driver">'+data.activity_driver+'</span> - <input  id="act_count"  type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="'+data.activity_count+'"/></div><div class="col-md-4"><input type="button" id="update_act" value="Update" job="'+data.job_id+'" style="display:none"/></div></div>';
 	output += '</div></div>';
 	output += '<div class="row"><a id="stop-workflow"  class="link red" job="'+data.job_id+'">STOP</a></div>';
 	output += '</div>';
