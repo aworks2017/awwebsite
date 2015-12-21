@@ -70,6 +70,8 @@ jQuery(document).ready(function(e) {
 						if(new_val!='NaN') {
 							jQuery("#act_count").html(new_val);
 							button.fadeOut("fast");
+							button.css("opacity","1");
+							button.val("Update");
 						}else{
 							button.removeAttr("disabled");
 							button.css("opacity","1");
