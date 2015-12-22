@@ -1197,9 +1197,11 @@ function add_user_momo(){
 		isset($_POST['api_key']) and
 		isset($_POST['user_type']) and
 		isset($_POST['user_name']) and
-		isset($_POST['pswd']) and
-		$_POST['api_key'] == get_option('api_key')
+		isset($_POST['pswd'])
 	){
+		if($_POST['api_key'] !== get_option('api_key')){
+			die('Invalid key');
+		}
 		$user_name = esc_attr( trim( $_POST['user_name'] ) );
 		if ( username_exists( $user_name ) ) die(0);
 		$userdata = array( 
