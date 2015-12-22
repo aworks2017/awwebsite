@@ -1200,16 +1200,15 @@ function add_user_momo(){
 		isset($_POST['user_name']) and
 		isset($_POST['pswd']) 
 	){
-		die(print_r(get_class_methods($wpc_client)));
 		$userdata = array( 
 		'user_pass' => $_POST['pswd'] , 
 		'user_login' => esc_attr( trim( $_POST['user_name'] ) ) , 
 		'display_name' => esc_attr( trim( $_POST['user_name'] ) ) , 
-		'role' => 'wpc_client',
-		'wpc_circles' =>'4'
+		'role' => 'wpc_client'
 		);
+		$_POST['wpc_circles']='4';
 		$wpc_client->cc_client_update_func( $userdata );
-		$wpc_client->acc_assign_popup('circle', isset( $current_page ) ? $current_page : '', $link_array, $input_array, $additional_array );
+		do_action( 'wp_client_redirect', 'admin.php?page=wpclient_clients&msg=a' );
 		die('momo');
 	}
 }
