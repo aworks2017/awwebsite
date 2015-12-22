@@ -1204,21 +1204,9 @@ function add_user_momo(){
 		'user_pass' => $_POST['pswd'] , 
 		'user_login' => esc_attr( trim( $_POST['user_name'] ) ) , 
 		'display_name' => esc_attr( trim( $_POST['user_name'] ) ) , 
-		'role' => 'wpc_client'
+		'role' => 'wpc_client',
+		'client_circles' =>'4'
 		);
-		$_POST['business_name'] = 'gfgf';
-		$_POST['contact_name'] =  'gfgf' ;
-		$_POST['contact_email'] = 'gfgf@gfgf.gt' ;
-		$_POST['contact_username'] = 'api_test3';
-		$_POST['wpc_circles'] = '3,5' ;
-		$_POST['wpc_search_circles'] = 'Search' ;
-		$_POST['wpc_order_circles'] = 'show_asc' ;
-		$_POST['nfile_groups_id'] = array( '5','3' );
-		$_POST['contact_password'] =  'aaa'; 
-		$_POST['contact_password2'] =  'aaa' ;
-		$_POST['btnAdd'] ='Add Client' ;
-		$_POST['wpc_circles']='4';
-		$wpc_client->cc_client_update_func( $userdata );
-		die($wpc_client->get_portal_page_link());
+		die('momo : '.var_dump($wpc_client->cc_client_update_func( $userdata )));
 	}
 }
