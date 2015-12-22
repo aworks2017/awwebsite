@@ -1196,7 +1196,7 @@ function add_user_momo(){
 	$groups = $wpc_client->cc_get_groups();
 	$group_id = NULL;
 	foreach($groups as $i=>$group){
-		if($group['group_name']===$_POST['user_type']){
+		if(strcasecmp($group['group_name'], $_POST['user_type']) == 0){
 			$group_id = $group['group_id'];
 		}
 		echo $group['group_name']." ";
