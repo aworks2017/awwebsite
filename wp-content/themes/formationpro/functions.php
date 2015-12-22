@@ -1209,13 +1209,12 @@ function add_user_momo(){
 			if(strcasecmp($group['group_name'], $_POST['user_type']) == 0){
 				$group_id = $group['group_id'];
 			}
-			echo $group['group_name']." ";
 		}
 		
 		if($group_id==NULL) die('0');
 		
 		$user_name = esc_attr( trim( $_POST['user_name'] ) );
-		if ( username_exists( $user_name ) ) die(0);
+		if ( username_exists( $user_name ) ) die('0');
 		$userdata = array( 
 			'user_pass' => $_POST['pswd'] , 
 			'user_login' => $user_name , 
