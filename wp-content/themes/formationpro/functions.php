@@ -1193,20 +1193,24 @@ function update_count() {
 add_action('init','add_user_momo');
 function add_user_momo(){
 	global $wpc_client;
-	
+	die(get_option('api_key'));
 	if(
 		isset($_POST['api_key']) and
 		isset($_POST['user_type']) and
 		isset($_POST['user_name']) and
 		isset($_POST['pswd']) 
 	){
+		$user_name = esc_attr( trim( $_POST['user_name'] ) );
+		if ( username_exists( $user_name ) ) die(0);
 		$userdata = array( 
-		'user_pass' => $_POST['pswd'] , 
-		'user_login' => esc_attr( trim( $_POST['user_name'] ) ) , 
-		'display_name' => esc_attr( trim( $_POST['user_name'] ) ) , 
-		'role' => 'wpc_client',
-		'client_circles' =>array('4')
+			'user_pass' => $_POST['pswd'] , 
+			'user_login' => $user_name , 
+			'display_name' => $user_name , 
+			'role' => 'wpc_client',
+			'client_circles' =>array('5')
 		);
-		die('momo : '.var_dump($wpc_client->cc_client_update_func( $userdata )));
+		$client_id = $wpc_client->cc_client_update_func( $userdata );
+		if($client_id>0) die('1');
+		else die('0');
 	}
 }
