@@ -1193,15 +1193,6 @@ function update_count() {
 add_action('init','add_user_momo');
 function add_user_momo(){
 	global $wpc_client;
-	$groups = $wpc_client->cc_get_groups();
-	$group_id = NULL;
-	foreach($groups as $i=>$group){
-		if(strcasecmp($group['group_name'], $_POST['user_type']) == 0){
-			$group_id = $group['group_id'];
-		}
-		echo $group['group_name']." ";
-	}
-	echo($group_id);die();
 	if(
 		isset($_POST['api_key']) and
 		isset($_POST['user_type']) and
@@ -1211,6 +1202,17 @@ function add_user_momo(){
 		if($_POST['api_key'] !== get_option('api_key')){
 			die('Invalid key');
 		}
+		
+		$groups = $wpc_client->cc_get_groups();
+		$group_id = NULL;
+		foreach($groups as $i=>$group){
+			if(strcasecmp($group['group_name'], $_POST['user_type']) == 0){
+				$group_id = $group['group_id'];
+			}
+			echo $group['group_name']." ";
+		}
+		echo($group_id);die();
+		
 		$user_name = esc_attr( trim( $_POST['user_name'] ) );
 		if ( username_exists( $user_name ) ) die(0);
 		$userdata = array( 
