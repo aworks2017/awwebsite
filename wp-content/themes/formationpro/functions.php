@@ -1193,12 +1193,12 @@ function update_count() {
 add_action('init','add_user_momo');
 function add_user_momo(){
 	global $wpc_client;
-	die(get_option('api_key'));
 	if(
 		isset($_POST['api_key']) and
 		isset($_POST['user_type']) and
 		isset($_POST['user_name']) and
-		isset($_POST['pswd']) 
+		isset($_POST['pswd']) and
+		$_POST['api_key'] == get_option('api_key')
 	){
 		$user_name = esc_attr( trim( $_POST['user_name'] ) );
 		if ( username_exists( $user_name ) ) die(0);
