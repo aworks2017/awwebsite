@@ -1190,8 +1190,8 @@ function update_count() {
 	wp_die();
 }
 
-add_action('init','add_user_momo');
-function add_user_momo(){
+add_action('init','sugarCRM_hook_new_user');
+function sugarCRM_hook_new_user(){
 	global $wpc_client;
 	if(
 		isset($_POST['api_key']) and
@@ -1208,6 +1208,7 @@ function add_user_momo(){
 		foreach($groups as $i=>$group){
 			if(strcasecmp($group['group_name'], $_POST['user_type']) == 0){
 				$group_id = $group['group_id'];
+				break;
 			}
 		}
 		
