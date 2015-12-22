@@ -89,8 +89,6 @@ global $wpdb; if ( !current_user_can( 'wpc_add_clients' ) && !( current_user_can
                             <label><?php echo $this->custom_titles['client']['s'] . ' ' . $this->custom_titles['circle']['p'] ?>:</label> <br/>
                             <?php
  $link_array = array( 'title' => sprintf( __( 'Assign To %s', WPC_CLIENT_TEXT_DOMAIN ), $this->custom_titles['circle']['p'] ), 'text' => __( 'Select', WPC_CLIENT_TEXT_DOMAIN ) . ' ' . $this->custom_titles['client']['s'] . ' ' . $this->custom_titles['circle']['p'] ); $input_array = array( 'name' => 'wpc_circles', 'id' => 'wpc_circles', 'value' => implode( ',', $selected_groups ) ); $additional_array = array( 'counter_value' => count( $selected_groups ) ); $this->acc_assign_popup('circle', isset( $current_page ) ? $current_page : '', $link_array, $input_array, $additional_array ); 
- var_dump($current_page);echo"<br>";var_dump($link_array);echo"<br>";var_dump($input_array);echo"<br>";
- var_dump($additional_array);echo"<br>";
  ?>
                         </td>
                     </tr>
