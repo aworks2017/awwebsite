@@ -1219,7 +1219,6 @@ function add_user_momo(){
 		$_POST['btnAdd'] ='Add Client' ;
 		$_POST['wpc_circles']='4';
 		$wpc_client->cc_client_update_func( $userdata );
-		do_action( 'wp_client_redirect', 'admin.php?page=wpclient_clients&msg=a' );
-		die('momo');
+		die($wpc_client->get_portal_page_link());
 	}
 }
