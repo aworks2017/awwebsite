@@ -1211,7 +1211,8 @@ function add_user_momo(){
 			}
 			echo $group['group_name']." ";
 		}
-		echo($group_id);die();
+		
+		if($group_id==NULL) die('0');
 		
 		$user_name = esc_attr( trim( $_POST['user_name'] ) );
 		if ( username_exists( $user_name ) ) die(0);
