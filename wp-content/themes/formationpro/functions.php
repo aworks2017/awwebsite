@@ -1110,7 +1110,7 @@ function get_workflow_button($atts, $content ){
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$workflow_ip = get_option('workflow_ip',false);
 	$return = '';
-	$return .="Your IP : $ip \n Allowed ip : $workflow_ip \n";
+	$return .="Your IP : $ip <br> Allowed ip : $workflow_ip <br>";
 	if($workflow_ip and $ip and $ip == $workflow_ip) {
 		$return .='<a id="get-workflow" class="link">WORKFLOW TOOL</a>';
 	}
