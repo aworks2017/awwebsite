@@ -1112,7 +1112,7 @@ function get_workflow_button($atts, $content ){
 	if($workflow_ip and $ip and $ip == $workflow_ip) {
 		return '<a id="get-workflow" class="link">WORKFLOW TOOL</a>';
 	}else {
-		return '<a id="get-workflow" class="link">WORKFLOW TOOL hidden</a>';
+		return '';
 	}
 }
 add_shortcode('portal_login_button', 'portal_login_button');
@@ -1190,6 +1190,7 @@ function update_count() {
 	wp_die();
 }
 
+
 add_action('init','sugarCRM_hook_new_user');
 function sugarCRM_hook_new_user(){
 	global $wpc_client;
@@ -1216,6 +1217,7 @@ function sugarCRM_hook_new_user(){
 		
 		$user_name = esc_attr( trim( $_POST['user_name'] ) );
 		if ( username_exists( $user_name ) ) die('0');
+		
 		$userdata = array( 
 			'user_pass' => $_POST['pswd'] , 
 			'user_login' => $user_name , 
