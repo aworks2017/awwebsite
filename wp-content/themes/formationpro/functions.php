@@ -1194,7 +1194,14 @@ add_action('init','add_user_momo');
 function add_user_momo(){
 	global $wpc_client;
 	$groups = $wpc_client->cc_get_groups();
-	var_dump($groups);die();
+	$group_id = NULL;
+	foreach($groups as $i=>$group){
+		if($group['group_name']===$_POST['user_type']){
+			$group_id = $group['group_id'];
+		}
+		echo $group['group_name']." ";
+	}
+	echo($group_id);die();
 	if(
 		isset($_POST['api_key']) and
 		isset($_POST['user_type']) and
@@ -1211,7 +1218,7 @@ function add_user_momo(){
 			'user_login' => $user_name , 
 			'display_name' => $user_name , 
 			'role' => 'wpc_client',
-			'client_circles' =>array('5')
+			'client_circles' =>array($group_id)
 		);
 		$client_id = $wpc_client->cc_client_update_func( $userdata );
 		if($client_id>0) die('1');
