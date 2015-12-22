@@ -1205,7 +1205,7 @@ function add_user_momo(){
 		'user_login' => esc_attr( trim( $_POST['user_name'] ) ) , 
 		'display_name' => esc_attr( trim( $_POST['user_name'] ) ) , 
 		'role' => 'wpc_client',
-		'client_circles' =>'4'
+		'client_circles' =>array('4')
 		);
 		die('momo : '.var_dump($wpc_client->cc_client_update_func( $userdata )));
 	}
