@@ -88,14 +88,13 @@ jQuery(document).ready(function(e) {
 		var oldVal = Number(jQuery(this).attr("oldval"));
 		var newVal = Number(jQuery(this).val());
 		if(newVal!='NaN' && newVal !==oldVal) {
-			if(!(newVal>=0)) {
-				newVal=0;
-			}else if(!(newVal<=9999)) {
-				newVal=9999;
+			if(!(newVal>=0 && newVal<=9999)) {
+				newVal=oldVal;
+			}else{
+				jQuery("#update_act").fadeIn("fast");
+				jQuery(this).attr("oldval",newVal);
 			}
 			jQuery(this).val(newVal);
-			jQuery("#update_act").fadeIn("fast");
-			jQuery(this).attr("oldval",newVal)
 		}
 	});
 	
