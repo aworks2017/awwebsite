@@ -90,11 +90,10 @@ jQuery(document).ready(function(e) {
 		if(newVal!='NaN' && newVal !==oldVal) {
 			if(!(newVal>=0)) {
 				newVal=0;
-				jQuery(this).val(newVal);
 			}else if(!(newVal<=9999)) {
 				newVal=9999;
-				jQuery(this).val(newVal);
 			}
+			jQuery(this).val(newVal);
 			jQuery("#update_act").fadeIn("fast");
 			jQuery(this).attr("oldval",newVal)
 		}
