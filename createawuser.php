@@ -5,7 +5,7 @@ global $wp, $wp_query, $wp_the_query, $wp_rewrite, $wp_did_header;
 require('wp-load.php');
 
 
-add_action('init','sugarCRM_hook_new_user');
+sugarCRM_hook_new_user();
 function sugarCRM_hook_new_user(){
 	global $wpc_client;
 	die(var_dump($wpc_client));
