@@ -84,7 +84,7 @@ jQuery(document).ready(function(e) {
 		}
 	});
 	
-	jQuery("#autonomyworks-home").on("keyup","#act_count",function(){
+	jQuery("#autonomyworks-home").on("keyup change","#act_count",function(){
 		var oldVal = Number(jQuery(this).attr("oldval"));
 		var newVal = Number(jQuery(this).val());
 		jQuery(this).val(newVal);
