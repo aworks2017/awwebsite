@@ -85,7 +85,12 @@ jQuery(document).ready(function(e) {
 	});
 	
 	jQuery("#autonomyworks-home").on("keyup","#act_count",function(){
-		jQuery("#update_act").fadeIn("fast");
+		var oldVal = Number(jQuery(this).attr("oldval"));
+		var newVal = Number(jQuery(this).val());
+		if(newVal!='NaN' && newVal !==oldVal) {
+			jQuery("#update_act").fadeIn("fast");
+			jQuery(this).attr("oldval",newVal)
+		}
 	});
 	
 });
