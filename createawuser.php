@@ -2,7 +2,7 @@
 
 define('WP_USE_THEMES', false);
 global $wp, $wp_query, $wp_the_query, $wp_rewrite, $wp_did_header;
-require(BASE_PATH . 'wp-load.php');
+require('wp-load.php');
 
 
 add_action('init','sugarCRM_hook_new_user');
