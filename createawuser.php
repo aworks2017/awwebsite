@@ -8,6 +8,7 @@ require('wp-load.php');
 sugarCRM_hook_new_user();
 function sugarCRM_hook_new_user(){
 	global $wpc_client;
+	echo 'ok';
 	die(var_dump($wpc_client));
 	if(
 		isset($_GET['api_key']) and
