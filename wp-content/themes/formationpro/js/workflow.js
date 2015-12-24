@@ -87,10 +87,14 @@ jQuery(document).ready(function(e) {
 	jQuery("#autonomyworks-home").on("keyup change","#act_count",function(){
 		var oldVal = Number(jQuery(this).attr("oldval"));
 		var newVal = Number(jQuery(this).val());
-		if(!(oldVal>=0)) oldVal=0;
-		if(!(newVal>=0)) newVal=0; else if(!(newVal<=9999)) newVal=9999;
-		jQuery(this).val(newVal);
 		if(newVal!='NaN' && newVal !==oldVal) {
+			if(!(newVal>=0)) {
+				newVal=0;
+				jQuery(this).val(newVal);
+			}else if(!(newVal<=9999)) {
+				newVal=9999;
+				jQuery(this).val(newVal);
+			}
 			jQuery("#update_act").fadeIn("fast");
 			jQuery(this).attr("oldval",newVal)
 		}
