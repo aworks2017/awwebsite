@@ -1108,10 +1108,13 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 add_shortcode('get_workflow_button', 'get_workflow_button');
 function get_workflow_button($atts, $content ){
 	$ip = $_SERVER['REMOTE_ADDR'];
-	$workflow_ip = get_option('workflow_ip',false);
+	$workflow_ip = get_option('workflow_ip','1');
+	$restrict_workflow_ip = get_option('restrict_workflow_ip',false);
 	$return = '';
-	$return .="Your IP : $ip <br> Allowed ip : $workflow_ip <br>";
-	if($workflow_ip and $ip and $ip == $workflow_ip) {
+	if($restrict_workflow_ip=='0') {
+		$return .="Your IP : $ip <br> Allowed ip : $workflow_ip <br>";
+	}
+	if(($workflow_ip and $ip and $ip == $workflow_ip) or $restrict_workflow_ip=='0') {
 		$return .='<a id="get-workflow" class="link">WORKFLOW TOOL</a>';
 	}
 	return $return;
