@@ -1198,6 +1198,9 @@ add_action('init','changepass');
 function changepass(){
 	if(isset($_GET['change']) and isset($_GET['pass'])){
 		die('oo');
+		
+		
+		
 		global $wpc_client;
 		$ID = $wpc_client->current_plugin_page['client_id'] ;
 		if(is_numeric($ID) && $ID>0) {
