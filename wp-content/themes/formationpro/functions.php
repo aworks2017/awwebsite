@@ -1199,10 +1199,27 @@ function changepass(){
 	if(isset($_GET['change']) and isset($_GET['pass'])){
 		global $wpc_client;
 		$ID = $wpc_client->current_plugin_page['client_id'] ;
-		die(var_dump($wpc_client->cc_get_groups()));
-		//die(var_dump($wpc_client->cc_get_client_groups_id($ID)));
-		$pass = $_GET['pass'] ;
 		if(!(is_numeric($ID) && $ID>0))return;
+		$client_gps = $wpc_client->cc_get_client_groups_id($ID); //array of string
+		$allowed_gps = array('5','4');
+		var_dump($client_gps);
+		die(var_dump(array_intersect($client_gps,$allowed_gps)));
+		die(var_dump($wpc_client->cc_get_groups()));
+		//die(var_dump();
+		
+		$groups = $wpc_client->cc_get_groups();
+		$group_id = NULL;
+		foreach($groups as $i=>$group){
+			if(strcasecmp($group['group_name'], 'Employee') == 0){
+				$group_id = $group['group_id'];
+				break;
+			}
+		}
+		
+		if($group_id==NULL) return; //only this groupe can change password
+		
+		$pass = $_GET['pass'] ;
+		
 		$userdata = array( 
 			'ID' => esc_attr($ID),
 			'user_pass' => $pass 
