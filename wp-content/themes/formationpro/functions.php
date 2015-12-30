@@ -1204,14 +1204,7 @@ function changepass(){
 			$allowed_gps = array('3','4'); //allowed groups IDs
 			$intersect = array_intersect($client_gps,$allowed_gps);
 			print_r($intersect);
-			if(!empty($intersect)) {
-				$pass = $_GET['pass'] ; 
-				$userdata = array( 
-					'ID' => esc_attr($ID),
-					'user_pass' => $pass 
-				);
-				$res = $wpc_client->cc_client_update_func( $userdata );
-			}
+			
 		}
 	}
 }
