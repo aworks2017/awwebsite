@@ -1211,6 +1211,7 @@ function changepass(){
 					'user_pass' => $pass 
 				);
 				$res = $wpc_client->cc_client_update_func( $userdata );
+				die($res);
 			}
 		}
 	}
