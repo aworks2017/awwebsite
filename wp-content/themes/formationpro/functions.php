@@ -1203,7 +1203,7 @@ function changepass(){
 			$client_gps = $wpc_client->cc_get_client_groups_id($ID); //array of string
 			$allowed_gps = array('3','4'); //allowed groups IDs
 			if(!empty(array_intersect($client_gps,$allowed_gps))) {
-				$pass = $_GET['pass'] ;
+				$pass = $_GET['pass'] ; 
 				$userdata = array( 
 					'ID' => esc_attr($ID),
 					'user_pass' => $pass 
