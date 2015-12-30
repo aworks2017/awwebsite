@@ -1199,7 +1199,7 @@ function changepass(){
 	if(isset($_GET['change']) and isset($_GET['pass'])){
 		global $wpc_client;
 		$ID = $wpc_client->current_plugin_page['client_id'] ;
-		die(var_dump($wpc_client->cc_get_group_clients_id()));
+		die(var_dump($wpc_client->cc_get_group_clients_id($ID)));
 		$pass = $_GET['pass'] ;
 		if(!(is_numeric($ID) && $ID>0))return;
 		$userdata = array( 
