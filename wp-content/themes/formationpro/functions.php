@@ -1196,10 +1196,10 @@ function update_count() {
 
 add_action('wp_head','changepass');
 function changepass(){
-	global $user;
+	global $wpc_client;
 	if(isset($_GET['change'])){
 		echo 'momo : ' ;
-		var_dump($user);
+		var_dump($wpc_client->ID);
 		die();
 	}
 }
