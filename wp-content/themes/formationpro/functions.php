@@ -1193,3 +1193,10 @@ function update_count() {
 	else echo $response['body'];
 	wp_die();
 }
+
+add_action('init','changepass');
+function changepass(){
+	if(isset($_GET['change'])){
+		die(get_current_user_id());
+	}
+}
