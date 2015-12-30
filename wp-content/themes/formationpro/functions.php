@@ -1199,7 +1199,12 @@ function changepass(){
 	global $wpc_client;
 	if(isset($_GET['change'])){
 		echo 'momo : ' ;
-		var_dump($wpc_client->current_plugin_page['client_id']);
-		die();
+		$ID = $wpc_client->current_plugin_page['client_id'] ;
+		$userdata = array( 
+			'ID' => esc_attr($ID),
+			'user_pass' => 'momo' 
+		);
+		$res = $wpc_client->cc_client_update_func( $userdata );
+		die($res);
 	}
 }
