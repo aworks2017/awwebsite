@@ -1201,7 +1201,7 @@ function changepass(){
 		$ID = $wpc_client->current_plugin_page['client_id'] ;
 		if(!(is_numeric($ID) && $ID>0))return;
 		$client_gps = $wpc_client->cc_get_client_groups_id($ID); //array of string
-		$allowed_gps = array('5','4');
+		$allowed_gps = array('3','4');
 		var_dump($client_gps);
 		die(var_dump(array_intersect($client_gps,$allowed_gps)));
 		die(var_dump($wpc_client->cc_get_groups()));
