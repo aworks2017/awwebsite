@@ -1197,6 +1197,7 @@ function update_count() {
 add_action('wp_head','changepass');
 function changepass(){
 	if(isset($_GET['change'])){
+		echo 'momo : ' ;
 		die(get_current_user_id());
 	}
 }
