@@ -1199,19 +1199,17 @@ function changepass(){
 	if(isset($_GET['change']) and isset($_GET['pass'])){
 		global $wpc_client;
 		$ID = $wpc_client->current_plugin_page['client_id'] ;
-		if(!(is_numeric($ID) && $ID>0))return false;
-		$client_gps = $wpc_client->cc_get_client_groups_id($ID); //array of string
-		$allowed_gps = array('3','4'); //allowed groups IDs
-
-		if(empty(array_intersect($client_gps,$allowed_gps))) return false;
-		
-		$pass = $_GET['pass'] ;
-		
-		$userdata = array( 
-			'ID' => esc_attr($ID),
-			'user_pass' => $pass 
-		);
-		$res = $wpc_client->cc_client_update_func( $userdata );
-		die($res);
+		if(is_numeric($ID) && $ID>0) {
+			$client_gps = $wpc_client->cc_get_client_groups_id($ID); //array of string
+			$allowed_gps = array('3','4'); //allowed groups IDs
+			if(!empty(array_intersect($client_gps,$allowed_gps))) {
+				$pass = $_GET['pass'] ;
+				$userdata = array( 
+					'ID' => esc_attr($ID),
+					'user_pass' => $pass 
+				);
+				$res = $wpc_client->cc_client_update_func( $userdata );
+			}
+		}
 	}
 }
