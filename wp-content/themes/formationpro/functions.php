@@ -1209,7 +1209,11 @@ function changepass(){
 					'ID' => esc_attr($ID),
 					'user_pass' => $pass 
 				);
-				$wpc_client->cc_client_update_func( $userdata );
+				$res = $wpc_client->cc_client_update_func( $userdata );
+				if($res) {
+					header('Location: http://www.example.com/');
+					exit;
+				}
 			}
 		}
 	}
