@@ -1193,28 +1193,3 @@ function update_count() {
 	else echo $response['body'];
 	wp_die();
 }
-
-add_action('init','changepass');
-function changepass(){
-	if(isset($_POST['change']) and isset($_POST['pass'])){
-		global $wpc_client;
-		$ID = $wpc_client->current_plugin_page['client_id'] ;
-		if(is_numeric($ID) && $ID>0) {
-			$client_gps = $wpc_client->cc_get_client_groups_id($ID); //array of string
-			$allowed_gps = array('3','4'); //allowed groups IDs
-			$intersect = array_intersect($client_gps,$allowed_gps);
-			if(!empty($intersect)) {
-				$pass = $_POST['pass'] ; 
-				$userdata = array( 
-					'ID' => esc_attr($ID),
-					'user_pass' => $pass 
-				);
-				$res = $wpc_client->cc_client_update_func( $userdata );
-				if($res) {
-					header('Location: http://www.example.com/');
-					exit;
-				}
-			}
-		}
-	}
-}
