@@ -5,7 +5,7 @@ Template Name: AutonomyWorks Change pass
 */
 
 
-//get_header('autonomyworks'); 
+get_header('autonomyworks'); 
 $changed = NULL ;
 if(isset($_POST['change']) and isset($_POST['pass'])){
 		global $wpc_client;
