@@ -1196,7 +1196,7 @@ function update_count() {
 
 add_action('init','changepass');
 function changepass(){
-	if(isset($_GET['change']) and isset($_GET['pass'])){
+	if(isset($_POST['change']) and isset($_POST['pass'])){
 		global $wpc_client;
 		$ID = $wpc_client->current_plugin_page['client_id'] ;
 		echo 'id : '.$ID ;
@@ -1206,7 +1206,7 @@ function changepass(){
 			$intersect = array_intersect($client_gps,$allowed_gps);
 			print_r($intersect);
 			if(!empty($intersect)) {
-				$pass = $_GET['pass'] ; 
+				$pass = $_POST['pass'] ; 
 				$userdata = array( 
 					'ID' => esc_attr($ID),
 					'user_pass' => $pass 
