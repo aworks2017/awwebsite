@@ -45,3 +45,4 @@ function sugarCRM_hook_new_user(){
 		else die('0');
 	}else die('0');
 }
+?>
