@@ -25,8 +25,8 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 		<div id="primary_home" class="content-area">
         <?php
 		if($changed) {
-					echo 'changed !!';
-		}
+					echo 'Password changed!!<script>setTimeout(function(){window.location.href = "../";},3000);</script>';
+		}else{
 		?>
 			<form method="post" action="#">
                 <input type="text" name="pass" />
@@ -35,4 +35,4 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
             </form>
 		</div><!-- #primary .content-area -->
         
-<?php get_footer('centro'); ?>
+<?php get_footer('centro'); }?>
