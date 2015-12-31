@@ -25,7 +25,7 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 		<div id="primary_home" class="content-area">
         <?php
 		if($changed) {
-					echo 'Password changed!!<script>setTimeout(function(){window.location.href = "../";},3000);</script>';
+					//echo 'Password changed!!<script>setTimeout(function(){window.location.href = "../";},3000);</script>';
 		}else{
 		?>
 			<form method="post" action="#">
