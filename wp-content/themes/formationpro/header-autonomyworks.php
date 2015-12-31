@@ -52,8 +52,8 @@
 
                         <div style="max-width:1160px;float: right;line-height: 100px;">
                 			<span style="float:right;margin-right: 15px;">
-                            <a href="change-password" style="font-weight: bold;">Change Password</a>
-                            <a href="<?php echo wp_logout_url( '/clients' ) ?>" style="font-weight: bold;">LOGOUT</a>
+                            <a href="/clients/portal/change-password" style="font-weight: bold; display:inline">Change Password</a>
+                            <a href="<?php echo wp_logout_url( '/clients' ) ?>" style="font-weight: bold; display:inline">LOGOUT</a>
                             </span>
                             <?php if($post->post_name!='autonomyworks'):?>
                             <span style="float:right;margin-right: 15px;">
