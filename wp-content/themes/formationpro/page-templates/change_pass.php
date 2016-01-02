@@ -30,7 +30,7 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 		<div id="primary_home" class="content-area">
         <script>
 			jQuery(document).ready(function(e) {
-            	alert('ok');
+
             });	
 		</script>
         <div id="change_pass">Change pass</div>
