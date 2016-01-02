@@ -98,6 +98,11 @@ jQuery(document).ready(function(e) {
 		}
 	});
 	
+	jQuery("body").on("click","#change_pass",function(){
+		jQuery(this).attr("disabled","disabled");
+		alert('ok');
+	});
+	
 });
 
 function show_job(data){

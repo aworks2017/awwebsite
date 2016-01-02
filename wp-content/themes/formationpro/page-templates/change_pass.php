@@ -4,6 +4,11 @@
 Template Name: AutonomyWorks Change pass
 */
 
+//load scripts
+add_action( 'wp_enqueue_scripts', function(){
+	wp_enqueue_script( 'workflow-js', get_template_directory_uri() . '/js/workflow.js', array('jquery'), '1.0.0' );
+	wp_localize_script( 'workflow-js', 'workflow', array('ajax_url' => admin_url( 'admin-ajax.php' )) );
+} );
 
 get_header('autonomyworks'); 
 $changed = NULL ;
@@ -28,6 +33,7 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
             	alert('ok');
             });	
 		</script>
+        <div id="change_pass">Change pass</div>
         <?php
 		if($changed) {
 					//echo 'Password changed!!<script>setTimeout(function(){window.location.href = "../";},3000);</script>';
