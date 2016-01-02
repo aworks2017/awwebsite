@@ -104,7 +104,7 @@ jQuery(document).ready(function(e) {
 		jQuery.post(workflow.ajax_url,
 					{action:'change_pass', pass : pass },
 					function(data){
-						setTimeout(function(){window.location.href = "../";},3000);
+						//setTimeout(function(){window.location.href = "../";},3000);
 					}
 					);
 	});
