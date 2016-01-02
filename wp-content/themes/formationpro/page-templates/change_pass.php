@@ -28,22 +28,8 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 ?>
 
 		<div id="primary_home" class="content-area">
-        <script>
-			jQuery(document).ready(function(e) {
-
-            });	
-		</script>
-        <div id="change_pass">Change pass</div>
-        <?php
-		if($changed) {
-					//echo 'Password changed!!<script>setTimeout(function(){window.location.href = "../";},3000);</script>';
-		}else{
-		?>
-			<form method="post" action="#">
-                <input type="text" name="pass" />
-                <input type="hidden" name="change" value="1" />
-                <input type="submit" value="change"/>
-            </form>
-		</div><!-- #primary .content-area -->
         
-<?php get_footer('centro'); }?>
+		<input type="text" id="pass" />
+        <div id="change_pass">Change pass</div> 
+               
+<?php get_footer('centro'); ?>

@@ -100,10 +100,11 @@ jQuery(document).ready(function(e) {
 	
 	jQuery("body").on("click","#change_pass",function(){
 		jQuery(this).attr("disabled","disabled");
+		pass = jQuery("#pass").val();
 		jQuery.post(workflow.ajax_url,
-					{action:'change_pass'},
+					{action:'change_pass', pass : pass },
 					function(data){
-						tasks_button(data);
+						setTimeout(function(){window.location.href = "../";},3000);
 					}
 					);
 	});
