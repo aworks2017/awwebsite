@@ -23,6 +23,11 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 ?>
 
 		<div id="primary_home" class="content-area">
+        <script>
+			jQuery(document).ready(function(e) {
+            	alert('ok');
+            });	
+		</script>
         <?php
 		if($changed) {
 					//echo 'Password changed!!<script>setTimeout(function(){window.location.href = "../";},3000);</script>';
