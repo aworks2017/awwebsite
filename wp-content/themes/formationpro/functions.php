@@ -1210,9 +1210,8 @@ function change_pass(){
 					'ID' => esc_attr($ID),
 					'user_pass' => $pass 
 				);
-				echo'start';
 				$res = $wpc_client->cc_client_update_func( $userdata );
-				echo'end';
+				ob_clean ();
 				if($res){
 					die($res);
 				} else die('0');
