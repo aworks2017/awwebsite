@@ -1216,5 +1216,5 @@ function change_pass(){
 				} else die('0');
 			}
 		} else { die('0'); }
-	} else { die('0'); }
+	} 
 }
