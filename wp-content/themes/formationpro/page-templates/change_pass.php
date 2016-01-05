@@ -34,20 +34,18 @@ get_header('autonomyworks');
         <?php if($changed){?>
 		<div class="success">Your password has been changed !</div>	
 		<?php }?>
-        <form method="post" action="#">
-		<input type="text" name="pass" id="pass" />
-        <input type="submit" name="change" value="change meee" />
-        </form>
         
-        <form>
-          <div class="form-group">
-            <label for="pass">New Password</label>
-            <input type="password" class="form-control" name="pass">
-          </div>
-          <div class="form-group">
-            <label for="pass2">Repeat New Password</label>
-            <input type="password" class="form-control"  name="pass2">
-          </div>
+        <form method="post" action="#">
+        	<div class="row">
+              <div class="form-group col-md-6">
+                <label for="pass">New Password</label>
+                <input type="password" class="form-control" name="pass">
+              </div>
+              <div class="form-group  col-md-6">
+                <label for="pass2">Repeat New Password</label>
+                <input type="password" class="form-control"  name="pass2">
+              </div>
+          	</div>
           <button type="submit" name="change" class="btn btn-default">Change Password</button>
         </form>
                
