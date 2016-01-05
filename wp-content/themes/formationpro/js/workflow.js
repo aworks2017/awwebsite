@@ -101,7 +101,7 @@ jQuery(document).ready(function(e) {
 	jQuery("body").on("click","#change_pass",function(){
 		jQuery(this).attr("disabled","disabled");
 		pass = jQuery("#pass").val();
-		jQuery.post(workflow.ajax_url,
+		jQuery.post('/',
 					{action:'change_pass', pass : pass },
 					function(data){
 						//setTimeout(function(){window.location.href = "../";},3000);

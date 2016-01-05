@@ -1194,12 +1194,12 @@ function update_count() {
 	wp_die();
 }
 
-add_action( 'wp_ajax_change_pass', 'change_pass' );
+add_action( 'init', 'change_pass' );
 function change_pass(){
 	if(isset($_POST['pass'])){
 		global $wpc_client;
 		$ID = $wpc_client->current_plugin_page['client_id'] ;
-		var_dump($wpc_client);
+		 echo ' id : '.$ID ;
 		if( is_numeric($ID) && $ID > 0 ) {
 			$client_gps = $wpc_client->cc_get_client_groups_id($ID); //array of string
 			$allowed_gps = array('3','4'); //allowed groups IDs
