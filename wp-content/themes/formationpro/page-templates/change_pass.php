@@ -10,20 +10,24 @@ $changed = NULL ;
 if(isset($_POST['change']) and isset($_POST['pass'])){
 		global $wpc_client;
 		$ID = $wpc_client->current_plugin_page['client_id'] ;
-		if(is_numeric($ID) && $ID>0) {
-			$pass = $_POST['pass'] ; 
-			$userdata = array( 
-				'ID' => esc_attr($ID),
-				'user_pass' => $pass 
-			);
-			$changed = $wpc_client->cc_client_update_func( $userdata );
-			ob_clean ();
-		}
+		if( is_numeric($ID) && $ID > 0 ) {
+			$client_gps = $wpc_client->cc_get_client_groups_id($ID); //array of string
+			$allowed_gps = array('3','4'); //allowed groups IDs
+			$intersect = array_intersect( $client_gps , $allowed_gps ) ;
+			if(!empty($intersect)) {
+				$pass = $_POST['pass'] ; 
+				$userdata = array( 
+					'ID' => esc_attr($ID),
+					'user_pass' => $pass 
+				);
+				$changed = $wpc_client->cc_client_update_func( $userdata );
+				//ob_clean ();
+			}
+		} 
 }
 
 add_action( 'wp_enqueue_scripts', function(){
-	wp_enqueue_script( 'workflow-js', get_template_directory_uri() . '/js/workflow.js', array('jquery'), '1.0.0' );
-	wp_localize_script( 'workflow-js', 'workflow', array('ajax_url' => admin_url( 'admin-ajax.php' )) );
+	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.css' );
 } );
 
 get_header('autonomyworks'); 
