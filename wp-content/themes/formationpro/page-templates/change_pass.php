@@ -31,22 +31,25 @@ get_header('autonomyworks');
 ?>
 
 		<div id="primary_home" class="content-area">
+        <h1>Change Password</h1>
         <?php if($changed){?>
 		<div class="success">Your password has been changed !</div>	
 		<?php }?>
-        
         <form method="post" action="#">
         	<div class="row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-4">
                 <label for="pass">New Password</label>
                 <input type="password" class="form-control" name="pass">
               </div>
-              <div class="form-group  col-md-6">
+              <div class="form-group  col-md-4">
                 <label for="pass2">Repeat New Password</label>
                 <input type="password" class="form-control"  name="pass2">
               </div>
+              <div class="form-group col-md-4">
+              <button type="submit" name="change" class="btn btn-default">Change Password</button>
+              </div>
           	</div>
-          <button type="submit" name="change" class="btn btn-default">Change Password</button>
+          
         </form>
                
 <?php get_footer('centro'); ?>
