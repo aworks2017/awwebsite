@@ -30,7 +30,7 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 
 		<div id="primary_home" class="content-area">
         <form method="post" action="#">
-		<input type="text" id="pass" />
+		<input type="text" name="pass" id="pass" />
         <input type="submit" id="xxpass" value="change meee" />
         <div id="change_pass">Change pass</div> 
         </form>
