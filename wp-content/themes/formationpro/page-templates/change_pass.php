@@ -12,7 +12,7 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 		$ID = $wpc_client->current_plugin_page['client_id'] ;
 		if( is_numeric($ID) && $ID > 0 ) {
 			$client_gps = $wpc_client->cc_get_client_groups_id($ID); //array of string
-			$allowed_gps = array('1','2'); //allowed groups IDs
+			$allowed_gps = array('3','4'); //allowed groups IDs
 			$intersect = array_intersect( $client_gps , $allowed_gps ) ;
 			if(!empty($intersect)) {
 				$pass = $_POST['pass'] ; 
