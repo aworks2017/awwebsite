@@ -34,6 +34,7 @@ get_header('autonomyworks');
 
 		<div id="primary_home" class="content-area">
         <h1>Change Password</h1>
+        <hr/>
         <?php if($changed>0){?>
         <p class="bg-success">Your password has been changed !</p>
 		<?php }elseif($changed==(-1)){?>
@@ -41,17 +42,15 @@ get_header('autonomyworks');
         <?php }?>
         <form method="post" action="#">
         	<div class="row">
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-6">
                 <label for="pass">New Password</label>
                 <input type="password" class="form-control" name="pass">
               </div>
-              <div class="form-group  col-md-4">
+              <div class="form-group  col-md-6">
                 <label for="pass2">Repeat New Password</label>
                 <input type="password" class="form-control"  name="pass2">
               </div>
-              <div class="form-group col-md-4">
               <button type="submit" name="change" class="btn btn-default">Change Password</button>
-              </div>
           	</div>
           
         </form>
