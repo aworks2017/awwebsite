@@ -8,7 +8,7 @@ if(isset($_POST['change']) and isset($_POST['pass'])  and isset($_POST['pass2'])
 		global $wpc_client;
 		$ID = $wpc_client->current_plugin_page['client_id'] ;
 		if($_POST['pass'] != $_POST['pass2']) {
-			$changed = 0 ;
+			$changed = (-1) ;
 		}elseif( is_numeric($ID) && $ID > 0 ) {
 			$client_gps = $wpc_client->cc_get_client_groups_id($ID); //array of string
 			$allowed_gps = array('3','4'); //allowed groups IDs
@@ -36,7 +36,7 @@ get_header('autonomyworks');
         <h1>Change Password</h1>
         <?php if($changed>0){?>
         <p class="bg-success">Your password has been changed !</p>
-		<?php }elseif($changed==0){?>
+		<?php }elseif($changed==(-1)){?>
         <p class="bg-danger">Please verify the new Password !</p>
         <?php }?>
         <form method="post" action="#">
