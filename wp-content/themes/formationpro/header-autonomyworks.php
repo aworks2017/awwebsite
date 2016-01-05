@@ -16,6 +16,17 @@
 <meta name="MobileOptimized" content="1000">
 
 
+<?php if(get_theme_mod('formationpro_global_favicon')) : ?>
+	<link rel="shortcut icon" href="<?php echo esc_url(get_theme_mod('formationpro_global_favicon')); ?>" />
+<?php endif; ?>
+
+<?php if(get_theme_mod('formationpro_global_apple_icon')) : ?>
+	<link rel="apple-touch-icon" href="<?php echo esc_url(get_theme_mod('formationpro_global_apple_icon')); ?>">
+<?php endif; ?>
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+
 
 
 <?php wp_head(); ?>

@@ -5,11 +5,6 @@ Template Name: AutonomyWorks Change pass
 */
 
 //load scripts
-add_action( 'wp_enqueue_scripts', function(){
-	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.css' );
-} );
-
-get_header('autonomyworks'); 
 
 $changed = NULL ;
 if(isset($_POST['change']) and isset($_POST['pass'])){
@@ -30,7 +25,11 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 		} 
 }
 
+add_action( 'wp_enqueue_scripts', function(){
+	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.css' );
+} );
 
+get_header('autonomyworks'); 
 ?>
 
 		<div id="primary_home" class="content-area">
