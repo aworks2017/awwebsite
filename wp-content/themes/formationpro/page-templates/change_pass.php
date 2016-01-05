@@ -33,6 +33,7 @@ get_header('autonomyworks');
 ?>
 
 		<div id="primary_home" class="content-area">
+        <div class="row">
         <h1>Change Password</h1>
         <hr/>
         <?php if($changed>0){?>
@@ -41,7 +42,7 @@ get_header('autonomyworks');
         <p class="bg-danger">Please verify the new Password !</p>
         <?php }?>
         <form method="post" action="#">
-        	<div class="row">
+        	
               <div class="form-group col-md-6">
                 <label for="pass">New Password</label>
                 <input type="password" class="form-control" name="pass">
@@ -51,8 +52,8 @@ get_header('autonomyworks');
                 <input type="password" class="form-control"  name="pass2">
               </div>
               <button type="submit" name="change" class="btn btn-default">Change Password</button>
-          	</div>
+          	
           
         </form>
-               
+        </div>       
 <?php get_footer('centro'); ?>
