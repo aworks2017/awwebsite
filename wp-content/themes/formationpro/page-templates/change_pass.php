@@ -3,9 +3,6 @@
 /*
 Template Name: AutonomyWorks Change pass
 */
-
-//load scripts
-
 $changed = NULL ;
 if(isset($_POST['change']) and isset($_POST['pass'])){
 		global $wpc_client;
@@ -25,6 +22,7 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 		} 
 }
 
+//load scripts
 add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.css' );
 } );
@@ -39,7 +37,18 @@ get_header('autonomyworks');
         <form method="post" action="#">
 		<input type="text" name="pass" id="pass" />
         <input type="submit" name="change" value="change meee" />
-        <div id="change_pass">Change pass</div> 
+        </form>
+        
+        <form>
+          <div class="form-group">
+            <label for="pass">New Password</label>
+            <input type="password" class="form-control" name="pass">
+          </div>
+          <div class="form-group">
+            <label for="pass2">Repeat New Password</label>
+            <input type="password" class="form-control"  name="pass2">
+          </div>
+          <button type="submit" name="change" class="btn btn-default">Change Password</button>
         </form>
                
 <?php get_footer('centro'); ?>
