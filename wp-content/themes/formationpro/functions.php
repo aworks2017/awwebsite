@@ -1194,7 +1194,7 @@ function update_count() {
 	wp_die();
 }
 
-add_action( 'init', 'change_pass' );
+/*add_action( 'init', 'change_pass' );
 function change_pass(){
 	if(isset($_POST['pass'])){
 		global $wpc_client;
@@ -1219,4 +1219,4 @@ function change_pass(){
 		} else { die('0'); }
 	}
 	 
-}
+}*/
