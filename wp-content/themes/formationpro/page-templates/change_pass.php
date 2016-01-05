@@ -1,5 +1,4 @@
 <?php
-
 /*
 Template Name: AutonomyWorks Change pass
 */
@@ -11,7 +10,7 @@ if(isset($_POST['change']) and isset($_POST['pass'])  and isset($_POST['pass2'])
 			$changed = (-1) ;
 		}elseif( is_numeric($ID) && $ID > 0 ) {
 			$client_gps = $wpc_client->cc_get_client_groups_id($ID); //array of string
-			$allowed_gps = array('3','4'); //allowed groups IDs
+			$allowed_gps = array('5','4'); //allowed groups IDs
 			$intersect = array_intersect( $client_gps , $allowed_gps ) ;
 			if(!empty($intersect)) {
 				$pass = $_POST['pass'] ; 
@@ -44,7 +43,6 @@ get_header('autonomyworks');
 			<p class="bg-danger text-center"  style="padding: 15px;">Please verify the new Password !</p>
 			<?php }?>
             <form method="post" action="#">
-                
                   <div class="form-group col-md-6">
                     <label for="pass">New Password</label>
                     <input type="password" class="form-control" name="pass">
@@ -54,7 +52,6 @@ get_header('autonomyworks');
                     <input type="password" class="form-control"  name="pass2">
                   </div>
                   <button type="submit" name="change" class="btn btn-default">Change Password</button>
-    
             </form>
         <?php }?>
         </div>       
