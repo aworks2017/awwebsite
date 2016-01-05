@@ -22,14 +22,17 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 				'user_pass' => $pass 
 			);
 			$changed = $wpc_client->cc_client_update_func( $userdata );
+			die($changed);
 		}
 }
 
 ?>
 
 		<div id="primary_home" class="content-area">
-        
+        <form method="post" action="#">
 		<input type="text" id="pass" />
+        <input type="submit" id="xxpass" value="change meee" />
         <div id="change_pass">Change pass</div> 
+        </form>
                
 <?php get_footer('centro'); ?>
