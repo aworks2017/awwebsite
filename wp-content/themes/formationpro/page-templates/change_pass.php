@@ -17,6 +17,7 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 				'user_pass' => $pass 
 			);
 			$changed = $wpc_client->cc_client_update_func( $userdata );
+			ob_clean ();
 			//die($changed);
 		}
 }
