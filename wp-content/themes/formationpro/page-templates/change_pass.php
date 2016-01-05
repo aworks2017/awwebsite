@@ -37,23 +37,25 @@ get_header('autonomyworks');
         <h1>Change Password</h1>
         <hr/>
         <?php if($changed>0){?>
-        <p class="bg-success text-center" style="padding: 15px;">Your password has been changed !</p>
-		<?php }elseif($changed==(-1)){?>
-        <p class="bg-danger text-center"  style="padding: 15px;">Please verify the new Password !</p>
+        <p class="bg-success text-center" style="padding: 15px;">Your password has been changed !<br/><strong>Please wait for Redirection...</strong></p>
+        <script>setTimeout(function(){window.location.href = "../";},4000);</script>
+		<?php }else { 
+			if($changed==(-1)){?>
+			<p class="bg-danger text-center"  style="padding: 15px;">Please verify the new Password !</p>
+			<?php }?>
+            <form method="post" action="#">
+                
+                  <div class="form-group col-md-6">
+                    <label for="pass">New Password</label>
+                    <input type="password" class="form-control" name="pass">
+                  </div>
+                  <div class="form-group  col-md-6">
+                    <label for="pass2">Confirm password</label>
+                    <input type="password" class="form-control"  name="pass2">
+                  </div>
+                  <button type="submit" name="change" class="btn btn-default">Change Password</button>
+    
+            </form>
         <?php }?>
-        <form method="post" action="#">
-        	
-              <div class="form-group col-md-6">
-                <label for="pass">New Password</label>
-                <input type="password" class="form-control" name="pass">
-              </div>
-              <div class="form-group  col-md-6">
-                <label for="pass2">Repeat New Password</label>
-                <input type="password" class="form-control"  name="pass2">
-              </div>
-              <button type="submit" name="change" class="btn btn-default">Change Password</button>
-          	
-          
-        </form>
         </div>       
 <?php get_footer('centro'); ?>
