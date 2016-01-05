@@ -18,7 +18,6 @@ if(isset($_POST['change']) and isset($_POST['pass'])){
 			);
 			$changed = $wpc_client->cc_client_update_func( $userdata );
 			ob_clean ();
-			//die($changed);
 		}
 }
 
@@ -31,6 +30,9 @@ get_header('autonomyworks');
 ?>
 
 		<div id="primary_home" class="content-area">
+        <?php if($changed){?>
+		<div class="success">Your password has been changed !</div>	
+		<?php }?>
         <form method="post" action="#">
 		<input type="text" name="pass" id="pass" />
         <input type="submit" name="change" value="change meee" />
