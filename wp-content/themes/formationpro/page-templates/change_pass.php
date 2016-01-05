@@ -37,9 +37,9 @@ get_header('autonomyworks');
         <h1>Change Password</h1>
         <hr/>
         <?php if($changed>0){?>
-        <p class="bg-success" style="padding: 15px;">Your password has been changed !</p>
+        <p class="bg-success text-center" style="padding: 15px;">Your password has been changed !</p>
 		<?php }elseif($changed==(-1)){?>
-        <p class="bg-danger"  style="padding: 15px;">Please verify the new Password !</p>
+        <p class="bg-danger text-center"  style="padding: 15px;">Please verify the new Password !</p>
         <?php }?>
         <form method="post" action="#">
         	
