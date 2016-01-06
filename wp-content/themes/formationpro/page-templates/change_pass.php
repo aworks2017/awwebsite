@@ -33,11 +33,9 @@ get_header('autonomyworks');
 
 		<div id="primary_home" class="content-area">
         <div class="row">
-        <h1>Change Password</h1>
-        <hr/>
         <?php if($changed>0){?>
         <p class="bg-success text-center" style="padding: 15px;">Your password has been changed !<br/><strong>Please wait for Redirection...</strong></p>
-        <script>setTimeout(function(){window.location.href = "../";},4000);</script>
+        <script>setTimeout(function(){window.location.href = "../";},2000);</script>
 		<?php }else { 
 			if($changed==(-1)){?>
 			<p class="bg-danger text-center"  style="padding: 15px;">Please verify the new Password !</p>
@@ -55,4 +53,3 @@ get_header('autonomyworks');
             </form>
         <?php }?>
         </div>       
-<?php get_footer('centro'); ?>
