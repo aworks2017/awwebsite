@@ -37,11 +37,15 @@ jQuery(document).ready(function(e) {
 		output += '<div class="col-md-3"><strong>More info : </strong></div>';
 		output += '<div class="col-md-9"><input type="text" id="more-info" style="width:100%"></div>';
 		output += '</div>';
-		output += '<div class="row"><a id="end-stop-workflow"  class="link grey" job="'+jobId+'">OK</a></div>';
+		output += '<div class="row"><a id="end-stop-workflow"  class="link grey" job="'+jobId+'" style="display:none;">OK</a></div>';
 		output += '</div>';
 		jQuery("#autonomyworks-home").html(output);
 	});
 	
+	jQuery("#autonomyworks-home").on("change","input [name='reason']",function(){
+		jQuery("#end-stop-workflow").fadeIn();
+	});
+		
 	jQuery("#autonomyworks-home").on("click","#end-stop-workflow",function(){
 		jQuery(this).attr("disabled","disabled");
 		var jobId = jQuery(this).attr("job");
