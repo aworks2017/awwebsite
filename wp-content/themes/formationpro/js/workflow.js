@@ -42,7 +42,7 @@ jQuery(document).ready(function(e) {
 		jQuery("#autonomyworks-home").html(output);
 	});
 	
-	jQuery("#autonomyworks-home").on("change","input [name='reason']",function(){
+	jQuery("#autonomyworks-home").on("change","input[type=radio][name=reason]",function(){
 		jQuery("#end-stop-workflow").fadeIn();
 	});
 		
