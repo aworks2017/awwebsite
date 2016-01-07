@@ -56,7 +56,7 @@ jQuery(document).ready(function(e) {
 					{action:'end_job', jobId:jobId,reason:reason,more_info:more_info},
 					function(data){
 						tasks_button(data);
-					});
+		});
 	});
 	
 	jQuery("#autonomyworks-home").on("click","#update_act",function(){
