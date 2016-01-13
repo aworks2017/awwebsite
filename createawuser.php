@@ -8,7 +8,7 @@ require('wp-load.php');
 sugarCRM_hook_new_user();
 function sugarCRM_hook_new_user(){
 	global $wpc_client;
-	print_r(get_class_methods ($wpc_client));exit;
+
 	if(
 		isset($_GET['api_key']) and
 		isset($_GET['user_type']) and
@@ -18,7 +18,7 @@ function sugarCRM_hook_new_user(){
 		if($_GET['api_key'] !== get_option('api_key')){
 			die('Invalid key');
 		}
-		
+
 		$groups = $wpc_client->cc_get_groups();
 		$group_id = NULL;
 		foreach($groups as $i=>$group){
@@ -27,16 +27,16 @@ function sugarCRM_hook_new_user(){
 				break;
 			}
 		}
-		
+
 		if($group_id==NULL) die('0');
-		
+
 		$user_name = esc_attr( trim( $_GET['user_name'] ) );
 		if ( username_exists( $user_name ) ) die('0');
-		
-		$userdata = array( 
-			'user_pass' => $_GET['pswd'] , 
-			'user_login' => $user_name , 
-			'display_name' => $user_name , 
+
+		$userdata = array(
+			'user_pass' => $_GET['pswd'] ,
+			'user_login' => $user_name ,
+			'display_name' => $user_name ,
 			'role' => 'wpc_client',
 			'client_circles' =>array($group_id)
 		);
