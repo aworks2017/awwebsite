@@ -1,7 +1,11 @@
 {$login_header}
 <div class="main_loginform_block {$classes}">
+	{if $src == 'assoc'}
+    	<h1>Team Login</h1>
+    {else}
+    	<p>Welcome Text ro the client portal login page Welcome Text ro the client portal login page</p>
+    {/if}
     <div id="login">
-    {$src}
     {if $action == 'login'}
         {if !empty($msg_ve)}
             <p class="message">{$msg_ve}</p>
