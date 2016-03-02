@@ -65,11 +65,11 @@ get_header('autonomyworks'); ?>
          </div>
          <div id="notes-bloc" class="col-md-6">
          	<div class="col-md-12">
-            	<div class="label col-md-12">Previous Stopping Point:</div>
+            	<div class="col-md-12">Previous Stopping Point:</div>
             	<div class="col-md-12">3.2.1</div>
             </div>
             <div class="col-md-12">
-            	<div class="label col-md-12">Production Notes:</div>
+            	<div class="col-md-12">Production Notes:</div>
             	<div class="col-md-12">Skip records marked “issue”</div>
             </div>
          </div>
