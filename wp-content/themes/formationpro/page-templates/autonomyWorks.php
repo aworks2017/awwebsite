@@ -25,6 +25,14 @@ get_header('autonomyworks'); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content', 'page' ); ?>
 				<?php endwhile; // end of the loop. ?>
+                <div class="col-md-12">
+                <div class="col-md-6">
+                task
+                </div>
+                notes
+                <div class="col-md-6">
+                </div>
+                </div>
 			</div><!-- #content .site-content -->
 
 		</div><!-- #primary .content-area -->
