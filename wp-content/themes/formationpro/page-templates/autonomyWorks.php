@@ -38,7 +38,7 @@ get_header('autonomyworks'); ?>
     <?php else: //show workfloww ?>
     <div class="col-md-12">
     	<div id="task-bloc" class="col-md-6">
-        	<?php echo $response['body']; ?> 
+        	<?php //echo $response['body']; ?> 
             <div class="control-form">
             	<div class="label col-md-3">Deliverable:</div>
             	<div class="col-md-6">.......<br>......</div>
