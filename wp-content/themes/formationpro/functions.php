@@ -11,6 +11,14 @@
  *
  * @since formationpro 1.0
  */
+ 
+add_action('init', 'myStartSession', 1);
+function myStartSession() {
+    if(!session_id()) {
+        session_start();
+    }
+}
+
 if ( ! isset( $content_width ) )
 	$content_width = 654; /* pixels */
 
