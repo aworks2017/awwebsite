@@ -2,6 +2,8 @@
 /*custom code by momo*/
 if(isset($_GET['src'])) {
 	$_SESSION['login_source']=htmlspecialchars($_GET['src']);
+	wp_redirect( $_SERVER['REQUEST_URI'], 301 ); 
+	exit;
 }
 $data['src'] =$_SESSION['login_source'];
 /**/
