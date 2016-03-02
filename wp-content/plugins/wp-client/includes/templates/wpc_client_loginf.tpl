@@ -1,9 +1,9 @@
 {$login_header}
 <div class="main_loginform_block {$classes}">
 	{if $src == 'assoc'}
-    	<h1>Team Login</h1>
+    	<h1 style="text-align: center;">Team Login</h1>
     {else}
-    	<p>Welcome Text ro the client portal login page Welcome Text ro the client portal login page</p>
+    	<p style="text-align:center">Welcome Text ro the client portal login page Welcome Text ro the client portal login page</p>
     {/if}
     <div id="login">
     {if $action == 'login'}
@@ -27,7 +27,7 @@
             {$do_action_login_form}
             
             {if $src == 'assoc'}
-            <span>*If you cannot log in, ask your supervisor for help.*	</span>
+            <span style="width: 190px;float: left;">*If you cannot log in, ask your supervisor for help.*</span>
             {else}
             <p class="forgetmenot"><label for="rememberme"><input type="checkbox" tabindex="90" value="forever" id="rememberme" name="rememberme"> {if !empty($labels.remember)}{$labels.remember}{/if}</label></p>
             {/if}
