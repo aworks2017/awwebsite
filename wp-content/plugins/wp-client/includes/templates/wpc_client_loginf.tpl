@@ -25,7 +25,13 @@
                 <input type="password" tabindex="20" size="20" value="" class="input" id="user_pass" name="pwd"></label>
             </p>
             {$do_action_login_form}
+            
+            {if $src == 'assoc'}
+            <span>*If you cannot log in, ask your supervisor for help.*	</span>
+            {else}
             <p class="forgetmenot"><label for="rememberme"><input type="checkbox" tabindex="90" value="forever" id="rememberme" name="rememberme"> {if !empty($labels.remember)}{$labels.remember}{/if}</label></p>
+            {/if}
+            
             <p class="submit">
                 <input type="submit" tabindex="100" value="{$texts.login_button}" class="button-primary" id="wp-submit" name="wp-submit">
                 <input type="hidden" value="" name="redirect_to">
