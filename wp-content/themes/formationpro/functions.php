@@ -1122,7 +1122,7 @@ function get_workflow_button($atts, $content ){
 add_shortcode('portal_login_button', 'portal_login_button');
 function portal_login_button($atts, $content = "Client Login" ){
 	if(isset($atts['link'])) $link = $atts['link']; else $link = '/clients/portal';
-	return '<div style="width: 100%;text-align: center;margin: 50px auto;"><a href="'.$link.'" style="background-color: #343234;color: white;padding: 14px 30px;border-radius: 10px;cursor: pointer;">'.$content.'</a></div>';
+	return '<div class="portal_login_button"><a href="'.$link.'" >'.$content.'</a></div>';
 }
 
 
