@@ -39,36 +39,36 @@ get_header('autonomyworks'); ?>
     <div class="col-md-12">
     	<div id="task-bloc" class="col-md-6">
         	<?php //echo $response['body']; ?> 
-            <div class="control-form">
+            <div class="col-md-12">
             	<div class="label col-md-3">Deliverable:</div>
             	<div class="col-md-6">.......<br>......</div>
             </div>
-            <div class="control-form">
+            <div class="col-md-12">
             	<div class="label col-md-3">Task:</div>
             	<div class="col-md-6">..............</div>
             </div>
-            <div class="control-form">
+            <div class="col-md-12">
             	<div class="label col-md-3">Parameter 1:</div>
             	<div class="col-md-6">RI-WEEK_FOL</div>
                 <div class="col-md-3">copy</div>
             </div>
-            <div class="control-form">
+            <div class="col-md-12">
             	<div class="label col-md-3">Parameter 2:</div>
             	<div class="col-md-6">University of New Hampshire</div>
                 <div class="col-md-3">copy</div>
             </div>
-            <div class="control-form">
+            <div class="col-md-12">
             	<div class="label col-md-3">[Activity Driver]:</div>
             	<div class="col-md-6"><input type="text"/></div>
             </div>
             
          </div>
          <div id="notes-bloc" class="col-md-6">
-         	<div class="control-form">
+         	<div class="col-md-12">
             	<div class="label col-md-12">Previous Stopping Point:</div>
             	<div class="col-md-12">3.2.1</div>
             </div>
-            <div class="control-form">
+            <div class="col-md-12">
             	<div class="label col-md-12">Production Notes:</div>
             	<div class="col-md-12">Skip records marked “issue”</div>
             </div>
