@@ -125,13 +125,13 @@ function show_job(data){
 	jQuery("#notes-bloc").html(notes_output);
 	
 	var status_checks = '<input type="radio" name="reason" value="Completed"> Completed<br/><input type="radio" name="reason" value="In Progress"> In Progress<br/><input type="radio" name="reason" value="Issue"> Issue<br/><input type="radio" name="reason" value="QA Check"> QA Check';
-	stop_output_left += '<div class="col-md-12"><div class="col-md-4"><b>Stopping Point:</b></div><div class="col-md-6">data.stopping_point</div></div>';
-	stop_output_left += '<div class="col-md-12"><div class="col-md-4"><b>Status:</b></div><div class="col-md-6">'+status_checks+'</div></div>';
+	stop_output_left += '<div class="col-md-12"><div class="col-md-5"><b>Stopping Point:</b></div><div class="col-md-7"><input type="text"/></div></div>';
+	stop_output_left += '<div class="col-md-12"><div class="col-md-5"><b>Status:</b></div><div class="col-md-7">'+status_checks+'</div></div>';
 	
 	jQuery("#stop-bloc .left").html(stop_output_left);
 	
 	jQuery("#stop-bloc").prepend('<hr/>');
-	stop_output_right += '<div class="col-md-12"><div class="col-md-2"><b>Notes:</b></div><div class="col-md-10"><textarea id="stop_notes"></textarea></div></div>';
+	stop_output_right += '<div class="col-md-12"><div class="col-md-3"><b>Notes:</b></div><div class="col-md-9"><textarea id="stop_notes"></textarea></div></div>';
 	stop_output_right += '<div class="col-md-12"><a id="end-stop-workflow"  class="link grey" job="jobId" style="display:none;">Submit</a></div>';
 	
 	jQuery("#stop-bloc .right").html(stop_output_right);
