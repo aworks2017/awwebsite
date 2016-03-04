@@ -1116,7 +1116,7 @@ function get_workflow_button($atts, $content ){
 		//$return .="Your IP : $ip <br> Allowed ip : $workflow_ip <br>";
 	}
 	if(($workflow_ip and $ip and $ip == $workflow_ip) or $restrict_workflow_ip=='0') {
-		$return .='<a id="get-workflow" class="grey_btn">WORKFLOW TOOL</a>';
+		$return .='<div id="get-workflow" class="grey_btn">WORKFLOW TOOL</div>';
 	}
 	return $return;
 }

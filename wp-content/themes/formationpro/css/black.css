@@ -106,11 +106,6 @@
 }
 /* portal_login_button */
 .grey_btn {
-	width: 100%;
-	text-align: center;
-	margin: 50px auto;
-}
-.grey_btn  {
     background-color: #e7e6e6;
     color: black !important;
     padding: 14px 57px;
@@ -118,7 +113,10 @@
     cursor: pointer;
     font-weight: bold;
     border: 1px solid black;
+	margin: 50px auto;
+	text-align: center;
+	display:block;
 }
-.grey_btn:hover {
+.grey_btn a:hover {
     background-color: #CFCFCF;
 }
