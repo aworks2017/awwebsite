@@ -1124,7 +1124,7 @@ add_shortcode('portal_login_button', 'portal_login_button');
 function portal_login_button($atts, $content = "Client Login" ){
 	if(isset($atts['link'])) $link = $atts['link']; else $link = '/clients/portal';
 	if(isset($atts['src'])) $link .= '?src='.$atts['src'];
-	return '<div class="portal_login_button grey_btn"><a href="'.$link.'" >'.$content.'</a></div>';
+	return '<a href="'.$link.'" ><div class="portal_login_button grey_btn">'.$content.'</div></a>';
 }
 
 
