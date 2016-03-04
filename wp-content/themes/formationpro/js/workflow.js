@@ -127,9 +127,10 @@ function tasks_button(data){
 	console.log(data);
 	clearInterval(get_workflow_interval);
 	if(data==='0' || data==="null" || data===null) {
-		jQuery("#action-bloc").html('<div id="no-tasks" class="grey_btn">WORKFLOW TOOL</div>');
+		jQuery("#action-bloc").html('<div id="no-tasks" class="grey_btn">Refresh</div>');
 		jQuery("#notes-bloc").html(empty_notes_bloc);
 		jQuery("#task-bloc").html(empty_task_bloc);
+		jQuery("#stop-bloc").html('<hr>');
 		
 		
 		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
@@ -138,5 +139,5 @@ function tasks_button(data){
 	}
 }
 
-var empty_notes_bloc = 'empty_notes_bloc';
+var empty_notes_bloc = '<h3>Production Notes:</h3><p><b>IMPORTANT:</b> Check back every 5 minutes to see if you have a new task.</p><p>Some things you may do while you are on call:<ul><li>Professional Development</li><li>Use the Restroom</li><li>Stretch</li><li>Read</li><li>Other quiet activities</li></ul></p>';
 var empty_task_bloc = 'empty_task_bloc';
