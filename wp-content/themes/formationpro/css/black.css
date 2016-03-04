@@ -108,15 +108,15 @@
 .grey_btn {
     background-color: #e7e6e6;
     color: black !important;
-    padding: 14px 57px;
+    padding: 14px 52px;
     border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
     border: 1px solid black;
-	margin: 50px auto;
-	text-align: center;
-	display:block;
+    margin: 5px auto;
+    text-align: center;
+    display: inline-block;
 }
-.grey_btn a:hover {
+.grey_btn:hover {
     background-color: #CFCFCF;
 }
