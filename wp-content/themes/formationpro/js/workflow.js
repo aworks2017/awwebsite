@@ -106,20 +106,22 @@ jQuery(document).ready(function(e) {
 
 function show_job(data){
 	if(data.activity_driver===null) data.activity_driver = 'N/A';
-	var output = '<div>';
-	output += '<div class="row"><div class="col-md-5" style="text-align:left">';
-	output += '<div class="row"><div class="col-md-6"><strong>Current Job : </strong></div><div class="col-md-6">'+data.name+'</div></div>';
-	output += '<div class="row"><div class="col-md-6"><strong>Started : </strong></div><div class="col-md-6">'+data.estimated_start+'</div></div><div class="row"><div class="col-md-6"><strong>Estimated Finish : </strong></div><div class="col-md-6">'+data.estimated_finish+'</div></div>';
+	var task_output = '';
+	var notes_output = '';
+	task_output +='<div class="col-md-12"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">data.estimated_start<br>data.estimated_finish</div></div>';
+	task_output +='<div class="col-md-12"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">data.name</div></div>';
+	task_output +='<div class="col-md-12"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">data.parameter_1</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>';
+	task_output +='<div class="col-md-12"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">data.parameter_2</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>';
+	task_output+='<div class="col-md-12"><div class="col-md-4">[Activity Driver]:</div><div class="col-md-4"><span id="act_driver">data.activity_driver</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="data.activity_count" oldval="data.activity_count"></div><div class="col-md-2"><input type="button" id="update_act" value="Update" job="data.job_id"></div></div>';
+	jQuery("#task-bloc").html(task_output);
 	
-	output += '</div>';
-	output += '<div class="col-md-7" style="text-align:left">';
-	output += '<div class="row"><div class="col-md-4"><strong>Parameter 1 : </strong></div><div id="copy1_text" class="col-md-4">'+data.parameter_1+'</div><div class="col-md-4"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>';
-	output += '<div class="row"><div class="col-md-4"><strong>Parameter 2 : </strong></div><div id="copy2_text" class="col-md-4">'+data.parameter_2+'</div><div class="col-md-4"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>';
-	output += '<div class="row"><div class="col-md-4"><strong>Activity Driver : </strong></div><div class="col-md-4"><span id="act_driver">'+data.activity_driver+'</span> - <input  id="act_count"  type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="'+data.activity_count+'" oldval="'+data.activity_count+'"/></div><div class="col-md-4"><input type="button" id="update_act" value="Update" job="'+data.job_id+'" style="display:none"/></div></div>';
-	output += '</div></div>';
-	output += '<div class="row"><a id="stop-workflow"  class="link red" job="'+data.job_id+'">STOP</a></div>';
-	output += '</div>';
-	jQuery("#autonomyworks-home").html(output);
+	notes_output += '<h3><b>Previous Stopping Point:</b></h3>';
+	notes_output += '<p>3.2.1</p>';
+	notes_output += '<h3><b>Production Notes:</b></h3>';
+	notes_output += '<p>Skip records marked "issue"</p>';
+	
+	jQuery("#notes-bloc").html(task_output);
+	
 	new Clipboard('.btn');
 }
 
