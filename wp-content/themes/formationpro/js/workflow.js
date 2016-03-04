@@ -130,7 +130,6 @@ function show_job(data){
 	
 	jQuery("#stop-bloc .left").html(stop_output_left);
 	
-	jQuery("#stop-bloc").prepend('<hr/>');
 	stop_output_right += '<div class="col-md-12"><div class="col-md-3"><b>Notes:</b></div><div class="col-md-9"><textarea id="stop_notes"></textarea></div></div>';
 	stop_output_right += '<div class="col-md-12"><a id="end-stop-workflow"  class="link grey" job="jobId" style="display:none;">Submit</a></div>';
 	
