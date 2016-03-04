@@ -48,3 +48,6 @@
 #autonomyworks-home section {
 	margin-top:15px;
 }
+#autonomyworks-home textarea {
+	width:100%;
+}
