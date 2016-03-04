@@ -127,9 +127,16 @@ function tasks_button(data){
 	console.log(data);
 	clearInterval(get_workflow_interval);
 	if(data==='0' || data==="null" || data===null) {
-		jQuery("#autonomyworks-home").html('<a id="no-tasks"  class="link yellow">ON CALL</a>');
+		jQuery("#action-bloc").html('<div id="no-tasks" class="grey_btn">WORKFLOW TOOL</div>');
+		jQuery("#notes-bloc").html(empty_notes_bloc);
+		jQuery("#task-bloc").html(empty_task_bloc);
+		
+		
 		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
 	}else{
 		jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
 	}
 }
+
+var empty_notes_bloc = 'empty_notes_bloc';
+var empty_task_bloc = 'empty_task_bloc';
