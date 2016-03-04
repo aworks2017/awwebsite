@@ -123,23 +123,20 @@ function show_job(data){
 	new Clipboard('.btn');
 }
 
-function tasks_button(data){
-	console.log(data);
+function tasks_button(job){
+	console.log(job);
 	clearInterval(get_workflow_interval);
-	if(data==='0' || data==="null" || data===null) {
+	if(job==='0' || job==="null" || job===null) {
 		jQuery("#action-bloc").html('<div id="no-tasks" class="grey_btn">Refresh</div>');
 		jQuery("#notes-bloc").html(empty_notes_bloc);
 		jQuery("#task-bloc").html(empty_task_bloc);
 		jQuery("#stop-bloc").html('<hr>');
 		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
 	}else{
-		jQuery(this).attr("disabled","disabled");
-		var jobId = jQuery(this).attr("job");
 		jQuery.post(workflow.ajax_url,
-					{action:'get_job', jobId:jobId},
-					function(data){
-						console.log(data);
-						show_job(data);
+					{action:'get_job', jobId:job},
+					function(workflow_data){
+						show_job(workflow_data);
 					},"json");
 		//jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
 	}
