@@ -110,11 +110,11 @@ function show_job(data){
 	var notes_output = '';
 	var stop_output_left = '';
 	var stop_output_right = '';
-	task_output +='<div class="col-md-12"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">data.estimated_start<br>data.estimated_finish</div></div>';
-	task_output +='<div class="col-md-12"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">data.name</div></div>';
-	task_output +='<div class="col-md-12"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">data.parameter_1</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>';
-	task_output +='<div class="col-md-12"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">data.parameter_2</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>';
-	task_output+='<div class="col-md-12"><div class="col-md-4">[Activity Driver]:</div><div class="col-md-6"><span id="act_driver">data.activity_driver</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="data.activity_count" oldval="data.activity_count"></div><div class="col-md-2"><input type="button" id="update_act" value="Update" job="data.job_id"></div></div>';
+	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">data.estimated_start<br>data.estimated_finish</div></div>';
+	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">data.name</div></div>';
+	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">data.parameter_1</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>';
+	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">data.parameter_2</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>';
+	task_output+='<div class="col-md-12 form-group"><div class="col-md-4">[Activity Driver]:</div><div class="col-md-6"><span id="act_driver">data.activity_driver</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="data.activity_count" oldval="data.activity_count"></div><div class="col-md-2"><input type="button" id="update_act" value="Update" job="data.job_id"></div></div>';
 	jQuery("#task-bloc").html(task_output);
 	
 	notes_output += '<h4><b>Previous Stopping Point:</b></h4>';
@@ -125,13 +125,13 @@ function show_job(data){
 	jQuery("#notes-bloc").html(notes_output);
 	
 	var status_checks = '<input type="radio" name="reason" value="Completed"> Completed<br/><input type="radio" name="reason" value="In Progress"> In Progress<br/><input type="radio" name="reason" value="Issue"> Issue<br/><input type="radio" name="reason" value="QA Check"> QA Check';
-	stop_output_left += '<div class="col-md-12"><div class="col-md-5"><b>Stopping Point:</b></div><div class="col-md-7"><input type="text"/></div></div>';
-	stop_output_left += '<div class="col-md-12"><div class="col-md-5"><b>Status:</b></div><div class="col-md-7">'+status_checks+'</div></div>';
+	stop_output_left += '<div class="col-md-12 form-group"><div class="col-md-5"><b>Stopping Point:</b></div><div class="col-md-7"><input type="text"/></div></div>';
+	stop_output_left += '<div class="col-md-12 form-group"><div class="col-md-5"><b>Status:</b></div><div class="col-md-7">'+status_checks+'</div></div>';
 	
 	jQuery("#stop-bloc .left").html(stop_output_left);
 	
-	stop_output_right += '<div class="col-md-12"><div class="col-md-3"><b>Notes:</b></div><div class="col-md-9"><textarea id="stop_notes"></textarea></div></div>';
-	stop_output_right += '<div class="col-md-12"><a id="end-stop-workflow"  class="link grey" job="jobId" style="display:none;">Submit</a></div>';
+	stop_output_right += '<div class="col-md-12 form-group"><div class="col-md-3"><b>Notes:</b></div><div class="col-md-9"><textarea id="stop_notes"></textarea></div></div>';
+	stop_output_right += '<div class="col-md-12 form-group"><a id="end-stop-workflow"  class="link grey" job="jobId" style="display:none;">Submit</a></div>';
 	
 	jQuery("#stop-bloc .right").html(stop_output_right);
 	jQuery("#action-bloc").html('');
@@ -143,10 +143,10 @@ function tasks_button(job){
 	console.log(job);
 	clearInterval(get_workflow_interval);
 	if(job==='0' || job==="null" || job===null) {
-		jQuery("#action-bloc").html('<div id="no-tasks" class="grey_btn">Refresh</div>');
+		jQuery("#action-bloc").html('<hr><div id="no-tasks" class="grey_btn">Refresh</div>');
 		jQuery("#notes-bloc").html(empty_notes_bloc);
 		jQuery("#task-bloc").html(empty_task_bloc);
-		jQuery("#stop-bloc").html('<hr><div class="col-md-6 left"></div><div class="col-md-6 right">');
+		jQuery("#stop-bloc").html('');
 		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
 	}else{
 		jQuery.post(workflow.ajax_url,
@@ -154,7 +154,6 @@ function tasks_button(job){
 					function(workflow_data){
 						show_job(workflow_data);
 					},"json");
-		//jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
 	}
 }
 
