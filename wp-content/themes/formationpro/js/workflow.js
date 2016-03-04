@@ -134,7 +134,7 @@ function show_job(data){
 	stop_output_right += '<div class="col-md-12 form-group"><a id="end-stop-workflow"  class="link grey" job="jobId" style="display:none;">Submit</a></div>';
 	
 	jQuery("#stop-bloc .right").html(stop_output_right);
-	jQuery("#action-bloc").html('');
+	jQuery("#action-bloc").html('<hr>');
 	
 	new Clipboard('.btn');
 }
