@@ -131,11 +131,17 @@ function tasks_button(data){
 		jQuery("#notes-bloc").html(empty_notes_bloc);
 		jQuery("#task-bloc").html(empty_task_bloc);
 		jQuery("#stop-bloc").html('<hr>');
-		
-		
 		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
 	}else{
-		jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
+		jQuery(this).attr("disabled","disabled");
+		var jobId = jQuery(this).attr("job");
+		jQuery.post(workflow.ajax_url,
+					{action:'get_job', jobId:jobId},
+					function(data){
+						console.log(data);
+						show_job(data);
+					},"json");
+		//jQuery("#autonomyworks-home").html('<a id="start-workflow"  class="link green" job='+data+'>START</a>');
 	}
 }
 
