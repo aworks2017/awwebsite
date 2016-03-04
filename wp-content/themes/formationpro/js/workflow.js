@@ -147,7 +147,7 @@ function tasks_button(job){
 		jQuery("#action-bloc").html('<div id="no-tasks" class="grey_btn">Refresh</div>');
 		jQuery("#notes-bloc").html(empty_notes_bloc);
 		jQuery("#task-bloc").html(empty_task_bloc);
-		jQuery("#stop-bloc").html('<hr>');
+		jQuery("#stop-bloc").html('<hr><div class="col-md-6 left"></div><div class="col-md-6 right">');
 		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
 	}else{
 		jQuery.post(workflow.ajax_url,
