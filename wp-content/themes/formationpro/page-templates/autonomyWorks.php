@@ -38,30 +38,29 @@ get_header('autonomyworks'); ?>
     <?php else: //show workfloww ?>
     <div class="col-md-12">
     	<div id="task-bloc" class="col-md-6">
-        	<?php //echo $response['body']; ?> 
+        	<?php $data = json_decode ($response, true); ?> 
             <div class="col-md-12">
             	<div class="col-md-4">Deliverable:</div>
-            	<div class="col-md-6">.......<br>......</div>
+            	<div class="col-md-6"><?php echo $data['estimated_start'].'<br>'.$data['estimated_finish']?></div>
             </div>
             <div class="col-md-12">
             	<div class="col-md-4">Task:</div>
-            	<div class="col-md-6">..............</div>
+            	<div class="col-md-6"><?php echo $data['name']?></div>
             </div>
             <div class="col-md-12">
             	<div class="col-md-4">Parameter 1:</div>
-            	<div class="col-md-6">RI-WEEK_FOL</div>
+            	<div class="col-md-6"><?php echo $data['parameter_1']?></div>
                 <div class="col-md-2">copy</div>
             </div>
             <div class="col-md-12">
             	<div class="col-md-4">Parameter 2:</div>
-            	<div class="col-md-6">University of New Hampshire</div>
+            	<div class="col-md-6"><?php echo $data['parameter_2']?></div>
                 <div class="col-md-2">copy</div>
             </div>
             <div class="col-md-12">
             	<div class="col-md-4">[Activity Driver]:</div>
-            	<div class="col-md-6"><input type="text"/></div>
+            	<div class="col-md-6"><input type="text"/ value"<?php echo $data['parameter_2']?>"></div>
             </div>
-            
          </div>
          <div id="notes-bloc" class="col-md-6">
          	<div class="col-md-12">

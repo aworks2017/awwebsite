@@ -1113,10 +1113,10 @@ function get_workflow_button($atts, $content ){
 	$restrict_workflow_ip = get_option('restrict_workflow_ip',false);
 	$return = '';
 	if($restrict_workflow_ip=='0') {
-		$return .="Your IP : $ip <br> Allowed ip : $workflow_ip <br>";
+		//$return .="Your IP : $ip <br> Allowed ip : $workflow_ip <br>";
 	}
 	if(($workflow_ip and $ip and $ip == $workflow_ip) or $restrict_workflow_ip=='0') {
-		$return .='<a id="get-workflow" class="link">WORKFLOW TOOL</a>';
+		$return .='<a id="get-workflow" class="grey_btn">WORKFLOW TOOL</a>';
 	}
 	return $return;
 }
@@ -1124,7 +1124,7 @@ add_shortcode('portal_login_button', 'portal_login_button');
 function portal_login_button($atts, $content = "Client Login" ){
 	if(isset($atts['link'])) $link = $atts['link']; else $link = '/clients/portal';
 	if(isset($atts['src'])) $link .= '?src='.$atts['src'];
-	return '<div class="portal_login_button"><a href="'.$link.'" >'.$content.'</a></div>';
+	return '<div class="portal_login_button grey_btn"><a href="'.$link.'" >'.$content.'</a></div>';
 }
 
 
