@@ -51,9 +51,10 @@ jQuery(document).ready(function(e) {
 		var jobId = jQuery(this).attr("job");
 		var  reason = jQuery('input[name="reason"]:checked').val();
 		if(reason==="undefined") return false;
-		var  more_info = jQuery('#more-info').val();
+		var  more_info = jQuery('#stop_notes').val();
+		var stopping_point = jQuery('#stopping_point').val();
 		jQuery.post(workflow.ajax_url,
-					{action:'end_job', jobId:jobId,reason:reason,more_info:more_info},
+					{action:'end_job', jobId:jobId,reason:reason,more_info:more_info,},
 					function(data){
 						tasks_button(data);
 		});
@@ -112,7 +113,7 @@ function show_job(data){
 	var stop_output_right = '';
 	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">data.estimated_start<br>data.estimated_finish</div></div>';
 	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">data.name</div></div>';
-	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">data.parameter_1</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>';
+	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">data.parameter_1</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 1</button></div></div>';
 	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">data.parameter_2</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>';
 	task_output+='<div class="col-md-12 form-group"><div class="col-md-4"><b>[Activity Driver]:</b></div><div class="col-md-6"><span id="act_driver">data.activity_driver</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="data.activity_count" oldval="data.activity_count"></div><div class="col-md-2"><input type="button" id="update_act" value="Update" job="data.job_id"></div></div>';
 	jQuery("#task-bloc").html(task_output);
@@ -125,7 +126,7 @@ function show_job(data){
 	jQuery("#notes-bloc").html(notes_output);
 	
 	var status_checks = '<input type="radio" name="reason" value="Completed"> Completed<br/><input type="radio" name="reason" value="In Progress"> In Progress<br/><input type="radio" name="reason" value="Issue"> Issue<br/><input type="radio" name="reason" value="QA Check"> QA Check';
-	stop_output_left += '<div class="col-md-12 form-group"><div class="col-md-5"><b>Stopping Point:</b></div><div class="col-md-7"><input type="text"/></div></div>';
+	stop_output_left += '<div class="col-md-12 form-group"><div class="col-md-5"><b>Stopping Point:</b></div><div class="col-md-7"><input id="stopping_point" type="text"/></div></div>';
 	stop_output_left += '<div class="col-md-12 form-group"><div class="col-md-5"><b>Status:</b></div><div class="col-md-7">'+status_checks+'</div></div>';
 	
 	jQuery("#stop-bloc .left").html(stop_output_left);
