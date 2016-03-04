@@ -120,7 +120,7 @@ function show_job(data){
 	notes_output += '<h3><b>Production Notes:</b></h3>';
 	notes_output += '<p>Skip records marked "issue"</p>';
 	
-	jQuery("#notes-bloc").html(task_output);
+	jQuery("#notes-bloc").html(notes_output);
 	
 	new Clipboard('.btn');
 }
