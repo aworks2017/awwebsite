@@ -140,4 +140,4 @@ function tasks_button(data){
 }
 
 var empty_notes_bloc = '<h3>Production Notes:</h3><p><b>IMPORTANT:</b> Check back every 5 minutes to see if you have a new task.</p><p>Some things you may do while you are on call:<ul><li>Professional Development</li><li>Use the Restroom</li><li>Stretch</li><li>Read</li><li>Other quiet activities</li></ul></p>';
-var empty_task_bloc = 'empty_task_bloc';
+var empty_task_bloc = '<div class="col-md-12"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">On Call</div></div>';
