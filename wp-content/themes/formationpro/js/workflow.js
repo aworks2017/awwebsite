@@ -63,7 +63,7 @@ jQuery(document).ready(function(e) {
 	jQuery("#autonomyworks-home").on("click","#update_act",function(){
 		var button = jQuery(this) ;
 		var act_count = jQuery("#act_count").val();
-		var jobId = button.attr("job");
+		var jobId = jQuery("#job_id").val();
 		if(jQuery.isNumeric(act_count) && act_count>=0  && act_count<=9999) {
 			button.attr("disabled","disabled");
 			button.css("opacity","0.5");
@@ -111,11 +111,12 @@ function show_job(data){
 	var notes_output = '';
 	var stop_output_left = '';
 	var stop_output_right = '';
+	task_output +='<input type="hidden" id="job_id" value="'+data.job_id+'"/>';
 	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">'+((data.account_name)?data.account_name:'null')+'<br>'+((data.deliverable_name)?data.deliverable_name:'null')+'</div></div>';
 	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">'+((data.name)?data.name:'null')+'</div></div>';
 	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">'+((data.parameter_1)?data.parameter_1:'null')+'</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>';
 	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy2_text" class="col-md-6">'+((data.parameter_2)?data.parameter_2:'null')+'</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>';
-	task_output+='<div class="col-md-12 form-group"><div class="col-md-4"><b>[Activity Driver]:</b></div><div class="col-md-6"><span id="act_driver">'+((data.activity_driver)?data.activity_driver:'null')+'</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="'+((data.activity_count)?data.activity_count:'null')+'" oldval="'+((data.activity_count)?data.activity_count:'null')+'"></div><div class="col-md-2"><input type="button" id="update_act" value="Update" job="data.job_id"></div></div>';
+	task_output+='<div class="col-md-12 form-group"><div class="col-md-4"><b>[Activity Driver]:</b></div><div class="col-md-6"><span id="act_driver">'+((data.activity_driver)?data.activity_driver:'null')+'</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="'+((data.activity_count)?data.activity_count:'null')+'" oldval="'+((data.activity_count)?data.activity_count:'null')+'"></div><div class="col-md-2"><input type="button" id="update_act" value="Update"></div></div>';
 	jQuery("#task-bloc").html(task_output);
 	
 	notes_output += '<h4><b>Previous Stopping Point:</b></h4>';
