@@ -15,12 +15,21 @@ jQuery(document).ready(function(e) {
 		var action_stop = jQuery(this).val();
 		if(action_stop=='In Progress') {
 			if(jQuery("#action_stopping_point").val().trim()=='') {
-				jQuery("#end-stop-workflow").attr('require','').css("opacity","0.5");
+				jQuery("#end-stop-workflow").attr('require','action_stopping_point').css("opacity","0.5");
 				jQuery("#action_stopping_point").focus();
 			}
 			
 		}
 		jQuery("#end-stop-workflow").fadeIn();
+	});
+	
+	jQuery("#autonomyworks-home").on("change","#action_stopping_point",function(){
+		var action_stopping_point = jQuery(this).val();
+		if(jQuery("#end-stop-workflow").attr('require')=='action_stopping_point') {
+			if(action_stopping_point!='') {
+				jQuery("#end-stop-workflow").css("opacity","1");
+			}else{jQuery("#end-stop-workflow").css("opacity","0.5");}
+		}
 	});
 		
 	jQuery("#autonomyworks-home").on("click","#end-stop-workflow",function(){
