@@ -111,17 +111,17 @@ function show_job(data){
 	var notes_output = '';
 	var stop_output_left = '';
 	var stop_output_right = '';
-	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">'+(data.account_name)+'<br>'+data.deliverable_name+'</div></div>';
-	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">'+data.name+'</div></div>';
+	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">'+((data.account_name)?data.account_name:'null')+'<br>'+((data.deliverable_name)?data.deliverable_name:'null')+'</div></div>';
+	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">'+((data.name)?data.name:'null')+'</div></div>';
 	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">'+((data.parameter_1)?data.parameter_1:'null')+'</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>';
-	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy2_text" class="col-md-6">'+data.parameter_2+'</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>';
-	task_output+='<div class="col-md-12 form-group"><div class="col-md-4"><b>[Activity Driver]:</b></div><div class="col-md-6"><span id="act_driver">'+data.activity_driver+'</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="'+data.activity_count+'" oldval="'+data.activity_count+'"></div><div class="col-md-2"><input type="button" id="update_act" value="Update" job="data.job_id"></div></div>';
+	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy2_text" class="col-md-6">'+((data.parameter_2)?data.parameter_2:'null')+'</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>';
+	task_output+='<div class="col-md-12 form-group"><div class="col-md-4"><b>[Activity Driver]:</b></div><div class="col-md-6"><span id="act_driver">'+((data.activity_driver)?data.activity_driver:'null')+'</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="'+((data.activity_count)?data.activity_count:'null')+'" oldval="'+((data.activity_count)?data.activity_count:'null')+'"></div><div class="col-md-2"><input type="button" id="update_act" value="Update" job="data.job_id"></div></div>';
 	jQuery("#task-bloc").html(task_output);
 	
 	notes_output += '<h4><b>Previous Stopping Point:</b></h4>';
-	notes_output += '<p>'+data.stopping_point+'</p>';
+	notes_output += '<p>'+((data.stopping_point)?data.stopping_point:'null')+'</p>';
 	notes_output += '<h4><b>Production Notes:</b></h4>';
-	notes_output += '<p>'+data.production_notes+'</p>';
+	notes_output += '<p>'+((data.production_notes)?data.production_notes:'null')+'</p>';
 	
 	jQuery("#notes-bloc").html(notes_output);
 	
