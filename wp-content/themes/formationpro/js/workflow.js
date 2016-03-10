@@ -23,7 +23,7 @@ jQuery(document).ready(function(e) {
 		jQuery("#end-stop-workflow").fadeIn();
 	});
 	
-	jQuery("#autonomyworks-home").on("change","#action_stopping_point",function(){
+	jQuery("#autonomyworks-home").on("keyup","#action_stopping_point",function(){
 		var action_stopping_point = jQuery(this).val();
 		if(jQuery("#end-stop-workflow").attr('require')=='action_stopping_point') {
 			if(action_stopping_point!='') {
