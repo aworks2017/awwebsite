@@ -57,16 +57,19 @@ jQuery(document).ready(function(e) {
 			jQuery("#"+require).focus();
 			return;
 		}
-		tasks_button({});
-		return;
 		jQuery(this).attr("disabled","disabled");
-		var jobId = jQuery(this).attr("job");
-		var  reason = jQuery('input[name="reason"]:checked').val();
-		if(reason==="undefined") return false;
-		var  more_info = jQuery('#stop_notes').val();
-		var stopping_point = jQuery('#stopping_point').val();
+		var jobId = jQuery("#job_id").val();
+		var  action_stop = jQuery('input[name="action_stop"]:checked').val();
+		if(action_stop==="undefined") return false;
+		var  action_info = jQuery('#action_info').val();
+		var action_stopping_point = jQuery('#action_stopping_point').val();
 		jQuery.post(workflow.ajax_url,
-					{action:'end_job', jobId:jobId,reason:reason,more_info:more_info,},
+					{action:'end_job', 
+					jobId:jobId,
+					action_stop:action_stop,
+					action_stopping_point:action_stopping_point,
+					action_info:action_info
+					},
 					function(data){
 						tasks_button(data);
 		});
@@ -145,7 +148,7 @@ function show_job(data){
 	jQuery("#stop-bloc .left").html(stop_output_left);
 	
 	stop_output_right += '<div class="col-md-12 form-group"><div class="col-md-2"><b>Notes:</b></div><div class="col-md-10"><textarea id="action_info"></textarea></div></div>';
-	stop_output_right += '<div class="col-md-12 form-group"><a id="end-stop-workflow"  class="link grey" job="jobId" style="display:none;">Submit</a></div>';
+	stop_output_right += '<div class="col-md-12 form-group"><a id="end-stop-workflow"  class="link grey" style="display:none;">Submit</a></div>';
 	
 	jQuery("#stop-bloc .right").html(stop_output_right);
 	jQuery("#action-bloc").html('<hr>');
@@ -154,7 +157,6 @@ function show_job(data){
 }
 
 function tasks_button(job){
-	console.log(job);
 	clearInterval(get_workflow_interval);
 	if(job==='0' || job==="null" || job===null) {
 		jQuery("#action-bloc").html('<hr><div id="no-tasks" class="grey_btn">Refresh</div>');
