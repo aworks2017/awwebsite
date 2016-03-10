@@ -156,18 +156,18 @@ function show_job(data){
 function tasks_button(job){
 	console.log(job);
 	clearInterval(get_workflow_interval);
-	if(job==='0' || job==="null" || job===null) {
-		jQuery("#action-bloc").html('<hr><div id="no-tasks" class="grey_btn">Refresh</div>');
-		jQuery("#notes-bloc").html(empty_notes_bloc);
-		jQuery("#task-bloc").html(empty_task_bloc);
-		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
-		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
-	}else{
+	if(typeof(job)==='object') {
 		jQuery.post(workflow.ajax_url,
 					{action:'get_job', jobId:job},
 					function(workflow_data){
 						show_job(workflow_data);
 					},"json");
+	}else{
+		jQuery("#action-bloc").html('<hr><div id="no-tasks" class="grey_btn">Refresh</div>');
+		jQuery("#notes-bloc").html(empty_notes_bloc);
+		jQuery("#task-bloc").html(empty_task_bloc);
+		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
+		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
 	}
 }
 
