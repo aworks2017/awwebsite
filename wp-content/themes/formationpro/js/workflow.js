@@ -49,7 +49,16 @@ jQuery(document).ready(function(e) {
 		}
 	});
 		
+		
+		
 	jQuery("#autonomyworks-home").on("click","#end-stop-workflow",function(){
+		var require = jQuery(this).attr("require");
+		if(require && jQuery("#"+require).val().trim()=='') {
+			jQuery("#"+require).focus();
+			return;
+		}
+		tasks_button({});
+		return;
 		jQuery(this).attr("disabled","disabled");
 		var jobId = jQuery(this).attr("job");
 		var  reason = jQuery('input[name="reason"]:checked').val();
