@@ -19,6 +19,11 @@ jQuery(document).ready(function(e) {
 				jQuery("#action_stopping_point").focus();
 			}
 			
+		}else if(action_stop=='Issue') {
+			jQuery("#end-stop-workflow").attr('require','action_info').css("opacity","0.5");
+			jQuery("#action_info").focus();
+		}else{
+			jQuery("#end-stop-workflow").removeAttr('require').css("opacity","1");
 		}
 		jQuery("#end-stop-workflow").fadeIn();
 	});
@@ -27,6 +32,14 @@ jQuery(document).ready(function(e) {
 		var action_stopping_point = jQuery(this).val();
 		if(jQuery("#end-stop-workflow").attr('require')=='action_stopping_point') {
 			if(action_stopping_point!='') {
+				jQuery("#end-stop-workflow").css("opacity","1");
+			}else{jQuery("#end-stop-workflow").css("opacity","0.5");}
+		}
+	});
+	jQuery("#autonomyworks-home").on("keyup","#action_info",function(){
+		var action_info = jQuery(this).val();
+		if(jQuery("#end-stop-workflow").attr('require')=='action_info') {
+			if(action_info!='') {
 				jQuery("#end-stop-workflow").css("opacity","1");
 			}else{jQuery("#end-stop-workflow").css("opacity","0.5");}
 		}
