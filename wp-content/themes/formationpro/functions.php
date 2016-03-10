@@ -1152,7 +1152,6 @@ function get_job() {
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
 	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=start&key=".$api_key."&job=".$jobid;
-	echo $url;
 	$response =   wp_remote_get( $url );
 	$data = json_decode($response['body'],true);
 	if(isset($data['estimated_start'])) {
