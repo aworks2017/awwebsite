@@ -12,6 +12,14 @@ jQuery(document).ready(function(e) {
 	});
 	
 	jQuery("#autonomyworks-home").on("change","input[type=radio][name=action_stop]",function(){
+		var action_stop = jQuery(this).val();
+		if(action_stop=='In Progress') {
+			if(jQuery("#action_stopping_point").val().trim()=='') {
+				jQuery("#end-stop-workflow").attr('require','').css("opacity","0.5");
+				jQuery("#action_stopping_point").focus();
+			}
+			
+		}
 		jQuery("#end-stop-workflow").fadeIn();
 	});
 		
