@@ -20,8 +20,10 @@ jQuery(document).ready(function(e) {
 			}
 			
 		}else if(action_stop=='Issue') {
-			jQuery("#end-stop-workflow").attr('require','action_info').css("opacity","0.5");
-			jQuery("#action_info").focus();
+			if(jQuery("#action_info").val().trim()=='') {
+				jQuery("#end-stop-workflow").attr('require','action_info').css("opacity","0.5");
+				jQuery("#action_info").focus();
+			}
 		}else{
 			jQuery("#end-stop-workflow").removeAttr('require').css("opacity","1");
 		}
