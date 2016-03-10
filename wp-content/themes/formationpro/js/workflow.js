@@ -14,16 +14,18 @@ jQuery(document).ready(function(e) {
 	jQuery("#autonomyworks-home").on("change","input[type=radio][name=action_stop]",function(){
 		var action_stop = jQuery(this).val();
 		if(action_stop=='In Progress') {
+			jQuery("#end-stop-workflow").attr('require','action_stopping_point');
 			if(jQuery("#action_stopping_point").val().trim()=='') {
-				jQuery("#end-stop-workflow").attr('require','action_stopping_point').css("opacity","0.5");
+				jQuery("#end-stop-workflow").css("opacity","0.5");
 				jQuery("#action_stopping_point").focus();
-			}
+			}else jQuery("#end-stop-workflow").css("opacity","1");
 			
 		}else if(action_stop=='Issue') {
+			jQuery("#end-stop-workflow").attr('require','action_info');
 			if(jQuery("#action_info").val().trim()=='') {
-				jQuery("#end-stop-workflow").attr('require','action_info').css("opacity","0.5");
+				jQuery("#end-stop-workflow").css("opacity","0.5");
 				jQuery("#action_info").focus();
-			}
+			}else jQuery("#end-stop-workflow").css("opacity","1");
 		}else{
 			jQuery("#end-stop-workflow").removeAttr('require').css("opacity","1");
 		}
