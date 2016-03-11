@@ -165,13 +165,23 @@ function tasks_button(job){
 		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
 		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
 	}else{
+		jQuery("#action-bloc").html('<hr><div id="start-task" class="grey_btn" onclick="start_button()">Start</div>');
+		jQuery("#notes-bloc").html(start_notes_bloc);
+		jQuery("#task-bloc").html('<input type="hidden" id="jobid" value="'+job+'"/>');
+		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
+	}
+}
+
+function start_button(){
+	clearInterval(get_workflow_interval);
+	var job = jQuery("#jobid").val();
 		jQuery.post(workflow.ajax_url,
 					{action:'get_job', jobId:job},
 					function(workflow_data){
 						show_job(workflow_data);
 					},"json");
-	}
 }
 
-var empty_notes_bloc = '<h3>Production Notes:</h3><p><b>IMPORTANT:</b> Check back every 5 minutes to see if you have a new task.</p><p>Some things you may do while you are on call:<ul><li>Professional Development</li><li>Use the Restroom</li><li>Stretch</li><li>Read</li><li>Other quiet activities</li></ul></p>';
+var start_notes_bloc = '<h3>ATTENTION:</h3><p>You have a <b>new</b> task waiting.<br>Click the Start button when you are ready to begin.</p>';
+var empty_notes_bloc = '<h3>Production Notes:</h3><p><b>IMPORTANT:</b> Check back every 5 minutes to see if you have a new task.</p>';
 var empty_task_bloc = '<div class="col-md-12"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">On Call</div></div>';
