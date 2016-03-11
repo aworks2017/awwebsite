@@ -1166,6 +1166,7 @@ function get_job() {
 		$datetime->setTimezone($la_time);
 		$data['estimated_finish'] = $datetime->format('Y-m-d h:i A');
 	}
+	return '5454-54545-68787';
 	if(is_wp_error($response)) echo '0';
 	else echo json_encode($data);
 	wp_die();
