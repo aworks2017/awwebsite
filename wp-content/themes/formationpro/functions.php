@@ -1142,7 +1142,7 @@ function get_workflow() {
 	$api_key = get_option('api_key');
 	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=login&key=".$api_key."&user=".$user;
 	$response =   wp_remote_get( $url );
-	//echo '909524fa-8d94-312e-df92-562e2b59023c';wp_die();
+	echo '909524fa-8d94-312e-df92-562e2b59023c';wp_die();
 	if(is_wp_error($response)) echo '0';
 	else echo $response['body'];
 	wp_die();
