@@ -14,6 +14,7 @@ jQuery(document).ready(function(e) {
 	jQuery("#autonomyworks-home").on("change","input[type=radio][name=action_stop]",function(){
 		var action_stop = jQuery(this).val();
 		if(action_stop=='In Progress') {
+			jQuery("#action_stopping_point_block").slideDown();
 			jQuery("#end-stop-workflow").attr('require','action_stopping_point');
 			if(jQuery("#action_stopping_point").val().trim()=='') {
 				jQuery("#end-stop-workflow").css("opacity","0.5");
@@ -140,8 +141,8 @@ function show_job(data){
 	jQuery("#notes-bloc").html(notes_output);
 	
 	var status_checks = '<input type="radio" name="action_stop" value="Completed"> Completed<br/><input type="radio" name="action_stop" value="In Progress"> In Progress<br/><input type="radio" name="action_stop" value="Issue"> Issue';
-	stop_output_left += '<div class="col-md-12 form-group"><div class="col-md-5"><b>Stopping Point:</b></div><div class="col-md-7"><input id="action_stopping_point" type="text"/></div></div>';
 	stop_output_left += '<div class="col-md-12 form-group"><div class="col-md-5"><b>Status:</b></div><div class="col-md-7">'+status_checks+'</div></div>';
+	stop_output_left += '<div class="col-md-12 form-group action_stopping_point_block"><div class="col-md-5"><b>Stopping Point:</b></div><div class="col-md-7"><input id="action_stopping_point" type="text"/></div></div>';
 	
 	jQuery("#stop-bloc .left").html(stop_output_left);
 	
