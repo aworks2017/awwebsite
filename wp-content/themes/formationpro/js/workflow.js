@@ -127,7 +127,7 @@ function show_job(data){
 	var stop_output_left = '';
 	var stop_output_right = '';
 	task_output +='<input type="hidden" id="job_id" value="'+data.job_id+'"/>';
-	task_output +='<div class="col-md-12 form-group"><div class="col-md-4">'+((data.account_name)?'<b>Deliverable:</b></div><div class="col-md-6">'+data.account_name+'<br>':'')+((data.deliverable_name)?data.deliverable_name:'null')+'</div></div>';
+	task_output +=(data.account_name && data.deliverable_name )?'<div class="col-md-12 form-group"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">'+data.account_name+'<br>'+data.deliverable_name+'</div></div>':'';
 	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">'+((data.name)?data.name:'null')+'</div></div>';
 	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">'+((data.parameter_1)?data.parameter_1:'null')+'</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>';
 	task_output +='<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy2_text" class="col-md-6">'+((data.parameter_2)?data.parameter_2:'null')+'</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>';
