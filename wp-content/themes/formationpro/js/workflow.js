@@ -165,8 +165,8 @@ function tasks_button(job){
 		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
 		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
 	}else{
-		jQuery("#action-bloc").html('<hr><div id="start-task" class="grey_btn" onclick="start_button()">Start</div>');
-		jQuery("#notes-bloc").html(start_notes_bloc);
+		jQuery("#action-bloc").html(start_notes_bloc+'<hr><div id="start-task" class="green_btn" onclick="start_button()">Start</div>');
+		jQuery("#notes-bloc").html('');
 		jQuery("#task-bloc").html('<input type="hidden" id="jobid" value="'+job+'"/>');
 		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
 	}
