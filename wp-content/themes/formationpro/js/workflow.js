@@ -166,6 +166,7 @@ function tasks_button(job){
 	}else{
 		jQuery("#action-bloc").html(start_notes_bloc+'<hr><div id="start-task" class="green_btn" onclick="start_button(\''+job.replace(/\"/g, '')+'\')">Start</div>');
 		jQuery("#notes-bloc").html('');
+		jQuery("#task-bloc").html('');
 		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
 	}
 }
