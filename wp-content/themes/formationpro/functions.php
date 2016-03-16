@@ -1106,8 +1106,8 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
 
 // Custom shortcode by momo
-add_shortcode('get_workflow_button', 'get_workflow_button');
-function get_workflow_button($atts, $content ){
+add_shortcode('start_task_button', 'start_task_button');
+function start_task_button($atts, $content ){
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$workflow_ip = get_option('workflow_ip','1');
 	$restrict_workflow_ip = get_option('restrict_workflow_ip',false);
@@ -1116,7 +1116,7 @@ function get_workflow_button($atts, $content ){
 		//$return .="Your IP : $ip <br> Allowed ip : $workflow_ip <br>";
 	}
 	if(($workflow_ip and $ip and $ip == $workflow_ip) or $restrict_workflow_ip=='0') {
-		$return .='<div id="get-workflow" class="grey_btn">WORKFLOW TOOL</div>';
+		$return .='<div id="start-Task" class="grey_btn">Start Task</div>';
 	}
 	return $return;
 }
@@ -1140,7 +1140,7 @@ function get_workflow() {
 	$user = $current_user->user_login ;
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
-	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=login&key=".$api_key."&user=".$user;
+	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=get_task&key=".$api_key."&user=".$user;
 	$response =   wp_remote_get( $url );
 	if(is_wp_error($response)) echo '0';
 	else echo $response['body'];

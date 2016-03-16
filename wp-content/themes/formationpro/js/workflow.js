@@ -1,7 +1,8 @@
 var get_workflow_interval ;
 
 jQuery(document).ready(function(e) {
-	jQuery("#autonomyworks-home").on("click","#get-workflow,#no-tasks",function(){
+	// Hub page
+	jQuery("#autonomyworks-home").on("click","#start-Task,#no-tasks",function(){
 		jQuery(this).attr("disabled","disabled");
 		jQuery.post(workflow.ajax_url,
 					{action:'get_workflow'},
@@ -158,16 +159,13 @@ function show_job(data){
 function tasks_button(job){
 	clearInterval(get_workflow_interval);
 	if(job==='0' || job==="null" || job===null) {
-		jQuery("#action-bloc").html('<hr><div id="no-tasks" class="grey_btn">Refresh</div>');
-		jQuery("#notes-bloc").html(empty_notes_bloc);
-		jQuery("#task-bloc").html(empty_task_bloc);
-		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
-		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
+		show_on_call();
 	}else{
-		jQuery("#action-bloc").html(start_notes_bloc+'<hr><div id="start-task" class="green_btn" onclick="start_button(\''+job.replace(/\"/g, '')+'\')">Start</div>');
+		start_button(job);
+		/*jQuery("#action-bloc").html(start_notes_bloc+'<hr><div id="start-task" class="green_btn" onclick="start_button(\''+job.replace(/\"/g, '')+'\')">Start</div>');
 		jQuery("#notes-bloc").html('');
 		jQuery("#task-bloc").html('');
-		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
+		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');*/
 	}
 }
 
@@ -178,6 +176,14 @@ function start_button(job){
 					function(workflow_data){
 						show_job(workflow_data);
 					},"json");
+}
+
+function show_on_call(){
+	jQuery("#action-bloc").html('<hr><div id="no-tasks" class="grey_btn">Refresh</div>');
+	jQuery("#notes-bloc").html(empty_notes_bloc);
+	jQuery("#task-bloc").html(empty_task_bloc);
+	jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
+	get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
 }
 
 var start_notes_bloc = '<h3>ATTENTION</h3><p>You have a <b>new</b> task waiting.<br>Click the Start button when you are ready to begin.</p>';
