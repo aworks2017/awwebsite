@@ -172,7 +172,7 @@ function show_job(data){
 	task_output +=(data.deliverable_name)?'<div class="col-md-12 form-group"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">'+((data.deliverable_name)?data.deliverable_name:'')+'</div></div>':'';
 	
 	task_output +=(data.name)?'<div class="col-md-12 form-group"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">'+data.name+'</div></div>':'';
-	task_output +='<hr>';
+	task_output +='<hr style="width:100%">';
 	task_output +=(data.parameter_1)?'<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">'+data.parameter_1+'</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>':'';
 	task_output +=(data.parameter_2)?'<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 2:</b></div><div id="copy2_text" class="col-md-6">'+data.parameter_2+'</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>':'';
 	task_output+='<div class="col-md-12 form-group"><div class="col-md-4"><b>[Activity Driver]:</b></div><div class="col-md-6"><span id="act_driver">'+((data.activity_driver)?data.activity_driver:'null')+'</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="'+((data.activity_count)?data.activity_count:'')+'" oldval="'+((data.activity_count)?data.activity_count:'')+'"></div><div class="col-md-2"><input type="button" id="update_act" value="Update"></div></div>';
