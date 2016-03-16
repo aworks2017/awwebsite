@@ -12,6 +12,44 @@ jQuery(document).ready(function(e) {
 					);
 	});
 	
+	
+	function tasks_button(job){
+		clearInterval(get_workflow_interval);
+		if(job==='0' || job==="null" || job===null) {
+			
+			jQuery.post(workflow.ajax_url,
+					{action:'on_call'},
+					function(data){
+						show_on_call();
+					}
+			);
+			
+		}else{
+			start_job(job);
+			/*jQuery("#action-bloc").html(start_notes_bloc+'<hr><div id="start-task" class="green_btn" onclick="start_job(\''+job.replace(/\"/g, '')+'\')">Start</div>');
+			jQuery("#notes-bloc").html('');
+			jQuery("#task-bloc").html('');
+			jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');*/
+		}
+	}
+	
+	function start_job(job){
+		clearInterval(get_workflow_interval);
+		jQuery.post(workflow.ajax_url,
+						{action:'get_job', jobId:job},
+						function(workflow_data){
+							show_job(workflow_data);
+						},"json");
+	}
+	
+	function show_on_call(){
+		jQuery("#action-bloc").html('<hr><div id="no-tasks" class="grey_btn">Refresh</div>');
+		jQuery("#notes-bloc").html(empty_notes_bloc);
+		jQuery("#task-bloc").html(empty_task_bloc);
+		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
+		get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
+	}
+		
 	jQuery("#autonomyworks-home").on("change","input[type=radio][name=action_stop]",function(){
 		var action_stop = jQuery(this).val();
 		if(action_stop=='In Progress') {
@@ -156,34 +194,11 @@ function show_job(data){
 	new Clipboard('.btn');
 }
 
-function tasks_button(job){
-	clearInterval(get_workflow_interval);
-	if(job==='0' || job==="null" || job===null) {
-		show_on_call();
-	}else{
-		start_button(job);
-		/*jQuery("#action-bloc").html(start_notes_bloc+'<hr><div id="start-task" class="green_btn" onclick="start_button(\''+job.replace(/\"/g, '')+'\')">Start</div>');
-		jQuery("#notes-bloc").html('');
-		jQuery("#task-bloc").html('');
-		jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');*/
-	}
-}
-
-function start_button(job){
-	clearInterval(get_workflow_interval);
-	jQuery.post(workflow.ajax_url,
-					{action:'get_job', jobId:job},
-					function(workflow_data){
-						show_job(workflow_data);
-					},"json");
-}
-
-function show_on_call(){
-	jQuery("#action-bloc").html('<hr><div id="no-tasks" class="grey_btn">Refresh</div>');
-	jQuery("#notes-bloc").html(empty_notes_bloc);
-	jQuery("#task-bloc").html(empty_task_bloc);
-	jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
-	get_workflow_interval = setTimeout(function(){jQuery("#no-tasks").click()},300000);
+function show_hub_page(){
+	jQuery("#task-bloc").html('');
+	jQuery("#notes-bloc").html('');
+	jQuery("#action-bloc").html('<div id="start-Task" class="grey_btn">Start Task</div>');
+	jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right"> </div>');
 }
 
 var start_notes_bloc = '<h3>ATTENTION</h3><p>You have a <b>new</b> task waiting.<br>Click the Start button when you are ready to begin.</p>';
