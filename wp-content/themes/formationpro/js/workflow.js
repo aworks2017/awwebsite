@@ -172,7 +172,7 @@ function show_job(data) {
 
 function tasks_button(job) {
     clearInterval(get_workflow_interval);
-    if (job === '0' || job === "null" || job === '"Invalid Action"' || job === null) {
+    if (job === '0' || job === "null" || job === '"Invalid Action"' || job === '"ONCALL"' || job === null) {
 
         jQuery.post(workflow.ajax_url, {
                 action: 'on_call'
