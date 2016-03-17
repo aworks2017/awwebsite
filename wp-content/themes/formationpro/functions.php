@@ -1155,6 +1155,7 @@ function on_call() {
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
 	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=on_call&key=".$api_key."&user=".$user;
+	echo $url;
 	$response =   wp_remote_get( $url );
 	if(is_wp_error($response)) echo '0';
 	else echo $response['body'];
