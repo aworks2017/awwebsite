@@ -172,8 +172,11 @@ function show_job(data) {
 
 function tasks_button(job) {
     clearInterval(get_workflow_interval);
-    if (job === '0' || job === "null" || job === '"Invalid Action"' || job === '"ONCALL"' || job === null) {
-
+	if(job === '"ONCALL"'){
+		show_on_call();
+	}
+    else
+	if (job === '0' || job === "null" ||  job === null) {
         jQuery.post(workflow.ajax_url, {
                 action: 'on_call'
             },
@@ -184,15 +187,10 @@ function tasks_button(job) {
 
     } else {
         start_job(job);
-        /*jQuery("#action-bloc").html(start_notes_bloc+'<hr><div id="start-task" class="green_btn" onclick="start_job(\''+job.replace(/\"/g, '')+'\')">Start</div>');
-        jQuery("#notes-bloc").html('');
-        jQuery("#task-bloc").html('');
-        jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');*/
     }
 }
 
 function start_job(job) {
-    clearInterval(get_workflow_interval);
     jQuery.post(workflow.ajax_url, {
             action: 'get_job',
             jobId: job
