@@ -191,9 +191,10 @@ function tasks_button(job) {
 }
 
 function start_job(job) {
+	var re = /"/gi;
     jQuery.post(workflow.ajax_url, {
             action: 'get_job',
-            jobId: job
+            jobId: job.replace(re, "")
         },
         function(workflow_data) {
             show_job(workflow_data);
