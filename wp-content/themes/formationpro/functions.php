@@ -1141,7 +1141,7 @@ function get_workflow() {
 	$user = $current_user->user_login ;
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
-	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=get_task&user=".$user;
+	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=get_task&key=".$api_key."&user=".$user;
 	$response =   wp_remote_get( $url );
 	if(is_wp_error($response)) echo '0';
 	else echo $response['body'];
