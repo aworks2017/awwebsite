@@ -197,7 +197,7 @@ function start_job(job) {
             jobId: job
         },
         function(workflow_data) {
-			console.log('ppp : '+job);
+			console.log('ppp : '+workflow_data);
             show_job(job);
         }, "json");
 }
