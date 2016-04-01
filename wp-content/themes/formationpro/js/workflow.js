@@ -79,7 +79,7 @@ jQuery(document).ready(function(e) {
                 action_info: action_info
             },
             function(data) {
-                tasks_button(data);
+                show_hub_page();
             });
     });
 
