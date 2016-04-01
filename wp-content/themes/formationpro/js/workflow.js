@@ -206,7 +206,7 @@ function show_on_call() {
     jQuery("#task-bloc").html(empty_task_bloc);
     jQuery("#stop-bloc").html('<div class="col-md-6 left"></div><div class="col-md-6 right">');
     get_workflow_interval = setTimeout(function() {
-        jQuery("#no-tasks").click()
+        jQuery("#no-tasks").click();
     }, 300000);
 }
 
