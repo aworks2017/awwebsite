@@ -132,6 +132,7 @@ jQuery(document).ready(function(e) {
 });
 
 function show_job(data) {
+	console.log(data);
     if (data.activity_driver === null) data.activity_driver = 'N/A';
     var task_output = '';
     var notes_output = '';
@@ -196,6 +197,7 @@ function start_job(job) {
             jobId: job
         },
         function(workflow_data) {
+			console.log('ppp : '+job);
             show_job(job);
         }, "json");
 }
