@@ -138,9 +138,9 @@ function show_job(data) {
     var stop_output_left = '';
     var stop_output_right = '';
     task_output += '<input type="hidden" id="job_id" value="' + data.job_id + '"/>';
-    task_output += (data.account_name) ? '<div class="col-md-12 form-group"><div class="col-md-4"><b>Client:</b></div><div class="col-md-6">' + ((data.account_name) ? data.account_name + '<br>' : '') + '</div></div>' : '';
+    task_output += (data.account_name) ? '<div class="col-md-12 form-group"><div class="col-md-4"><b>Client:</b></div><div class="col-md-6">' + data.account_name + '<br> </div></div>' : '';
 
-    task_output += (data.deliverable_name) ? '<div class="col-md-12 form-group"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">' + ((data.deliverable_name) ? data.deliverable_name : '') + '</div></div>' : '';
+    task_output += (data.deliverable_name) ? '<div class="col-md-12 form-group"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">' + data.deliverable_name +'</div></div>' : '';
 
     task_output += (data.name) ? '<div class="col-md-12 form-group"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">' + data.name + '</div></div>' : '';
     task_output += '<hr style="width:100%">';
