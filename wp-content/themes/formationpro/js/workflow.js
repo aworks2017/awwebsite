@@ -132,14 +132,13 @@ jQuery(document).ready(function(e) {
 });
 
 function show_job(data) {
-	console.log(data);
     if (data.activity_driver === null) data.activity_driver = 'N/A';
     var task_output = '';
     var notes_output = '';
     var stop_output_left = '';
     var stop_output_right = '';
     task_output += '<input type="hidden" id="job_id" value="' + data.job_id + '"/>';
-    task_output += (data.account_name=='null') ?'': '<div class="col-md-12 form-group"><div class="col-md-4"><b>Client:</b></div><div class="col-md-6">' + data.account_name + '<br></div></div>' ;
+    task_output += (data.account_name) ? '<div class="col-md-12 form-group"><div class="col-md-4"><b>Client:</b></div><div class="col-md-6">' + ((data.account_name) ? data.account_name + '<br>' : '') + '</div></div>' : '';
 
     task_output += (data.deliverable_name) ? '<div class="col-md-12 form-group"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">' + ((data.deliverable_name) ? data.deliverable_name : '') + '</div></div>' : '';
 
@@ -197,8 +196,7 @@ function start_job(job) {
             jobId: job
         },
         function(workflow_data) {
-			console.log('ppp : '+workflow_data);
-            show_job(job);
+            show_job(workflow_data);
         }, "json");
 }
 
