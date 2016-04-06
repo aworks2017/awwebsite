@@ -150,7 +150,7 @@ function show_job(data) {
     jQuery("#task-bloc").html(task_output);
 
     notes_output += (data.stopping_point) ? '<div id="top_bloc_2" class="col-md-12"><div class="col-md-12"><b>Previous Stopping Point:</b> ' + data.stopping_point+'</div></div>'  : '';
-    notes_output += (data.production_notes) ? '<br/><div class="col-md-12"><div class="col-md-12"><b>Production Notes:</b><p>' + data.production_notes + '</p></div></div>' : '';
+    notes_output += (data.production_notes) ? '<div class="col-md-12"><div class="col-md-12"><br/><b>Production Notes:</b><p>' + data.production_notes + '</p></div></div>' : '';
 
     jQuery("#notes-bloc").html(notes_output);
 	var max_top_bloc = (jQuery("#top_bloc_1").height()>jQuery("#top_bloc_2").height())?jQuery("#top_bloc_1").height():jQuery("#top_bloc_2").height();
