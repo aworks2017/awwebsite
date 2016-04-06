@@ -10,10 +10,10 @@
 ?>
 
 </div><!-- #main .site-main -->
-
+<?php if( get_post_meta(get_the_ID(), 'hide_footer', true )!='1' ): ?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 
-	<?php if(! get_theme_mod('hide_footer_widgets')): ?>
+	<?php if(! get_theme_mod('hide_footer_widgets') ): ?>
 		<div class="footer_container">
 			<div class="section group">
 
@@ -54,9 +54,8 @@
 		<?php endif; ?>
 
 	</footer><!-- #colophon .site-footer -->
-
     <a href="#top" id="smoothup"></a>
-
+	<?php endif; ?>
 </div><!-- #page .hfeed .site -->
 </div><!-- end of wrapper -->
 <?php wp_footer(); ?>
