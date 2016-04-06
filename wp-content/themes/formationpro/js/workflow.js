@@ -138,7 +138,8 @@ function show_job(data) {
     var stop_output_left = '';
     var stop_output_right = '';
     task_output += '<input type="hidden" id="job_id" value="' + data.job_id + '"/>';
-    task_output += (data.account_name) ? '<div id="top_bloc_1"><div class="col-md-12 form-group"><div class="col-md-4"><b>Client:</b></div><div class="col-md-6">' + data.account_name + '<br> </div></div>' : '';
+	task_output += '<div id="top_bloc_1">';
+    task_output += (data.account_name) ? '<div class="col-md-12 form-group"><div class="col-md-4"><b>Client:</b></div><div class="col-md-6">' + data.account_name + '<br> </div></div>' : '';
 
     task_output += (data.deliverable_name) ? '<div class="col-md-12 form-group"><div class="col-md-4"><b>Deliverable:</b></div><div class="col-md-6">' + data.deliverable_name +'</div></div>' : '';
 
@@ -148,8 +149,10 @@ function show_job(data) {
     task_output += (data.parameter_2) ? '<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 2:</b></div><div id="copy2_text" class="col-md-6">' + data.parameter_2 + '</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>' : '';
     task_output += '<div class="col-md-12 form-group"><div class="col-md-4"><b>Activity Driver:</b></div><div class="col-md-6"><span id="act_driver">' + ((data.activity_driver) ? data.activity_driver : 'null') + '</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="' + ((data.activity_count) ? data.activity_count : '') + '" oldval="' + ((data.activity_count) ? data.activity_count : '') + '"></div><div class="col-md-2"><input type="button" id="update_act" value="Update"></div></div>';
     jQuery("#task-bloc").html(task_output);
-
-    notes_output += (data.stopping_point) ? '<div id="top_bloc_2" class="col-md-12"><div class="col-md-12"><b>Previous Stopping Point:</b> ' + data.stopping_point+'</div></div>'  : '';
+	
+	notes_output += '<div id="top_bloc_2" class="col-md-12">';
+    notes_output += (data.stopping_point) ? '<div class="col-md-12"><b>Previous Stopping Point:</b> ' + data.stopping_point+'</div>'  : '';
+	notes_output += '</div>';
     notes_output += (data.production_notes) ? '<div class="col-md-12"><div class="col-md-12"><br/><b>Production Notes:</b><p>' + data.production_notes + '</p></div></div>' : '';
 
     jQuery("#notes-bloc").html(notes_output);
