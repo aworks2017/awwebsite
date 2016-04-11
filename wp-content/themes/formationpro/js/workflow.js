@@ -132,6 +132,7 @@ jQuery(document).ready(function(e) {
 });
 
 function show_job(data) {
+	jQuery("#logout-btn").hide();
     if (data.activity_driver === '') data.activity_driver = 'N/A';
     var task_output = '';
     var notes_output = '';
@@ -208,6 +209,7 @@ function start_job(job) {
 }
 
 function show_on_call() {
+	jQuery("#logout-btn").show();
     jQuery("#action-bloc").html('<hr><div id="no-tasks" class="grey_btn">Refresh</div>');
     jQuery("#notes-bloc").html(empty_notes_bloc);
     jQuery("#task-bloc").html(empty_task_bloc);
@@ -218,6 +220,7 @@ function show_on_call() {
 }
 
 function show_hub_page() {
+	jQuery("#logout-btn").show();
     jQuery("#task-bloc").html('');
     jQuery("#notes-bloc").html('');
     jQuery("#action-bloc").html('<div id="start-Task" class="grey_btn">Start Task</div>');
