@@ -90,7 +90,7 @@ jQuery(document).ready(function(e) {
         if (jQuery.isNumeric(act_count) && act_count >= 0 && act_count <= 9999) {
             button.attr("disabled", "disabled");
             button.css("opacity", "0.5");
-            button.val("Updating...");
+            button.html("Updating...");
             jQuery.post(workflow.ajax_url, {
                     action: 'update_count',
                     jobId: jobId,
@@ -103,7 +103,7 @@ jQuery(document).ready(function(e) {
                         button.fadeOut("fast", function() {
                             button.removeAttr("disabled");
                             button.css("opacity", "1");
-                            button.val("Update");
+                            button.html("Update");
                         });
                     } else {
                         button.removeAttr("disabled");
@@ -149,7 +149,7 @@ function show_job(data) {
 	task_output += '</div>';
     task_output += (data.parameter_1) ? '<br/><div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 1:</b></div><div id="copy1_text" class="col-md-6">' + data.parameter_1 + '</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy1_text">Copy 1</button></div></div>' : '';
     task_output += (data.parameter_2) ? '<div class="col-md-12 form-group"><div class="col-md-4"><b>Parameter 2:</b></div><div id="copy2_text" class="col-md-6">' + data.parameter_2 + '</div><div class="col-md-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>' : '';
-    task_output += '<div class="col-md-12 form-group"><div class="col-md-4"><b>Activity Driver:</b></div><div class="col-md-6"><span id="act_driver">' + ((data.activity_driver) ? data.activity_driver : 'null') + '</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="' + ((data.activity_count) ? data.activity_count : '') + '" oldval="' + ((data.activity_count) ? data.activity_count : '') + '"></div><div class="col-md-2"><input type="button" id="update_act" value="Update"></div></div>';
+    task_output += '<div class="col-md-12 form-group"><div class="col-md-4"><b>Activity Driver:</b></div><div class="col-md-6"><span id="act_driver">' + ((data.activity_driver) ? data.activity_driver : 'null') + '</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="' + ((data.activity_count) ? data.activity_count : '') + '" oldval="' + ((data.activity_count) ? data.activity_count : '') + '"></div><div class="col-md-2"><button class="btn" id="update_act">Update</button></div></div>';
     jQuery("#task-bloc").html(task_output);
 	
 	notes_output += '<div id="top_bloc_2" class="col-md-12">';
