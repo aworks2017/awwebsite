@@ -45,6 +45,10 @@
 	border: 1px solid #637fa0 !important;
 	color: #21000b !important;
 }
+hr.hr2 {
+	border-top-width: 2px;
+    border-top-color: black;
+}
 /**/
 #autonomyworks-home section {
 	margin-top:15px;
