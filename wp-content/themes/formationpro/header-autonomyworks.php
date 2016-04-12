@@ -45,7 +45,8 @@
 				<header id="masthead" class="site-header header_container" role="banner">
 
 						<div class="centro-site-logo" style="float: left;display: block;margin: 30px 0 0 30px;">
-							<a href="/clients/portal/autonomyworks" title="AutonomyWorks" rel="home"><img src="/wp-content/uploads/2015/10/logo.png" alt="AutonomyWorks" style="height:50px"></a>
+                        <h2><strong>Team Portal</strong></h2>
+							<?php /*<a href="/clients/portal/autonomyworks" title="AutonomyWorks" rel="home"><img src="/wp-content/uploads/2015/10/logo.png" alt="AutonomyWorks" style="height:50px"></a>*/ ?>
 						</div>
                         
 					<nav role="navigation" class="site-navigation main-navigation">
