@@ -133,7 +133,7 @@ jQuery(document).ready(function(e) {
 
 function show_job(data) {
 	jQuery("#logout-btn").hide();
-    if (data.activity_driver === '' || data.activity_driver === 'null') data.activity_driver = 'N/A';
+    if (data.activity_driver === '' || data.activity_driver === 'null' || data.activity_driver === null) data.activity_driver = 'N/A';
     var task_output = '';
     var notes_output = '';
     var stop_output_left = '';
