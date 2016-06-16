@@ -78,6 +78,11 @@
 .grid-more-link a, .grid-more-link a:visited, .grid-more-link a hover {
 	color: #FFF;
 }
+.grid-more-link a {
+	min-width: 110px;
+    text-align: center;
+    display: inline-block;
+}
 .social-media a:hover {
 	color: #99cccc;
 }
