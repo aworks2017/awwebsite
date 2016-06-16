@@ -13,8 +13,9 @@ jQuery(document).ready(function(e) {
         );
     });
 
-	jQuery("#autonomyworks-home").on("keypress", "#action_stopping_point", function() {
+	jQuery("#autonomyworks-home").on("keydown", "#action_stopping_point", function() {
 		var val = jQuery(this).val();
+		console.log(val);
 		console.log(val.length);
 		if(val.length>=10) return;
 	});
