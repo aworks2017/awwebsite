@@ -275,7 +275,10 @@ get_header(); ?>
                     </div>
                   </div>
                   <!-- <div class="recent_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div> -->
-                  <p><?php echo formationpro_get_recentposts_excerpt(); ?></p>
+                  <p><?php 
+				  $post_desc = get_post_meta(get_the_ID(),'description',true);
+				  echo ($post_desc)?$post_desc:formationpro_get_recentposts_excerpt(); 
+				 	?></p>
                   <div class="thumbs-more-link">
                     <a href="<?php the_permalink() ?>"> <?php $call2action=get_post_meta($post->ID,'call2action',true);if(!$call2action)$call2action='Read More';  echo __($call2action, 'formationpro'); ?></a>
                   </div>
