@@ -14,8 +14,8 @@ jQuery(document).ready(function(e) {
     });
 
 	jQuery("#autonomyworks-home").on("keypress", "#action_stopping_point", function() {
-		var val = $(this).val();
-		console.log(val);
+		var val = jQuery(this).val();
+		console.log(val.length());
 	});
     jQuery("#autonomyworks-home").on("change", "input[type=radio][name=action_stop]", function() {
         var action_stop = jQuery(this).val();
