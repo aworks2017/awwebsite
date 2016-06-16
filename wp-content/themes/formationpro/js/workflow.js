@@ -13,12 +13,6 @@ jQuery(document).ready(function(e) {
         );
     });
 
-	jQuery("#autonomyworks-home").on("keypress", "#action_stopping_point", function() {
-		var val = jQuery(this).val();
-		console.log(val);
-		console.log(val.length);
-		if(val.length>=10) return false;
-	});
     jQuery("#autonomyworks-home").on("change", "input[type=radio][name=action_stop]", function() {
         var action_stop = jQuery(this).val();
         if (action_stop == 'In Progress') {
@@ -133,6 +127,11 @@ jQuery(document).ready(function(e) {
             jQuery(this).val(newVal);
         }
     });
+	
+	jQuery("#autonomyworks-home").on("keypress", "#action_stopping_point", function() {
+		var val = jQuery(this).val();
+		if(val.length>=10) return false;
+	});
 
 });
 
