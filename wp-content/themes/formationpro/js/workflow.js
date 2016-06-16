@@ -2,13 +2,24 @@ var get_workflow_interval;
 
 jQuery(document).ready(function(e) {
     // Hub page
-    jQuery("#autonomyworks-home").on("click", "#start-Task,#no-tasks", function() {
+    jQuery("#autonomyworks-home").on("click", "#start-Task", function() {
         jQuery(this).attr("disabled", "disabled");
         jQuery.post(workflow.ajax_url, {
                 action: 'get_workflow'
             },
             function(data) {
                 tasks_button(data);
+            }
+        );
+    });
+	
+	jQuery("#autonomyworks-home").on("click", "#no-tasks", function() {
+        jQuery(this).attr("disabled", "disabled");
+        jQuery.post(workflow.ajax_url, {
+                action: 'get_workflow'
+            },
+            function(data) {
+                tasks_button2(data);
             }
         );
     });
@@ -199,6 +210,26 @@ function tasks_button(job) {
 
     } else {
         start_job(job);
+    }
+}
+
+function tasks_button2(job) {
+    clearInterval(get_workflow_interval);
+	if(job === '"ONCALL"'){
+		show_on_call();
+	}
+    else
+	if (job === '0' || job === "null" ||  job === null) {
+        jQuery.post(workflow.ajax_url, {
+                action: 'on_call'
+            },
+            function(data) {
+                show_on_call();
+            }
+        );
+
+    } else {
+        show_hub_page();
     }
 }
 
