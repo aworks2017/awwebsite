@@ -17,7 +17,7 @@ jQuery(document).ready(function(e) {
 		var val = jQuery(this).val();
 		console.log(val);
 		console.log(val.length);
-		if(val.length>=10) return;
+		if(val.length>=10) return false;
 	});
     jQuery("#autonomyworks-home").on("change", "input[type=radio][name=action_stop]", function() {
         var action_stop = jQuery(this).val();
