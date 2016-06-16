@@ -75,7 +75,7 @@
 .entry-content a:hover, .entry-summary a:hover {
 	color: #666;
 }
-.grid-more-link a, .grid-more-link a:visited, .grid-more-link a hover {
+.grid-more-link a, .grid-more-link a:visited, .grid-more-link a:hover {
 	color: #FFF;
 }
 .grid-more-link a {
