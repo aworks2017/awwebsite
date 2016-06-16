@@ -45,6 +45,8 @@
 }
 .thumbs-more-link a {
 	background-color: #99cccc;
+	min-width: 110px;
+    display: inline-block;
 }
 .more-link {
 	background-color: #99cccc;
