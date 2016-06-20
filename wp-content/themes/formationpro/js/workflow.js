@@ -141,7 +141,7 @@ jQuery(document).ready(function(e) {
 	
 	jQuery("#autonomyworks-home").on("keypress", "#action_stopping_point", function() {
 		var val = jQuery(this).val();
-		if(val.length>=10) return false;
+		if(val.length>=50) return false;
 	});
 
 });
