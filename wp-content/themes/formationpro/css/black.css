@@ -127,3 +127,6 @@
 .grey_btn:hover {
     background-color: #CFCFCF;
 }
+.main-small-navigation .menu ul.sub-menu {
+	display:none;
+}
