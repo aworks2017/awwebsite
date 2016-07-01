@@ -67,7 +67,7 @@
 							echo "</div>";
 
 					    ?>
-				    	<div class="topbar_content_right"><?php get_template_part( 'inc/socmed' ); ?> <a href="">Login</a></div>
+				    	<div class="topbar_content_right"><?php get_template_part( 'inc/socmed' ); ?></div>
 				    </div>
 			    </div>
 

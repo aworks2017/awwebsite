@@ -62,5 +62,5 @@
 		<?php if ( get_theme_mod( 'xing' ) ) : ?>
 			<li><a class="nav-social-btn xing-icon" title="Xing" href="<?php echo esc_url( get_theme_mod( 'xing' ) ); ?>" target="_blank"><i class="fa fa-xing"></i></a></li>
 		<?php endif; ?>		
-
+		<li><a href="">Login</a></li>
 	</ul><!-- #social-icons-->
