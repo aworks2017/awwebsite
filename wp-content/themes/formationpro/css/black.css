@@ -130,3 +130,6 @@
 .main-small-navigation .menu ul.sub-menu {
 	display:none;
 }
+.top-bar-login {
+	width:auto;
+}
