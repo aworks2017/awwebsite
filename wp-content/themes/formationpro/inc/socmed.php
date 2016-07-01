@@ -11,7 +11,7 @@
  */
 ?>
 	<ul class="social-media">
-    	<li><a class="top-bar-login" href="">Login</a></li>
+    	<li><a class="top-bar-login" href="<?php echo (get_option('workflow_ip') === $_SERVER['REMOTE_ADDR'])?'/clients/portal/?src=assoc':'/clients/' ?>">Login</a></li>
 		<?php if ( get_theme_mod( 'twitter' ) ) : ?>
 			<li><a class="nav-social-btn twitter-icon" title="Twitter" href="<?php echo esc_url( get_theme_mod( 'twitter' ) ); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
 		<?php endif; ?>
