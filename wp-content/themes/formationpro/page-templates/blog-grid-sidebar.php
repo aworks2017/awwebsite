@@ -51,7 +51,7 @@ $section_page = $wp_query->post ;
 				</div><!-- .entry-content -->
    			</div><!-- .hentry -->
         </div>
-		<?php endforeach; ?>
+		<?php break; endforeach; ?>
         
     	<?php formationpro_content_nav( 'nav-below' ); ?>
 
