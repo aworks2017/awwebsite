@@ -46,8 +46,8 @@ $section_page = $wp_query->post ;
                     <h1 class="entry-title"><a href="<?php echo get_permalink($page->ID); ?>"><?php echo $page->post_title; ?></a>
                     </h1>
                     <div class="entry-content">
-                        <?php echo 'rr' ?>...<div class="grid-more-link"><a href="<?php echo get_permalink($page->ID) ?>"> <?php $call2action = get_post_meta ($page->ID,'call2action', true ); if(!$call2action)$call2action="Read More";  echo __($call2action, 'formationpro'); ?></a>
-                        </div>
+                    <?php var_dump($page)?>
+                        <?php //echo substr($page->post_content, 0, 190) ?>...<div class="grid-more-link"><a href="<?php echo get_permalink($page->ID) ?>"> <?php $call2action = get_post_meta ($page->ID,'call2action', true ); if(!$call2action)$call2action="Read More";  echo __($call2action, 'formationpro'); ?></a></div><!-- .grid-more-link -->
                     </div><!-- .entry-content -->
                 </div><!-- .hentry -->
             </div><!-- .gridblock -->
