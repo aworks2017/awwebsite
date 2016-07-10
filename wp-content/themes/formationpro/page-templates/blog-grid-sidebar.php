@@ -35,6 +35,17 @@ $section_page = $wp_query->post ;
             foreach($section_pages as $page) :?>
             <div class="gridblock">
                 <div class="hentry">
+                    <div class="blog-image">
+                    <?php
+                    if ( has_post_thumbnail($page->ID) ) {
+                        $image_src = wp_get_attachment_image_src( get_post_thumbnail_id($page->ID),'recent' );
+                        echo '<img alt="post" class="imagerct" src="' . $image_src[0] . '">';
+    }
+                    ?>
+                    </div>
+                    <h1 class="entry-title"><a href="<?php echo get_permalink($page->ID); ?>"><?php echo $page->post_title; ?></a>
+                    </h1>
+                    
                 </div><!-- .hentry -->
             </div><!-- .gridblock -->
             <?php  endforeach; ?>
