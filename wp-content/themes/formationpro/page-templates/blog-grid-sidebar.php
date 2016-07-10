@@ -45,7 +45,9 @@ $section_page = $wp_query->post ;
                     </div>
                     <h1 class="entry-title"><a href="<?php echo get_permalink($page->ID); ?>"><?php echo $page->post_title; ?></a>
                     </h1>
-                    
+                    <div class="entry-content">
+                        <?php echo substr($page->post_content, 0, 190) ?>...
+                    </div><!-- .entry-content -->
                 </div><!-- .hentry -->
             </div><!-- .gridblock -->
             <?php  endforeach; ?>
