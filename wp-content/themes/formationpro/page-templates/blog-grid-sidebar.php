@@ -61,7 +61,7 @@ $section_page = $wp_query->post ;
     	
 
 		</div><!-- #content-right -->
-        <?php //formationpro_content_nav( 'nav-below' ); ?>
+        <?php formationpro_content_nav( 'nav-below' ); ?>
 	</div><!-- #primary-left -->
 </div><!-- #primary wrap -->
 
