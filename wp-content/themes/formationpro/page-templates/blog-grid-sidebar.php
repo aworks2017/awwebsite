@@ -50,7 +50,7 @@ $section_page = $wp_query->post ;
                     </div><!-- .entry-content -->
                 </div><!-- .hentry -->
             </div><!-- .gridblock -->
-            <?php break; endforeach; ?>
+            <?php  endforeach; ?>
         
     	
 
