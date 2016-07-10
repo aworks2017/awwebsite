@@ -51,17 +51,15 @@ $section_page = $wp_query->post ;
                     </div><!-- .entry-content -->
                 </div><!-- .hentry -->
             </div>
-			<?php break; endforeach; ?>
+			<?php endforeach; ?>
         </div><!-- #content-right -->
         <?php formationpro_content_nav( 'nav-below' ); ?>
     </div><!-- #primary-left -->
-
-    <aside id="sidebar-right">
+</div><!-- #primary wrap -->
+<aside id="sidebar-right">
         <?php if ( is_active_sidebar( 'sidebar-right' ) && dynamic_sidebar('sidebar-right') ) : else : ?>
         <?php echo '<h4>' . __('Widget Ready', 'formationpro') . '</h4>'; ?>
         <?php echo '<p>' . __('This right column is widget ready! Add one in the admin panel.', 'formationpro') . '</p>'; ?>     
         <?php endif; ?>  
-    </aside>
-
-</div><!-- #primary wrap -->
+</aside>
 <?php get_footer(); ?>
