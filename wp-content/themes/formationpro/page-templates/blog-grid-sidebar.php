@@ -46,20 +46,21 @@ $section_page = $wp_query->post ;
                     <h1 class="entry-title"><a href="<?php echo get_permalink($page->ID); ?>"><?php echo $page->post_title; ?></a>
                     </h1>
                     <div class="entry-content">
-                        <?php echo substr($page->post_content, 0, 190) ?>...<div class="grid-more-link"><a href="<?php echo get_permalink($page->ID) ?>"> <?php $call2action = get_post_meta ($page->ID,'call2action', true ); if(!$call2action)$call2action="Read More";  echo __($call2action, 'formationpro'); ?></a></div>
-            
+                        <?php echo substr($page->post_content, 0, 190) ?>...<div class="grid-more-link"><a href="<?php echo get_permalink($page->ID) ?>"> <?php $call2action = get_post_meta ($page->ID,'call2action', true ); if(!$call2action)$call2action="Read More";  echo __($call2action, 'formationpro'); ?></a>
                     </div><!-- .entry-content -->
                 </div><!-- .hentry -->
-            </div>
-			<?php break; endforeach; ?>
+            </div><!-- .gridblock -->
+			<?php  endforeach; ?>
         </div><!-- #content-right -->
         <?php formationpro_content_nav( 'nav-below' ); ?>
     </div><!-- #primary-left -->
-</div><!-- #primary wrap -->
-<aside id="sidebar-right">
+
+    <aside id="sidebar-right">
         <?php if ( is_active_sidebar( 'sidebar-right' ) && dynamic_sidebar('sidebar-right') ) : else : ?>
         <?php echo '<h4>' . __('Widget Ready', 'formationpro') . '</h4>'; ?>
         <?php echo '<p>' . __('This right column is widget ready! Add one in the admin panel.', 'formationpro') . '</p>'; ?>     
         <?php endif; ?>  
-</aside>
+    </aside>
+
+</div><!-- #primary wrap -->
 <?php get_footer(); ?>
