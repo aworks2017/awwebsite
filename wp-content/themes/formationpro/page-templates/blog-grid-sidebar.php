@@ -32,7 +32,7 @@ $section_page = $wp_query->post ;
             );
             $section_pages = get_pages($args);
             
-            foreach($section_pages as $page) : ?>
+            foreach($section_pages as $page) : break;?>
             <div class="gridblock">
                 <div class="hentry">
                     <div class="blog-image">
