@@ -47,6 +47,7 @@ $section_page = $wp_query->post ;
                     </h1>
                     <div class="entry-content">
                         <?php echo 'rr' ?>...<div class="grid-more-link"><a href="<?php echo get_permalink($page->ID) ?>"> <?php $call2action = get_post_meta ($page->ID,'call2action', true ); if(!$call2action)$call2action="Read More";  echo __($call2action, 'formationpro'); ?></a>
+                        </div>
                     </div><!-- .entry-content -->
                 </div><!-- .hentry -->
             </div><!-- .gridblock -->
