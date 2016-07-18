@@ -986,6 +986,8 @@ a.more-link:hover {
 	color: #666;
 	padding: 6px;
 	text-align: center;
+	height: 88px;
+    overflow: hidden;
 }
 .hentry {
     border-bottom: 1px solid #EFEFEF;
