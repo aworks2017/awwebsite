@@ -1122,6 +1122,10 @@ footer.entry-meta {
 .entry-summary {
 	margin: 0.8em 0 0;
 }
+.entry-content {
+	height: 119px;
+    overflow: hidden;
+}
 .entry-content table,
 .comment-content table {
 	border: 1px solid #d9d9d9;
@@ -2038,7 +2042,6 @@ color: #CCC;
      padding:1%;
      margin:1.25%;
      /*min-height:190px;*/
-	 height:230px;
 	 border: 2px solid #EFEFEF;
 	 border-radius: 0.4em;
 	 position: relative;
@@ -2048,7 +2051,6 @@ color: #CCC;
 	border-bottom: 0;
 	padding-bottom: 0;
 	height: 100%;
-    overflow: hidden;
 }
 .gridblock .blog-image{
      padding-top: 0;
