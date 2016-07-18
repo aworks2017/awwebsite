@@ -135,6 +135,6 @@
     </div><!-- #content -->
   </div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+
 </div>
 <?php get_footer(); ?>
