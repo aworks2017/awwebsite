@@ -20,11 +20,13 @@
   }
 
   //response messages
-  $not_human       = __('Human verification incorrect.', 'formationpro');
+  //$not_human       = __('Human verification incorrect.', 'formationpro');
   $missing_content = __('Please supply all information.', 'formationpro');
   $email_invalid   = __('Email Address Invalid.', 'formationpro');
   $message_unsent  = __('Message was not sent. Try Again.', 'formationpro');
   $message_sent    = __('Thanks! Your message has been sent.', 'formationpro');
+  $captcha_invalid   = __('CAPTCHA verification incorrect.', 'formationpro');
+
 
   //user posted variables
   if(isset($_POST['message_name'])){
@@ -33,14 +35,14 @@
     $message = "Message from: ".$name."\r\n";
     $message .= "Email: ".$email."\r\n";
     $message .= "Message text: ".$_POST['message_text']."\r\n";
-    $human = $_POST['message_human'];
+    $human = $_POST['cntctfrm_contact_action'];
   }else{
     $name = '';
     $email = '';
     $message = '';
     $human = '';
   }
-  
+
 
   //php mailer variables
   $to = get_option('admin_email');
@@ -49,7 +51,8 @@
     'Reply-To: ' . $email . "\r\n";
 
   if(!$human == 0){
-    if($human != 2) formationpro_contact_form_generate_response("error", $not_human); //not human!
+    //if($human != 2) formationpro_contact_form_generate_response("error", $not_human); //not human!
+    if ( ( function_exists( 'cptch_check_custom_form' ) && cptch_check_custom_form() !== true ) || ( function_exists( 'cptchpr_check_custom_form' ) && cptchpr_check_custom_form() !== '' ) ) formationpro_contact_form_generate_response("error", $captcha_invalid);
     else {
 
       //validate email
@@ -115,8 +118,9 @@
                   <p><label for="name">Name: <span>*</span> <br><input type="text" name="message_name" value="<?php echo esc_attr($name); ?>"></label></p>
                   <p><label for="message_email">Email: <span>*</span> <br><input type="text" name="message_email" value="<?php echo esc_attr($email); ?>"></label></p>
                   <p><label for="message_text">Message: <span>*</span> <br><textarea type="text" name="message_text"></textarea></label></p>
-                  <p><label for="message_human">Human Verification: <span>*</span> <br><input type="text" style="width: 60px;" name="message_human"> + 3 = 5</label></p>
-                  <input type="hidden" name="submitted" value="1">
+                  <p>
+<?php if( function_exists( 'cptch_display_captcha_custom' ) ) { echo "<input type='hidden' name='cntctfrm_contact_action' value='true' />"; echo cptch_display_captcha_custom(); } if( function_exists( 'cptchpr_display_captcha_custom' ) ) { echo "<input type='hidden' name='cntctfrm_contact_action' value='true' />"; echo cptchpr_display_captcha_custom(); } ?>
+</p>
                   <p><input type="submit"></p>
                 </form>
               </div>
