@@ -38,7 +38,7 @@ get_header(); ?>
                       <div class="flex-caption-title">
                         <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
                       </div>
-                      <p><?php $slide_desc = get_post_meta(get_the_ID(),'description',true); echo ($slide_desc)?substr(trim($post_desc),0,250):esc_html(get_slider_excerpt()); ?> <a href="<?php the_permalink() ?>">...</a></p>
+                      <p><?php $slide_desc = get_post_meta(get_the_ID(),'description',true); echo get_the_ID();echo ($slide_desc)?substr(trim($post_desc),0,250):esc_html(get_slider_excerpt()); ?> <a href="<?php the_permalink() ?>">...</a></p>
                     </div>
                   </div>
                 </li>
