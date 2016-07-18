@@ -11,7 +11,7 @@
  *
  * @since formationpro 1.0
  */
- 
+
 if ( ! isset( $content_width ) )
 	$content_width = 654; /* pixels */
 
@@ -61,7 +61,7 @@ function formationpro_setup() {
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'formationpro' ),
 	) );
-	
+
 	/**
 	 * Add support for post thumbnails
 	 */
@@ -118,7 +118,7 @@ function formationpro_widgets_init() {
 		'before_title' => '<h1 class="widget-title">',
 		'after_title' => '</h1>',
 	) );
-	
+
 	register_sidebar( array(
 		'name' => __( 'Secondary Sidebar', 'formationpro' ),
 		'id' => 'sidebar-2',
@@ -127,7 +127,7 @@ function formationpro_widgets_init() {
 		'before_title' => '<h1 class="widget-title">',
 		'after_title' => '</h1>',
 	) );
-	
+
 	register_sidebar( array(
 		'name' => __( 'Left Sidebar', 'formationpro' ),
 		'id' => 'sidebar-3',
@@ -144,7 +144,7 @@ function formationpro_widgets_init() {
 		'before_title' => '<h1 class="widget-title">',
 		'after_title' => '</h1>',
 	) );
-	
+
 	register_sidebar(array(
 			'name' => 'Left Footer Column',
 			'id'   => 'left_column',
@@ -200,21 +200,21 @@ function formationpro_scripts() {
 
 
 	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '2.0', false );
-	
+
 	wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '2.0' );
-	
+
 	wp_enqueue_script( 'smoothup', get_template_directory_uri() . '/js/smoothscroll.js', array( 'jquery' ), '',  true );
 
 	wp_enqueue_script( 'inview', get_template_directory_uri() . '/js/Inview.js', array('jquery'));
-	
+
 	wp_enqueue_script( 'theme-js', get_template_directory_uri() . '/js/animate.js', array('jquery', 'inview'));
-	    
+
 	wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider-min.js', array('jquery'));
-    
+
     wp_enqueue_script('flexslider-init', get_template_directory_uri().'/js/flexslider-init.js', array('jquery', 'flexslider'));
-	
+
 	wp_enqueue_script( 'customjs', get_template_directory_uri() . '/js/custom.js', array( 'jquery' ), '',  true );
-	
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 
@@ -225,7 +225,7 @@ function formationpro_scripts() {
 	if ( is_singular() && wp_attachment_is_image() ) {
 
 		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
-	
+
 	}
 
 }
@@ -283,12 +283,12 @@ function content($limit) {
   } else {
 
     $content = implode(" ",$content);
-  }	
+  }
 
   $content = preg_replace('/\[.+\]/','', $content);
-  $content = apply_filters('the_content', $content); 
+  $content = apply_filters('the_content', $content);
   $content = str_replace(']]>', ']]&gt;', $content);
-  
+
   return $content;
 
 }
@@ -311,7 +311,7 @@ function register_custom_css_setting() {
     register_setting( 'custom_css', 'custom_css',  'custom_css_validation');
 }
 add_action( 'admin_init', 'register_custom_css_setting' );
- 
+
 function custom_css_admin_page() {
     add_theme_page( 'Custom CSS',  __( 'Custom CSS', 'formationpro' ), 'edit_theme_options', 'custom_css_admin_page_content', 'custom_css_admin_page_content' );
 }
@@ -321,7 +321,7 @@ function custom_css_admin_page_content() {
     // The default message that will appear
     $custom_css_default = __( '/*
 Welcome to the Custom CSS editor!
- 
+
 Please add all your custom CSS here and avoid modifying the core theme files, since that\'ll make upgrading the theme problematic. Your custom CSS will be loaded after the theme\'s stylesheets, which means that your rules will take precedence. Just add your CSS here for what you want to change, you don\'t need to copy all the theme\'s style.css content.
 */' );
     $custom_css = get_option( 'custom_css', $custom_css_default );
@@ -330,15 +330,15 @@ Please add all your custom CSS here and avoid modifying the core theme files, si
 	        <div id="icon-themes" class="icon32"></div>
 	        <h2><?php _e( 'Custom CSS', 'formationpro' ); ?></h2>
 	        <?php if ( ! empty( $_GET['settings-updated'] ) ) echo '<div id="message" class="updated"><p><strong>' . __( 'Custom CSS updated.', 'formationpro' ) . '</strong></p></div>'; ?>
-	 
+
 	        <form id="custom_css_form" method="post" action="options.php" style="margin-top: 15px;">
-	 
+
 	            <?php settings_fields( 'custom_css' ); ?>
-	 
+
 	            <div id="custom_css_container">
 	                <div name="custom_css" id="custom_css" style="border: 1px solid #DFDFDF; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; width: 100%; height: 400px; position: relative;"></div>
 	            </div>
-	 
+
 	            <textarea id="custom_css_textarea" name="custom_css" style="display: none;"><?php echo $custom_css; ?></textarea>
 	            <p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'formationpro' ) ?>" /></p>
 	        </form>
@@ -354,8 +354,8 @@ function custom_css_validation( $input ) {
 
 function display_custom_css() {
   $custom_css = get_option( 'custom_css' );
-  if ( ! empty( $custom_css ) ) 
-       { 
+  if ( ! empty( $custom_css ) )
+       {
          echo "<style type='text/css'>";
          echo '/* Custom CSS */' . "\n";
          echo $custom_css . "\n";
@@ -370,7 +370,7 @@ add_action( 'wp_head', 'display_custom_css' );
  * This functions displays page breadcrumbs
  */
 function formationpro_breadcrumbs() {
- 
+
 	/* === OPTIONS === */
 	$text['home']     = __('Home','formationpro'); // text for the 'Home' link
 	$text['category'] = __('Archive by Category "%s"','formationpro'); // text for a category page
@@ -378,7 +378,7 @@ function formationpro_breadcrumbs() {
 	$text['tag']      = __('Posts Tagged "%s"','formationpro'); // text for a tag page
 	$text['author']   = __('Articles Posted by %s','formationpro'); // text for an author page
 	$text['404']      = __('Error 404','formationpro'); // text for the 404 page
- 
+
 	$show_current   = 1; // 1 - show current post/page/category title in breadcrumbs, 0 - don't show
 	$show_on_home   = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
 	$show_home_link = 1; // 1 - show the 'Home' link, 0 - don't show
@@ -387,7 +387,7 @@ function formationpro_breadcrumbs() {
 	$before         = '<span class="current">'; // tag before the current crumb
 	$after          = '</span>'; // tag after the current crumb
 	/* === END OF OPTIONS === */
- 
+
 	global $post;
 	$home_link    = home_url('/');
 	$link_before  = '<span typeof="v:Breadcrumb">';
@@ -396,19 +396,19 @@ function formationpro_breadcrumbs() {
 	$link         = $link_before . '<a' . $link_attr . ' href="%1$s">%2$s</a>' . $link_after;
 	$parent_id    = $parent_id_2 = $post->post_parent;
 	$frontpage_id = get_option('page_on_front');
- 
+
 	if (is_home() || is_front_page()) {
- 
+
 		if ($show_on_home == 1) echo '<div class="breadcrumbs"><a href="' . $home_link . '">' . $text['home'] . '</a></div>';
- 
+
 	} else {
- 
+
 		echo '<div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">';
 		if ($show_home_link == 1) {
 			echo '<a href="' . $home_link . '" rel="v:url" property="v:title">' . $text['home'] . '</a>';
 			if ($frontpage_id == 0 || $parent_id != $frontpage_id) echo $delimiter;
 		}
- 
+
 		if ( is_category() ) {
 			$this_cat = get_category(get_query_var('cat'), false);
 			if ($this_cat->parent != 0) {
@@ -420,22 +420,22 @@ function formationpro_breadcrumbs() {
 				echo $cats;
 			}
 			if ($show_current == 1) echo $before . sprintf($text['category'], single_cat_title('', false)) . $after;
- 
+
 		} elseif ( is_search() ) {
 			echo $before . sprintf($text['search'], get_search_query()) . $after;
- 
+
 		} elseif ( is_day() ) {
 			echo sprintf($link, get_year_link(get_the_time('Y')), get_the_time('Y')) . $delimiter;
 			echo sprintf($link, get_month_link(get_the_time('Y'),get_the_time('m')), get_the_time('F')) . $delimiter;
 			echo $before . get_the_time('d') . $after;
- 
+
 		} elseif ( is_month() ) {
 			echo sprintf($link, get_year_link(get_the_time('Y')), get_the_time('Y')) . $delimiter;
 			echo $before . get_the_time('F') . $after;
- 
+
 		} elseif ( is_year() ) {
 			echo $before . get_the_time('Y') . $after;
- 
+
 		} elseif ( is_single() && !is_attachment() ) {
 			if ( get_post_type() != 'post' ) {
 				$post_type = get_post_type_object(get_post_type());
@@ -452,11 +452,11 @@ function formationpro_breadcrumbs() {
 				echo $cats;
 				if ($show_current == 1) echo $before . get_the_title() . $after;
 			}
- 
+
 		} elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
 			$post_type = get_post_type_object(get_post_type());
 			echo $before . $post_type->labels->singular_name . $after;
- 
+
 		} elseif ( is_attachment() ) {
 			$parent = get_post($parent_id);
 			$cat = get_the_category($parent->ID); $cat = $cat[0];
@@ -467,10 +467,10 @@ function formationpro_breadcrumbs() {
 			echo $cats;
 			printf($link, get_permalink($parent), $parent->post_title);
 			if ($show_current == 1) echo $delimiter . $before . get_the_title() . $after;
- 
+
 		} elseif ( is_page() && !$parent_id ) {
 			if ($show_current == 1) echo $before . get_the_title() . $after;
- 
+
 		} elseif ( is_page() && $parent_id ) {
 			if ($parent_id != $frontpage_id) {
 				$breadcrumbs = array();
@@ -491,27 +491,27 @@ function formationpro_breadcrumbs() {
 				if ($show_home_link == 1 || ($parent_id_2 != 0 && $parent_id_2 != $frontpage_id)) echo $delimiter;
 				echo $before . get_the_title() . $after;
 			}
- 
+
 		} elseif ( is_tag() ) {
 			echo $before . sprintf($text['tag'], single_tag_title('', false)) . $after;
- 
+
 		} elseif ( is_author() ) {
 	 		global $author;
 			$userdata = get_userdata($author);
 			echo $before . sprintf($text['author'], $userdata->display_name) . $after;
- 
+
 		} elseif ( is_404() ) {
 			echo $before . $text['404'] . $after;
 		}
- 
+
 		if ( get_query_var('paged') ) {
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ' (';
 			echo __('Page', 'formationpro') . ' ' . get_query_var('paged');
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
 		}
- 
+
 		echo '</div><!-- .breadcrumbs -->';
- 
+
 	}
 } // end formationpro_breadcrumbs()
 
@@ -555,7 +555,7 @@ function fonts() {
     <div class="wrap">
         <div><br></div>
         <h2>Fonts</h2>
- 
+
         <form method="post" action="options.php">
             <?php wp_nonce_field( 'update-fonts' ); ?>
             <?php settings_fields( 'fonts' ); ?>
@@ -566,7 +566,7 @@ function fonts() {
     </div>
 <?php
 }
- 
+
 add_action( 'admin_init', 'formationpro_register_admin_settings' );
 function formationpro_register_admin_settings() {
     register_setting( 'fonts', 'fonts' );
@@ -595,75 +595,75 @@ function get_fonts() {
             'font' 		=> '@import url(https://fonts.googleapis.com/css?family=Lobster:400,700);',
             'css' 		=> "font-family: 'Lobster', cursive;"
         ),
-		'arial' => array(  
-            'name' 		=> __( 'Arial', 'formationpro' ), 
-            'font' 		=> '@import url(https://fonts.googleapis.com/css?family=Lobster:400,700);',  
-            'css' 		=> "font-family: Arial, sans-serif;"  
+		'arial' => array(
+            'name' 		=> __( 'Arial', 'formationpro' ),
+            'font' 		=> '@import url(https://fonts.googleapis.com/css?family=Lobster:400,700);',
+            'css' 		=> "font-family: Arial, sans-serif;"
         ),
-		'Carrois Gothic SC' => array(  
-            'name' 		=> __( 'Carrois Gothis SC', 'formationpro' ),  
-            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Carrois+Gothic+SC);',  
-            'css' 		=> "font-family: Carrois Gothic SC, sans-serif;"  
-        ),  
-        'Port Lligat Slab' => array(  
+		'Carrois Gothic SC' => array(
+            'name' 		=> __( 'Carrois Gothis SC', 'formationpro' ),
+            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Carrois+Gothic+SC);',
+            'css' 		=> "font-family: Carrois Gothic SC, sans-serif;"
+        ),
+        'Port Lligat Slab' => array(
             'name' 		=> __( 'Port Lligat Slab', 'formationpro' ),
-            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Port+Lligat+Slab:400,700);',  
-            'css' 		=> " font-family: 'Port Lligat Slab', serif;"  
+            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Port+Lligat+Slab:400,700);',
+            'css' 		=> " font-family: 'Port Lligat Slab', serif;"
         ),
-		'Hammersmith One' => array(  
+		'Hammersmith One' => array(
             'name' 		=> __( 'Hammersmith One', 'formationpro' ),
-            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Hammersmith+One);',  
-            'css' 		=> " font-family: 'Hammersmith One', serif;"  
+            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Hammersmith+One);',
+            'css' 		=> " font-family: 'Hammersmith One', serif;"
         ),
-        'Roboto' => array(  
-            'name' 		=> __( 'Roboto', 'formationpro' ),  
-            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);',  
-            'css' 		=> "font-family: 'Roboto', sans-serif;"  
+        'Roboto' => array(
+            'name' 		=> __( 'Roboto', 'formationpro' ),
+            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);',
+            'css' 		=> "font-family: 'Roboto', sans-serif;"
         ),
-		'Open Sans' => array(  
+		'Open Sans' => array(
             'name' 		=> __( 'Open Sans', 'formationpro' ),
-            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);',  
-            'css' 		=> "font-family: 'Open Sans', sans-serif;"  
+            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);',
+            'css' 		=> "font-family: 'Open Sans', sans-serif;"
         ),
-		'Source Sans Pro' => array(  
+		'Source Sans Pro' => array(
             'name' 		=> __( 'Source Sans Pro', 'formationpro' ),
-            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);',  
-            'css' 		=> "font-family: 'Source Sans Pro', sans-serif;"  
+            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);',
+            'css' 		=> "font-family: 'Source Sans Pro', sans-serif;"
         ),
-		'Montserrat' => array(  
+		'Montserrat' => array(
             'name' 		=> __( 'Montserrat', 'formationpro' ),
-            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);',  
-            'css' 		=> "font-family: 'Montserrat', sans-serif;"  
+            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);',
+            'css' 		=> "font-family: 'Montserrat', sans-serif;"
         ),
-		'Domine' => array(  
-            'name' 		=> __( 'Domine', 'formationpro' ), 
-            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Domine:400,700);',  
-            'css' 		=> "font-family: 'Domine', sans-serif;"  
+		'Domine' => array(
+            'name' 		=> __( 'Domine', 'formationpro' ),
+            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Domine:400,700);',
+            'css' 		=> "font-family: 'Domine', sans-serif;"
         ),
-		'Oswald' => array(  
+		'Oswald' => array(
             'name' 		=> __( 'Oswald', 'formationpro' ),
-            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Oswald:400,700);',  
-            'css' 		=> "font-family: 'Oswald', sans-serif;"  
+            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Oswald:400,700);',
+            'css' 		=> "font-family: 'Oswald', sans-serif;"
         ),
-		'Rokkitt' => array(  
-            'name' 		=> __( 'Rokkitt', 'formationpro' ), 
-            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);',  
-            'css' 		=> "font-family: 'Rokkitt', sans-serif;"  
+		'Rokkitt' => array(
+            'name' 		=> __( 'Rokkitt', 'formationpro' ),
+            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);',
+            'css' 		=> "font-family: 'Rokkitt', sans-serif;"
         ),
-		'Rosario' => array(  
+		'Rosario' => array(
             'name' 		=> __( 'Rosario', 'formationpro' ),
-            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Rosario:400,700);',  
+            'font' 		=> '@import url(http://fonts.googleapis.com/css?family=Rosario:400,700);',
             'css' 		=> "font-family: 'Rosario', sans-serif;"
-      )             
+      )
     );
- 
+
     return apply_filters( 'get_fonts', $fonts );
 }
 function body_font_field() {
     $options = (array) get_option( 'fonts' );
     $fonts = get_fonts();
     $current = 'Open Sans';
- 
+
     if ( isset( $options['body-font'] ) )
         $current = $options['body-font'];
     ?>
@@ -678,10 +678,10 @@ function h1_font_field() {
     $options = (array) get_option( 'fonts' );
     $fonts = get_fonts();
     $current = 'Open Sans';
- 
+
     if ( isset( $options['h1-font'] ) )
         $current = $options['h1-font'];
- 
+
     ?>
         <select name="fonts[h1-font]">
         <?php foreach( $fonts as $key => $font ): ?>
@@ -694,10 +694,10 @@ function nav_font_field() {
     $options = (array) get_option( 'fonts' );
     $fonts = get_fonts();
     $current = 'Open Sans';
- 
+
     if ( isset( $options['nav-font'] ) )
         $current = $options['nav-font'];
- 
+
     ?>
         <select name="fonts[nav-font]">
         <?php foreach( $fonts as $key => $font ): ?>
@@ -706,34 +706,34 @@ function nav_font_field() {
         </select>
     <?php
 }
- 
+
 add_action( 'wp_head', 'font_head' );
 function font_head() {
     $options = (array) get_option( 'fonts' );
     $fonts = get_fonts();
-	
+
     $body_key = 'Open Sans';
- 
+
     if ( isset( $options['body-font'] ) )
         $body_key = $options['body-font'];
- 
+
     if ( isset( $fonts[ $body_key ] ) ) {
         $body_font = $fonts[ $body_key ];
- 
+
         echo '<style>';
         echo $body_font['font'];
         echo 'body  { ' . $body_font['css'] . ' } ';
         echo '</style>';
     }
- 
+
     $h1_key = 'Open Sans';
- 
+
     if ( isset( $options['h1-font'] ) )
         $h1_key = $options['h1-font'];
- 
+
     if ( isset( $fonts[ $h1_key ] ) ) {
         $h1_key = $fonts[ $h1_key ];
- 
+
         echo '<style>';
         echo $h1_key['font'];
         echo 'h1  { ' . $h1_key['css'] . ' } ';
@@ -741,13 +741,13 @@ function font_head() {
     }
 
     $nav_key = 'Open Sans';
- 
+
     if ( isset( $options['nav-font'] ) )
         $nav_key = $options['nav-font'];
- 
+
     if ( isset( $fonts[ $nav_key ] ) ) {
         $nav_key = $fonts[ $nav_key ];
- 
+
         echo '<style>';
         echo $nav_key['font'];
         echo '.main-navigation  { ' . $nav_key['css'] . ' } ';
@@ -899,7 +899,7 @@ endif; // formationpro_admin_header_image
 
 /* momo custom code start */
 //adding header search form
-add_filter( 'wp_nav_menu_items', function($items,$arg){	
+add_filter( 'wp_nav_menu_items', function($items,$arg){
 	if($arg->theme_location!='primary') return $items;
 	$search_form_content = '<!-- search form -->
                         <li><form method="get" id="header_searchform" action="/" role="search">
@@ -907,14 +907,14 @@ add_filter( 'wp_nav_menu_items', function($items,$arg){
                         </form></li><li id="submit_header_search" class="fa fa-search"></li>
                         <!-- end search form -->';
 	return $items.$search_form_content;
-	
+
 }, 1, 2 );
 
 
 /************************
 							Centro functions
 											*********************/
-											
+
 function aw_centro_status() {
 
     global $wpdb;
@@ -941,11 +941,11 @@ function aw_centro_status() {
 	$wk5 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM ".$wpdb->prefix."centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 4), $result->requestor));
 
 	$wk6 = $wpdb->get_row($wpdb->prepare("SELECT count(*) as total FROM ".$wpdb->prefix."centro WHERE week(date_entered) = %d and requestor = %s", ($result->this_week - 5), $result->requestor));
-    	
+
 		$status .= '<tr class="d'.($i%2).'"><td class="td0">' .$result->requestor. '</td><td><center>' .$result->total. '</center></td><td><center>' .$wk1->total. '</center></td><td><center>' .$wk2->total . '</center></td><td><center>' .$wk3->total . '</center></td><td><center>' .$wk4->total . '</center></td><td><center>' .$wk5->total . '</center></td><td><center>' .$wk6->total . '</center></td></tr>';
 
 		$i += 1;
-	
+
 
     }
 
@@ -1046,15 +1046,15 @@ function login_form_submit() {
 	   }
 
 	   $user_id = wp_create_user($email, 'aw2015', $email);
-	   
+
 	   //do not show Wordpress toolbar to logged in users
-	   update_user_meta($user_id, 'show_admin_bar_front', false);    
+	   update_user_meta($user_id, 'show_admin_bar_front', false);
 
    	} else {
 	   $user_id = $exists;
 	}
 
-   
+
 	//log user in
 	$user = get_user_by( 'id', $user_id );
 	if( $user ) {
@@ -1062,7 +1062,7 @@ function login_form_submit() {
 	    wp_set_auth_cookie( $user_id );
 	    do_action( 'wp_login', $user->user_login );
 	}
-	
+
 
 
 	wp_safe_redirect( get_site_url() . '/menu');
@@ -1141,7 +1141,7 @@ function get_workflow() {
 	$user = $current_user->user_login ;
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
-	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=get_task&key=".$api_key."&user=".$user;
+	$url = "http://".$api_server."/WorkFlowPortal.php?action=get_task&key=".$api_key."&user=".$user;
 	$response =   wp_remote_get( $url );
 	if(is_wp_error($response)) echo '0';
 	else echo $response['body'];
@@ -1154,7 +1154,7 @@ function on_call() {
 	$user = $current_user->user_login ;
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
-	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=on_call&key=".$api_key."&user=".$user;
+	$url = "http://".$api_server."/WorkFlowPortal.php?action=on_call&key=".$api_key."&user=".$user;
 	$response =   wp_remote_get( $url );
 	if(is_wp_error($response)) echo '0';
 	else echo $response['body'];
@@ -1165,7 +1165,7 @@ function get_job() {
 	$jobid = htmlspecialchars(str_replace('\"', "", $_POST['jobId']));
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
-	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=start&key=".$api_key."&job=".$jobid;
+	$url = "http://".$api_server."/WorkFlowPortal.php?action=start&key=".$api_key."&job=".$jobid;
 	$response =   wp_remote_get( $url );
 	$data = json_decode($response['body'],true);
 	if(isset($data['estimated_start'])) {
@@ -1192,7 +1192,7 @@ function end_job() {
 	$action_stopping_point = urlencode($_POST['action_stopping_point']);
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
-	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=stop&key=".$api_key."&job=".$jobid."&action_stop=".$action_stop."&action_info=".$action_info ."&action_stopping_point=".$action_stopping_point;
+	$url = "http://".$api_server."/WorkFlowPortal.php?action=stop&key=".$api_key."&job=".$jobid."&action_stop=".$action_stop."&action_info=".$action_info ."&action_stopping_point=".$action_stopping_point;
 	$response =   wp_remote_get( $url );
 	if(is_wp_error($response)) echo '0';
 	else echo $response['body'];
@@ -1204,7 +1204,7 @@ function update_count() {
 	$new_count = (int)($_POST['new_count']);
 	$api_server = get_option('api_server');
 	$api_key = get_option('api_key');
-	$url = "http://".$api_server.".autonomyworks.net/WorkFlowPortal.php?action=update&key=".$api_key."&job=".$jobid."&new_count=".$new_count ;
+	$url = "http://".$api_server."/WorkFlowPortal.php?action=update&key=".$api_key."&job=".$jobid."&new_count=".$new_count ;
 	$response =   wp_remote_get( $url );
 	if(is_wp_error($response)) echo '0';
 	else echo $response['body'];
@@ -1222,10 +1222,10 @@ function change_pass(){
 			$allowed_gps = array('3','4'); //allowed groups IDs
 			$intersect = array_intersect( $client_gps , $allowed_gps ) ;
 			if(!empty($intersect)) {
-				$pass = $_POST['pass'] ; 
-				$userdata = array( 
+				$pass = $_POST['pass'] ;
+				$userdata = array(
 					'ID' => esc_attr($ID),
-					'user_pass' => $pass 
+					'user_pass' => $pass
 				);
 				$res = $wpc_client->cc_client_update_func( $userdata );
 				ob_clean ();
@@ -1235,5 +1235,5 @@ function change_pass(){
 			}
 		} else { die('0'); }
 	}
-	 
+
 }*/
