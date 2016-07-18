@@ -1123,7 +1123,7 @@ footer.entry-meta {
 	margin: 0.8em 0 0;
 }
 .entry-content {
-	height: 119px;
+	height: 111px;
     overflow: hidden;
 }
 .entry-content table,
@@ -2269,6 +2269,9 @@ MEDIA QUERIES
 	}
 	.hentry {
 	border-bottom: none;
+	}
+	.entry-content {
+		height: auto;
 	}
 }
 
