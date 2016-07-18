@@ -986,6 +986,8 @@ a.more-link:hover {
 	color: #666;
 	padding: 6px;
 	text-align: center;
+}
+.home .recent p{
 	height: 88px;
     overflow: hidden;
 }
@@ -1124,7 +1126,7 @@ footer.entry-meta {
 .entry-summary {
 	margin: 0.8em 0 0;
 }
-.entry-content {
+.gridblock .entry-content {
 	height: 111px;
     overflow: hidden;
 }
@@ -2272,7 +2274,7 @@ MEDIA QUERIES
 	.hentry {
 	border-bottom: none;
 	}
-	.entry-content {
+	.gridblock .entry-content {
 		height: auto;
 	}
 }
