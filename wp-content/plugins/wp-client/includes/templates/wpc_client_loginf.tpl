@@ -27,7 +27,8 @@
             {$do_action_login_form}
             
             {if $src == 'assoc'}
-            <span style="width: 190px;float: left;">*If you cannot log in, ask your supervisor for help.*</span>
+            <span style="width: 190px;float: left;">Username: first initial + last name<br>
+		Example:  jsmith</span>
             {else}
             <p class="forgetmenot"><label for="rememberme"><input type="checkbox" tabindex="90" value="forever" id="rememberme" name="rememberme"> {if !empty($labels.remember)}{$labels.remember}{/if}</label></p>
             {/if}
