@@ -12,7 +12,7 @@ jQuery(document).ready(function(e) {
             }
         );
     });
-	
+
 	jQuery("#autonomyworks-home").on("click", "#no-tasks", function() {
         jQuery(this).attr("disabled", "disabled");
         jQuery.post(workflow.ajax_url, {
@@ -138,7 +138,7 @@ jQuery(document).ready(function(e) {
             jQuery(this).val(newVal);
         }
     });
-	
+
 	jQuery("#autonomyworks-home").on("keypress", "#action_stopping_point", function() {
 		var val = jQuery(this).val();
 		if(val.length>=50) return false;
@@ -166,7 +166,7 @@ function show_job(data) {
     task_output += (data.parameter_2) ? '<div class="col-md-12 form-group"><div class="col-xs-12 col-sm-4"><b>Parameter 2:</b></div><div id="copy2_text" class="col-xs-12 col-sm-6">' + data.parameter_2 + '</div><div class="col-xs-12 col-sm-2"><button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy2_text">Copy 2</button></div></div>' : '';
     task_output += '<div class="col-md-12 form-group"><div class="col-xs-12 col-sm-4"><b>Activity Driver:</b></div><div class="col-xs-12 col-sm-6"><span id="act_driver">' + ((data.activity_driver) ? data.activity_driver : 'null') + '</span> - <input id="act_count" type="number" min="0" max="9999" style="width: 55px;text-align: center;border: none;" value="' + ((data.activity_count) ? data.activity_count : '') + '" oldval="' + ((data.activity_count) ? data.activity_count : '') + '"></div><div class="col-xs-12 col-sm-2"><button class="btn" id="update_act">Update</button></div></div>';
     jQuery("#task-bloc").html(task_output);
-	
+
 	notes_output += '<div id="top_bloc_2" class="col-md-12">';
     notes_output += (data.stopping_point) ? '<div class="col-md-12"><b>Last Completed Step:</b> ' + data.stopping_point+'</div>'  : '';
 	notes_output += '</div>';
@@ -263,5 +263,5 @@ function show_hub_page() {
 }
 
 var start_notes_bloc = '<h3>ATTENTION</h3><p>You have a <b>new</b> task waiting.<br>Click the Start button when you are ready to begin.</p>';
-var empty_notes_bloc = '<h3>Production Notes:</h3><p><b>IMPORTANT:</b> Check back every 5 minutes to see if you have a new task.</p>';
+var empty_notes_bloc = '<h3>Production Notes:</h3><p><b>IMPORTANT:</b> Please send an IM to confirm that you are on call.</p>';
 var empty_task_bloc = '<div class="col-md-12"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">On Call</div></div>';
