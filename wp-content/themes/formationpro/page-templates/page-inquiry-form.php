@@ -68,7 +68,12 @@
         else //ready to go!
         {
           $sent = wp_mail($to, $subject, strip_tags($message), $headers);
-          if($sent) formationpro_contact_form_generate_response("success", $message_sent); //message sent!
+          if($sent) {
+          	formationpro_contact_form_generate_response("success", $message_sent); //message sent!
+          	$name='';
+			$phone='';
+    		$email='';
+    	  }
           else formationpro_contact_form_generate_response("error", $message_unsent); //message wasn't sent
         }
       }
