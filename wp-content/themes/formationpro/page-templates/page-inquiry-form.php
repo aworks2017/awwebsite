@@ -80,7 +80,7 @@
 
 <?php get_header(); ?>
 	<header class="entry-header">
-		<h1 class="page-title"><?php the_title(); ?></h1><span class="breadcrumbs"><?php if (function_exists('formationpro_breadcrumbs')) formationpro_breadcrumbs(); ?></span>
+		<h1 class="page-title"><?php the_title(); ?><span class="breadcrumbs"><?php if (function_exists('formationpro_breadcrumbs')) formationpro_breadcrumbs(); ?></span></h1>
 		</header><!-- .entry-header -->
 		<div id="primary_wrap">
 		<div id="primary" class="content-area">
