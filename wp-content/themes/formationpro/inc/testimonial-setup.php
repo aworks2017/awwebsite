@@ -353,9 +353,13 @@ public function widget( $args, $instance ) {
 	echo $args['before_widget'];
 	echo $before_title.'RELATED CONTENT'.$after_title;
 	echo '<ul>';
+	$new_related_pages  = array();
 	foreach ( $related_pages as $i=>$page ) {
 		if($i>13) break;
 		if(in_array($page->ID,$top_level)) continue;
+		array_push($new_related_pages,$page);
+  	}
+	foreach ( $new_related_pages as $i=>$page ) {
   		$echo = '<li><a href="' . get_permalink($page->ID) . '">';
 		$echo .= $page->post_title;
 		$echo .= '</a></li>';
