@@ -350,7 +350,6 @@ public function widget( $args, $instance ) {
 	);
 
 	$related_pages = get_pages($args);
-	var_dump($related_pages);
 	echo $args['before_widget'];
 	echo $before_title.'RELATED CONTENT'.$after_title;
 	echo '<ul>';
