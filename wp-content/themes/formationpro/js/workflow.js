@@ -168,7 +168,7 @@ function show_job(data) {
     jQuery("#task-bloc").html(task_output);
 
 	notes_output += '<div id="top_bloc_2" class="col-md-12">';
-    notes_output += (data.stopping_point) ? '<div class="col-md-12"><b>Last Completed Step:</b> ' + data.stopping_point+'</div>'  : '';
+    notes_output += (data.stopping_point) ? '<div class="col-md-12"><b>Associate Notes:</b><br/> ' + data.stopping_point+'</div>'  : '';
 	notes_output += '</div>';
     notes_output += (data.production_notes) ? '<div class="col-md-12"><div class="col-md-12"><br/><b>Production Notes:</b><p>' + data.production_notes + '</p></div></div>' : '';
 
@@ -179,7 +179,6 @@ function show_job(data) {
 
     var status_checks = '<input type="radio" name="action_stop" value="Completed"> Completed<br/><input type="radio" name="action_stop" value="In Progress"> In Progress<br/><input type="radio" name="action_stop" value="Issue"> Issue';
     stop_output_left += '<div class="col-md-12 form-group"><div class="col-md-5"><b>Status:</b></div><div class="col-md-7">' + status_checks + '</div></div>';
-    /*stop_output_left += '<div id="action_stopping_point_block" class="col-md-12 form-group" style="display:none"><div class="col-md-5"><b>Last Completed Step:</b></div><div class="col-md-7"><input id="action_stopping_point" type="text"/></div></div>';*/
 
     jQuery("#stop-bloc .left").html(stop_output_left);
 
