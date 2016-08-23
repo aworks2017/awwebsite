@@ -183,7 +183,7 @@ function show_job(data) {
 
     jQuery("#stop-bloc .left").html(stop_output_left);
 
-    stop_output_right += '<div class="col-md-12 form-group"><div class="col-md-2"><b>Associate Notes:</b></div><div class="col-md-10"><textarea id="action_info"></textarea></div></div>';
+    stop_output_right += '<div class="col-md-12 form-group"><div class="col-md-12"><b>Associate Notes:</b></div><div class="col-md-12"><textarea id="action_info"></textarea></div></div>';
     stop_output_right += '<div class="col-md-12 form-group"><a id="end-stop-workflow"  class="link grey" style="display:none;">Submit</a></div>';
 
     jQuery("#stop-bloc .right").html(stop_output_right);
