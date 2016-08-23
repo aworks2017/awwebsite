@@ -26,7 +26,7 @@ jQuery(document).ready(function(e) {
 
     jQuery("#autonomyworks-home").on("change", "input[type=radio][name=action_stop]", function() {
         var action_stop = jQuery(this).val();
-        if (action_stop == 'In Progress') {
+        /*if (action_stop == 'In Progress') {
             jQuery("#action_stopping_point_block").slideDown();
             jQuery("#end-stop-workflow").attr('require', 'action_stopping_point');
             if (jQuery("#action_stopping_point").val().trim() == '') {
@@ -34,7 +34,7 @@ jQuery(document).ready(function(e) {
                 jQuery("#action_stopping_point").focus();
             } else jQuery("#end-stop-workflow").css("opacity", "1");
 
-        } else if (action_stop == 'Issue') {
+        } else*/ if (action_stop == 'Issue') {
             jQuery("#end-stop-workflow").attr('require', 'action_info');
             if (jQuery("#action_info").val().trim() == '') {
                 jQuery("#end-stop-workflow").css("opacity", "0.5");
@@ -46,7 +46,7 @@ jQuery(document).ready(function(e) {
         jQuery("#end-stop-workflow").fadeIn();
     });
 
-    jQuery("#autonomyworks-home").on("keyup", "#action_stopping_point", function() {
+    /*jQuery("#autonomyworks-home").on("keyup", "#action_stopping_point", function() {
         var action_stopping_point = jQuery(this).val();
         if (jQuery("#end-stop-workflow").attr('require') == 'action_stopping_point') {
             if (action_stopping_point != '') {
@@ -55,7 +55,7 @@ jQuery(document).ready(function(e) {
                 jQuery("#end-stop-workflow").css("opacity", "0.5");
             }
         }
-    });
+    });*/
     jQuery("#autonomyworks-home").on("keyup", "#action_info", function() {
         var action_info = jQuery(this).val();
         if (jQuery("#end-stop-workflow").attr('require') == 'action_info') {
@@ -80,12 +80,12 @@ jQuery(document).ready(function(e) {
         var action_stop = jQuery('input[name="action_stop"]:checked').val();
         if (action_stop === "undefined") return false;
         var action_info = jQuery('#action_info').val();
-        var action_stopping_point = jQuery('#action_stopping_point').val();
+        /*var action_stopping_point = jQuery('#action_stopping_point').val();*/
         jQuery.post(workflow.ajax_url, {
                 action: 'end_job',
                 jobId: jobId,
                 action_stop: action_stop,
-                action_stopping_point: action_stopping_point,
+                /*action_stopping_point: action_stopping_point,*/
                 action_info: action_info
             },
             function(data) {
@@ -139,10 +139,10 @@ jQuery(document).ready(function(e) {
         }
     });
 
-	jQuery("#autonomyworks-home").on("keypress", "#action_stopping_point", function() {
+	/*jQuery("#autonomyworks-home").on("keypress", "#action_stopping_point", function() {
 		var val = jQuery(this).val();
 		if(val.length>=50) return false;
-	});
+	});*/
 
 });
 
@@ -179,7 +179,7 @@ function show_job(data) {
 
     var status_checks = '<input type="radio" name="action_stop" value="Completed"> Completed<br/><input type="radio" name="action_stop" value="In Progress"> In Progress<br/><input type="radio" name="action_stop" value="Issue"> Issue';
     stop_output_left += '<div class="col-md-12 form-group"><div class="col-md-5"><b>Status:</b></div><div class="col-md-7">' + status_checks + '</div></div>';
-    stop_output_left += '<div id="action_stopping_point_block" class="col-md-12 form-group" style="display:none"><div class="col-md-5"><b>Last Completed Step:</b></div><div class="col-md-7"><input id="action_stopping_point" type="text"/></div></div>';
+    /*stop_output_left += '<div id="action_stopping_point_block" class="col-md-12 form-group" style="display:none"><div class="col-md-5"><b>Last Completed Step:</b></div><div class="col-md-7"><input id="action_stopping_point" type="text"/></div></div>';*/
 
     jQuery("#stop-bloc .left").html(stop_output_left);
 
