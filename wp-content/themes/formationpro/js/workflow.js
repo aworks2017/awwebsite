@@ -139,10 +139,10 @@ jQuery(document).ready(function(e) {
         }
     });
 
-	/*jQuery("#autonomyworks-home").on("keypress", "#action_stopping_point", function() {
+	jQuery("#autonomyworks-home").on("keypress", "#action_info", function() {
 		var val = jQuery(this).val();
-		if(val.length>=50) return false;
-	});*/
+		if(val.length>=150) return false;
+	});
 
 });
 
