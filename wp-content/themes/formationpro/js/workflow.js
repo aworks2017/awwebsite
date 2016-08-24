@@ -148,7 +148,7 @@ function show_job(data) {
     jQuery("#task-bloc").html(task_output);
 
 	notes_output += '<div id="top_bloc_2" class="col-md-12">';
-    notes_output += (data.stopping_point) ? '<div class="col-md-12"><b>Associate Notes:</b><br/> ' + data.notes+'</div>'  : '';
+    notes_output += (data.notes) ? '<div class="col-md-12"><b>Associate Notes:</b><br/> ' + data.notes+'</div>'  : '';
 	notes_output += '</div>';
     notes_output += (data.production_notes) ? '<div class="col-md-12"><div class="col-md-12"><br/><b>Production Notes:</b><p>' + data.production_notes + '</p></div></div>' : '';
 
