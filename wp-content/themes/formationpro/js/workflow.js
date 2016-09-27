@@ -137,7 +137,8 @@ function show_job(data) {
 	task_output += '<div id="top_bloc_1">';
     task_output += (data.account_name) ? '<div class="col-md-12 form-group"><div class="col-xs-12 col-sm-4"><b>Client:</b></div><div class="col-xs-12 col-sm-8">' + data.account_name + '<br> </div></div>' : '';
 
-    task_output += (data.deliverable_name) ? '<div class="col-md-12 form-group"><div class="col-xs-12 col-sm-4"><b>Deliverable:</b></div><div class="col-xs-12 col-sm-8">' + data.deliverable_name +'</div></div>' : '';
+    task_output += (data.deliverable_name) ? '<div class="col-md-12 form-group"><div class="col-xs-12 col-sm-4"><b>Deliverable Name:</b></div><div class="col-xs-12 col-sm-8">' + data.deliverable_name +'</div></div>' : '';
+	task_output += (data.deliverable_id) ? '<div class="col-md-12 form-group"><div class="col-xs-12 col-sm-4"><b>Deliverable ID:</b></div><div class="col-xs-12 col-sm-8">' + data.deliverable_id +'</div></div>' : '';
 
     task_output += (data.name) ? '<div class="col-md-12 form-group"><div class="col-xs-12 col-sm-4"><b>Task:</b></div><div class="col-xs-12 col-sm-8">' + data.name + '</div></div>' : '';
     task_output += (data.account_name||data.deliverable_name||data.name) ?'<hr style="width:100%">':'';
