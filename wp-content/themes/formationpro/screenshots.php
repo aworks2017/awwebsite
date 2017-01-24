@@ -4,16 +4,13 @@
 Template Name: Screenshots
 
 */
-add_action( 'wp_enqueue_scripts', function(){
-	wp_enqueue_style( 'style-name', get_template_directory_uri() . '/css/history.css' );
-});
 
-// if(count($_POST)>0) {
-	// print"<pre>"; print_r($_POST);
-// }
+add_action( 'wp_enqueue_scripts', function(){
+	wp_enqueue_style( 'style-name', get_template_directory_uri() . '/css/dropzone.min.css' );
+});
+wp_enqueue_script( 'script', get_template_directory_uri() . '/js/dropzone.min.js', array ( 'jquery' ), 1.1, true);
 get_header('centro'); ?>
-<script type="text/javascript" src="dropzone.min.js"></script>
-<link href="dropzone.min.css" rel="stylesheet" />
+
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <div id="primary_home" class="content-area">
 	<div id="content" class="fullwidth" role="main">

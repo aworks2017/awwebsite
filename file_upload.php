@@ -32,7 +32,7 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	$form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
 	$message = 'Hi '.$POST['Name'].'! Please find attachment sent on '.$POST['date_entered'].'';
 	 create_zip($attachments,$targetfolder.'my-archive.zip');
-	 $sent_response = mail_attachment('my-archive.zip', $targetfolder, $_POST[ 'userEmail' ], 'ht.test7@gmail.com', 'Helfertech', 'amir.khan@helfertech.com', 'Test Form Email', $message);
+	 $sent_response = mail_attachment('my-archive.zip', $targetfolder, $_POST[ 'userEmail' ], 'ht.test7@gmail.com', 'Helfertech', 'saeed@helfertech.com', 'Test Form Email', $message);
 	 echo $sent_response;die;
 } 
 function create_zip($files = array(),$destination = '',$overwrite = false) {
