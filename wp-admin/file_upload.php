@@ -1,8 +1,8 @@
 <?php
 if ( defined('ABSPATH') )
-	require_once(ABSPATH . 'vendor/autoload.php');
+	require_once(ABSPATH . 'phpmailer/PHPMailerAutoload.php');
 else
-	require_once( dirname( dirname( __FILE__ ) ) . '/vendor/autoload.php' );
+	require_once( dirname( dirname( __FILE__ ) ) . '/phpmailer/PHPMailerAutoload.php' );
 function my_custom_email_content_type( $content_type ) {
 	return 'text/html';
 }
@@ -61,10 +61,10 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	$mail->addAttachment($targetfolder."my-archive.zip", "my-archive.zip");
 	$mail->isHTML(true);
 
-	$mail->Subject = "Test Email from autonomyworks";
-	$mail->Body = "<i>Mail body in HTML</i>";
-	$mail->AltBody = 'Hi '.$_POST[ 'Name' ].'!, form submission id is '.$form_submission_id.'';
-
+	$mail->Subject = "Centro Form Data";
+	$mail->Body = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}";
+	$mail->AltBody = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}";
+	echo 'thsi is test';
 	if(!$mail->send()) 
 	{
 		echo "Mailer Error: " . $mail->ErrorInfo;
