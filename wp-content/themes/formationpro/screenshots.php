@@ -27,7 +27,7 @@ add_action( 'wp_enqueue_scripts', function(){
 
 		<tr>
 		<td>Email:</td>
-		<td><input type="text" class="InputBox" name="userEmail" value=""></td>
+		<td style="margin-top: 5px;"><input type="text" class="InputBox" name="userEmail" value=""></td>
 		</tr>
 		<tr>
 		<td>Due Date:</td>

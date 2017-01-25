@@ -59,11 +59,13 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	$mail->isHTML(true);
 
 	$mail->Subject = "Centro form data";
+	$originalDate = "2010-03-21";
+	$date_formated = date("mm/dd/yyyy", strtotime($_POST['date_entered']));
 	$form_data = "<p>
 					<ul>
 					  <li><b>Name:&nbsp;</b>{$_POST['Name']}</li>
 					  <li><b>Email:&nbsp;</b>{$_POST['userEmail']}</li>
-					  <li><b>Due Date:&nbsp;</b>{$_POST['date_entered']}</li>
+					  <li><b>Due Date:&nbsp;</b>{$date_formated}</li>
 					</ul>
 				</p>";
 	$mail->Body = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}.{$form_data}";
