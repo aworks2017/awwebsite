@@ -46,7 +46,7 @@ add_action( 'wp_enqueue_scripts', function(){
 		<div>
 		<br>
 		<input type="button" name="submit" id="submit" value="Submit" class="btnRegister" onclick="checkFileUploaded()">
-		<span style="color:red;display:none;" id="file_upload_error">Please select atleast on file to upload.</span>
+		<span style="color:red;display:none;" id="file_upload_error">Please select atleast one file to upload.</span>
 		</div>
 		</form>	
 	</div>
