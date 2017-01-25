@@ -40,7 +40,7 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	//Set SMTP host name                          
 	$mail->Host = "smtp.gmail.com";
 	//Set this to true if SMTP host requires authentication to send email
-	$mail->SMTPAuth = true;                          
+	$mail->SMTPAuth = false;                          
 	//Provide username and password     
 	$mail->Username = "ht.test7@gmail";                 
 	$mail->Password = ".ht237!!";                           
