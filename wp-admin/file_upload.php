@@ -1,8 +1,8 @@
 <?php
 if ( defined('ABSPATH') )
-	require_once(ABSPATH . 'wp-load.php');
+	require_once(ABSPATH . 'vendor/autoload.php');
 else
-	require_once( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );
+	require_once( dirname( dirname( __FILE__ ) ) . '/vendor/autoload.php' );
 function my_custom_email_content_type( $content_type ) {
 	return 'text/html';
 }
@@ -36,10 +36,43 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	$message = 'Hi '.$POST['Name'].'! Please find attachment sent on '.$POST['date_entered'].'
 				Form submission ID is '.$form_submission_id.'';
 	 create_zip($attachments,$targetfolder.'my-archive.zip');
-	 $sent_response = mail_attachment('my-archive.zip', $targetfolder, $_POST[ 'userEmail' ], 'ht.test7@gmail.com', 'autonomyworks', 'saeed@helfertech.com', 'Test Form Email', $message);
-	  if($sent_response){
-		  echo $sent_response;die;
-	  }
+	 
+	$mail = new PHPMailer;
+	//Enable SMTP debugging. 
+	$mail->SMTPDebug = 3;                               
+	//Set PHPMailer to use SMTP.
+	$mail->isSMTP();            
+	//Set SMTP host name                          
+	$mail->Host = "smtp.gmail.com";
+	//Set this to true if SMTP host requires authentication to send email
+	$mail->SMTPAuth = true;                          
+	//Provide username and password     
+	$mail->Username = "ht.test7@gmail";                 
+	$mail->Password = ".ht237!!";                           
+	//If SMTP requires TLS encryption then set it
+	$mail->SMTPSecure = "tls";                           
+	//Set TCP port to connect to 
+	$mail->Port = 587;                                   
+
+	$mail->From = "ht.test7@gmail";
+	$mail->FromName = "autonomyworks";
+
+	$mail->addAddress($_POST[ 'userEmail' ], $_POST[ 'Name' ]);
+	$mail->addAttachment($targetfolder."my-archive.zip", "my-archive.zip");
+	$mail->isHTML(true);
+
+	$mail->Subject = "Test Email from autonomyworks";
+	$mail->Body = "<i>Mail body in HTML</i>";
+	$mail->AltBody = 'Hi '.$_POST[ 'Name' ].'!, form submission id is '.$form_submission_id.'';
+
+	if(!$mail->send()) 
+	{
+		echo "Mailer Error: " . $mail->ErrorInfo;
+	} 
+	else 
+	{
+		echo "Message has been sent successfully";
+	}	 
 } 
 function create_zip($files = array(),$destination = '',$overwrite = false) {
 	//if the zip file already exists and overwrite is false, return false
@@ -80,45 +113,4 @@ function create_zip($files = array(),$destination = '',$overwrite = false) {
 	{
 		return false;
 	}
-}
-function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $replyto, $subject, $message) {
-	$file = $path.$filename;
-	$file_size = filesize($file);
-	$handle = fopen($file, "r");
-	$content = fread($handle, $file_size);
-	fclose($handle);
-
-	$content = chunk_split(base64_encode($content));
-	$uid = md5(uniqid(time()));
-	$name = basename($file);
-
-	$eol = PHP_EOL;
-
-	// Basic headers
-	$header = "From: ".$from_name." <".$from_mail.">".$eol;
-	$header .= "Reply-To: ".$replyto.$eol;
-	$header .= "MIME-Version: 1.0\r\n";
-	$header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"";
-
-	// Put everything else in $message
-	$message = "--".$uid.$eol;
-	$message .= "Content-Type: text/html; charset=ISO-8859-1".$eol;
-	$message .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
-	$message .= $body.$eol;
-	$message .= "--".$uid.$eol;
-	$message .= "Content-Type: application/pdf; name=\"".$filename."\"".$eol;
-	$message .= "Content-Transfer-Encoding: base64".$eol;
-	$message .= "Content-Disposition: attachment; filename=\"".$filename."\"".$eol;
-	$message .= $content.$eol;
-	$message .= "--".$uid."--";
-
-	if (wp_mail($mailto, $subject, $message, $header))
-	{
-		return "Yes";
-	}
-	else
-	{
-		return "No";
-	}
-	    
 }
