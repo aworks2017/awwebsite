@@ -42,14 +42,14 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	//Set this to true if SMTP host requires authentication to send email
 	$mail->SMTPAuth = true;                          
 	//Provide username and password     
-	$mail->Username = "ht.test7@gmail";                 
+	$mail->Username = "ht.test7@gmail.com";                 
 	$mail->Password = ".ht237!!";                           
 	//If SMTP requires TLS encryption then set it
 	$mail->SMTPSecure = "tls";                           
 	//Set TCP port to connect to 
 	$mail->Port = 587;                                   
 
-	$mail->From = "ht.test7@gmail";
+	$mail->From = "ht.test7@gmail.com";
 	$mail->FromName = "autonomyworks";
 
 	$mail->addAddress($_POST[ 'userEmail' ], $_POST[ 'Name' ]);
