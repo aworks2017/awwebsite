@@ -1,4 +1,5 @@
 <?php
+echo "saeed 1";
 echo getcwd();
 require_once('../phpmailer/class.phpmailer.php');
 $targetfolder = "dropzone/files/".$_POST[ 'userEmail' ].'/';
