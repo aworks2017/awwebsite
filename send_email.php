@@ -1,8 +1,8 @@
 <?php
 	if ( defined('ABSPATH') )
-		require_once(ABSPATH . '\vendor\autoload.php');
+		require_once(ABSPATH . '/vendor/autoload.php');
 	else
-	require_once(dirname( __FILE__ )  . '\vendor\autoload.php' );
+	require_once(dirname( __FILE__ )  . '/vendor/autoload.php' );
 	$targetfolder = "dropzone/files/saeed@helfertech/";
 	$mail = new PHPMailer;
 	//Enable SMTP debugging. 
