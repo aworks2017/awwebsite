@@ -8,33 +8,34 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
     $upload_overrides = array( 'test_form' => false );
 
     $attachments = array();
-		if (!file_exists($targetfolder)) {
-			mkdir($targetfolder, 0777, true);
-		}
-		move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder.basename($_FILES['file']['name']));
-		foreach($_FILES['file']['tmp_name'] as $i=>$file){
-			move_uploaded_file($file, $targetfolder.basename($_FILES['file']['name'][$i]));
-		}
-		$attachments = array();
-		if (is_dir($targetfolder)){
-		  if ($dht = opendir($targetfolder)){
-			while (($file = readdir($dht)) !== false){
-				if($file=='..' || $file=='.'){
-					continue;
-				}
-				$attachments []= $targetfolder.$file;
+	if (!file_exists($targetfolder)) {
+		mkdir($targetfolder, 0777, true);
+	}
+	move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder.basename($_FILES['file']['name']));
+	foreach($_FILES['file']['tmp_name'] as $i=>$file){
+		move_uploaded_file($file, $targetfolder.basename($_FILES['file']['name'][$i]));
+	}
+	$attachments = array();
+	if (is_dir($targetfolder)){
+	  if ($dht = opendir($targetfolder)){
+		while (($file = readdir($dht)) !== false){
+			if($file=='..' || $file=='.'){
+				continue;
 			}
-			closedir($dht);
-		  }
-		}		
+			$attachments []= $targetfolder.$file;
+		}
+		closedir($dht);
+	  }
+	}		
 	$form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
 	$message = 'Hi '.$POST['Name'].'! Please find attachment sent on '.$POST['date_entered'].'
 				Form submission ID is '.$form_submission_id.'';			
-	 create_zip($attachments,$targetfolder.'centro-form.zip');
+	create_zip($attachments, $targetfolder.'centro-form.zip');
 	 
 	$mail = new PHPMailer;
 	//Enable SMTP debugging. 
-	$mail->SMTPDebug = 3;                               
+	$mail->SMTPDebug = false;
+	$mail->do_debug = 0;                             
 	//Set PHPMailer to use SMTP.
 	$mail->isSMTP();            
 	//Set SMTP host name                          
@@ -62,9 +63,11 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	if($mail->send()) 
 	{
 		ob_clean();
-		echo json_encode(array(
-		'return_url'=>'?p=1238&form_submission_id='.$form_submission_id,
-		)
+		rmdir($targetfolder);
+		echo json_encode(
+			array(
+				'return_url'=>'?p=1238&form_submission_id='.$form_submission_id,
+			)
 		);
 		
 	} 
