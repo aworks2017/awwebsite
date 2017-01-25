@@ -1,7 +1,10 @@
 <?php
 require_once('../phpmailer/class.phpmailer.php');
 require_once('../phpmailer/config.php');
-$targetfolder = "dropzone/files/".$_POST[ 'userEmail' ].'/';
+$form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
+$targetfolder = "dropzone/files/".$form_submission_id.'/';
+ini_set('display_errors', 0);
+error_reporting(0);
 if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_POST[ 'userEmail' ])) {
 
     $files = $_FILES[ 'file' ];
@@ -26,10 +29,8 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 		}
 		closedir($dht);
 	  }
-	}		
-	$form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
-	$message = 'Hi '.$POST['Name'].'! Please find attachment sent on '.$POST['date_entered'].'
-				Form submission ID is '.$form_submission_id.'';			
+	}
+	
 	create_zip($attachments, $targetfolder.'centro-form.zip');
 	 
 	$mail = new PHPMailer;
@@ -53,13 +54,20 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	$mail->From = $email_config['from_email'];
 	$mail->FromName = $email_config['from_name'];
 
-	$mail->addAddress($_POST[ 'userEmail' ], $_POST[ 'Name' ]);
+	$mail->addAddress($_POST['userEmail'], $_POST['Name']);
 	$mail->addAttachment($targetfolder."centro-form.zip", "centro-form.zip");
 	$mail->isHTML(true);
 
 	$mail->Subject = "Centro form data";
-	$mail->Body = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}";
-	$mail->AltBody = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}";			
+	$form_data = "<p>
+					<ul>
+					  <li><b>Name:&nbsp;</b>{$_POST['Name']}</li>
+					  <li><b>Email:&nbsp;</b>{$_POST['userEmail']}</li>
+					  <li><b>Due Date:&nbsp;</b>{$_POST['date_entered']}</li>
+					</ul>
+				</p>";
+	$mail->Body = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}.{$form_data}";
+	$mail->AltBody = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}.{$form_data}";			
 	if($mail->send()) 
 	{
 		ob_clean();

@@ -21,16 +21,16 @@ add_action( 'wp_enqueue_scripts', function(){
 		<form name="screenshotForm"  id="screenshotForm" onSubmit=window.location='http://google.com' action="<?php echo admin_url('file_upload.php');?>" method="post" enctype="multipart/form-data">
 		<table border="0" width="500" align="center" class="table">
 		<tr>
-		<td> Name</td>
+		<td> Name:</td>
 		<td><input type="text" class="InputBox" name="Name" value=""></td>
 		</tr>
 
 		<tr>
-		<td>Email</td>
+		<td>Email:</td>
 		<td><input type="text" class="InputBox" name="userEmail" value=""></td>
 		</tr>
 		<tr>
-		<td>Date</td>
+		<td>Due Date:</td>
 		<td><input type="date" name="date_entered"></td>
 		</tr>
 		</table>
