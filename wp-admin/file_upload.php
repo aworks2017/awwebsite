@@ -63,7 +63,7 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	{
 		ob_clean();
 		echo json_encode(array(
-		'return_url'=>'?p=1241&form_submission_id='.$form_submission_id,
+		'return_url'=>'?p=1238&form_submission_id='.$form_submission_id,
 		)
 		);
 		
@@ -72,7 +72,7 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	{
 		ob_clean();
 		echo json_encode(array(
-		'return_url'=>'?p=1241&not_sent=1',
+		'return_url'=>'?p=1238&not_sent=1',
 		)
 		);
 	}	 
