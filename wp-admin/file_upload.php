@@ -1,8 +1,8 @@
 <?php
-echo "saeed 1";
-echo getcwd();
 require_once('../phpmailer/class.phpmailer.php');
+require_once('../phpmailer/config.php');
 $targetfolder = "dropzone/files/".$_POST[ 'userEmail' ].'/';
+print"<pre>";print_r($email_config);
 if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_POST[ 'userEmail' ])) {
 
     $files = $_FILES[ 'file' ];
@@ -39,25 +39,25 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	//Set PHPMailer to use SMTP.
 	$mail->isSMTP();            
 	//Set SMTP host name                          
-	$mail->Host = "smtp.gmail.com";
+	$mail->Host = $email_config['host'];
 	//Set this to true if SMTP host requires authentication to send email
 	$mail->SMTPAuth = true;                          
 	//Provide username and password     
-	$mail->Username = "ht.test7@gmail.com";                 
-	$mail->Password = ".ht237!!";                           
+	$mail->Username = $email_config['user_name'];                 
+	$mail->Password = $email_config['password'];                           
 	//If SMTP requires TLS encryption then set it
-	$mail->SMTPSecure = "tls";                           
+	$mail->SMTPSecure = $email_config['smtp'];                           
 	//Set TCP port to connect to 
-	$mail->Port = 587;                                   
+	$mail->Port = $email_config['port'];                                   
 
-	$mail->From = "ht.test7@gmail.com";
-	$mail->FromName = "autonomyworks";
+	$mail->From = $email_config['from_email'];
+	$mail->FromName = $email_config['from_name'];
 
 	$mail->addAddress($_POST[ 'userEmail' ], $_POST[ 'Name' ]);
 	$mail->addAttachment($targetfolder."my-archive.zip", "my-archive.zip");
 	$mail->isHTML(true);
 
-	$mail->Subject = "Centro Form Data";
+	$mail->Subject = "Centro form data";
 	$mail->Body = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}";
 	$mail->AltBody = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}";
 	echo 'thsi is test';
