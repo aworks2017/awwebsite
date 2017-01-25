@@ -38,16 +38,16 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	//Set PHPMailer to use SMTP.
 	$mail->isSMTP();            
 	//Set SMTP host name                          
-	$mail->Host = "relay-hosting.secureserver.net";
+	$mail->Host = "smtp.gmail.com";
 	//Set this to true if SMTP host requires authentication to send email
-	$mail->SMTPAuth = false;                          
+	$mail->SMTPAuth = true;                          
 	//Provide username and password     
 	$mail->Username = "ht.test7@gmail";                 
 	$mail->Password = ".ht237!!";                           
 	//If SMTP requires TLS encryption then set it
-	$mail->SMTPSecure = false;                           
+	$mail->SMTPSecure = "tls";                           
 	//Set TCP port to connect to 
-	$mail->Port = 25;                                   
+	$mail->Port = 587;                                   
 
 	$mail->From = "ht.test7@gmail";
 	$mail->FromName = "autonomyworks";
