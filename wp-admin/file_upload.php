@@ -79,36 +79,43 @@ function create_zip($files = array(),$destination = '',$overwrite = false) {
 	}
 }
 function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $replyto, $subject, $message) {
-	
-	    $file = $path.$filename;
-	    $file_size = filesize($file);
-	    $handle = fopen($file, "r");
-	    $content = fread($handle, $file_size);
-	    fclose($handle);
-	    $content = chunk_split(base64_encode($content));
-	    
-	    $uid = md5(uniqid(time()));
-	    
-	    $header = $from_mail."\r\n";
-	    $header .= "Reply-To: ".$replyto."\r\n";
-	    $header .= "MIME-Version: 1.0\r\n";
-	    $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
-	    $header .= "This is a multi-part message in MIME format.\r\n";
-	    $header .= "--".$uid."\r\n";
-	    $header .= "Content-type:text/plain; charset=iso-8859-1\r\n";
-	    $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-	    $header .= $message."\r\n\r\n";
-	    $header .= "--".$uid."\r\n";
-	    $header .= "Content-Type: application/octet-stream; name=\"".$filename."\"\r\n";
-	    $header .= "Content-Transfer-Encoding: base64\r\n";
-	    $header .= "Content-Disposition: attachment; filename=\"".$filename."\"\r\n\r\n";
-	    $header .= $content."\r\n\r\n";
-	    $header .= "--".$uid."--";
-	    // Messages for testing only, nobody will see them unless this script URL is visited manually
-	    if (mail($mailto, $subject, "", $header)) {
-	        return "Yes";
-	    } else {
-	        return "No";
-	    }
-	    
+	$file = $path.$filename;
+	$file_size = filesize($file);
+	$handle = fopen($file, "r");
+	$content = fread($handle, $file_size);
+	fclose($handle);
+
+	$content = chunk_split(base64_encode($content));
+	$uid = md5(uniqid(time()));
+	$name = basename($file);
+
+	$eol = PHP_EOL;
+
+	// Basic headers
+	$header = "From: ".$from_name." <".$from_mail.">".$eol;
+	$header .= "Reply-To: ".$replyto.$eol;
+	$header .= "MIME-Version: 1.0\r\n";
+	$header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"";
+
+	// Put everything else in $message
+	$message = "--".$uid.$eol;
+	$message .= "Content-Type: text/html; charset=ISO-8859-1".$eol;
+	$message .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
+	$message .= $body.$eol;
+	$message .= "--".$uid.$eol;
+	$message .= "Content-Type: application/pdf; name=\"".$filename."\"".$eol;
+	$message .= "Content-Transfer-Encoding: base64".$eol;
+	$message .= "Content-Disposition: attachment; filename=\"".$filename."\"".$eol;
+	$message .= $content.$eol;
+	$message .= "--".$uid."--";
+
+	if (mail($mailto, $subject, $message, $header))
+	{
+		return "Yes";
 	}
+	else
+	{
+		return "No";
+	}
+	    
+}
