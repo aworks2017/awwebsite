@@ -9,6 +9,7 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_style( 'style-name', get_template_directory_uri() . '/css/dropzone.min.css' );
 });
  wp_enqueue_script( 'script', get_template_directory_uri() . '/js/dropzone.min.js');
+ wp_enqueue_script( 'script', get_template_directory_uri() . '/js/jquery.blockUI.js');
  get_header('centro'); 
  ?>
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -27,7 +28,7 @@ add_action( 'wp_enqueue_scripts', function(){
 
 		<tr>
 		<td>Email:</td>
-		<td style="margin-top: 5px;"><input type="text" class="InputBox" name="userEmail" value=""></td>
+		<td><input type="text" class="InputBox" name="userEmail" value="" style="margin-top: 5px;"></td>
 		</tr>
 		<tr>
 		<td>Due Date:</td>
@@ -44,7 +45,8 @@ add_action( 'wp_enqueue_scripts', function(){
 			</div>		
 		<div>
 		<br>
-		<input type="button" name="submit" id="submit" value="Submit" class="btnRegister">
+		<input type="button" name="submit" id="submit" value="Submit" class="btnRegister" onclick="checkFileUploaded()">
+		<span style="color:red;display:none;" id="file_upload_error">Please select atleast on file to upload.</span>
 		</div>
 		</form>	
 	</div>
@@ -61,8 +63,13 @@ add_action( 'wp_enqueue_scripts', function(){
 	</div><!-- #content .site-content -->
 </div><!-- #primary .content-area -->
  <script type="text/javascript">
-// $(document).ready(function(){
-	// Dropzone.autoDiscover = false;
+	function checkFileUploaded(){
+		if($(".dz-image-preview").length < 1){
+			$("#file_upload_error").show();
+		}else{
+			$.blockUI({ message: '<h1>Your form is submitting. Please wait...</h1>', baseZ: 10000, });
+		}
+	}
 	var element = "#dZUpload";
 	var myDropzone = new Dropzone(element,{
 		url: "<?php echo admin_url('file_upload.php');?>",
@@ -106,6 +113,5 @@ add_action( 'wp_enqueue_scripts', function(){
 			});			
 		}
      });
-    // });
  </script>
 <?php get_footer('centro'); ?>

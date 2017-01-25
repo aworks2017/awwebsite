@@ -60,7 +60,7 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 
 	$mail->Subject = "Centro form data";
 	$originalDate = "2010-03-21";
-	$date_formated = date("mm/dd/yyyy", strtotime($_POST['date_entered']));
+	$date_formated = date("m/d/YY", strtotime($_POST['date_entered']));
 	$form_data = "<p>
 					<ul>
 					  <li><b>Name:&nbsp;</b>{$_POST['Name']}</li>
