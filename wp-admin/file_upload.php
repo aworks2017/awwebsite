@@ -1,6 +1,6 @@
 <?php
 echo getcwd();
-require_once('../phpmailer/PHPMailerAutoload.php');
+require_once('../phpmailer/class.phpmailer.php');
 $targetfolder = "dropzone/files/".$_POST[ 'userEmail' ].'/';
 if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_POST[ 'userEmail' ])) {
 
