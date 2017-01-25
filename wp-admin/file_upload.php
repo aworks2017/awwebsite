@@ -1,5 +1,8 @@
 <?php
-
+if ( defined('ABSPATH') )
+	require_once(ABSPATH . 'wp-load.php');
+else
+	require_once( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );
 function my_custom_email_content_type( $content_type ) {
 	return 'text/html';
 }
@@ -109,7 +112,7 @@ function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $rep
 	$message .= $content.$eol;
 	$message .= "--".$uid."--";
 
-	if (mail($mailto, $subject, $message, $header))
+	if (wp_mail($mailto, $subject, $message, $header))
 	{
 		return "Yes";
 	}

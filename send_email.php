@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__. '\wp-load.php');
 $targetfolder = "dropzone/files/saeed@helfertech/";
 $form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
 $message = 'Hi '.$POST['Name'].'! Please find attachment sent on '.$POST['date_entered'].'
@@ -38,7 +39,7 @@ function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $rep
 	$message .= $content.$eol;
 	$message .= "--".$uid."--";
 
-	if (mail($mailto, $subject, $message, $header))
+	if (wp_mail($mailto, $subject, $message, $header))
 	{
 		return "Yes";
 	}
