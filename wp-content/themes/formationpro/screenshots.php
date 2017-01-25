@@ -8,9 +8,9 @@ Template Name: Screenshots
 add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_style( 'style-name', get_template_directory_uri() . '/css/dropzone.min.css' );
 });
-wp_enqueue_script( 'script', get_template_directory_uri() . '/js/dropzone.min.js', array ( 'jquery' ), 1.1, true);
-get_header('centro'); ?>
-
+ wp_enqueue_script( 'script', get_template_directory_uri() . '/js/dropzone.min.js');
+ get_header('centro'); 
+ ?>
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <div id="primary_home" class="content-area">
 	<div id="content" class="fullwidth" role="main">
@@ -18,7 +18,7 @@ get_header('centro'); ?>
 		<head>
 		</head>
 		<body>
-		<form name="screenshotForm"  id="screenshotForm" action="file_upload.php" method="post" enctype="multipart/form-data">
+		<form name="screenshotForm"  id="screenshotForm" action="<?php echo admin_url('file_upload.php');?>" method="post" enctype="multipart/form-data">
 		<table border="0" width="500" align="center" class="table">
 		<tr>
 		<td> Name</td>
@@ -63,9 +63,8 @@ get_header('centro'); ?>
 // $(document).ready(function(){
 	// Dropzone.autoDiscover = false;
 	var element = "#dZUpload";
-	// console.log(element);
 	var myDropzone = new Dropzone(element,{
-		url: "file_upload.php",
+		url: "<?php echo admin_url('file_upload.php');?>",
         addRemoveLinks: true,
 		uploadMultiple: true,
 		parallelUploads: 25,

@@ -1,9 +1,9 @@
 <?php
 
-    function my_custom_email_content_type( $content_type ) {
-        return 'text/html';
-    }
-		$targetfolder = "dropzone/files/".$_POST[ 'userEmail' ].'/';
+function my_custom_email_content_type( $content_type ) {
+	return 'text/html';
+}
+$targetfolder = "dropzone/files/".$_POST[ 'userEmail' ].'/';
 if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_POST[ 'userEmail' ])) {
 
     $files = $_FILES[ 'file' ];
@@ -30,10 +30,13 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 		  }
 		}		
 	$form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
-	$message = 'Hi '.$POST['Name'].'! Please find attachment sent on '.$POST['date_entered'].'';
+	$message = 'Hi '.$POST['Name'].'! Please find attachment sent on '.$POST['date_entered'].'
+				Form submission ID is '.$form_submission_id.'';
 	 create_zip($attachments,$targetfolder.'my-archive.zip');
-	 $sent_response = mail_attachment('my-archive.zip', $targetfolder, $_POST[ 'userEmail' ], 'ht.test7@gmail.com', 'Helfertech', 'saeed@helfertech.com', 'Test Form Email', $message);
-	 echo $sent_response;die;
+	 $sent_response = mail_attachment('my-archive.zip', $targetfolder, $_POST[ 'userEmail' ], 'ht.test7@gmail.com', 'autonomyworks', 'saeed@helfertech.com', 'Test Form Email', $message);
+	  if($sent_response){
+		  echo $sent_response;die;
+	  }
 } 
 function create_zip($files = array(),$destination = '',$overwrite = false) {
 	//if the zip file already exists and overwrite is false, return false
