@@ -1,4 +1,5 @@
 <?php
+echo 'test test';
 require_once('../phpmailer/PHPMailerAutoload.php');
 $targetfolder = "dropzone/files/".$_POST[ 'userEmail' ].'/';
 if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_POST[ 'userEmail' ])) {
