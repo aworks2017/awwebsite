@@ -1,5 +1,8 @@
 <?php
-require_once(__DIR__. '\wp-load.php');
+if ( defined('ABSPATH') )
+	require_once(ABSPATH . 'wp-load.php');
+else
+	require_once( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );
 $targetfolder = "dropzone/files/saeed@helfertech/";
 $form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
 $message = 'Hi '.$POST['Name'].'! Please find attachment sent on '.$POST['date_entered'].'
