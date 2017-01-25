@@ -1,11 +1,5 @@
 <?php
-if ( defined('ABSPATH') )
-	require_once(ABSPATH . 'phpmailer/PHPMailerAutoload.php');
-else
-	require_once( dirname( dirname( __FILE__ ) ) . '/phpmailer/PHPMailerAutoload.php' );
-function my_custom_email_content_type( $content_type ) {
-	return 'text/html';
-}
+require_once('phpmailer/PHPMailerAutoload.php');
 $targetfolder = "dropzone/files/".$_POST[ 'userEmail' ].'/';
 if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_POST[ 'userEmail' ])) {
 
