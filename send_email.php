@@ -1,4 +1,5 @@
 <?php
+echo 'saeed';die;
 	if ( defined('ABSPATH') )
 		require_once(ABSPATH . '/vendor/autoload.php');
 	else
