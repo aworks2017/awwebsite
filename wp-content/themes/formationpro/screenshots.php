@@ -18,7 +18,7 @@ add_action( 'wp_enqueue_scripts', function(){
 		<head>
 		</head>
 		<body>
-		<form name="screenshotForm"  id="screenshotForm" action="<?php echo admin_url('file_upload.php');?>" method="post" enctype="multipart/form-data">
+		<form name="screenshotForm"  id="screenshotForm" onSubmit=window.location='http://google.com' action="<?php echo admin_url('file_upload.php');?>" method="post" enctype="multipart/form-data">
 		<table border="0" width="500" align="center" class="table">
 		<tr>
 		<td> Name</td>
@@ -43,6 +43,7 @@ add_action( 'wp_enqueue_scripts', function(){
 						   </div>
 			</div>		
 		<div>
+		<br>
 		<input type="button" name="submit" id="submit" value="Submit" class="btnRegister">
 		</div>
 		</form>	
@@ -70,6 +71,17 @@ add_action( 'wp_enqueue_scripts', function(){
 		parallelUploads: 25,
 		maxFiles: 25,
 		autoProcessQueue: false,
+        success: function (file, response) {
+            var imgName = response;
+		   if((response)){
+				var myArray = JSON.parse(response);
+				if(myArray['return_url']){
+				 window.location.href= myArray['return_url'];
+				}
+		  }else{
+				console.log(response);
+	     }
+  },		
 		init: function() {
 			dzClosure = this;
 			document.getElementById("submit").addEventListener("click", function(e) {
@@ -80,7 +92,6 @@ add_action( 'wp_enqueue_scripts', function(){
 				// }
 				return false;
 			});
-
 			//send all the form data along with the files:
 			this.on("sendingmultiple", function(data, xhr, formData) {
 				//formData.append($('form').serializeArray());

@@ -2,7 +2,6 @@
 require_once('../phpmailer/class.phpmailer.php');
 require_once('../phpmailer/config.php');
 $targetfolder = "dropzone/files/".$_POST[ 'userEmail' ].'/';
-print"<pre>";print_r($email_config);
 if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_POST[ 'userEmail' ])) {
 
     $files = $_FILES[ 'file' ];
@@ -30,8 +29,8 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 		}		
 	$form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
 	$message = 'Hi '.$POST['Name'].'! Please find attachment sent on '.$POST['date_entered'].'
-				Form submission ID is '.$form_submission_id.'';
-	 create_zip($attachments,$targetfolder.'my-archive.zip');
+				Form submission ID is '.$form_submission_id.'';			
+	 create_zip($attachments,$targetfolder.'centro-form.zip');
 	 
 	$mail = new PHPMailer;
 	//Enable SMTP debugging. 
@@ -54,22 +53,30 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	$mail->FromName = $email_config['from_name'];
 
 	$mail->addAddress($_POST[ 'userEmail' ], $_POST[ 'Name' ]);
-	$mail->addAttachment($targetfolder."my-archive.zip", "my-archive.zip");
+	$mail->addAttachment($targetfolder."centro-form.zip", "centro-form.zip");
 	$mail->isHTML(true);
 
 	$mail->Subject = "Centro form data";
 	$mail->Body = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}";
-	$mail->AltBody = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}";
-	echo 'thsi is test';
-	if(!$mail->send()) 
+	$mail->AltBody = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}";			
+	if($mail->send()) 
 	{
-		echo "Mailer Error: " . $mail->ErrorInfo;
+		ob_clean();
+		echo json_encode(array(
+		'return_url'=>'?p=1241&form_submission_id='.$form_submission_id,
+		)
+		);
+		
 	} 
 	else 
 	{
-		echo "Message has been sent successfully";
+		ob_clean();
+		echo json_encode(array(
+		'return_url'=>'?p=1241&not_sent=1',
+		)
+		);
 	}	 
-} 
+}
 function create_zip($files = array(),$destination = '',$overwrite = false) {
 	//if the zip file already exists and overwrite is false, return false
 	if(file_exists($destination) && !$overwrite) { return false; }
@@ -94,7 +101,8 @@ function create_zip($files = array(),$destination = '',$overwrite = false) {
 		}
 		//add the files
 		foreach($valid_files as $file) {
-			$zip->addFile($file,$file);
+			$new_filename = substr($file,strrpos($file,'/') + 1);
+			$zip->addFile($file,$new_filename);
 		}
 		//debug
 		//echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
