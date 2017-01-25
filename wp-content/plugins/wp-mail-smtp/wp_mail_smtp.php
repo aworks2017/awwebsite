@@ -39,16 +39,16 @@ define('WPMS_SMTP_PASS', 'password'); // SMTP authentication password, only used
 // Array of options and their default values
 global $wpms_options; // This is horrible, should be cleaned up at some point
 $wpms_options = array (
-	'mail_from' => '',
-	'mail_from_name' => '',
+	'mail_from' => 'ht.test7@gmail.com',
+	'mail_from_name' => 'Autonomyworks',
 	'mailer' => 'smtp',
 	'mail_set_return_path' => 'false',
 	'smtp_host' => 'localhost',
 	'smtp_port' => '25',
 	'smtp_ssl' => 'none',
-	'smtp_auth' => false,
-	'smtp_user' => '',
-	'smtp_pass' => '',
+	'smtp_auth' => true,
+	'smtp_user' => 'ht.test7@gmail.com',
+	'smtp_pass' => '.ht237!!',
 	'pepipost_user' => '',
 	'pepipost_pass' => '',
 	'pepipost_port' => '2525',
