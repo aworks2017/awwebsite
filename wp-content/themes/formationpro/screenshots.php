@@ -110,7 +110,6 @@ add_action( 'wp_enqueue_scripts', function(){
 					if(isEmpty(field_val)){
 						if($("#span_"+name_field)){
 							$("#span_"+name_field).show();
-							return false;
 						}
 					}
 				});		
