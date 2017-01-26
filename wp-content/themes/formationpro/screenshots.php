@@ -10,7 +10,7 @@ add_action( 'wp_enqueue_scripts', function(){
 });
  wp_enqueue_script( 'script', get_template_directory_uri() . '/js/dropzone.min.js');
  wp_enqueue_script( 'script', get_template_directory_uri() . '/js/jquery.blockUI.js');
- get_header('centro'); 
+ get_header('screenshot'); 
  ?>
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <div id="primary_home" class="content-area">
@@ -19,29 +19,65 @@ add_action( 'wp_enqueue_scripts', function(){
 		<head>
 		</head>
 		<body>
-		<form name="screenshotForm"  id="screenshotForm" onSubmit=window.location='http://google.com' action="<?php echo admin_url('file_upload.php');?>" method="post" enctype="multipart/form-data">
+		<form name="screenshotForm"  id="screenshotForm"  action="<?php echo admin_url('file_upload.php');?>" method="post" enctype="multipart/form-data">
 		<table border="0" width="500" align="center" class="table">
-		<tr>
-		<td> Name:</td>
-		<td><input type="text" class="InputBox" name="Name" value=""></td>
+		<p>For all screenshot requests for your selected advertiser (including screenshots at the launch of a campaign, creative swaps, and new flights), 
+		please fill out the information below. Please allow AutonomyWorks 24-48 hours to pull the screenshots upon receiving this email.</p>
+		<tr width="80%">
+			<td width="30%"> Requester email address:</td>
+			<td width="50%"><input type="text" name="requester_email" id="requester_email" maxlength="50"></td>
 		</tr>
 
 		<tr>
-		<td>Email:</td>
-		<td><input type="text" class="InputBox" name="userEmail" value="" style="margin-top: 5px;"></td>
+			<td>Additional screenshot recipients (email addresses):</td>
+			<td><input type="text" name="additional_screenshot" style="margin-top: 5px;" maxlength="250"></td>
 		</tr>
 		<tr>
-		<td>Due Date:</td>
-		<td><input type="date" name="date_entered"></td>
+			<td>Screenshot Due Date:<span style="color: red;">*</span></td>
+			<td><input type="date" name="screenshot_due_date" style="margin-top: 5px;">
+			<span id="span_screenshot_due_date"  style="color: red; display:none">Field is required</span></td>
+		</tr>
+		<tr>
+			<td>Advertiser:<span style="color: red;">*</span></td>
+			<td><input type="text" name="advertiser" style="margin-top: 5px;" maxlength="50">
+			<span id="span_advertiser"  style="color: red; display:none">Field is required</span></td>
+		</tr>
+		<tr>
+			<td>Campaign ID:<span  style="color: red;">*</span></td>
+			<td><input type="text" name="campaign_id" style="margin-top: 5px;" maxlength="50">
+			<span id="span_campaign_id"  style="color: red; display:none">Field is required</span></td>
+		</tr>
+		<tr>
+			<td>Launch Date of Campaign:<span  style="color: red;">*</span></td>
+			<td><input type="date" name="last_date_campaign" style="margin-top: 5px;">
+			<span id="span_last_date_campaign"  style="color: red; display:none">Field is required</span></td>
+		</tr>
+		<tr>
+			<td>Sites/Networks (please specify any content or geotargeting):</td>
+			<td><input type="text" name="site_networks" style="margin-top: 5px;" maxlength="250"></td>
+		</tr>
+		<tr>
+			<td>Number of screenshots/sizes per site:</td>
+			<td><input type="text" name="no_of_screenshot" style="margin-top: 5px;" maxlength="250"></td>
+		</tr>
+		<tr>
+			<td>If there is a special PowerPoint template (different from the Centro template), please attach:</td>
+			<td><input type="file" name="file_optional" style="margin-top: 5px;"></td>
+		</tr>
+		<tr>
+			<td>Any special instructions?:<span id="" style="color: red;">*</span></td>
+			<td><input type="text" name="special_instruction" maxlength="250">
+			<span id="span_special_instruction"  style="color: red; display:none">Field is required</span></td>
 		</tr>
 		</table>
+		Creative files (please attach):
 			<div id="dZUpload" class="dropzone">
-						 <div class="fallback">
-						  <input name="file[]" type="file" multiple />
-						 </div>
-						   <div class="dz-default dz-message">
-						  Drag files here to upload, or click to browse for files.
-						   </div>
+				 <div class="fallback">
+				  <input name="file" type="file" multiple />
+				 </div>
+				   <div class="dz-default dz-message">
+				    Drag files here to upload, or click to browse for files.
+				   </div>
 			</div>		
 		<div>
 		<br>
@@ -63,11 +99,22 @@ add_action( 'wp_enqueue_scripts', function(){
 	</div><!-- #content .site-content -->
 </div><!-- #primary .content-area -->
  <script type="text/javascript">
+	function isEmpty(str) {
+		return (!str || 0 === str.length);
+	} 
 	function checkFileUploaded(){
+		var inputs_val = $('#screenshotForm :input');
+				inputs_val.each(function() {
+					var name_field = $(this).attr('name');
+					var field_val = $('[name="'+name_field+'"]').val();
+					if(isEmpty(field_val)){
+						if($("#span_"+name_field)){
+							$("#span_"+name_field).show();
+						}
+					}
+				});		
 		if($(".dz-image-preview").length < 1){
 			$("#file_upload_error").show();
-		}else{
-			$.blockUI({ message: '<h1>Your form is submitting. Please wait...</h1>', baseZ: 10000, });
 		}
 	}
 	var element = "#dZUpload";
@@ -78,13 +125,10 @@ add_action( 'wp_enqueue_scripts', function(){
 		parallelUploads: 25,
 		maxFiles: 25,
 		autoProcessQueue: false,
-        success: function (file, response) {
-            var imgName = response;
+        success: function (file,response) {
 		   if((response)){
-				var myArray = JSON.parse(response);
-				if(myArray['return_url']){
-				 window.location.href= myArray['return_url'];
-				}
+			   url_redirect = response.replace(/\s/g, '');
+				   window.location.href= url_redirect;
 		  }else{
 				console.log(response);
 	     }

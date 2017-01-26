@@ -1,19 +1,30 @@
 <?php
 require_once('../phpmailer/class.phpmailer.php');
 require_once('../phpmailer/config.php');
+require_once('../wp-content/themes/formationpro/email_template.php');
 $form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
 $targetfolder = "dropzone/files/".$form_submission_id.'/';
 ini_set('display_errors', 0);
 error_reporting(0);
-if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_POST[ 'userEmail' ])) {
+if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[ 'file' ])) {
 
+	$template_html= get_mail_template();
+	$template_html = str_replace('form_submission_id', $form_submission_id, $template_html);
+	$template_html = str_replace('$requester_email', $_POST['requester_email'], $template_html);
+	$template_html = str_replace('$additional_screenshot',$_POST['additional_screenshot'], $template_html);
+	$template_html = str_replace('$screenshot_due_date',date("m/d/Y", strtotime($_POST['screenshot_due_date'])), $template_html);
+	$template_html = str_replace('$advertiser', $_POST['advertiser'], $template_html);
+	$template_html = str_replace('$campaign_id', $_POST['campaign_id'], $template_html);
+	$template_html = str_replace('$last_date_campaign',date("m/d/Y", strtotime($_POST['last_date_campaign'])), $template_html);
+	$template_html = str_replace('$site_networks', $_POST['site_networks'], $template_html);		
+	$template_html = str_replace('$no_of_screenshot',$_POST['no_of_screenshot'], $template_html);
+	$template_html = str_replace('$special_instruction', $_POST['special_instruction'], $template_html);
     $files = $_FILES[ 'file' ];
-    $upload_overrides = array( 'test_form' => false );
-
     $attachments = array();
 	if (!file_exists($targetfolder)) {
 		mkdir($targetfolder, 0777, true);
 	}
+	move_uploaded_file($_POST['file_optional'], $targetfolder.'optional file');
 	move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder.basename($_FILES['file']['name']));
 	foreach($_FILES['file']['tmp_name'] as $i=>$file){
 		move_uploaded_file($file, $targetfolder.basename($_FILES['file']['name'][$i]));
@@ -54,40 +65,24 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'userEmail' ]) && !empty( $_PO
 	$mail->From = $email_config['from_email'];
 	$mail->FromName = $email_config['from_name'];
 
-	$mail->addAddress($_POST['userEmail'], $_POST['Name']);
+	$mail->addAddress($email_config['userEmail'], $_POST['userName']);
 	$mail->addAttachment($targetfolder."centro-form.zip", "centro-form.zip");
 	$mail->isHTML(true);
 
 	$mail->Subject = "Centro form data";
-	$originalDate = "2010-03-21";
-	$date_formated = date("m/d/Y", strtotime($_POST['date_entered']));
-	$form_data = "<p>
-					<ul>
-					  <li><b>Name:&nbsp;</b>{$_POST['Name']}</li>
-					  <li><b>Email:&nbsp;</b>{$_POST['userEmail']}</li>
-					  <li><b>Due Date:&nbsp;</b>{$date_formated}</li>
-					</ul>
-				</p>";
-	$mail->Body = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}.{$form_data}";
-	$mail->AltBody = "Please find attached data and files you submitted. The form submission ID is {$form_submission_id}.{$form_data}";			
+	$mail->Body = $template_html;
+	$mail->AltBody = $template_html;	
 	if($mail->send()) 
 	{
-		ob_clean();
 		rmdir($targetfolder);
-		echo json_encode(
-			array(
-				'return_url'=>'?p=1238&form_submission_id='.$form_submission_id,
-			)
-		);
+		ob_clean();
+		echo '?p=1238&form_submission_id='.$form_submission_id;
 		
 	} 
 	else 
 	{
 		ob_clean();
-		echo json_encode(array(
-		'return_url'=>'?p=1238&not_sent=1',
-		)
-		);
+		echo '?p=1238&not_sent=1';
 	}	 
 }
 function create_zip($files = array(),$destination = '',$overwrite = false) {
