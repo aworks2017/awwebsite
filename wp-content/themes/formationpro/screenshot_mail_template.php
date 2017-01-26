@@ -1,10 +1,10 @@
 <?php
 
 /*
-Template Name: Email Template
+Template Name: Screenshot Email Template
 
 */
-function get_mail_template()
+function get_screenshot_mail_template()
 {
 ob_start();
 $string='

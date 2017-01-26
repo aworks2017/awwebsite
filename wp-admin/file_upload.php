@@ -1,14 +1,14 @@
 <?php
 require_once('../phpmailer/class.phpmailer.php');
 require_once('../phpmailer/config.php');
-require_once('../wp-content/themes/formationpro/email_template.php');
+require_once('../wp-content/themes/formationpro/screenshot_mail_template.php');
 $form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
 $targetfolder = "dropzone/files/".$form_submission_id.'/';
 ini_set('display_errors', 0);
 error_reporting(0);
 if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[ 'file' ])) {
 
-	$template_html= get_mail_template();
+	$template_html= get_screenshot_mail_template();
 	$template_html = str_replace('form_submission_id', $form_submission_id, $template_html);
 	$template_html = str_replace('$requester_email', $_POST['requester_email'], $template_html);
 	$template_html = str_replace('$additional_screenshot',$_POST['additional_screenshot'], $template_html);
@@ -24,7 +24,6 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[
 	if (!file_exists($targetfolder)) {
 		mkdir($targetfolder, 0777, true);
 	}
-	move_uploaded_file($_POST['file_optional'], $targetfolder.'optional file');
 	move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder.basename($_FILES['file']['name']));
 	foreach($_FILES['file']['tmp_name'] as $i=>$file){
 		move_uploaded_file($file, $targetfolder.basename($_FILES['file']['name'][$i]));

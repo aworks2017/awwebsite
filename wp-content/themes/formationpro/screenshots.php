@@ -62,7 +62,7 @@ add_action( 'wp_enqueue_scripts', function(){
 		</tr>
 		<tr>
 			<td>If there is a special PowerPoint template (different from the Centro template), please attach:</td>
-			<td><input type="file" name="file_optional" style="margin-top: 5px;"></td>
+			<td><input type="file" name="file_optional" id="file_optional" style="margin-top: 5px;"></td>
 		</tr>
 		<tr>
 			<td>Any special instructions?:<span id="" style="color: red;">*</span></td>
@@ -73,7 +73,7 @@ add_action( 'wp_enqueue_scripts', function(){
 		Creative files (please attach):
 			<div id="dZUpload" class="dropzone">
 				 <div class="fallback">
-				  <input name="file" type="file" multiple />
+				  <input name="file[]" type="file" multiple />
 				 </div>
 				   <div class="dz-default dz-message">
 				    Drag files here to upload, or click to browse for files.
@@ -110,6 +110,7 @@ add_action( 'wp_enqueue_scripts', function(){
 					if(isEmpty(field_val)){
 						if($("#span_"+name_field)){
 							$("#span_"+name_field).show();
+							return false;
 						}
 					}
 				});		
@@ -122,8 +123,9 @@ add_action( 'wp_enqueue_scripts', function(){
 		url: "<?php echo admin_url('file_upload.php');?>",
         addRemoveLinks: true,
 		uploadMultiple: true,
-		parallelUploads: 25,
-		maxFiles: 25,
+		maxFilesize: 50,
+		parallelUploads: 100,
+		maxFiles: 100,
 		autoProcessQueue: false,
         success: function (file,response) {
 		   if((response)){
@@ -145,6 +147,8 @@ add_action( 'wp_enqueue_scripts', function(){
 			});
 			//send all the form data along with the files:
 			this.on("sendingmultiple", function(data, xhr, formData) {
+				var optional_file = $('#file_optional')[0].files[0];
+				data.push(optional_file);
 				//formData.append($('form').serializeArray());
 				var inputs = $('#screenshotForm :input');
 
