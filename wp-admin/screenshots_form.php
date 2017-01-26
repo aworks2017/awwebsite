@@ -111,8 +111,6 @@ function create_zip($files = array(),$destination = '',$overwrite = false) {
 			$new_filename = substr($file,strrpos($file,'/') + 1);
 			$zip->addFile($file,$new_filename);
 		}
-		//debug
-		//echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
 		
 		//close the zip -- done!
 		$zip->close();

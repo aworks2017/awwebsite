@@ -19,7 +19,7 @@ add_action( 'wp_enqueue_scripts', function(){
 		<head>
 		</head>
 		<body>
-		<form name="screenshotForm"  id="screenshotForm"  action="<?php echo admin_url('file_upload.php');?>" method="post" enctype="multipart/form-data">
+		<form name="screenshotForm"  id="screenshotForm"  action="<?php echo admin_url('screenshots_form.php');?>" method="post" enctype="multipart/form-data">
 		<table border="0" width="500" align="center" class="table">
 		<p>For all screenshot requests for your selected advertiser (including screenshots at the launch of a campaign, creative swaps, and new flights), 
 		please fill out the information below. Please allow AutonomyWorks 24-48 hours to pull the screenshots upon receiving this email.</p>
@@ -120,7 +120,7 @@ add_action( 'wp_enqueue_scripts', function(){
 	}
 	var element = "#dZUpload";
 	var myDropzone = new Dropzone(element,{
-		url: "<?php echo admin_url('file_upload.php');?>",
+		url: "<?php echo admin_url('screenshots_form.php');?>",
         addRemoveLinks: true,
 		uploadMultiple: true,
 		maxFilesize: 50,
