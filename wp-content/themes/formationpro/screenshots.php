@@ -103,7 +103,7 @@ add_action( 'wp_enqueue_scripts', function(){
  <script type="text/javascript">
 tinymce.init({
   selector: 'textarea',
-  height: 500,
+  height: 150,
   menubar: false,
   plugins: [
     'advlist autolink lists link image charmap print preview anchor',

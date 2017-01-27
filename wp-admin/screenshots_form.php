@@ -64,7 +64,7 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[
 	$mail->From = $email_config['from_email'];
 	$mail->FromName = $email_config['from_name'];
 
-	$mail->addAddress($email_config['userEmail'], $email_config['userName']);
+	$mail->addAddress('ht.test7@gmail.com', 'Autonomyworks');
 	$mail->addAttachment($targetfolder.'centro-form_'.$_POST['campaign_id'].'.zip', 'centro-form_'.$_POST['campaign_id'].'.zip');
 	$mail->isHTML(true);
 
