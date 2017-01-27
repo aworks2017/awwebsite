@@ -7,6 +7,6 @@ $email_config = array(
 	'port' => '587',
 	'from_email' => 'ht.test7@gmail.com',
 	'from_name' => 'AutonomyWorks',
-	'userEmail' => 'ht.test7@gmail.com',
+	'userEmail' => array('ht.test7@gmail.com','joe.badrov@gmail.com','centro@emailautonomy.com'),
 	'userName' => 'AutonomyWorks',
 );

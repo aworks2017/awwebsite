@@ -12,7 +12,7 @@ add_action( 'wp_enqueue_scripts', function(){
  wp_enqueue_script( 'script', get_template_directory_uri() . '/js/jquery.blockUI.js');
  get_header('screenshot'); 
  ?>
- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <div id="primary_home" class="content-area">
 	<div id="content" class="fullwidth" role="main">
@@ -26,8 +26,8 @@ add_action( 'wp_enqueue_scripts', function(){
 		please fill out the information below. Please allow AutonomyWorks 24-48 hours to pull the screenshots upon receiving this email.</p>
 		<tr width="80%">
 			<td width="30%"> Requester email address:<span style="color: red;">*</span></td>
-			<td width="50%"><input type="text" name="requester_email" id="requester_email" maxlength="50">
-			<span id="span_screenshot_due_date"  style="color: red; display:none">Field is required</span></td>
+			<td width="50%"><input type="text" class="required_fields" name="requester_email" id="requester_email" maxlength="50">
+			<span id="span_requester_email"  style="color: red; display:none">Requester email address is required</span></td>
 		</tr>
 
 		<tr>
@@ -36,23 +36,23 @@ add_action( 'wp_enqueue_scripts', function(){
 		</tr>
 		<tr>
 			<td>Screenshot Due Date:<span style="color: red;">*</span></td>
-			<td><input type="text" name="screenshot_due_date" id="screenshot_due_date" style="margin-top: 5px;">
-			<span id="span_screenshot_due_date"  style="color: red; display:none">Field is required</span></td>
+			<td><input type="text" name="screenshot_due_date" class="required_fields" id="screenshot_due_date" style="margin-top: 5px;">
+			<span id="span_screenshot_due_date"  style="color: red; display:none">Screenshot Due Date is required</span></td>
 		</tr>
 		<tr>
 			<td>Advertiser:<span style="color: red;">*</span></td>
-			<td><input type="text" name="advertiser" id="advertiser" style="margin-top: 5px;" maxlength="50">
-			<span id="span_advertiser"  style="color: red; display:none">Field is required</span></td>
+			<td><input type="text" class="required_fields" name="advertiser" id="advertiser" style="margin-top: 5px;" maxlength="50">
+			<span id="span_advertiser"  style="color: red; display:none">Advertiser is required</span></td>
 		</tr>
 		<tr>
 			<td>Campaign ID:<span  style="color: red;">*</span></td>
-			<td><input type="text" name="campaign_id"  id="campaign_id" style="margin-top: 5px;" maxlength="50">
-			<span id="span_campaign_id"  style="color: red; display:none">Field is required</span></td>
+			<td><input type="text" class="required_fields" name="campaign_id"  id="campaign_id" style="margin-top: 5px;" maxlength="50">
+			<span id="span_campaign_id"  style="color: red; display:none">Campaign ID is required</span></td>
 		</tr>
 		<tr>
 			<td>Launch Date of Campaign:<span  style="color: red;">*</span></td>
-			<td><input type="text" name="last_date_campaign" id="last_date_campaign" style="margin-top: 5px;">
-			<span id="span_last_date_campaign"  style="color: red; display:none">Field is required</span></td>
+			<td><input type="text"  class="required_fields" name="last_date_campaign" id="last_date_campaign" style="margin-top: 5px;">
+			<span id="span_last_date_campaign"  style="color: red; display:none">Launch Date of Campaign is required</span></td>
 		</tr>
 		<tr>
 			<td>Sites/Networks (please specify any content or geotargeting):</td>
@@ -83,7 +83,7 @@ add_action( 'wp_enqueue_scripts', function(){
 			</div>		
 		<div>
 		<br>
-		<input type="button" name="submit" id="submit" value="Submit" class="btnRegister" onclick="checkFileUploaded()">
+		<input type="button" name="submit" id="submit" value="Submit" class="btnRegister" onclick=" return checkFileUploaded();">
 		<span style="color:red;display:none;" id="file_upload_error">Please select atleast one file to upload.</span>
 		</div>
 		</form>	
@@ -117,21 +117,27 @@ tinymce.init({
 		return (!str || 0 === str.length);
 	} 
 	function checkFileUploaded(){
-		var inputs_val = $('#screenshotForm :input');
+		var inputs_val = $('#screenshotForm .required_fields');
+		var check = true;
 				inputs_val.each(function() {
 					var name_field = $(this).attr('name');
 					var field_val = $('[name="'+name_field+'"]').val();
 					if(isEmpty(field_val)){
-						if($("#span_"+name_field)){
+						if(typeof ($("#span_"+name_field)) !== 'undefined' && $("#span_"+name_field).length > 0){
 							$("#span_"+name_field).show();
+							check = false;
 						}
+					}else{
+						$("#span_"+name_field).hide();
 					}
-				});		
-		if(($(".dz-image-preview")) || ($(".dz-file-preview"))){
+				});	
+		if( (typeof ($(".dz-image-preview")) !== 'undefined' && $(".dz-image-preview").length > 0 ) || (typeof ($(".dz-file-preview")) !== 'undefined' && $(".dz-file-preview").length > 0 )){
 			$("#file_upload_error").hide();
 		}else{
-			$("#file_upload_error").show();	
-		}	
+			$("#file_upload_error").show();
+			return false;
+		}
+		return check;
 	}
 	var element = "#dZUpload";
 	var myDropzone = new Dropzone(element,{
@@ -152,18 +158,22 @@ tinymce.init({
   },		
 		init: function() {
 			dzClosure = this;
-			document.getElementById("submit").addEventListener("click", function(e) {
-					e.stopImmediatePropagation();
-					e.preventDefault();
-					e.stopPropagation();
-					dzClosure.processQueue();
-				// }
-				return false;
-			});
+					document.getElementById("submit").addEventListener("click", function(e) {
+							e.stopImmediatePropagation();
+							e.preventDefault();
+							e.stopPropagation();
+						if(checkFileUploaded()){
+							dzClosure.processQueue();
+						   return false;					
+						}
+						   return true;					
+					});
 			//send all the form data along with the files:
 			this.on("sendingmultiple", function(data, xhr, formData) {
-				var optional_file = $('#file_optional')[0].files[0];
-				data.push(optional_file);
+				if($('#file_optional').val() !=''){
+					var optional_file = $('#file_optional')[0].files[0];
+					data.push(optional_file);				
+				}
 				//formData.append($('form').serializeArray());
 				var inputs = $('#screenshotForm :input');
 				var values = {};

@@ -63,14 +63,14 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[
 
 	$mail->From = $email_config['from_email'];
 	$mail->FromName = $email_config['from_name'];
-
-	$mail->addAddress('ht.test7@gmail.com', 'Autonomyworks');
 	$mail->addAttachment($targetfolder.'centro-form_'.$_POST['campaign_id'].'.zip', 'centro-form_'.$_POST['campaign_id'].'.zip');
-	$mail->isHTML(true);
-
 	$mail->Subject = "Centro form data ".$_POST['campaign_id']."";
+	$mail->isHTML(true);
 	$mail->Body = $template_html;
 	$mail->AltBody = $template_html;	
+	foreach($email_config['userEmail'] as $email){
+		$mail->addAddress($email, $email_config['userName']);	
+	}
 	if($mail->send()) 
 	{
 		rmdir($targetfolder);
