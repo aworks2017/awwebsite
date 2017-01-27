@@ -9,5 +9,4 @@ $email_config = array(
 	'from_name' => 'AutonomyWorks',
 	'userEmail' => 'ht.test7@gmail.com',
 	'userName' => 'AutonomyWorks',
-	
 );
