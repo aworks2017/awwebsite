@@ -13,6 +13,7 @@ add_action( 'wp_enqueue_scripts', function(){
  get_header('screenshot'); 
  ?>
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <div id="primary_home" class="content-area">
 	<div id="content" class="fullwidth" role="main">
 
@@ -24,50 +25,51 @@ add_action( 'wp_enqueue_scripts', function(){
 		<p>For all screenshot requests for your selected advertiser (including screenshots at the launch of a campaign, creative swaps, and new flights), 
 		please fill out the information below. Please allow AutonomyWorks 24-48 hours to pull the screenshots upon receiving this email.</p>
 		<tr width="80%">
-			<td width="30%"> Requester email address:</td>
-			<td width="50%"><input type="text" name="requester_email" id="requester_email" maxlength="50"></td>
+			<td width="30%"> Requester email address:<span style="color: red;">*</span></td>
+			<td width="50%"><input type="text" name="requester_email" id="requester_email" maxlength="50">
+			<span id="span_screenshot_due_date"  style="color: red; display:none">Field is required</span></td>
 		</tr>
 
 		<tr>
 			<td>Additional screenshot recipients (email addresses):</td>
-			<td><input type="text" name="additional_screenshot" style="margin-top: 5px;" maxlength="250"></td>
+			<td><input type="text" name="additional_screenshot" id="additional_screenshot" style="margin-top: 5px;" maxlength="250"></td>
 		</tr>
 		<tr>
 			<td>Screenshot Due Date:<span style="color: red;">*</span></td>
-			<td><input type="date" name="screenshot_due_date" style="margin-top: 5px;">
+			<td><input type="text" name="screenshot_due_date" id="screenshot_due_date" style="margin-top: 5px;">
 			<span id="span_screenshot_due_date"  style="color: red; display:none">Field is required</span></td>
 		</tr>
 		<tr>
 			<td>Advertiser:<span style="color: red;">*</span></td>
-			<td><input type="text" name="advertiser" style="margin-top: 5px;" maxlength="50">
+			<td><input type="text" name="advertiser" id="advertiser" style="margin-top: 5px;" maxlength="50">
 			<span id="span_advertiser"  style="color: red; display:none">Field is required</span></td>
 		</tr>
 		<tr>
 			<td>Campaign ID:<span  style="color: red;">*</span></td>
-			<td><input type="text" name="campaign_id" style="margin-top: 5px;" maxlength="50">
+			<td><input type="text" name="campaign_id"  id="campaign_id" style="margin-top: 5px;" maxlength="50">
 			<span id="span_campaign_id"  style="color: red; display:none">Field is required</span></td>
 		</tr>
 		<tr>
 			<td>Launch Date of Campaign:<span  style="color: red;">*</span></td>
-			<td><input type="date" name="last_date_campaign" style="margin-top: 5px;">
+			<td><input type="text" name="last_date_campaign" id="last_date_campaign" style="margin-top: 5px;">
 			<span id="span_last_date_campaign"  style="color: red; display:none">Field is required</span></td>
 		</tr>
 		<tr>
 			<td>Sites/Networks (please specify any content or geotargeting):</td>
-			<td><input type="text" name="site_networks" style="margin-top: 5px;" maxlength="250"></td>
+			<td><input type="text" name="site_networks" id="site_networks" style="margin-top: 5px;" maxlength="250"></td>
 		</tr>
 		<tr>
 			<td>Number of screenshots/sizes per site:</td>
-			<td><input type="text" name="no_of_screenshot" style="margin-top: 5px;" maxlength="250"></td>
+			<td><input type="text" name="no_of_screenshot" id="no_of_screenshot" style="margin-top: 5px;" maxlength="250"></td>
 		</tr>
 		<tr>
 			<td>If there is a special PowerPoint template (different from the Centro template), please attach:</td>
 			<td><input type="file" name="file_optional" id="file_optional" style="margin-top: 5px;"></td>
 		</tr>
 		<tr>
-			<td>Any special instructions?:<span id="" style="color: red;">*</span></td>
-			<td><input type="text" name="special_instruction" maxlength="250">
-			<span id="span_special_instruction"  style="color: red; display:none">Field is required</span></td>
+			<td>Any special instructions?:</td>
+			<td><textarea name="special_instruction" id="special_instruction" style="margin: 0px;width: 300px;height: 42px;" maxlength="250"></textarea>
+			</td>
 		</tr>
 		</table>
 		Creative files (please attach):
@@ -99,6 +101,18 @@ add_action( 'wp_enqueue_scripts', function(){
 	</div><!-- #content .site-content -->
 </div><!-- #primary .content-area -->
  <script type="text/javascript">
+tinymce.init({
+  selector: 'textarea',
+  height: 500,
+  menubar: false,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table contextmenu paste code'
+  ],
+  toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+  content_css: '//www.tinymce.com/css/codepen.min.css'
+}); 
 	function isEmpty(str) {
 		return (!str || 0 === str.length);
 	} 
@@ -113,9 +127,11 @@ add_action( 'wp_enqueue_scripts', function(){
 						}
 					}
 				});		
-		if($(".dz-image-preview").length < 1){
-			$("#file_upload_error").show();
-		}
+		if(($(".dz-image-preview")) || ($(".dz-file-preview"))){
+			$("#file_upload_error").hide();
+		}else{
+			$("#file_upload_error").show();	
+		}	
 	}
 	var element = "#dZUpload";
 	var myDropzone = new Dropzone(element,{
@@ -129,7 +145,7 @@ add_action( 'wp_enqueue_scripts', function(){
         success: function (file,response) {
 		   if((response)){
 			   url_redirect = response.replace(/\s/g, '');
-				   window.location.href= url_redirect;
+			 window.location.href= url_redirect;					   
 		  }else{
 				console.log(response);
 	     }
@@ -150,13 +166,13 @@ add_action( 'wp_enqueue_scripts', function(){
 				data.push(optional_file);
 				//formData.append($('form').serializeArray());
 				var inputs = $('#screenshotForm :input');
-
 				var values = {};
 				inputs.each(function() {
 					var name = $(this).attr('name');
 					var val = $('[name="'+name+'"]').val();
 					formData.append(name, val);
 				});
+					formData.append("special_instruction_html", tinyMCE.get('special_instruction').getContent());			
 			});			
 		}
      });

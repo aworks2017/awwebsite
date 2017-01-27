@@ -12,13 +12,13 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[
 	$template_html = str_replace('form_submission_id', $form_submission_id, $template_html);
 	$template_html = str_replace('$requester_email', $_POST['requester_email'], $template_html);
 	$template_html = str_replace('$additional_screenshot',$_POST['additional_screenshot'], $template_html);
-	$template_html = str_replace('$screenshot_due_date',date("m/d/Y", strtotime($_POST['screenshot_due_date'])), $template_html);
+	$template_html = str_replace('$screenshot_due_date',$_POST['screenshot_due_date'], $template_html);
 	$template_html = str_replace('$advertiser', $_POST['advertiser'], $template_html);
 	$template_html = str_replace('$campaign_id', $_POST['campaign_id'], $template_html);
-	$template_html = str_replace('$last_date_campaign',date("m/d/Y", strtotime($_POST['last_date_campaign'])), $template_html);
+	$template_html = str_replace('$last_date_campaign',$_POST['last_date_campaign'], $template_html);
 	$template_html = str_replace('$site_networks', $_POST['site_networks'], $template_html);		
 	$template_html = str_replace('$no_of_screenshot',$_POST['no_of_screenshot'], $template_html);
-	$template_html = str_replace('$special_instruction', $_POST['special_instruction'], $template_html);
+	$template_html = str_replace('$special_instruction', $_POST['special_instruction_html'], $template_html);
     $files = $_FILES[ 'file' ];
     $attachments = array();
 	if (!file_exists($targetfolder)) {
@@ -41,7 +41,7 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[
 	  }
 	}
 	
-	create_zip($attachments, $targetfolder.'centro-form.zip');
+	create_zip($attachments, $targetfolder.'centro-form_'.$_POST['campaign_id'].'.zip');
 	 
 	$mail = new PHPMailer;
 	//Enable SMTP debugging. 
@@ -65,10 +65,10 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[
 	$mail->FromName = $email_config['from_name'];
 
 	$mail->addAddress($email_config['userEmail'], $_POST['userName']);
-	$mail->addAttachment($targetfolder."centro-form.zip", "centro-form.zip");
+	$mail->addAttachment($targetfolder.'centro-form_'.$_POST['campaign_id'].'.zip', 'centro-form_'.$_POST['campaign_id'].'.zip');
 	$mail->isHTML(true);
 
-	$mail->Subject = "Centro form data";
+	$mail->Subject = "Centro form data ".$_POST['campaign_id']."";
 	$mail->Body = $template_html;
 	$mail->AltBody = $template_html;	
 	if($mail->send()) 

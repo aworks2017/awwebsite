@@ -11,7 +11,7 @@ Template Name: Screenshot-FormSubmission
  }
  if($_REQUEST['form_submission_id']){
 	 echo '<center><b><font color="red">Form submission '.$_REQUEST['form_submission_id'].' successful</font></b>
-	 <p><a href="?p=1233">Click here to return</a></p>
+	 <p><a href="?p=1233">Click here to enter another request</a></p>
 	 </center>';
  }
  ?>
