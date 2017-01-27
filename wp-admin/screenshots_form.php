@@ -64,7 +64,7 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[
 	$mail->From = $email_config['from_email'];
 	$mail->FromName = $email_config['from_name'];
 	$mail->addAttachment($targetfolder.'centro-form_'.$form_submission_id.'.zip', 'centro-form_'.$form_submission_id.'.zip');
-	$mail->Subject = "Centro form data ".$_POST['campaign_id']."";
+	$mail->Subject = "Centro form data ".$form_submission_id."";
 	$mail->isHTML(true);
 	$mail->Body = $template_html;
 	$mail->AltBody = $template_html;	
