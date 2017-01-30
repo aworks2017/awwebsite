@@ -7,7 +7,7 @@ $targetfolder = "dropzone/files/".$form_submission_id.'/';
 ini_set('display_errors', 0);
 error_reporting(0);
 if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ])) {
-	$optional_name =basename($_POST['file_optional']);
+	$optional_name = basename($_POST['file_optional']);
 	$template_html= get_screenshot_mail_template();
 	$template_html = str_replace('form_submission_id', $form_submission_id, $template_html);
 	$template_html = str_replace('$requester_email', $_POST['requester_email'], $template_html);
@@ -36,11 +36,11 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'requester_email' ]) && !empty
 			if($file=='..' || $file=='.'){
 				continue;
 			}
-			if($file==$optional_name){
+			if($file != $optional_name){
+				$attachments []= $targetfolder.$file;
+			}else{				
 				$optional_file = $file;
-				continue;
 			}
-			$attachments []= $targetfolder.$file;
 		}
 		closedir($dht);
 	  }
