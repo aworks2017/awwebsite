@@ -26,27 +26,27 @@ add_action( 'wp_enqueue_scripts', function(){
 		please fill out the information below. Please allow AutonomyWorks 24-48 hours to pull the screenshots upon receiving this email.</p>
 		<tr width="80%">
 			<td width="30%"> Requester email address:<span style="color: red;">*</span></td>
-			<td width="50%"><input type="text" class="required_fields" name="requester_email" id="requester_email" maxlength="50">
+			<td width="50%"><input type="text" class="required_fields" name="requester_email" id="requester_email">
 			<span id="span_requester_email"  style="color: red; display:none">Requester email address is required</span></td>
 		</tr>
 
 		<tr>
 			<td>Additional screenshot recipients (email addresses):</td>
-			<td><input type="text" name="additional_screenshot" id="additional_screenshot" style="margin-top: 5px;" maxlength="250"></td>
+			<td><input type="text" name="additional_screenshot" id="additional_screenshot" style="margin-top: 5px;"></td>
 		</tr>
 		<tr>
 			<td>Screenshot Due Date:<span style="color: red;">*</span></td>
-			<td><input type="text" name="screenshot_due_date" class="required_fields" id="screenshot_due_date" style="margin-top: 5px;">
-			<span id="span_screenshot_due_date"  style="color: red; display:none">Screenshot Due Date is required</span></td>
+			<td><input type="date" name="screenshot_due_date" class="required_fields" id="screenshot_due_date" style="margin-top: 5px;">
+			<span class="hint">Screenshots required on multiple dates should be submitted as individual requests.</span><span id="span_screenshot_due_date"  style="color: red; display:none">Screenshot Due Date is required</span></td>
 		</tr>
 		<tr>
 			<td>Advertiser:<span style="color: red;">*</span></td>
-			<td><input type="text" class="required_fields" name="advertiser" id="advertiser" style="margin-top: 5px;" maxlength="50">
+			<td><input type="text" class="required_fields" name="advertiser" id="advertiser" style="margin-top: 5px;" >
 			<span id="span_advertiser"  style="color: red; display:none">Advertiser is required</span></td>
 		</tr>
 		<tr>
 			<td>Campaign ID:<span  style="color: red;">*</span></td>
-			<td><input type="text" class="required_fields" name="campaign_id"  id="campaign_id" style="margin-top: 5px;" maxlength="50">
+			<td><input type="text" class="required_fields" name="campaign_id"  id="campaign_id" style="margin-top: 5px;" >
 			<span id="span_campaign_id"  style="color: red; display:none">Campaign ID is required</span></td>
 		</tr>
 		<tr>
@@ -56,19 +56,20 @@ add_action( 'wp_enqueue_scripts', function(){
 		</tr>
 		<tr>
 			<td>Sites/Networks (please specify any content or geotargeting):</td>
-			<td><input type="text" name="site_networks" id="site_networks" style="margin-top: 5px;" maxlength="250"></td>
+			<td><input type="text" name="site_networks" id="site_networks" style="margin-top: 5px;"></td>
 		</tr>
 		<tr>
 			<td>Number of screenshots/sizes per site:</td>
-			<td><input type="text" name="no_of_screenshot" id="no_of_screenshot" style="margin-top: 5px;" maxlength="250"></td>
+			<td><input type="text" name="no_of_screenshot" id="no_of_screenshot" style="margin-top: 5px;"></td>
 		</tr>
 		<tr>
 			<td>If there is a special PowerPoint template (different from the Centro template), please attach:</td>
-			<td><input type="file" name="file_optional" id="file_optional" style="margin-top: 5px;"></td>
+			<td><input type="file" name="file_optional" id="file_optional" style="margin-top: 5px;">
+			<span id="span_file_optional"  style="color: red; display:none">File size is greater that 50MB</span></td>
 		</tr>
 		<tr>
 			<td>Any special instructions?:</td>
-			<td><textarea name="special_instruction" id="special_instruction" style="margin: 0px;width: 300px;height: 42px;" maxlength="250"></textarea>
+			<td><textarea name="special_instruction" id="special_instruction" style="margin: 0px;width: 300px;height: 42px;"></textarea>
 			</td>
 		</tr>
 		</table>
@@ -84,7 +85,7 @@ add_action( 'wp_enqueue_scripts', function(){
 		<div>
 		<br>
 		<input type="button" name="submit" id="submit" value="Submit" class="btnRegister" onclick=" return checkFileUploaded();">
-		<span style="color:red;display:none;" id="file_upload_error">Please select atleast one file to upload.</span>
+		<span id="span_file_size_error"  style="color: red; display:none">File size is greater that 50MB</span>
 		</div>
 		</form>	
 	</div>
@@ -100,6 +101,10 @@ add_action( 'wp_enqueue_scripts', function(){
 
 	</div><!-- #content .site-content -->
 </div><!-- #primary .content-area -->
+ <style>
+	.hint { display: none; color: gray; font-style: italic; }
+	input:focus + .hint { display: inline; }
+ </style>
  <script type="text/javascript">
 tinymce.init({
   selector: 'textarea',
@@ -130,13 +135,15 @@ tinymce.init({
 					}else{
 						$("#span_"+name_field).hide();
 					}
-				});	
-		if( (typeof ($(".dz-image-preview")) !== 'undefined' && $(".dz-image-preview").length > 0 ) || (typeof ($(".dz-file-preview")) !== 'undefined' && $(".dz-file-preview").length > 0 )){
-			$("#file_upload_error").hide();
-		}else{
-			$("#file_upload_error").show();
-			return false;
-		}
+				});
+		if($('#file_optional').val() !=''){
+			if($('#file_optional')[0].files[0].size <= 50*1024*1024){
+				 $("#span_file_optional").hide();
+			 }else{
+				 $("#span_file_optional").show();
+				 return false;
+				}
+		}			
 		return check;
 	}
 	var element = "#dZUpload";
@@ -151,10 +158,8 @@ tinymce.init({
         success: function (file,response) {
 		   if((response)){
 			   url_redirect = response.replace(/\s/g, '');
-			 window.location.href= url_redirect;					   
-		  }else{
-				console.log(response);
-	     }
+			   window.location.href= url_redirect;					   
+		  }
   },		
 		init: function() {
 			dzClosure = this;
@@ -163,16 +168,30 @@ tinymce.init({
 							e.preventDefault();
 							e.stopPropagation();
 						if(checkFileUploaded()){
-							dzClosure.processQueue();
+							if (dzClosure.getQueuedFiles().length > 0) {                        
+								dzClosure.processQueue();  
+							} else {                       
+								dzClosure.uploadFiles([]);
+							}    							
 						   return false;					
 						}
 						   return true;					
 					});
+			this.on("complete", function(file) {
+            if (file.size > 50*1024*1024) {
+                this.removeFile(file);
+                $("#span_file_size_error").show();
+                return false;
+            }else{
+                $("#span_file_size_error").hide();				
+			}
+			});					
 			//send all the form data along with the files:
 			this.on("sendingmultiple", function(data, xhr, formData) {
 				if($('#file_optional').val() !=''){
-					var optional_file = $('#file_optional')[0].files[0];
-					data.push(optional_file);				
+					$('#file_optional')[0].files[0].name = "optional_"+$('#file_optional')[0].files[0];
+						var optional_file = $('#file_optional')[0].files[0];
+						data.push(optional_file);		
 				}
 				//formData.append($('form').serializeArray());
 				var inputs = $('#screenshotForm :input');

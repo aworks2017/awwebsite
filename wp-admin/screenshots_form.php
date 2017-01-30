@@ -6,8 +6,8 @@ $form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
 $targetfolder = "dropzone/files/".$form_submission_id.'/';
 ini_set('display_errors', 0);
 error_reporting(0);
-if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[ 'file' ])) {
-
+if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ])) {
+	$optional_name =basename($_POST['file_optional']);
 	$template_html= get_screenshot_mail_template();
 	$template_html = str_replace('form_submission_id', $form_submission_id, $template_html);
 	$template_html = str_replace('$requester_email', $_POST['requester_email'], $template_html);
@@ -24,10 +24,11 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[
 	if (!file_exists($targetfolder)) {
 		mkdir($targetfolder, 0777, true);
 	}
-	move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder.basename($_FILES['file']['name']));
+	//move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder.basename($_FILES['file']['name']));
 	foreach($_FILES['file']['tmp_name'] as $i=>$file){
 		move_uploaded_file($file, $targetfolder.basename($_FILES['file']['name'][$i]));
 	}
+	$optional_file='';
 	$attachments = array();
 	if (is_dir($targetfolder)){
 	  if ($dht = opendir($targetfolder)){
@@ -35,12 +36,15 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[
 			if($file=='..' || $file=='.'){
 				continue;
 			}
+			if($file==$optional_name){
+				$optional_file = $file;
+				continue;
+			}
 			$attachments []= $targetfolder.$file;
 		}
 		closedir($dht);
 	  }
 	}
-	
 	create_zip($attachments, $targetfolder.'centro-form_'.$form_submission_id.'.zip');
 	 
 	$mail = new PHPMailer;
@@ -64,6 +68,7 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_FILES[ 'file' ]) && !empty( $_FILES[
 	$mail->From = $email_config['from_email'];
 	$mail->FromName = $email_config['from_name'];
 	$mail->addAttachment($targetfolder.'centro-form_'.$form_submission_id.'.zip', 'centro-form_'.$form_submission_id.'.zip');
+	$mail->addAttachment($targetfolder.$optional_file, $optional_file);
 	$mail->Subject = "Centro form data ".$form_submission_id."";
 	$mail->isHTML(true);
 	$mail->Body = $template_html;
