@@ -24,7 +24,6 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'requester_email' ]) && !empty
 	if (!file_exists($targetfolder)) {
 		mkdir($targetfolder, 0777, true);
 	}
-	//move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder.basename($_FILES['file']['name']));
 	foreach($_FILES['file']['tmp_name'] as $i=>$file){
 		move_uploaded_file($file, $targetfolder.basename($_FILES['file']['name'][$i]));
 	}
@@ -76,15 +75,12 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'requester_email' ]) && !empty
 	foreach($email_config['userEmail'] as $email){
 		$mail->addAddress($email, $email_config['userName']);	
 	}
-	if($mail->send()) 
-	{
+	if($mail->send()){
 		rmdir($targetfolder);
 		ob_clean();
 		echo '?p=1238&form_submission_id='.$form_submission_id;
-		
 	} 
-	else 
-	{
+	else{
 		ob_clean();
 		echo '?p=1238&not_sent=1';
 	}	 
