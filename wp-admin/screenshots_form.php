@@ -6,7 +6,7 @@ $form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
 $targetfolder = "dropzone/files/".$form_submission_id.'/';
 ini_set('display_errors', 0);
 error_reporting(0);
-if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ])) {
+if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ])) {
 	$optional_name = basename($_POST['file_optional']);
 	$template_html= get_screenshot_mail_template();
 	$template_html = str_replace('form_submission_id', $form_submission_id, $template_html);
@@ -19,32 +19,35 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'requester_email' ]) && !empty
 	$template_html = str_replace('$site_networks', $_POST['site_networks'], $template_html);		
 	$template_html = str_replace('$no_of_screenshot',$_POST['no_of_screenshot'], $template_html);
 	$template_html = str_replace('$special_instruction', $_POST['special_instruction_html'], $template_html);
-    $files = $_FILES[ 'file' ];
-    $attachments = array();
-	if (!file_exists($targetfolder)) {
-		mkdir($targetfolder, 0777, true);
-	}
-	foreach($_FILES['file']['tmp_name'] as $i=>$file){
-		move_uploaded_file($file, $targetfolder.basename($_FILES['file']['name'][$i]));
-	}
-	$optional_file='';
+    
 	$attachments = array();
-	if (is_dir($targetfolder)){
-	  if ($dht = opendir($targetfolder)){
-		while (($file = readdir($dht)) !== false){
-			if($file=='..' || $file=='.'){
-				continue;
-			}
-			if($file != $optional_name){
-				$attachments []= $targetfolder.$file;
-			}else{				
-				$optional_file = $file;
-			}
+	if(isset($_FILES[ 'file' ]) && !empty($_FILES[ 'file' ])){
+		$files = $_FILES[ 'file' ];
+		if (!file_exists($targetfolder)) {
+			mkdir($targetfolder, 0777, true);
 		}
-		closedir($dht);
-	  }
+		foreach($_FILES['file']['tmp_name'] as $i=>$file){
+			move_uploaded_file($file, $targetfolder.basename($_FILES['file']['name'][$i]));
+		}
+		$optional_file='';
+		if (is_dir($targetfolder)){
+		  if ($dht = opendir($targetfolder)){
+			while (($file = readdir($dht)) !== false){
+				if($file=='..' || $file=='.'){
+					continue;
+				}
+				if($file != $optional_name){
+					$attachments []= $targetfolder.$file;
+				}else{				
+					$optional_file = $file;
+				}
+			}
+			closedir($dht);
+		  }
+		}
+		create_zip($attachments, $targetfolder.'centro-form_'.$form_submission_id.'.zip');
 	}
-	create_zip($attachments, $targetfolder.'centro-form_'.$form_submission_id.'.zip');
+	
 	 
 	$mail = new PHPMailer;
 	//Enable SMTP debugging. 
@@ -66,8 +69,10 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'requester_email' ]) && !empty
 
 	$mail->From = $email_config['from_email'];
 	$mail->FromName = $email_config['from_name'];
-	$mail->addAttachment($targetfolder.'centro-form_'.$form_submission_id.'.zip', 'centro-form_'.$form_submission_id.'.zip');
-	$mail->addAttachment($targetfolder.$optional_file, $optional_file);
+	if(isset($_FILES[ 'file' ]) && !empty($_FILES[ 'file' ])){
+		$mail->addAttachment($targetfolder.'centro-form_'.$form_submission_id.'.zip', 'centro-form_'.$form_submission_id.'.zip');
+		$mail->addAttachment($targetfolder.$optional_file, $optional_file);
+	}
 	$mail->Subject = "Centro form data ".$form_submission_id."";
 	$mail->isHTML(true);
 	$mail->Body = $template_html;
@@ -77,13 +82,19 @@ if( isset( $_POST[ 'submit' ] ) && isset( $_POST[ 'requester_email' ]) && !empty
 	}
 	if($mail->send()){
 		rmdir($targetfolder);
-		ob_clean();
-		echo '?p=1238&form_submission_id='.$form_submission_id;
+		$redirect_url = '?p=1238&form_submission_id='.$form_submission_id;
 	} 
 	else{
-		ob_clean();
-		echo '?p=1238&not_sent=1';
-	}	 
+		$redirect_url =  '?p=1238&not_sent=1';
+	}
+	ob_clean();
+	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']){
+		$base_url = $_SERVER['HTTP_ORIGIN'].'/'.$_SERVER['REQUEST_URI'];
+		$url_to_redirect = str_replace('wp-admin/screenshots_form.php', $redirect_url, $base_url);
+		header('Location: '.$url_to_redirect);
+	}else{
+		echo $redirect_url;
+	}
 }
 function create_zip($files = array(),$destination = '',$overwrite = false) {
 	//if the zip file already exists and overwrite is false, return false

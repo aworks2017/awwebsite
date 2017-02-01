@@ -21,6 +21,7 @@ add_action( 'wp_enqueue_scripts', function(){
 		</head>
 		<body>
 		<form name="screenshotForm"  id="screenshotForm"  action="<?php echo admin_url('screenshots_form.php');?>" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="no_attachments_flag" id="no_attachments_flag" value="0">
 		<table border="0" width="500" align="center" class="table">
 		<p>For all screenshot requests for your selected advertiser (including screenshots at the launch of a campaign, creative swaps, and new flights), 
 		please fill out the information below. Please allow AutonomyWorks 24-48 hours to pull the screenshots upon receiving this email.</p>
@@ -65,10 +66,10 @@ add_action( 'wp_enqueue_scripts', function(){
 		<tr>
 			<td>If there is a special PowerPoint template (different from the Centro template), please attach:</td>
 			<td><input type="file" name="file_optional" id="file_optional" style="margin-top: 5px;">
-			<span id="span_file_optional"  style="color: red; display:none">File size is greater that 50MB</span></td>
+			<span id="span_file_optional"  style="color: red; display:none">File size is greater than 50MB.</span></td>
 		</tr>
 		<tr>
-			<td>Any special instructions?:</td>
+			<td>Any special instructions? (Please include any specific brands or placements you would like screenshots for):</td>
 			<td><textarea name="special_instruction" id="special_instruction" style="margin: 0px;width: 300px;height: 42px;"></textarea>
 			</td>
 		</tr>
@@ -84,8 +85,8 @@ add_action( 'wp_enqueue_scripts', function(){
 			</div>		
 		<div>
 		<br>
-		<input type="button" name="submit" id="submit" value="Submit" class="btnRegister" onclick=" return checkFileUploaded();">
-		<span id="span_file_size_error"  style="color: red; display:none">File size is greater that 50MB</span>
+		<input type="submit" name="screenshot_submit" id="screenshot_submit" value="Submit" class="btnRegister" onclick=" return checkFileUploaded();">
+		<span id="span_file_size_error"  style="color: red; display:none">File size is greater than 50MB.</span>
 		</div>
 		</form>	
 	</div>
@@ -110,6 +111,7 @@ tinymce.init({
   selector: 'textarea',
   height: 150,
   menubar: false,
+  elementpath: false,
   plugins: [
     'advlist autolink lists link image charmap print preview anchor',
     'searchreplace visualblocks code fullscreen',
@@ -163,20 +165,20 @@ tinymce.init({
   },		
 		init: function() {
 			dzClosure = this;
-					document.getElementById("submit").addEventListener("click", function(e) {
-							e.stopImmediatePropagation();
-							e.preventDefault();
-							e.stopPropagation();
-						if(checkFileUploaded()){
-							if (dzClosure.getQueuedFiles().length > 0) {                        
-								dzClosure.processQueue();  
-							} else {                       
-								dzClosure.uploadFiles([]);
-							}    							
-						   return false;					
-						}
-						   return true;					
-					});
+			document.getElementById("screenshot_submit").addEventListener("click", function(e) {
+				if(checkFileUploaded()){
+					if (dzClosure.getQueuedFiles().length > 0) {
+						e.stopImmediatePropagation();
+						e.preventDefault();
+						e.stopPropagation();
+						dzClosure.processQueue();  
+					}else{
+						$("#no_attachments_flag").val('1');
+						$("#screenshotForm").submit();
+					}				
+				}
+			   return true;					
+			});
 			this.on("complete", function(file) {
             if (file.size > 50*1024*1024) {
                 this.removeFile(file);
