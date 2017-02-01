@@ -88,6 +88,7 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 		$redirect_url =  '?p=1238&not_sent=1';
 	}
 	ob_clean();
+	print"<pre>";print_r($_REQUEST);die;
 	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']){
 		header('Location: '.$_SERVER['HTTP_ORIGIN'].'/'.$redirect_url);
 	}else{
