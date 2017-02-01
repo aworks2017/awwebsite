@@ -18,7 +18,7 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 	$template_html = str_replace('$last_date_campaign',$_POST['last_date_campaign'], $template_html);
 	$template_html = str_replace('$site_networks', $_POST['site_networks'], $template_html);		
 	$template_html = str_replace('$no_of_screenshot',$_POST['no_of_screenshot'], $template_html);
-	$template_html = str_replace('$special_instruction', $_POST['special_instruction_html'], $template_html);
+	$template_html = str_replace('$special_instruction', $_POST['special_instruction'], $template_html);
     
 	$attachments = array();
 	$optional_file='';

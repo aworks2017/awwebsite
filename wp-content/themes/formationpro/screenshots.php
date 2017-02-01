@@ -201,7 +201,7 @@ tinymce.init({
 					var val = $('[name="'+name+'"]').val();
 					formData.append(name, val);
 				});
-					formData.append("special_instruction_html", tinyMCE.get('special_instruction').getContent());			
+					formData.append("special_instruction", tinyMCE.get('special_instruction').getContent());			
 			});			
 		}
      });
