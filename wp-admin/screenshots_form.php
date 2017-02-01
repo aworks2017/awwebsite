@@ -89,7 +89,9 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 	}
 	ob_clean();
 	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']){
-		header('Location: '.$_SERVER['HTTP_ORIGIN'].'/'.$redirect_url,  true,  301);exit;
+		header('Location: '.$_SERVER['HTTP_ORIGIN'].'/'.$redirect_url);
+		header("Connection: close");
+		exit(0);
 	}else{
 		echo $redirect_url;
 	}
