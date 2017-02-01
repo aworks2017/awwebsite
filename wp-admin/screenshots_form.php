@@ -4,8 +4,8 @@ require_once('../phpmailer/config.php');
 require_once('../wp-content/themes/formationpro/screenshot_mail_template.php');
 $form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
 $targetfolder = "dropzone/files/".$form_submission_id.'/';
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+ini_set('display_errors', 0);
+error_reporting(0);
 if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ])) {
 	$optional_name = basename($_POST['file_optional']);
 	$template_html= get_screenshot_mail_template();
@@ -88,11 +88,8 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 		$redirect_url =  '?p=1238&not_sent=1';
 	}
 	ob_clean();
-	print"<pre>";print_r($_SERVER);die;
 	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']){
-		$base_url = $_SERVER['HTTP_ORIGIN'].'/'.$_SERVER['REQUEST_URI'];
-		$url_to_redirect = str_replace('wp-admin/screenshots_form.php', $redirect_url, $base_url);
-		header('Location: '.$url_to_redirect);
+		header('Location: '.$_SERVER['HTTP_ORIGIN'].'/'.$url_to_redirect);
 	}else{
 		echo $redirect_url;
 	}
