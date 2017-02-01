@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once('../phpmailer/class.phpmailer.php');
 require_once('../phpmailer/config.php');
 require_once('../wp-content/themes/formationpro/screenshot_mail_template.php');
@@ -93,8 +94,8 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 	else{
 		$redirect_url =  '?p=1238&not_sent=1';
 	}
-	ob_clean();
 	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']){
+		ob_clean();
 		header('Location: '.$_SERVER['HTTP_ORIGIN'].'/'.$redirect_url);die;
 		echo '<script type="text/javascript">
 				window.location = "'.$_SERVER['HTTP_ORIGIN'].'/'.$redirect_url.'";
