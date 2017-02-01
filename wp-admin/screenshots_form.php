@@ -96,10 +96,7 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 	}
 	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']){
 		ob_clean();
-		header('Location: '.$_SERVER['HTTP_ORIGIN'].'/'.$redirect_url);die;
-		echo '<script type="text/javascript">
-				window.location = "'.$_SERVER['HTTP_ORIGIN'].'/'.$redirect_url.'";
-			</script>';
+		header('Location: '.$_SERVER['HTTP_ORIGIN'].'/'.$redirect_url);exit();
 	}else{
 		echo $redirect_url;
 	}
