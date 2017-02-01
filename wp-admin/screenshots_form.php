@@ -21,6 +21,7 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 	$template_html = str_replace('$special_instruction', $_POST['special_instruction_html'], $template_html);
     
 	$attachments = array();
+	$optional_file='';
 	if(isset($_FILES[ 'file' ]) && !empty($_FILES[ 'file' ])){
 		$files = $_FILES[ 'file' ];
 		if (!file_exists($targetfolder)) {
@@ -29,7 +30,6 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 		foreach($_FILES['file']['tmp_name'] as $i=>$file){
 			move_uploaded_file($file, $targetfolder.basename($_FILES['file']['name'][$i]));
 		}
-		$optional_file='';
 		if (is_dir($targetfolder)){
 		  if ($dht = opendir($targetfolder)){
 			while (($file = readdir($dht)) !== false){
@@ -46,8 +46,13 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 		  }
 		}
 		create_zip($attachments, $targetfolder.'centro-form_'.$form_submission_id.'.zip');
+	}elseif(isset($_FILES['file_optional']) && !empty($_FILES['file_optional'])){
+		if (!file_exists($targetfolder)) {
+			mkdir($targetfolder, 0777, true);
+		}
+		move_uploaded_file($_FILES['file_optional']['tmp_name'], $targetfolder.basename($_FILES['file_optional']['name']));
+		$optional_file = $_FILES['file_optional']['name'];
 	}
-	
 	 
 	$mail = new PHPMailer;
 	//Enable SMTP debugging. 
@@ -69,8 +74,9 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 
 	$mail->From = $email_config['from_email'];
 	$mail->FromName = $email_config['from_name'];
-	if(isset($_FILES[ 'file' ]) && !empty($_FILES[ 'file' ])){
+	if(isset($_FILES['file']) && !empty($_FILES['file'])){
 		$mail->addAttachment($targetfolder.'centro-form_'.$form_submission_id.'.zip', 'centro-form_'.$form_submission_id.'.zip');
+	}elseif(!empty($optional_file)){
 		$mail->addAttachment($targetfolder.$optional_file, $optional_file);
 	}
 	$mail->Subject = "Centro form data ".$form_submission_id."";
