@@ -7,10 +7,13 @@ $form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
 $targetfolder = "dropzone/files/".$form_submission_id.'/';
 ini_set('display_errors', 0);
 error_reporting(0);
+ini_set('post_max_size', '1000M');
+ini_set('upload_max_filesize', '1000M');
 if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ])) {
 	$optional_name = basename($_POST['file_optional']);
 	$template_html= get_screenshot_mail_template();
 	$template_html = str_replace('form_submission_id', $form_submission_id, $template_html);
+	$template_html = str_replace('$end_date_of_campaign', $_POST['end_date_of_campaign'], $template_html);
 	$template_html = str_replace('$requester_email', $_POST['requester_email'], $template_html);
 	$template_html = str_replace('$additional_screenshot',$_POST['additional_screenshot'], $template_html);
 	$template_html = str_replace('$screenshot_due_date',$_POST['screenshot_due_date'], $template_html);
@@ -75,6 +78,7 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 
 	$mail->From = $email_config['from_email'];
 	$mail->FromName = $email_config['from_name'];
+	$mail->AddCC($_POST[ 'requester_email' ],'');
 	if(isset($_FILES['file']) && !empty($_FILES['file'])){
 		$mail->addAttachment($targetfolder.'centro-form_'.$form_submission_id.'.zip', 'centro-form_'.$form_submission_id.'.zip');
 	}elseif(!empty($optional_file)){
@@ -94,7 +98,7 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 	else{
 		$redirect_url =  '?p=1238&not_sent=1';
 	}
-	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']){
+	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']==1){
 		ob_clean();
 		header('Location: '.$_SERVER['HTTP_ORIGIN'].'/'.$redirect_url);exit();
 	}else{

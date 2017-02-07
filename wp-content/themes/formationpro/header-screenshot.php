@@ -39,15 +39,34 @@
 			<?php do_action( 'before' ); ?>
 
 		    <div id="masthead-wrap">
-			    <div id="topbar_container" style="min-height: 5px"></div>
+
+			    <div id="topbar_container" style="min-height: 30px"></div>
+
 				<header id="masthead" class="site-header header_container" role="banner">
-						<div class="centro-site-logo" style="float: left;display: block;margin: 5px 0 0 30px;">
-							<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2015/11/centro-logo.png" alt="Centro" style="height:30px">
+
+						<div class="centro-site-logo" style="float: left;display: block;margin: 30px 0 0 30px;">
+							<a href="/clients/portal/centro" title="Centro" rel="home"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2015/11/centro-logo.png" alt="Centro" style="height:30px"></a>
 						</div>
+
 					<nav role="navigation" class="site-navigation main-navigation">
+
+                        <div style="max-width:1160px;float: right;line-height: 100px;">
+                			<span style="float:right;margin-right: 15px;">
+                            <a href="<?php echo wp_logout_url( '/clients' ) ?>" style="font-weight: bold;">LOGOUT</a>
+                            </span>
+                            <?php if($post->post_name!='centro'):?>
+                            <span style="float:right;margin-right: 15px;">
+                            <a href="/clients/portal/centro/" style="font-weight: bold;">Main Menu</a>
+                            </span>
+                            <?php endif;?>
+                    	</div>
+
 					</nav><!-- .site-navigation .main-navigation -->
+
 				</header><!-- #masthead .site-header -->
+
 			</div><!-- #masthead-wrap -->
+			<hr/>
 			<div id="main" class="site-main">
 <header class="entry-header">
 	<h1 class="page-title" style="padding: 0px;">Requesting Screenshots</h1>
