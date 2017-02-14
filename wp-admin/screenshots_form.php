@@ -3,13 +3,23 @@ ob_start();
 require_once('../phpmailer/class.phpmailer.php');
 require_once('../phpmailer/config.php');
 require_once('../wp-content/themes/formationpro/screenshot_mail_template.php');
-$form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
-$targetfolder = "dropzone/files/".$form_submission_id.'/';
+require_once('../wp-load.php');
+global $wpdb;
+$squantial_number = $wpdb->get_var("SELECT max(squantial_number) FROM aw_dev2_screenshot_form_submission");
+if(empty($squantial_number)){
+	$squantial_number = 10001;
+}else{
+	$squantial_number =$squantial_number+1;
+}
+$form_submission_id ='ID'. $squantial_number;
+//$form_submission_id ='ID'. substr(number_format(time() * rand(),0,'',''),0,6);
+$targetfolder = "screenshot_formsubmission/files/".$form_submission_id.'/';
 ini_set('display_errors', 0);
 error_reporting(0);
 ini_set('post_max_size', '1000M');
 ini_set('upload_max_filesize', '1000M');
 if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ])) {
+	saveFormData($_POST,$targetfolder,$form_submission_id,$squantial_number);
 	$optional_name = basename($_POST['file_optional']);
 	$template_html= get_screenshot_mail_template();
 	$template_html = str_replace('form_submission_id', $form_submission_id, $template_html);
@@ -92,7 +102,6 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 		$mail->addAddress($email, $email_config['userName']);	
 	}
 	if($mail->send()){
-		rmdir($targetfolder);
 		$redirect_url = '?p=1238&form_submission_id='.$form_submission_id;
 	} 
 	else{
@@ -143,4 +152,11 @@ function create_zip($files = array(),$destination = '',$overwrite = false) {
 	{
 		return false;
 	}
+}
+function saveFormData($form_data,$files_path,$form_submission_id,$squantial_number){
+	global $wpdb;
+	$insert = "INSERT INTO aw_dev2_screenshot_form_submission (squantial_number,requester_email,additional_screenshot,screenshot_due_date,advertiser,campaign_id,last_date_campaign,end_date_of_campaign,site_networks,no_of_screenshot,file_optional,special_instruction,files_path,form_submission_id)
+				VALUES('{$squantial_number}','{$form_data['requester_email']}','{$form_data['additional_screenshot']}','{$form_data['screenshot_due_date']}','{$form_data['advertiser']}','{$form_data['campaign_id']}'
+						,'{$form_data['last_date_campaign']}','{$form_data['end_date_of_campaign']}','{$form_data['site_networks']}','{$form_data['no_of_screenshot']}','{$form_data['file_optional']}','{$form_data['special_instruction']}','{$files_path}','{$form_submission_id}')";
+	$wpdb->query($insert);
 }
