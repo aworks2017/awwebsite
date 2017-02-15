@@ -2,12 +2,14 @@
 require_once('wp-load.php');
 global $wpdb;
 $squantial_number = $wpdb->get_results("SELECT files_path FROM ".$wpdb->prefix."screenshot_form_submission");
+print"<pre>";print_r($squantial_number);
 foreach($squantial_number as $file_path){
 	deleteOldFiles('wp-admin/'.$file_path->files_path);
 }
 function deleteOldFiles($targetfolder) {
 	$hours =168;
 	if (is_dir($targetfolder)){
+		print"<pre>";print_r($targetfolder);
 		$filelastmodified = filemtime($targetfolder);
 		if((time()-$filelastmodified) > $hours*3600)
 		{
