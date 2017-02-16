@@ -243,5 +243,5 @@ function show_hub_page() {
 }
 
 var start_notes_bloc = '<h3>ATTENTION</h3><p>You have a <b>new</b> task waiting.<br>Click the Start button when you are ready to begin.</p>';
-var empty_notes_bloc = '<h3>Production Notes:</h3><p><b>IMPORTANT:</b> Please send an IM to confirm that you are on call.</p>';
+var empty_notes_bloc = '<h3>Production Notes:</h3><p><b>IMPORTANT:</b> Please check your Workflow Tool every 5 minutes to see if you have a new task.</p>';
 var empty_task_bloc = '<div class="col-md-12"><div class="col-md-4"><b>Task:</b></div><div class="col-md-6">On Call</div></div>';
