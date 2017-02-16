@@ -30,10 +30,10 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 	$template_html = str_replace('$advertiser', $_POST['advertiser'], $template_html);
 	$template_html = str_replace('$campaign_id', $_POST['campaign_id'], $template_html);
 	$template_html = str_replace('$last_date_campaign',$_POST['last_date_campaign'], $template_html);
-	$template_html = str_replace('$site_networks', $_POST['site_networks'], $template_html);		
+	$template_html = str_replace('$site_networks', $_POST['site_networks'], $template_html);
 	$template_html = str_replace('$no_of_screenshot',$_POST['no_of_screenshot'], $template_html);
 	$template_html = str_replace('$special_instruction', $_POST['special_instruction'], $template_html);
-    
+
 	$attachments = array();
 	$optional_file='';
 	if(isset($_FILES[ 'file' ]) && !empty($_FILES[ 'file' ])){
@@ -52,7 +52,7 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 				}
 				if($file != $optional_name){
 					$attachments []= $targetfolder.$file;
-				}else{				
+				}else{
 					$optional_file = $file;
 				}
 			}
@@ -67,24 +67,24 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 		move_uploaded_file($_FILES['file_optional']['tmp_name'], $targetfolder.basename($_FILES['file_optional']['name']));
 		$optional_file = $_FILES['file_optional']['name'];
 	}
-	 
+
 	$mail = new PHPMailer;
-	//Enable SMTP debugging. 
+	//Enable SMTP debugging.
 	$mail->SMTPDebug = false;
-	$mail->do_debug = 0;                             
+	$mail->do_debug = 0;
 	//Set PHPMailer to use SMTP.
-	$mail->isSMTP();            
-	//Set SMTP host name                          
+	$mail->isSMTP();
+	//Set SMTP host name
 	$mail->Host = $email_config['host'];
 	//Set this to true if SMTP host requires authentication to send email
-	$mail->SMTPAuth = true;                          
-	//Provide username and password     
-	$mail->Username = $email_config['user_name'];                 
-	$mail->Password = $email_config['password'];                           
+	$mail->SMTPAuth = true;
+	//Provide username and password
+	$mail->Username = $email_config['user_name'];
+	$mail->Password = $email_config['password'];
 	//If SMTP requires TLS encryption then set it
-	$mail->SMTPSecure = $email_config['smtp'];                           
-	//Set TCP port to connect to 
-	$mail->Port = $email_config['port'];                                   
+	$mail->SMTPSecure = $email_config['smtp'];
+	//Set TCP port to connect to
+	$mail->Port = $email_config['port'];
 
 	$mail->From = $email_config['from_email'];
 	$mail->FromName = $email_config['from_name'];
@@ -97,15 +97,15 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 	$mail->Subject = "Centro form data ".$form_submission_id."";
 	$mail->isHTML(true);
 	$mail->Body = $template_html;
-	$mail->AltBody = $template_html;	
+	$mail->AltBody = $template_html;
 	foreach($email_config['userEmail'] as $email){
-		$mail->addAddress($email, $email_config['userName']);	
+		$mail->addAddress($email, $email_config['userName']);
 	}
 	if($mail->send()){
-		$redirect_url = '?p=1238&form_submission_id='.$form_submission_id;
-	} 
+		$redirect_url = '/forms/clients/centro-screenshots-submission?form_submission_id='.$form_submission_id;
+	}
 	else{
-		$redirect_url =  '?p=1238&not_sent=1';
+		$redirect_url =  '/forms/clients/centro-screenshots-submission?not_sent=1';
 	}
 	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']==1){
 		ob_clean();
@@ -141,10 +141,10 @@ function create_zip($files = array(),$destination = '',$overwrite = false) {
 			$new_filename = substr($file,strrpos($file,'/') + 1);
 			$zip->addFile($file,$new_filename);
 		}
-		
+
 		//close the zip -- done!
 		$zip->close();
-		
+
 		//check to make sure the file exists
 		return file_exists($destination);
 	}
