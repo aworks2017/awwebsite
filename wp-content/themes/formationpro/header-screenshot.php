@@ -45,18 +45,18 @@
 				<header id="masthead" class="site-header header_container" role="banner">
 
 						<div class="centro-site-logo" style="float: left;display: block;margin: 30px 0 0 30px;">
-							<a href="/clients/portal/centro" title="Centro" rel="home"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2015/11/centro-logo.png" alt="Centro" style="height:30px"></a>
+							<a href="http://clients.autonomyworks.net/menu/" title="Centro" rel="home"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2015/11/centro-logo.png" alt="Centro" style="height:30px"></a>
 						</div>
 
 					<nav role="navigation" class="site-navigation main-navigation">
 
                         <div style="max-width:1160px;float: right;line-height: 100px;">
                 			<span style="float:right;margin-right: 15px;">
-                            <a href="<?php echo wp_logout_url( '/clients' ) ?>" style="font-weight: bold;">LOGOUT</a>
+                            
                             </span>
                             <?php if($post->post_name!='centro'):?>
                             <span style="float:right;margin-right: 15px;">
-                            <a href="/clients/portal/centro/" style="font-weight: bold;">Main Menu</a>
+                            <a href="http://clients.autonomyworks.net/menu/" style="font-weight: bold;">Main Menu</a>
                             </span>
                             <?php endif;?>
                     	</div>
