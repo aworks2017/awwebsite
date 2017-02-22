@@ -4,6 +4,7 @@ require_once('../phpmailer/class.phpmailer.php');
 require_once('../phpmailer/config.php');
 require_once('../wp-content/themes/formationpro/screenshot_mail_template.php');
 require_once('../wp-load.php');
+require_once('../wp-includes/link-template.php');
 global $wpdb;
 $squantial_number = $wpdb->get_var("SELECT max(ID) FROM ".$wpdb->prefix."screenshot_form_submission");
 if(empty($squantial_number)){
@@ -109,7 +110,7 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 	}
 	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']==1){
 		ob_clean();
-		header('Location: '.$_SERVER['HTTP_ORIGIN'].'/'.$redirect_url);exit();
+		header('Location: '.site_url().'/'.$redirect_url);exit();
 	}else{
 		echo $redirect_url;
 	}
