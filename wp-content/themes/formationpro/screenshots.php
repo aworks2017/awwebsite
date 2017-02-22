@@ -15,6 +15,9 @@ add_action( 'wp_enqueue_scripts', function(){
  ?>
  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
 <div id="primary_home" class="content-area">
 	<div id="content" class="fullwidth" role="main">
 
@@ -38,7 +41,7 @@ add_action( 'wp_enqueue_scripts', function(){
 		</tr>
 		<tr>
 			<td>Screenshot Due Date:<span style="color: red;">*</span></td>
-			<td><input type="date" name="screenshot_due_date" class="required_fields" id="screenshot_due_date" style="margin-top: 5px;">
+			<td><input type="text" name="screenshot_due_date" class="required_fields" id="screenshot_due_date" style="margin-top: 5px;">
 			<span class="hint">Screenshots required on multiple dates should be submitted as individual requests.</span><span id="span_screenshot_due_date"  style="color: red; display:none">Screenshot Due Date is required</span></td>
 		</tr>
 		<tr>
@@ -113,6 +116,11 @@ add_action( 'wp_enqueue_scripts', function(){
 	input:focus + .hint { display: inline; }
  </style>
  <script type="text/javascript">
+   $(document).ready(function() {
+    $("#screenshot_due_date").datepicker({
+      dateFormat: 'dd/mm/yy'
+});
+  });
 tinymce.init({
   selector: 'textarea',
   height: 150,
