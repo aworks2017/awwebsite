@@ -102,10 +102,10 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 		$mail->addAddress($email, $email_config['userName']);
 	}
 	if($mail->send()){
-		$redirect_url = '/forms/clients/centro-screenshots-submission?form_submission_id='.$form_submission_id;
+		$redirect_url = 'clients/screenshot-form-submission/?form_submission_id='.$form_submission_id;
 	}
 	else{
-		$redirect_url =  '/forms/clients/centro-screenshots-submission?not_sent=1';
+		$redirect_url =  'clients/screenshot-form-submission/?not_sent=1';
 	}
 	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']==1){
 		ob_clean();
