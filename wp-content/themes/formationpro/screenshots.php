@@ -118,7 +118,8 @@ add_action( 'wp_enqueue_scripts', function(){
  <script type="text/javascript">
    $(document).ready(function() {
     $("#screenshot_due_date").datepicker({
-      dateFormat: 'dd/mm/yy'
+      dateFormat: 'dd/mm/yy',
+	  minDate: 1
 });
   });
 tinymce.init({
