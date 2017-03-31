@@ -106,6 +106,10 @@ echo 'saeed debugging';
 		$mail->addAddress($email, $email_config['userName']);
 	}
 	echo 'saeed debugging before email sent';
+	if (!$mail->send()) {
+            $msg .= "Mailer Error: " . $mail->ErrorInfo;
+			echo  $msg;die;
+    }
 	if($mail->send()){
 		$redirect_url = '/forms/clients/screenshot-form-submission/?form_submission_id='.$form_submission_id;
 	}
