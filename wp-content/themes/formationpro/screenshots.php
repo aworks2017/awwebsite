@@ -26,6 +26,7 @@ add_action( 'wp_enqueue_scripts', function(){
 		<body>
 		<form name="screenshotForm"  id="screenshotForm"  action="<?php echo admin_url('screenshots_form.php');?>" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="no_attachments_flag" id="no_attachments_flag" value="1">
+		<input type="hidden" name="MAX_FILE_SIZE" value="100000000">
 		<table border="0" width="500" align="center" class="table">
 		<p>For all screenshot requests for your selected advertiser (including screenshots at the launch of a campaign, creative swaps, and new flights), 
 		please fill out the information below. Please allow AutonomyWorks 24-48 hours to pull the screenshots upon receiving this email.</p>
