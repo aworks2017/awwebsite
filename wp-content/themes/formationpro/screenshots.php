@@ -177,7 +177,7 @@ tinymce.init({
         success: function (file,response) {
 		   if((response)){
 			   url_redirect = response.replace(/\s/g, '');
-			   window.location.href= url_redirect;					   
+			  // window.location.href= url_redirect;					   
 		  }
   },		
 		init: function() {

@@ -20,6 +20,7 @@ error_reporting(0);
 ini_set('post_max_size', '1000M');
 ini_set('upload_max_filesize', '1000M');
 if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ])) {
+	print"<pre>";print_r($_POST);
 	saveFormData($_POST,$targetfolder,$form_submission_id);
 	$optional_name = basename($_POST['file_optional']);
 	$template_html= get_screenshot_mail_template();
@@ -68,7 +69,7 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 		move_uploaded_file($_FILES['file_optional']['tmp_name'], $targetfolder.basename($_FILES['file_optional']['name']));
 		$optional_file = $_FILES['file_optional']['name'];
 	}
-
+echo 'saeed debugging';die;
 	$mail = new PHPMailer;
 	//Enable SMTP debugging.
 	$mail->SMTPDebug = false;
