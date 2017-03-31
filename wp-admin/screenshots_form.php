@@ -20,7 +20,6 @@ error_reporting(0);
 ini_set('post_max_size', '1000M');
 ini_set('upload_max_filesize', '1000M');
 if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ])) {
-	print"<pre>";print_r($_POST);
 	saveFormData($_POST,$targetfolder,$form_submission_id);
 	$optional_name = basename($_POST['file_optional']);
 	$template_html= get_screenshot_mail_template();
@@ -69,7 +68,7 @@ if( isset( $_POST[ 'requester_email' ]) && !empty( $_POST[ 'requester_email' ]))
 		move_uploaded_file($_FILES['file_optional']['tmp_name'], $targetfolder.basename($_FILES['file_optional']['name']));
 		$optional_file = $_FILES['file_optional']['name'];
 	}
-echo 'saeed debugging';
+
 	$mail = new PHPMailer;
 	//Enable SMTP debugging.
 	$mail->SMTPDebug = false;
@@ -91,13 +90,11 @@ echo 'saeed debugging';
 	$mail->From = $email_config['from_email'];
 	$mail->FromName = $email_config['from_name'];
 	$mail->AddCC($_POST[ 'requester_email' ],'');
-	echo 'saeed debugging before attachments';
 	if(isset($_FILES['file']) && !empty($_FILES['file'])){
 		$mail->addAttachment($targetfolder.'centro-form_'.$form_submission_id.'.zip', 'centro-form_'.$form_submission_id.'.zip');
 	}elseif(!empty($optional_file)){
 		$mail->addAttachment($targetfolder.$optional_file, $optional_file);
 	}
-	echo 'saeed debugging after attachments';
 	$mail->Subject = "Centro form data ".$form_submission_id."";
 	$mail->isHTML(true);
 	$mail->Body = $template_html;
@@ -105,18 +102,12 @@ echo 'saeed debugging';
 	foreach($email_config['userEmail'] as $email){
 		$mail->addAddress($email, $email_config['userName']);
 	}
-	echo 'saeed debugging before email sent';
-	if (!$mail->send()) {
-            $msg .= "Mailer Error: " . $mail->ErrorInfo;
-			echo  $msg;die;
-    }
 	if($mail->send()){
 		$redirect_url = '/forms/clients/screenshot-form-submission/?form_submission_id='.$form_submission_id;
 	}
 	else{
 		$redirect_url =  '/forms/clients/screenshot-form-submission/?not_sent=1';
 	}
-	echo 'saeed debugging after email sent';die;
 	if(isset($_REQUEST['no_attachments_flag']) && $_REQUEST['no_attachments_flag']==1){
 		ob_clean();
 		header('Location: '.site_url().'/'.$redirect_url);exit();
