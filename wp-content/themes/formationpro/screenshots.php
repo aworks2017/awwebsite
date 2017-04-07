@@ -11,6 +11,7 @@ add_action( 'wp_enqueue_scripts', function(){
 });
  wp_enqueue_script( 'script', get_template_directory_uri() . '/js/dropzone.min.js');
  wp_enqueue_script( 'script', get_template_directory_uri() . '/js/jquery.blockUI.js');
+ wp_enqueue_script( 'script', get_template_directory_uri() . '/js/loadingoverlay.min.js');
  get_header('screenshot'); 
  ?>
  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -18,6 +19,7 @@ add_action( 'wp_enqueue_scripts', function(){
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+<script src="wp-content/themes/formationpro/js/loadingoverlay.min.js"></script> 
 <div id="primary_home" class="content-area">
 	<div id="content" class="fullwidth" role="main">
 
@@ -183,6 +185,7 @@ tinymce.init({
 		init: function() {
 			dzClosure = this;
 			document.getElementById("screenshot_submit").addEventListener("click", function(e) {
+					
 				if(checkFileUploaded()){
 					if (dzClosure.getQueuedFiles().length > 0) {
 						$("#no_attachments_flag").val('0');
@@ -204,6 +207,7 @@ tinymce.init({
 			});					
 			//send all the form data along with the files:
 			this.on("sendingmultiple", function(data, xhr, formData) {
+				$.LoadingOverlay("show");
 				if($('#file_optional').val() !=''){
 					$('#file_optional')[0].files[0].name = "optional_"+$('#file_optional')[0].files[0];
 						var optional_file = $('#file_optional')[0].files[0];
